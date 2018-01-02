@@ -1,0 +1,47 @@
+I ::=   "title:    Farmaci\n"
+      ^ "author:   WallyG\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim: Attenzione, provoca dipendenza\n"
+      ^ "created:  25/11/2004"
+;
+
+S ::= Prod 
+;
+
+Prod ::= InizioFarmaco^FineFarmaco "\nCategoria Farmaceutica :\n "Categoria "\nControindicazioni :\n"Controindicazioni"\n"Suggerimenti
+;
+
+InizioFarmaco ::= "Progester" | "Calculo" | "Rino" | "Retto" | "Ano" | "Sveglia" | "Prano" | "Cortis" | "Nimesul" | "Fica" | "Vagi"
+;
+
+FineFarmaco ::= (("floresil" | "terminal" | "ril" | "lit analgesteroide" | 
+		       "stop" | "finish Trauma" | "perone" | "dolosime Omeopatico" | "plasil effetto rapido" | 
+			"cancellin a basso dosaggio" | "irritant" ) ["unzione estrema" | "omeopatico" | "trattamento subacqueo"] )
+;
+
+Categoria ::= ^Cat^Func Utenza
+;
+
+Cat ::= "ano" | "anal" | "cortico" | "fauci" |  "vaso" | "vomito" | "gomito" | "clitoride" | "cardio"
+;
+
+Func ::= "repellente" | "stimolante" | "conservante" | "eccitante" | "dopante"
+;
+
+Utenza ::= "per animali" | "per famiglie" | "per maschiacci" | "da viaggio" | "da asporto" | "per femminucce" | "da conigli" | "per cavalli"
+;
+
+Controindicazioni ::= ("Attenzione :" | "Attenti :" | "Pericolo :") 
+			("puo' portare a " | "sono stati segnalati casi di" | "ci sono stati segnalati casi di pazienti con reazioni sintomatiche di")
+			("vomito incessante" | "piorrea degenerativa" | "secchezza delle fauci" | "secchezza delle feci" |
+			 "secchezza della fica") con  ("successivo riscaldamento del retto" | "postumi da sbronza" |
+			"cataratta anale cronica" | "improvviso abbassamento del pene")
+;
+
+Suggerimenti ::= "Usare con cautela" | "Areare il locale prima di soggiornarvi" | "E' un presidio medico-chirurgico, non ingoiare la scatola"
+	| "Non usare al di sotto dei 6 anni o comunque di un Q.I. inferiore a 100" | "Usare spesso e volentieri" | "Non usare mai" | 
+	"Provoca dipendenza" | "Provoca sonnolenza" | "Non funziona"
+;

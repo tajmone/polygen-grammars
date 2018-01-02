@@ -1,0 +1,89 @@
+I ::=   "title:    Mao\n"
+      ^ "author:   Gerfried Fuchs &lt;alfie@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   embrionic\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  09/09/2006"
+;
+
+S ::= Error ;
+
+Error ::= ++"Talking"
+	| ("Failure to" >Failure)
+	| "Not your turn"
+	| +"Bad call"
+	| -"Penalized for mentioning a P-Of-O during a P-Of-O"
+	| End "Point of Order"
+	| --"Lying, cheating, calling our leader in Vain"
+	| "Doesn't fit"
+	| -ExoticError
+;
+
+Failure ::= +play within 5 seconds
+	|   wish a Very nice day
+	|   --say the name of a devil
+	|   --say "\""^LongWord^"\""
+	|   take CardAmount and say that you have done so
+	|   +say the Card of Suit
+	|   "say \"That's the Badger\""
+	|   enforce your own rule
+	| -ExoticFailure
+;
+
+ExoticError ::= "Not a card"
+        | "Not enough" ThingToHave
+;
+
+ExoticFailure ::= "put the card in the right deck"
+        | name a famous \Nationality singer
+	| sing a \Nationality happy song
+	| play with ThingToHave
+;
+
+End ::= ^ | "End of";
+
+Card ::=  two | three | four | five | six | seven | eight | nine | ten
+	| jack | queen | king | ace;
+
+Suit ::= "Hearts" | "Diamonds" | "Spades" | "Clubs";
+
+Very ::= ^"" | very Very; 
+
+CardAmount ::= "a penalty card"
+	|      Number "penalty cards"
+;
+
+Number ::= 2
+	|  -3
+	|  --4
+	|  ----5
+	|  --------6
+	|  ----------------7
+;
+
+LongWord ::= 
+          anaesthesiologists | anthropomorphising | archaeoastronomies | compartmentalising
+        | constitutionalised | crystallisabilities | cyanomethaemoglobin | diethylstilboestrol
+        | disdenominationalise | dishonourablenesses | disindividualising | disindustrialising
+        | electroanaesthesia | electrohomoeopathy | haemoconcentration | haemoglobinopathies
+        | hypercholesterolaemia | hyperspiritualising | institutionalising | interjectionalised
+        | internationalising | microcolourimetrically | microminiaturising
+        | micropalaeontologist | nonacknowledgement | overindustrialises | oversentimentalise
+        | palaeichthyologist | palaeoanthropography | palaeoanthropologist | palaeobiogeography
+        | palaeoclimatologist | palaeodendrologist | palaeoentomologist | palaeogeographical
+        | palaeoherpetologist | palaeontographical | palaeopathologists | palaeophysiography
+        | parathyroidectomised | phytohaemagglutinin | polioencephalomyelitis
+        | polytetrafluoroethylene | preacknowledgement | premillennialising
+        | quintessentialised | semiprofessionalised | spectrocolourimetry
+        | superacknowledgement | tetrachloroethylene | transcendentalised | trichloroethylenes
+        | unconventionalises | uncrystallisability | undenominationalise | unfavourablenesses
+        | unneighbourlinesses | unsubstantialising | unsupernaturalised | unsympathisability
+	;
+
+Nationality ::= english | italian | austrian | australian | latvian | french |
+		korean | german | spanish | portuguese | liechtensteiner |
+		irish | andorran | catalan | basque | sardinian | danish |
+		finnish | swedish | norwegian | belgian | dutch | bavarian
+;
+
+ThingToHave ::= passion | love | enthousiasm | concentration | respect | charisma ;

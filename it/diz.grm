@@ -1,0 +1,62 @@
+I ::=   "title:    Il Novissimo Grazia\n"
+      ^ "author:   (grm) CUG &lt;cug@telcanet.it&gt; - (pdf generator) CUG, Zeff - (pdf cover) MatG &lt;matg@inwind.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   embryonic\n"
+      ^ "topic:    very very culture\n"
+      ^ "comment:  lemmi del vocabolario del nuovo millennio\n"
+      ^ "warning:  non tutti potrebbero capirvi\n"
+      ^ "download:  <a href=\"http://cug.polygen.org/polyvocabolario.php\">scarica l'intero dizionario in PDF</a>\n"
+      ^ "created:  29/07/2004"
+;
+
+S ::= Main.html ;
+PDF ::= Main.pdf ;
+
+B ::= (html: "<b>" | pdf: _) ;
+UB ::= (html: "</b>" | pdf: _) ;
+It ::= (html: "<i>" | pdf: _) ;
+UIt ::= (html: "</i>" | pdf: _) ;
+BR ::= (html: "<br/>" | pdf: _) ;
+
+Main ::= B^(ParolaSost. , ParolaVerb. , ParolaAgg. UB Sost , Verb , Agg) BR ;
+(*S::= (B.html (ParolaSost UB.html Sost.html | ParolaVerb UB.html Verb.html | ParolaAgg UB.html Agg.html) BR.html);
+PDF::= (B.pdf (ParolaSost UB.pdf Sost.pdf | ParolaVerb UB.pdf Verb.pdf | ParolaAgg UB.pdf Agg.pdf) BR.pdf);*)
+
+ParolaSost ::= (([(Consonante|Digramma)^]Vocale).I^(Sillaba^) | ((Consonante|Digramma)^Vocale).I^[Sillaba^] | Vocale.I^[Digramma^Vocale.I^] ) [Sillaba^[----Sillaba^|+++_^]]^(Consonante^Vocale.F);
+ParolaVerb ::= (([(Consonante|Digramma)^]Vocale).I^(Sillaba^) | ((Consonante|Digramma)^Vocale).I^[Sillaba^] | Vocale.I^[Digramma^Vocale.I^] )[Sillaba^[----Sillaba^|+++_^]]^((Consonante|Digramma.F)^Coniugazione)  ;
+ParolaAgg ::= (([(Consonante|Digramma)^]Vocale).I^(Sillaba^) | ((Consonante|Digramma)^Vocale).I^[Sillaba^] | Vocale.I^[Digramma^Vocale.I^] )[Sillaba^[----Sillaba^|+++_^]]^((Consonante|Digramma.F)^SuffissoAgg)  ;
+
+
+Sillaba ::= 
+	    >(C:Consonante|M:Digramma.F|D:Doppia)^Vocale.I | 
+	    ---Ch | 
+	    -----Q
+	    
+	    ;
+
+
+Vocale ::= I:(a | e | i | o | ---u )|F:(a | o | e);
+Consonante ::= b | c | d | f | g | l | m | n | p | r | s | t | v | z ;
+Coniugazione ::= (a|e|i)^re ;
+SuffissoAgg ::= (oso|ito|ico|ato|acre|ente|ante) ;
+Doppia ::= ( X:=Consonante; X^X);
+Digramma ::= I:(bl | br | cl | cr | -dr | fl | fr | gn | gl | gr | pl | pr | st | tr) |
+	     F:(bl | br | cl | cr | fl | gn | gl | gr | mp | mb | nt | nd | nc |-pl | pr | rd | rt | rc | sl | st ) ;
+Ch ::= (c|g)^h^(i|e);
+Q ::= qu^(a|e|i|o);
+
+Sost ::= It "s." (m | f)^"." UIt "," [It (volg | fig | arc | irr) ^". ," UIt]^(html:_|pdf:"@") Sostantivo.S [^"," Sostantivo.S] ;
+
+Verb ::= It "v." (tr | intr)^"." UIt "," [It (volg | fig | arc | irr | rifl) ^". ," UIt]^(html:_|pdf:"@") (Verbo | ((fare|eseguire|realizzare|Verbo) Sostantivo.P));
+
+Agg ::= It "agg." UIt "," [It (volg | fig | arc | irr ) ^". ," UIt]^(html:_|pdf:"@") (((che e' solito Verbo| (degno | pieno | ebbro | egagro ) di Sostantivo.P | simile a Sostantivo.P)));
+
+Sostantivo ::= 
+(batman | barbagianni | lin^(S:o|P:i) banfi| lin^(S:o|P:i) toffol^(S:o|P:i) | baldios | carr^(S:o|P:i) armat^(S:o|P:i) | carr^(S:o|P:i) armat^(S:o|P:i) | pipp^(S:o|P:i) franc^(S:o|P:hi) | pipp^(S:o|P:i) carus^(S:o|P:i) | cesar^(S:e|P:i) cade^(S:o|P:i)  | pipp^(S:o|P:i) baud^(S:o|P:i) | {cicci^(S:o|P:_"")} e {franc^(S:o|P:hi)} | pipi' | pupu' | simpatia | vas^(S:o|P:i) da notte | taleggi^(S:o|P:_) |  poll^(S:o|P:i) di gomma |onanismo | can^(S:e|P:i) | herpes | ParolaSost | coprofagia | pornografia | bidet | cinisello balsamo | uranio 238 | helder | superman | bidet | uov^(S:o|P:a)|cavall^(S:o|P:i) [golos^(S:o|P:i)] | "http://www.goatse.cx" )| 
+(igien|megaloman|pital|terron|bidon|can|clister|coglion|neutron|positron|elettron|sfinter|cerum|dilatazion|untor|naric|liquam|serpent|pub)^(S:e|P:i) | 
+(bitorzol|vespasian|corrad|abatantuon|pisciatoi|escrement|proibizionism|borborigm|letamai|porc|rutt|tacchin|cavall|an|catarr|pel|scrot|cervellett|pestacall|nichilism|pornodiv|perine|pecorin|branzin|metacarp|tars|nan|baff|pols|chiurl|ippopotam|mostr|gioppin|cazz|poll|gallinacci)^(S:o|P:i) |
+(puzz|naccher|macedoni|lucertol|nutri|talp|melanzan|carrucol|carbonar|amatrician|tartin|reprimend|ascell|chiapp|pecor|trifol|zucchin|unghi|orecchi|[moto^]zapp|focaccin|pizz|merd|maronai|puzzett|sburat|ricott|cazz|capr)^(S:a|P:e)
+;
+
+Verbo ::=andare|avere|bere|cercare|cominciare|dare|dire|dovere|scaccolar^(e|si)|essere|fare|[in^]cominciare|inviare|piacere|porre|potere|rimanere|sapere|stare|tenere|tradurre|trarre|uscire|vedere|venire|vivere|volere|stravaccare|onanizzare|basirsi|annichilire|ParolaVerb|aprire|arrivare|chiedere | comprendere|concludere|condurre|conoscere|distruggere| coprire|entrare|esercitare|importare|mantenere|passare 	| persegui[^ta]^re | portare | presentare | prevedere | rendere | rispondere;
+

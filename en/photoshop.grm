@@ -1,0 +1,123 @@
+I ::=   "title:    Photoshop dirty tricks\n"
+      ^ "author:   Vision-X.it\n"
+      ^ "language: english\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: Adobe Photoshop users\n"
+      ^ "beerware: should you find a cool trick, send it to vision-x@vision-x.it along with a beer\n"
+      ^ "created:  2/2/2003"
+;
+
+S ::= \ (Layer01 | Layerwithmask | Adjustmentlayer) ^"."
+;
+
+Adjustmentlayer ::= create Adjustment^"," set it in Blendmode^"," Mask
+;
+
+Layer01 ::= create a ( copy of background layer in Blendmode [and apply Filter]  | Color filled layer in Blendmode )
+;
+
+Layerwithmask ::= Layer01^"," then Mask
+;
+
+Mask ::= use (a bw copy of the image | a Color fill | Channel1 ) as level mask and ( apply Filter | play with Adjustment1)
+;
+
+Number ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+;
+
+Number2 ::= 0 | 1 | 2
+;
+
+Action1 ::= pick the Order selector and slide it Position1
+;
+
+Order ::= first | second | last
+;
+
+Position1 ::= right | left
+;
+
+Position2 ::= up | down
+;
+
+Blendmode ::= normal | dissolve | darken | multiply | color burn | linear burn | lighten | screen | color dodge | linear dogde | overlay | soft light | hard light | vivid light | linear light | pin light | diffrence | exclusion | hue | saturation | color luminosity
+;
+
+Filter ::= gaussian blur | sharpen | diffuse "("^ select the option number (1 | 2 | 3 | 4) ^")" | emboss | add noise | median
+;
+
+Adjustment ::= Solidcolor | Gradient | Levels | Curves | Colorbalance | Brightnesscontrast | Huesaturation | Selectivecolor | Channelmixer | Gradientmap  | invert | Threshold | posterize
+;
+
+Adjustment1 ::= levels | curves | colorbalance | brightness and contrast | hue and saturation | Selectivecolor | Channelmixer
+;
+
+Solidcolor ::= a Color solid color adjustment layer
+;
+
+Gradient ::= a "Gradient" adjustment layer^"," set a ( black and white | black to transparent | white to transparent | Color to transparent | Color and Color ) gradient
+;
+
+Levels ::= a level adjustment layer where the Color point is slided Position1 in the Channel channel^"," set the output levels from Number^Number^Number to Number^Number^Number
+;
+
+Curves ::= a curves adjustment layer^"," select the Channel1^"^","" pick a point ( in the middle | near the top | near the bottom ) slide it Position2^"," select Luma in tone balance
+;
+
+Colorbalance ::= a color balance adjustment layer and Action1
+;
+
+Brightnesscontrast ::= a brightness andcontrast adjustment layer Action1
+;
+
+Huesaturation ::= a hue and saturation adjustment layer^"," edit (master | Colors) ^"^","" Action1
+;
+
+Selectivecolor ::= a selective color adjustment layer^","  set color to ( Colors | whites | neutrals | blacks) and slide Position1 Channel1
+;
+
+Channelmixer ::= a "Channelmixer" adjustment layer^"," choose as output channel  ( Rgb1 and slide Position1 Rgb in the source channel | Cmyk1 and slide Position1 Cmyk in the source channel )^"," drag constant to Action1
+;
+
+Gradientmap ::= a gradientmap adjustment layer^"," Gradient
+;
+
+Threshold ::= a threshold adjustment layer^"," set value to Number2^Number^Number
+;
+
+Posterize ::= a posterize adjustment layer^"," set value to Number2^Number^Number
+;
+
+Channel ::= Rgb | Cmyk | Lab
+;
+
+Rgb ::= ( red | green | blue )
+;
+
+Cmyk ::= ( cyan | magenta | yellow | black )
+;
+
+Lab ::= ( luminance | a | b )
+;
+
+Channel1 ::= Rgb1 | Cmyk1 | Lab1
+;
+
+Rgb1 ::= Rgb channel in rgb mode
+;
+
+Cmyk1 ::= Cmyk channel in cmyk mode
+;
+
+Lab1 ::= Lab channel in lab mode
+;
+
+Color ::= black | white | 50^"%" gray
+;
+
+Colors ::= reds | yellows | greens | cyans | blues | magentas
+;
+
+Luma ::= shadows | midtones | highlights
+;

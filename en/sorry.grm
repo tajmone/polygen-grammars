@@ -1,0 +1,37 @@
+I ::=   "title:    Sorry\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   Basic\n"
+      ^ "topic:    General\n"
+      ^ "created:  28/06/2006"
+;
+
+S ::= Noend ^"." ;
+
+Noend ::= \ Sorries ;
+
+Sorries ::= Sorry
+          | -- ( Sorry ^"," Sorry )
+	  ;
+
+Sorry ::= sorry
+        | "I'm" Very sorry
+	| [Please] (pardon | excuse) me
+	| "I" Very regret it
+	| "I" Really Beg
+	;
+
+Beg ::= beg your pardon
+      | (apologise | apologize)
+      ;
+
+Very ::= _ | very | so | so very | Really ;
+
+Really ::= really
+         | totally
+         | - ( Really ^"," Really )
+	 ;
+
+Please ::= please
+         | please be so kind to
+	 ;

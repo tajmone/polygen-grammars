@@ -1,0 +1,45 @@
+I ::=   "title:    Cavallo Goloso\n"
+      ^ "author:   Vision-X &lt;vision-x@vision-x.it&gt;" (und | y | et | e | atque | and |"&") "CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   embryonic\n"
+      ^ "topic:    the dadaistic golem of advertisement\n"
+      ^ "disclaim: grammatica realizzata con" Qualita"\n"
+      ^ "disclaim2: nessun" Cavallo"e' stato maltrattato durante la realizzazione di questa grammatica\n"
+      ^ "comment:  porgiamo le nostre sentite condoglianze e siamo solidali con" Destinazione "per l'imminente visita del bambino" {snob} e {rompicoglioni} ^"\n"
+      ^ "bugfix:   e il gusto pizzette l'ho aggiunto io -Manta\n"
+      ^ "created:  15/09/2004"
+;
+
+
+S ::= DELFCUR | CAVGOL ;
+
+DELFCUR ::= [Nome^"!!!"] \sai^"," tra poco parto per Destinazione^("..."|"!"|".")\ ma sto via solo N^N Tempo^("..."|"!"|".")^"\n"^"Ma cosa fai?" "\n"^\Cavallo Goloso "!!!";
+
+CAVGOL ::= \sai^"," ci vuole piu' Qualita^("..."|"!"|".")\ ma tu non mi stai Ascoltando^("..."|"!"|".")^"\n"^ \Gusto^"," Gusto^"," Gusto^("..."|"!"|".")\ la mia "Dufour" preferita^"!" "\n"^\Cavallo Goloso "!!!";
+
+Nome ::= \(ulisse | ubaldo | umberto | viscardo | franco | nasturzio | bortolo | alfredo | ettore | achille | helder)
+;
+
+Gusto ::= fragola | limone | cavolo | pesca | arancia | ananas | papaia | mandarino | cocco | banana | tiramisu' | profiterol | puffo | vaniglia | amarena | taleggio | salsiccia | parmigiano^"-"^reggiano | pecorino | ----merda | prosciutto | coppa | pancetta | kebab | castrato | tigella | gnocco fritto | pesto | ragu' | rum | tequila | lardo | trippa | caldarroste | fagioli | piscio | gorogonzola | caciotta | emmenthal | brie | cetriolo | verza | radicchio | rucola | (sfilacci | tagliata | costicine | costolette | salsicce) di Cavallo | cuscus | -carne umana | pizzette
+;
+
+Ascoltando ::= ascoltando | guardando | pensando | cagando | sentendo | parlando 
+;
+
+Qualita ::= +grinta | forza | umilta' | giustezza | gusto | simpatia | gagliardezza | intelligenza | cattiveria | antipatia | bonta' | simpatia | destrezza | resistenza | diffidenza | incontinenza | qualunquismo | doppiopesismo | cerchiobottismo | impegno
+;
+
+Cavallo ::= cavallo | pesce | istrice | gatto | ingollatore | delfino | squalomartello | bruco | drago [di komodo] | pipistrello | maiale | porco | lama | gnu | leone | bufalo | cavalluccio marino | anemone | riccio di mare | calamaro | bisonte | tafano | camaleonte | varano | ramarro | caimano | capitone | uccello | struzzo | alligatore | coccodrillo | sparviero | fenicottero | panda | scorpioncino | verme | ornitorinco | koala | vombato | rinoceronte | squalotigre | pavone | doberman | bradipo | montone | boa | fagiano | coniglio | bue | --capro espiatorio | macaco | orango | rinoceronte | pollo | cane | gatto | cinghiale | bradipo | ermellino | dinosauro | gerbillo | criceto | ratto | topo | piccione | ragnetto | serpentello | canguro
+;
+
+Goloso ::= lebbroso | coccoloso | palloso | argilloso | villoso | ampolloso | miracoloso | spettacoloso | pericoloso | doloso | freddoloso | goloso | spigoloso | angoloso | piagnoloso | popoloso | scrupoloso | pustoloso | frettoloso | favoloso | esploso | nebuloso | pericoloso | famoso | bramoso | animoso | lagrimoso | fumoso | membranoso | velenoso | penoso | venoso | sdegnoso | disdegnoso | ingegnoso | contegnoso | tignoso | vergognoso | rognoso | bisognoso | immaginoso | piovigginoso | vertiginoso | macchinoso | collinoso | peccaminoso | criminoso | verminoso | luminoso | voluminoso | spinoso | sanguinoso | rovinoso | dannoso | affannoso | malinconoso | carnoso | cavernoso | accidioso | gaudioso | glorioso | lezioso | grazioso | curioso | [s]^[pata]^puffoloso | coccoloso | strufoloso | fiocchettoso | teneroso | caroso
+;
+
+Destinazione ::= "l'Iraq" | "la Dalmazia" | "I territori del nord-ovest" | "il Congo" | "la Libia" | "la Kamchatka" | "la Jacuzia" | "la Cita" | "gli Urali" | "la Mongolia" | "il Siam" | "l'Africa Orientale" | "l'Eritrea" | "il Tuvalu" | "Timor-Est" | "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch (Galles)" | "l'Isola di Pasqua" | "l'Isola d'Elba" | "Sant'Elena" | "Chernobyl" | "Hiroshima" | "Nagasaki" | "Mururoa" | "l'atollo di Bikini" | "le isole Falkland" | "lo Sri Lanka" | "il Tibet" | "il Nepal" | "il Triangolo delle Bermuda"
+;
+
+Tempo ::= anni | mesi | settimane | giorni
+;
+
+N ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+;

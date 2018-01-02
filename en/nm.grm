@@ -1,0 +1,170 @@
+I ::=   "title:    NM Templates\n"
+      ^ "author:   Mohammed Adnène Trojette &lt;adn+deb@diwi.org.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   Basic\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  " ^ ("20/06/2006" | "1 Messidor CCXIV")
+;
+
+S ::= Number^"." \Text ^"?";
+
+Number ::= +DecimalNumber
+	 | DecimalNumber^( LetterNumber | FunkyNumber | "/"^\PhoneticNumber )
+	 ;
+
+DecimalNumber ::= " 1" | " 2" | " 3" | " 4" | " 5" | " 6" | " 7" | " 8" | " 9" | "10"
+		| "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19"
+		| "20" ;
+
+LetterNumber ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j"
+	       | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t"
+	       | "u" | "v" | "w" | "x" | "y" | "z" ;
+
+FunkyNumber ::= "π" | "ɣ" | "ɷ" | "e" | "Å" | "ø" ; 
+
+PhoneticNumber ::= "alpha" | "bravo" | "charlie" | "delta" | "echo" | "foxtrot"
+                 | "golf" | "hotel" | "india" | "juliet" | "kilo" | "lima"
+		 | "mike" | "november" | "oscar" | "papa" | "quebec" | "romeo"
+		 | "sierra" | "tango" | "uniform" | "victor" | "whiskey"
+		 | "x-ray" | "yankee" | "zulu" ;
+
+(* S: is singular, P: is plural *)
+Object ::=  S:"DPKG"
+          | S:"debhelper"
+          | S:"CDBS"
+          | S:"APT"
+          | S:"yada"
+          | S:"a bug report"
+          | S:"a Bug Squashing Party"
+          | S:"a BSP"
+          | S:"a Debian Developer"
+          | S:"a fellow DD"
+          | S:"a maintainer script"
+          | S:"an MIA maintainer"
+          | S:"a NMU"
+          | S:"an upload"
+	  | S:"the Debian archive"
+	  | S:"the Debian Project"
+	  | "Debian Women"
+	  | S:"the Debian/GNU Solaris subproject"
+	  | S:"Debian GNU/Hurd"
+	  | S:"Debian GNU/kFreeBSD"
+	  | S:"our beloved DPL"
+	  | S:"the debian-"^List^" list"
+	  | S:"the Debian archive"
+	  | S:"the BTS"
+	  | S:"the GNU FDL"
+          | S:"the graphviz license"
+	  | S:"the sections of the archive"
+          | P:"versioned provides"
+          | P:"versioned symbols"
+	  | S:"the debian/"^File^" file"
+	  | S:"the Sun JDK 1.5"
+	  | S:"the NM Process"
+	  | S:"the DAM"
+	  | S:"the FD"
+	  | S:"the cabal"
+	  | S:"Ubuntu"
+	  | S:"a troll"
+	  | S:"a flamewar"
+	  | S:"the Debian-Installer"
+	  | S:"the DebConf"
+	  | S:"the" Port "port"
+	  | S:"the -Bsymbolic flag"
+	  | S:"the DPL"
+	  | S:"a FTP-master"
+	  | S:"a porter"
+	  | S:"a sponsor"
+	  | S:"debian/rules"
+	  | P:"library sonames"
+	  | P:"the packages"
+	  | P:(the dependencies of (a|your) package)
+	  | --S:(the ("Holy"|"Super") "Cow")
+	  ;
+
+Port ::= "i386" | "amd64" | "m68k" | "powerpc" | "arm" | "armeb"
+       | "mips" | "mipsel" | "s390" | "hppa" | "ia64" | "sparc" ;
+
+File ::= "rules"
+       | "control"
+       | "postinst"
+       | "prerm"
+       | "README.Debian"
+       | "copyright"
+       ;
+
+List ::= "devel"
+       | "project"
+       | "private"
+       | "legal"
+       | "i18n"
+       | "boot"
+       | "devel-announce"
+       | "women"
+       ;
+
+PronounSubject ::= S:it | P:they ;
+PronounObject ::= S:it | P:them ;
+
+Adjective ::= useful | important | relevant | needed | used ;
+
+AskIntro1 ::= (("can you explain" | "could you tell") [me])
+            | "do you know"
+            | "can you think"
+	    ;
+
+Text ::= "can you give" [me] ( "three ways" | "two reasons" ) To Action Object
+       | AskIntro1 how To Action Object
+       | (_ | AskIntro1) >(what | how) "would you do" To Action Object
+       | >(_ | how | when) "do you know how" To Action Object
+       | (_ | AskIntro1) "what is" ("Debian" | your) approach To Action Object
+       | "should you happily" Action Object
+       | ( (how|why|when) (does|did) Object Action Object )
+       | (_ | AskIntro1) ( (how|why|when) Object Action.S^"s" Object )
+       | what is Object.S [ (and | ^"?"\) Subquestion.S ]
+       | what are Object.P [ (and | ^"?"\) Subquestion.P ]
+       | what is the difference between Object and Object
+       | is Object.S Adjective [ ^"?"\ Subquestion.S ]
+       | are Object.P Adjective [ ^"?"\ Subquestion.P ]
+       | tell me a minimal set of Object that you [never] need to Action
+       | there is a minimal set of Object.S you [never] need to Action ^"."\ Subquestion.S
+       | there is a minimal set of Object.P you [never] need to Action ^"."\ Subquestion.P
+       ;
+
+Subquestion ::= [be specific about] how do you Action PronounObject
+              | S:( why is it [not] Adjective )
+	      | P:( why are they [not] Adjective )
+	      | what can PronounSubject [not] assume about the system
+	      | when would you [not] Action PronounObject
+	      ;
+ 
+Affirm ::= _ | "not" ;
+
+
+To ::= "to"
+     | "not to"
+     ;
+
+
+(* Mark with S the ones that can be easily made plural by adding 's' *)
+(* Also perform a strong binding so that the action repeats in a complex phrase *)
+Action :=  S: "close"
+         | S: "implement"
+         | S: "check"
+         | S: "correct"
+         | S: "ping"
+         | S: "upload"
+         | S: "revert"
+         | S: "sign"
+         | S: "create"
+         | S: "add"
+	 | S: "expel"
+	 | S: "avoid"
+	 | S: "start"
+	 | S: "use"
+	 | S: "handle"
+         | N: "check out"
+         | N: "reply to"
+	 ;
+
+

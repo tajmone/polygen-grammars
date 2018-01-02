@@ -1,0 +1,130 @@
+I ::=
+      "title:    Le armi di Goldrake\n"
+    ^ "author:   Er Poly &lt;mogkogk@hotmail.com&gt;\n"
+    ^ "voice:    Actarus\n"
+    ^ "language: italian\n"
+    ^ "status:   mature\n"
+    ^ "topic:    cartoons\n"
+    ^ "theme:    " ^
+      (  "Vai! Contro i mostri lanciati da Vega!"
+         "Vai!"\  ( +che il tuo cuore nessuno lo piega
+                   | che il nemico non vale una sega
+                   | altrimenti chiudiamo bottega
+                   | il tuo corpo d'acciaio solleva) ^"!!!"
+      |  "Quando schiaccia un pulsante magico"
+         "lui diventa"  ( un iper ^ (++galattico|teso|mercato|catartico)
+                        | un imper ^ (meabile|cettibile|scrutabile)
+                        | un epilettico) ^","
+         "lotta per l'umanita'!!!"
+      |  "Tra le stelle" (+sprinta|strilla) "e va!!!"
+      |  "Lui respira nell'aria" (++cosmica|tossica)
+         "e' un" (++miracolo|pinnacolo|foruncolo) "di elettronica,"
+         ma un (+cuore|odore|sudore) umano "ha!"
+      |  "Mille" (+armi|allarmi) "tu hai! Non"
+           (++arrenderti|riaccenderti|fraintederci) mai
+         "perche' il bene tu sei, sei con noi!!!"
+      |  "Vaaaaaaaa! Distruggi" (il >(+male|mare) ^ ", va!" | "i taleban!")
+      ) ^"\n"
+    ^ "created:  04/09/2004"
+;
+
+
+S ::= 
+    Big
+    ( >(+"ALABARDA"|"TRIVELLA")  Spaziale  EEE
+    | >(+ Alabarda | Trivella )  "SPAZIALE" EEE
+    | +"MAGLIO"  Perforant.E  EEE
+    | + Maglio  "PERFORANTE" EEE
+    | +"LAME"  (Rotant.I|Perforant.I)  III
+    | + (Lama  "ROTANT" EEII).(E|I)
+    | (Arma Fotonica).(O|A|I|E)
+    | --- "RAGGI" Laser
+    | --- (Raggi (O:^"O"|I:_) (O:"FOTONICO"|I:("FOTONICI"|"GAMMA"))).(O|++++I)
+    ) ^ "!!!" (^"!!")+ 
+    ChiudiBig
+;
+
+Big ::= "<span style=\"font-size: 2em; font-weight:bold;\">\n" ; 
+
+ChiudiBig ::= "\n</span>" ;
+
+
+Alabarda ::=
+    +++ "INFINGARDA" | ++ "ALABAMA" | + "BOMBARDA" | + "COCCARDA" | + "MANSARDA"
+    | "MOSTARDA" | "ANACONDA" | "SPARACIALDA" | --"C'HO LA BARBA"
+;
+Trivella ::=
+    +++"LIVELLA" | ++"MANOVELLA" | ++"GIRELLA" | +"RONDELLA" | +"CAPPELLA"
+    | "BRETELLA" | "MAMMELLA" | "SCODELLA" | "TETTARELLA" | "TREMARELLA"
+    | "BESCIAMELLA"
+;
+Spaziale ::=
+    "SPAZIALE" | -"DEMENZIALE" | ---"ESISTENZIALE" | "NUZIALE" | "A SPIRALE"
+    | "LABIALE" | "FACCIALE" | ---"RADIALE" | "COASSIALE" | "BESTIALE"
+    | "FISCALE" | "STRADALE" | ---"PAPALE" | "NASALE"
+;
+Perforant ::=
+    ( "PERFORANT" | "'GNORANT" | "MALEODORANT" | "FOLGORANT" | "PERFORMANT"
+    | "ACCECANT" | "FLUIDIFICANT" | "LUBRIFICANT" ) EI
+;
+Maglio ::=
+    +++"FERMAGLIO" | +++"AGLIO" | +++"CONGUAGLIO" | +++"CALZAMAGLIA"
+    | +"CIANFRUSAGLIA" | "VAGLIA" | "BOCCAGLIO" | "PENDAGLIO" | "BAGAGLIO"
+    | "VENTAGLIO" | "GUINZAGLIO" | "TENAGLIA" | "FERRAGLIA" | "VESTAGLIA"
+    | "SONAGLIO" | --"ECOSCANDAGLIO" | "TOVAGLIA"
+;
+Rotant ::=
+    ( "ROTANT" | ++"ARROTANT" | ++"IRRITANT" | +"VOLANT" | +"TONANT" | "ROMBANT"
+    | "RONZANT" | "TRACOTANT" | "INQUIETANT" | "RIDONDANT" | "RIMBOMBANT"
+    | "ARROGANT" | "GIGANT") EI
+;
+Lama ::=
+      (E: "BI-LAMA" | I: "PUTTANE")
+    | (E: "DALAI-LAMA" | I: "RANE" )
+    | (E: "PIGIAMA" | I: "TEGAMI")
+    | (E: "CERUME" | I: "LEGUMI" )
+    | "SALAM" EI
+;
+Arma ::=
+     O: >( "PUGNO" | "SCALDAPIZZETTE" | "LAMPO" | "MAGLIO" | "DISINTEGRATORE"
+         | "MISSILE" | "RAZZO" | "SPARAMERDA" | ---"SPARGILETAME" | "RAGGIO"
+         | "TUONO" | ---"CAZZOTTO" | ---"SGANASSONE" | ---"CALCIO IN CULO" )
+   | A: >( "ALABARDA" | "TRIVELLA" | "BOMBA" | "SPADA" | -"RONCOLA"
+         | ---"SCAZZOTTATA" | -"MAZZA"[^"TA"] )
+   | I: >( "PUGNI" | "DISINTEGRATORI" | "MISSIL" [^ "ETT"] ^"I"
+         | "RAGGI" | "RAZZI" | "SCUDI"| -----"LIBRI DI CIBERNETICA"
+         | ---"CALCI NEL CULO" )
+   | E: >( "BRACCIA" | -----"INSALATE DI MATEMATICA" | "BOMBE" )
+;
+Fotonica ::=
+       >( ++++"FOTONIC" | ++"CICLONIC" | "DIABOLIC" | "ATOMIC"
+        | "GALATTIC" | "TERMIC" | -"FOTOVOLTAIC" | --"SUPERSONIC" ) OOAAHEEII
+     | "DI FUOCO" OOO
+     | "D'ACCIAIO" OOO
+     | "DI MILLE VALVOLE" EEE
+     | >( -"DIROMPENT" | "PERFORANT" | "ACCECANT" | "ASSORDANT"
+        | "ROTANT" | "FINAL" | ++"SPAZIAL" | "VOLANT" | "TONANT"
+        | ----["TERMO"^]"NUCLEAR" | ---"ANAL" ) IIEE
+;
+Laser ::=
+       "LASER" (_|--"CHE SEMBRAN FULMINI" III)
+     | "GAMMA" | "LARSEN" | "WAFER" | "FOTONICI"
+     | "CICLONICI" | "DALTONICI" | "SUPERSONICI"
+;
+Raggi ::=
+       "TRINCIAFORAGGI" | "MIRAGGI" | "AMMARAGGI" | "ARBITRAGGI" | "PESTAGGI"
+     | "PLACCAGGI" | "TENDAGGI" | "SONDAGGI" | "SCARAFAGGI" | "LINCIAGGI"
+;
+
+OOAAHEEII ::= ^ (O: "O" OOO | A: "A" AAA | E: "HE" EEE | I: "I" III) ;
+
+IIEE ::= ^ (O: "E" EEE | A: "E" EEE | E: "I" III | I: "I" III) ;
+
+EEII ::= ^ (E:"E" EEE | I:"I" III) ;
+
+EI ::= ^ (E:"E" | I:"I") ;
+
+AAA ::= [^"A"((^"A")+|(^"AAA")+)] ;
+EEE ::= [^"E"((^"E")+|(^"EEE")+)] ;
+III ::= [^"I"((^"I")+|(^"III")+)] ;
+OOO ::= [^"O"((^"O")+|(^"OOO")+)] ;

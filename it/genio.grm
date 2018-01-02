@@ -1,0 +1,155 @@
+
+I ::=   "title:    Il genio del computer\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim:" Marchio e Marchi sono marchi registrati di
+        ( "Mulino Bianco" | "Barilla" | "Omnitel" | "Wind" | "San Carlo"
+        | "Chupa & Chups" | "Saila" | "Doria" | "De Cecco" | "Sacla'"
+        | "Mediaset" | "Pasta Jolly" | "La Molisana" | "Sile caldaie"
+        | "De Longhi" | "Cepu" | "Mondadori" | "De Agostini" | "Santarosa"
+        | "Ferrero" | "Perugina" | "Bauli"
+        )
+        ("S.p.a." | "srl." | ^", Inc.") ^"\n"
+      ^ "created:  12/11/2002"
+;
+
+Marchio ::= Prog | Qual1 [Qual2]
+;
+Marchi ::= Marchio [^"," Marchi]
+;
+
+S ::= \Domanda^"?\n\n" ^ \Risposta^"."
+;
+
+Domanda ::= [ma | sai] come (faccio a | si fa a | posso | posso fare per) Pred [Loco]
+         |  non (riesco | si riesce) a Pred [Loco]^"," come (faccio | si fa)
+;
+
+Risposta ::= [prima | innanzitutto | tanto per cominciare | il fatto e' che]
+             Periodo.ind
+;
+
+(* sembra che ci sia uno stack overflow se si mettono troppi "-" sulla epsilon qua sotto (?!?) *)
+Periodo ::= {[Loco]}
+            {({[aff: (appunto | per cosi' dire |+ praticamente) | neg: _]} {Aux} Pred).(--neg|aff)}
+            (- _
+            |  (++ e | ^"," >(ma | pero' |- perche')) [poi |- dopo] Periodo.ind.
+            |- ^"," (in modo che | cosicche') [quindi] Periodo.cong.
+            |  per Pred.
+            )
+;
+
+Pred ::= (Verbo Ogg).(det|indet).(M|F)
+      |- Verbo.NOart Prog
+;
+
+Aux ::= (ind: (neg: non | aff: _) devi | cong: tu (neg: non | aff: _) debba) [neg: mai | aff: _]
+     |  (ind: (neg: non | aff: _) puoi | cong: tu (neg: non | aff: _) possa) [neg: mai | aff: _]
+     |  cong: tu (neg: non | aff: _) riesca [neg: mai | aff: _] a
+     |  cong: (neg: non | aff: _) ti consenta [neg: mai | aff: _] di
+;
+
+Ogg ::= Sost [[Qual1] [Qual2]]
+     |- Ogg (Di Ogg).(det|indet).(M|F).
+;
+
+Loco ::= da Prog [(e | o) Loco]
+      |  dal (menu ("Preferenze" | "Opzioni" | "File" | "Strumenti") [di "Controllo"]
+             | ^le preferenze | ^le opzioni | pannello | ^la cartella
+             ) di Prog
+;
+
+Prog ::= ( ["X-"^]"Windows" | ["MS-"^]"DOS"
+         | ["Redhat" | "SuSe" | "Debian" | "Mandrake"] ["Mk"^]"Linux"[^"PPC"]
+         | [i^]"Mac"[^"OS" ["X"]] | "ICQ"
+         | "Office" | "Word" | "Excel" | "Outlook" ["Express"] | "Photoshop"
+         | "Flash" ["MX"] | ["Internet"] "Explorer" | "Netscape" | "AutoCAD"
+         ) [Ver]
+;
+
+Sost ::= M: ( controller | driver | [micro^]kernel | sistema [operativo] | indet: hard disk
+            | floppy disk | case | [micro^]processore | "BIOS" | display | file
+            | [(mini | midi)^]tower | monitor | modem | sito ["Internet" | "Web"]
+            | server | proxy | provider | mouse | cavo | clock | ["front-side"] bus
+            | virus | tool | software | programma | indet: hardware | mailer
+            | indet: (allegato | attachment) | forward | computer | codice [segreto]
+            | indet: indirizzo (di memoria | "e-mail" | "Internet" | "Web") | mousepad
+            | sendmail | terminale | desktop | bottone | pulsante | tasto | [sotto^]menu
+            | wordprocessor | indet: editor | connettore | pin | jumper | puntatore
+            | (front | back)^"-end" | firewall
+            )
+      |  F: ( scheda [madre | grafica | sonora] | motherboard | "SIMM" | stampante
+            | "CPU" | cache | memoria | ["e-"^]mail | "URL" | indet: (utility | applicazione)
+            | "GPU" | "FPU" | periferica | finestra | "GUI" | connessione | login
+            | password [segreta] | tastiera | posta elettronica | shell | indet: icona | barra spazio
+            | testina | porta [Num | Qual1 [Qual2]] | linea | ventola
+            | cartella | directory
+            )
+;
+
+Qual1 ::= "SCSI" | ["E"^]"IDE" | "CD" | "AGP" | "PCI" | "ISA" | "DVD" | "ISDN"
+       |  "ADSL" | "BIOS" | "LCD" | "3D" | "Direct"^("X" | "3D" | "GL") | "OpenGL"
+       |  "3Dfx" | "DLL" | "AT"[^"I" | "X"] | ethernet | "TCP/IP" | "TCP" | "IP"
+       |  "2D" | "POP"[^3][^mail] | "SMTP" | "IRC"
+;
+
+Qual2 ::= "Fast" | "Ultra" [^"-wide" | ^"DMA" [^Num] | ^piatt^(M: o | F: a)]
+       |  "RO" | "RW"
+       |  [("SG" | "D" | "S" | "EP")^] ("RAM" | "ROM") | laser | seriale
+       |  parallel^(M: o | F: a) | grafic^(M: o | F: a) | a cristalli liquidi
+       |  Num^"X" | a Num^"-bit" | "USB" | coassiale | digitale
+       |  "MIDI" | a Num pollici | di livello Num | analogic^(M: o | F: a)
+;
+
+Num ::= Cifra [^Cifra]
+;
+
+Cifra ::= 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+;
+
+Ver ::= Cifra^"."^Cifra[^"."^Cifra] | "NT" | "XP" | 9^Cifra | Cifra^000
+;
+
+Verbo ::= >( [re^ | dis^]installare | [ri^]configurare | aprire | chiudere | debuggare
+           | resettare | accendere | spegnere | rinominare | rimuovere | cancellare
+           | digitare | staccare | attaccare | [dis^]inserire | overclockare | [s^]montare
+           | [dis^]abilitare | pingare | far >(funzionare | partire | ^gli vedere)
+           ) Art
+       |  >( bootare (Con | Da)
+           | [s^]caricare (Art | Da)
+           | (down | up)^loadare (Art | Da | Su)
+           | loggarti (Su | Da)
+           | (collegar | connetter)^(e Art | ti (A | Da | Con))
+           | salvare Su
+           | esplorare (Art | Con)
+           | (clickare | fare [doppio] click) (Con | Su)
+           | mandare un messaggio A
+           | fare telnet (Su | Da)
+           | accedere A
+           | inoltrare A
+           )
+;
+
+
+(* preposizioni ed articoli *)
+
+Art ::= det: (M: il | F: la) | indet: (M: un | F: una) | NOart: _
+;
+
+Con ::= det: (M: col | F: con la) | indet: con Art | NOart: con
+;
+
+Da ::= det: (M: dal | F: dalla) | indet: da Art | NOart: da
+;
+
+Di ::= det: (M: del | F: della) | indet: di Art | NOart: di
+;
+
+Su ::= det: (M: sul | F: sulla) | indet: su Art | NOart: su
+;
+
+A ::= det: (M: al | F: alla) | indet: a Art | NOart: a
+;

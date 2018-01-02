@@ -1,0 +1,42 @@
+
+I ::=   "title:    Autostorpiatore\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "comment:  un tributo alla mia creatura\n"
+      ^ "created:  28/06/2003"
+;
+
+S ::= \ Polygen
+;
+
+Polygen ::= Poly ^ Post |- Pre ^ Gen |---- Pre ^ Post
+;
+
+Poly ::= >> + poly | polli |+ pul^IY | pol^(+ p |- s | t)^IY <<
+;
+
+Pre ::= >> Poly
+	     | f^olp^IY |- polpa | flopp^IY |- pom^IY |- [s^]por^(chi | CK^(IY |-- o)) |- togli
+	     | porr^IY | p^(l | r)^o^(x | tt)^IY |+ fott^IY | polka |- piomba | tont^IY
+	     | (f | t)^oss^IY | [s^]pomp^(+ IY | a) |- porf^IY | sborr^IY |- pont^IY |- foll^IY
+	     | tromb^IY | brod^IY |- pal^IY | m^(++ u | o)^lt^IY |- stronca | papp^(IY |- a)
+	     | puff^IY | pizza | mort^IY | storp^IY | pun^(t | g)^IY | funky | CK^a^CCKK^(IY |+ a)
+	     | sperm^(IY | a) | p^IY^zza
+	    <<
+;
+
+Gen ::= >> + gen |+ gel | jet |- gem |- gyn | gym <<
+;
+
+Post ::= >> Gen
+		  |- jam | web |+ dent |- selz | (+ b | p | t)^el |+ cess | snell | se^CCKK
+		  |+ ben | sperm | cyd | flex
+         <<
+;
+
+IY ::= i | y ;
+CK ::= c | k ;
+CCKK ::= (X := CK; X^X) ;

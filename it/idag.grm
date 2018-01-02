@@ -1,0 +1,40 @@
+I ::=   "title:    Messaggi di IDAG\n"
+      ^ "author:   Lalaura &lt;laura@micionline.com&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: it.discussioni.animali.gatti\n"
+      ^ "created:  05/07/2004"
+;
+
+S ::= \ Uno Due Tre ^ "." \ Quattro ^ "!" Nome Gatto
+;
+
+Uno ::= oggi ho visto | ho saputo di | il mio vicino di casa ha | ho trovato
+	 |  mi hanno lasciato davanti a casa | ho messo sotto in macchina | ho comprato
+	 |  cerco disperatamente | ho visto in un negozio 
+	 |  mia sorella mi ha regalato | mio figlio ha raccattato per strada
+;
+
+Due ::= un gattino con la rogna | un micetto appena nato | un micio di 40 gg
+	 |  una gatta malata | un gattino pieno di pulci | un gattino abbandonato
+	 |  una miciona tigrata | una gatta siamese piena di vermi
+	 |  una gatta vecchissima senza denti | un gatto con tre zampe
+;
+
+Tre ::=  con gravi problemi di salute | con la diarrea | con una terribile cardiopatia
+     |   che vomita sempre sul divano | che perde il pelo dappertutto | che la fa sempre fuori dalla cassettina
+     |   che graffia i mobili | che miagola in contiunazione | con una bruttissima congiuntivite
+     |   ma stamattina era gia' morto
+;
+
+Quattro ::= che tristezza | povero amore | maledetti | che tenerezza | aiutatemi
+		 |  non so che cosa fare | consigliatemi voi | non so fare altro che piangere
+		 |  non riesco a farmene una ragione | incrociamo le codine
+;
+
+Nome ::= "Catsy" | "Micia" | "La Zia" | "La mamma" | "Isidora" | "Pesca Noce" | "Peracotta" | "Pancrazia" | "Erbagatta" | "Topazia"
+;
+
+Gatto ::= "e i micilli" | "& Mary" | "+ Molly" | ^ "^^" | ^ "..." | ^ "!" | "e Pallino" | "and Fusillo" | "dei gatti"| "dei mici" 
+;

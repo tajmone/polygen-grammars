@@ -1,0 +1,113 @@
+
+I ::=   "title:    Epigrafi medievali\n"
+      ^ "author:   Marius &lt;markelius@inwind.it&gt;, Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  14/10/2002"
+;
+
+S ::= [Titolo] Nome
+      (-- _ | ^"," Carica [Soldan [Luogo]])
+      (-- _ | ^"," Verbo [Prepo] Pregi [(e[^t] Pregi | ^"," ma [piuttosto] Defecti)])
+      ^ "."
+;
+
+Titolo ::= "San"[^cto] | "Messer"[^e] | "Ser" | "Monsignor"[^e] | "Don"
+        |  "Pa"^(d | t)^ron | "Mastro" | "Fra"
+;
+
+Nome ::= (Prefisso.Voc ^ Suffisso.Cons | Prefisso.Cons ^ Suffisso.Voc) Luogo
+;
+
+Voc ::= a | e | i | o | u
+;
+
+Prefisso ::= >> Voc:  ( "Guido" | "Cinci" | "Castro" | ("J" | "I") ^ aco | "Vili"
+                      | "Fede" | "Al"^(b | d)^e | "Raf"[^f]^a | "Vence" | "Sigis" | "Stani"
+                      | "Rusti" | "Filo" | "Buffal" | "Cala" ^ (n | m) | "Chichi" | "Pan"
+                      | "Arci" | "Mal"^(a | o)
+                      )
+              | Cons: ( "Guid" | ("C" | "G")^ul[^(b | d)] | "Bel" | ("Mal" | "Al")[^b]
+                      | ("J" | "I")^acop | "Bereng" | "Big" | "Cagn" | "Cang" | "Ven"[^an]
+                      | "Mast" | "Citr" | "G"^(ra | ar)^f | "Ferd" | "Ul"[^b]
+                      | "Leon" | "Nast" | "R"^(o | a)^n | "Castr"
+                      | "Musci" | "Buff" | "Fil" | "Cal" | "Ciap"[^p] | "Go"^(ff | tt)
+                      | "Arc" | "Nor" | "Helder"
+                      )
+             <<
+;
+
+Suffisso ::= >> Voc:  ( (i | u) ^ ccio | ario | Voc ^ (tt | ll) ^ o | one | Voc ^ nzio
+                      | Voc ^ cchio | elmo | Voc ^ gio | (i | a) ^ no | erto | elio
+                      | olfo | ardo | (a | o)^ldo
+                      )
+              | Cons: ( (m | b)^ondo | brando | zio | slao | [b^]ri^(c | g)^o | berto
+                      | r ^ (i | u) ^ ccio | fardo | lio | bruno | chello | meno
+                      | (b | f)^(o | u)^sco | (v | b)^(i | u | o)^glio
+                      | (t | b | v)^(a | o)^ldo | bello
+                      )
+             <<
+;
+
+Luogo ::= (+ da | di) Citta | (de |+ di) Regione
+;
+
+Citta ::= "Aquil"^(e[^g]^ia | onia) | "Buonconvento" | "Castel" ^(tesino | franco | vecchio
+       |  n[^u]^ovo | forte) | "Ausercolo"
+       |  "Coneglano" | "Lamporecchio" | "Lucca" | "Mileto"
+       |  "Mon" ^(ferrato | talcino | tefeltro | telupone | falcone | tefalco | temerlo)
+       |  "Narni" | "Novocastro" | "Ostia"
+       |  "Padua" | "Perugia" | "Prato" | "Rossiglione" | "Slaigo" | "Trevigi" | "Varagine"
+       |  "Varlungo" | "Verona" | "Vinci" | "Vine"^(g | z)^ia | "York"
+       |  "Fucecchio" | "Londinio" | "Massaciucoli" | "Carrara" | "Ortucchio" | "Mediolano"
+       |  "Tarviglio" | "Sinigalia" | "Parigli" | "Granada" | "Renne" | "Roenia"
+       |  ("Salis" | "Petro" | "Pede" | "Stras" | "Edin" | "Glaston" | "Brande")^b^(o | u)^rgo
+       |  "Brusselle" | "Dresda" | "Bordone" | "Cambriggio" | "Osfordia" | "Busceglie"
+       |  "Todi" | "Lodi" | "San Gimignano" | "Gualdo Tadino" | "San Miniato" | "Altivole"
+;
+
+Regione ::= "Bavaria" | "Normandia" | "Bretonia" | "Pomerania" | "Gallia" | "Cornovalia"
+         |  "Scotia" | "Loira" | ("G" | "B")^orgogna | "Dordogna" | "Perigordia" | "Catalogna"
+         |  "Navarra" | "Britannia" | "Basconia" | "Luxemburghia" | "Andalugia" | "Svevia"
+         |  "Prussia" | "Pologna" | "Elvetia" | "A"[^b]^sburgo | "Tuscania" | "Apulia"
+         |  "Sicilia" | "Calabria" | "Isvizzera" | "Provenzia" | "Ispania" | "Partia"
+         |  "Iscotia" | "Isvezia" | "Alemagna" | "Dalmatia" | "Moldavia" | "Boemia"
+;
+
+Carica ::= >> il ( balestriere | bovaro | berroviere | ciambellano | falconiere | fromboliere
+                 | gonfaloniere | locandiere | >(mani | sini)^scalco | boia | mercante | milite
+                 | villano | guardiano | mezzadro | porcaro | taverniere | tesoriere
+                 )
+            | l'^ (adro | alfiere | oste | uccellatore)
+           <<
+;
+
+Verbo ::= [non]
+          >> era | fu
+           | ( ebbe (da | ad) | avea da | dovette | usava
+             | era solito | soleva
+             ) esser
+          <<
+;
+
+Prepo ::= percio' | [a^]dunque | quindi | tanto | [di] molto | affatto | invero | invece | anche
+       |  parecchio | similmente | parimenti
+       |  di >(tanto in tanto | quando in quando)
+;
+
+Soldan ::= >> del ( re | [gran^]duca[^to] | conte | marchese | "Signore" | castellano | principe
+                  | clero | comune
+                  )
+            | della (chiesa | signoria | magione | marca)
+           <<
+;
+
+Pregi ::= pien[^o] di gra^(t|z)^ia | costumato | atto al servigio | servizievole
+       |  ben^>(pensante|andante) | giovenile
+;
+
+Defecti ::= purulento | brigante | briccone | ladrone | malnato | marrano | infingardo | malfidente | iracondo | flautulento
+         |  man[^i]^goldo | fellone
+;

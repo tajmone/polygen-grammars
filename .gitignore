@@ -1,0 +1,118 @@
+# ******************************************************************************
+# *                                                                            *
+# *                          Polygen Grammars Project                          *
+# *                                                                            *
+# *                https://github.com/tajmone/polygen-grammars                 *
+# *                                                                            *
+# ******************************************************************************
+
+## =========================
+## Polygen Compiled Grammars
+## =========================
+*.grm.o
+
+# ==============================================================================
+#                       Polygen Grammars Exclusion-Filter                       
+# ==============================================================================
+# This .gitignore file contains an exclusions list for Polygen grammars files
+# that could be in violation of GitHub Inc. Terms of Service agreement regarding
+# restrictions on contents that:
+#
+#  - is or contains sexually obscene content;
+#  - is libelous, defamatory, or fraudulent;
+#  - is discriminatory or abusive toward any individual or group;
+#
+# For more information, see "GitHub Terms of Service", Section C.2 (Acceptable Use:
+# Content restrictions) at:
+#
+#    https://help.github.com/articles/github-terms-of-service/
+#
+# This exclusion list was created by searching the grammar files for the presence
+# of keywords indicating that a grammar might fall into one of the above categories;
+# files matching the search where then manually checked to verify the effective
+# nature of the contents. Any grammar that could generate contents that could
+# potentially fall into the above categories was added to this exclusion list.
+#
+# Due to the large number of grammar files examined (over 120 files), manually
+# checking each grammar wasn't feasible, hence the choice of using a keyword-search
+# approach for spotting offensive contents. The downside of this approach is that
+# overlooked keywords might have let some inadequate contents slip through the
+# filtering process; if you find any such grammars please open an Issue to notify
+# it and accept my apologies.
+# 
+# Keeping this .gitgnore file in the grammars folder of your project will prevent
+# accidentally sharing on GitHub the grammars known to this exclusion list as
+# being potentially problematic. This should act as a safeguard, especially for
+# grammars written in a foreign language, when you or other contributors add to
+# the project grammar files found elsewhere.
+
+# ------------------------------------------------------------------------------
+#                            Discriminatory Grammars                            
+# ------------------------------------------------------------------------------
+# The following grammars were excluded because they generate contents which is
+# (or might be perceived) as discriminatory or abusive toward some individuals,
+# groups or genders:
+
+en/bio.grm
+
+it/action.grm
+it/annunci.grm
+it/basket.grm
+it/bio.grm
+it/cartoons.grm
+it/chat.grm
+it/clerasil.grm
+it/concerto.grm
+it/danbrown.grm
+it/djfrancesco.grm
+it/farmagen.grm
+it/gleba.grm
+it/hollywood.grm
+it/insulti.grm
+it/kamasutra.grm
+it/lovecraft.grm
+it/maremmamaiala.grm
+it/oroscopo.grm
+it/recensioniindie.grm
+it/recensionilibri.grm
+it/recensionivg.grm
+it/studioaperto.grm
+it/teen.grm
+it/teen2.grm
+it/telefilm.grm
+it/tglog.grm
+it/verdena.grm
+it/vision-x.grm
+# ------------------------------------------------------------------------------
+#                           Profanity/Obscene Grammars                          
+# ------------------------------------------------------------------------------
+# The following grammars were excluded because they generate contents which is
+# (or might be perceived) as being sexually obscene, profanity, or inappropriate:
+
+en/metal.grm
+en/pornsite.grm
+en/wowcitychat.grm
+
+it/calciatori.grm
+it/coatti.grm
+it/duplo.grm
+it/dux.grm
+it/fantasyfanfiction.grm
+it/gamesrece.grm
+it/governatore.grm
+it/kassander.grm
+it/manback.grm
+it/meliconi.grm
+it/melissap.grm
+it/mike.grm
+it/misssarajevo.grm
+it/monte.grm
+it/trameromantiche.grm
+# ------------------------------------------------------------------------------
+#                              Copyrighted Grammars                             
+# ------------------------------------------------------------------------------
+# The following grammars were excluded because their copyright status or some
+# other legal restriction prevents their inclusion in this project:
+
+# Grammars with copyright statements explicitly forbidding distribution:
+it/amore.grm

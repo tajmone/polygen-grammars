@@ -1,0 +1,152 @@
+I ::=   "title:    Autistic-Bustreo Simulator\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: l'Autistico e chi lo conosce\n"
+      ^ "disclaim:" le blasfemie qui generate non vanno interpretate come un'attacco dell'autore
+                    alle "Istituzioni" religiose ne' alla cultura "Cristiana","" ma solamente come una
+                    caricatura ovvero una simulazione iperbolica delle colorite espressioni
+                    utilizzate dal dedicatario della presente grammatica^"\n"
+      ^ "created:  15/03/2003"
+
+;
+
+S ::= ( Amico := Amici ; Alberto := Alberti ;
+        QAmico := Amico^": \""^\ ; QAlberto := Alberto^": \""^\ ;
+
+        QAlberto Amico^"," comincia a bestemmiare^"!" \Blasfemie QEM
+        QAmico (minchia | porcoddue | [la] madonna) ^"!"\
+               (che | cosa) (cazzo | minchia) (c'e' | e' successo | succede)^"," Alberto QQM
+        QAlberto [(Amico | ragazzi | fioi | vecchi)^","] Coda QPM
+      )
+;
+
+QPM := ^".\"\n"^
+;
+QQM := ^"?\"\n"^
+;
+QEM := ^"!\"\n"^
+;
+
+Alberti := "Alberto" | "Bieco" | "Osc"
+;
+
+Amici ::= "Fede" | "Alvise" | "Franz" | "Helder" | ("Guasto" | "Marcio") | "Secchio"
+;
+
+Coda ::= si e' appena liberato un (parcheggio | posto)
+      |  sta cominciando a (piovere | nevicare | far (caldo | freddo))
+      |  non fanno niente per televisione
+      |  (mi tocca | devo)
+         ( fare (benzina | gasolio | un prelievo)
+         | chiudere casa
+         )
+      |  sono gia' le (7 | 8 | 9) [^":"^30]
+      |  e' finito il (pane | formaggio | galateo | sale | pepe |+ mare)
+      |  Amici. e' (gia' arrivato | in ritardo)
+      |  abbiamo sbagliato strada
+      |  si e' sporcato >( lo specchietto
+                         | il (finestrino | parabrezza | faro)
+                         ) della macchina
+;
+
+Blasfemie ::= Blasfemia^"," Blasfemia^"," Blasfemia [^"," Blasfemia [^"," Blasfemia]]
+;
+
+Blasfemia ::= (spacca | rompi | rovescia) {Ogg} {in testa Clero.a.S}
+           |  trascina {Clero.art.S [per Capelli]} {(per |+ lungo) Luogo}
+           |  prendi Clero.art.S per Capelli
+           |  (strappa | tira | straccia | squarcia | frantuma) Capelli Clero.a.(S|P)
+           |  ( brucia | incendia | straccia | radi al suolo | profana | incenerisci
+              | distruggi | scassina | sconsacra | squarcia | frantuma | saccheggia
+              )
+              (Ogg | Luogo)
+           |  (desepellisci | disossa) Santo
+           |  (sco^[r^]reggia | rutta | caga | sbocca | vomita)
+              (in (testa | faccia | mano) | (nel | dentro il) teschio) Clero.a.S
+           |  (riempi di | massacra di | prendi a) (pugni | botte | calci | testate | legnate)
+              Clero.art.(S|P)
+           |  (svuota | rovescia)
+              {un (water | secchio | catino | cesso) [pieno] di (guano | merda)}
+              {(in (testa | faccia) | addosso) Clero.a.S}
+           |  bestemmia ( i ["Dieci"] "Comandamenti" | il "Padre Nostro" | "l'Ave Maria"
+                        | il nome Clero.di.S | i nomi Clero.di.P
+                        )
+           |  insulta Clero.art.(S|P) [durante Evento]
+;
+
+Evento ::= la ["Santa"] "Messa" | "l'Omelia" | la predica [domenicale] | il "Giubileo"
+        |  la "Settimana Santa" | la "Pentecoste"
+        |  il "Concilio" ("Vaticano" Num | di ("Trento" | "Nicea" | "Ecumenico"))
+;
+
+Ogg ::= >> la porta (del "Giubileo" | di <Santo) | l'ostia
+         | il ["Conclave"] "Vaticano" | "l'Altare Maggiore" | la "Cappella Sistina"
+         | la "Pala" (d'oro | di "Ognissanti") | la "Sacra Sindone"
+         | ((S: la salma | P: le salme) <Clero.di).(S|P) | le reliquie <Clero.di.(S|P)
+         | il tebernacolo | la particola | il "Sacro Graal" | la "Sacra Bibbia"
+         | il "Vangelo" [secondo ("Giovanni" | "Marco" | "Luca" | "Matteo")]
+         | le "Sacre Scritture" | l'^"Arca" (di "Noe'" | "dell'Alleanza")
+         | le tavole della "Legge" | le (bolle | encicliche) papali
+        <<
+;
+
+Luogo ::= >> le (sale | stanze | navate [laterali] | sagrestie | catacombe | cripte) "Vaticane"
+           | il "Vaticano" | il "Santo Sepolcro"
+           | (la basilica | il monastero | il duomo | la cattedrale | l'abazia | la chiesa)
+             di <Santo
+           | (le tombe | le catacombe | le cripte | l'iconografia) <Clero.di.(S|P)
+           | la "Citta' Santa" | "Gerusalemme" | "Betlemme"
+          <<
+;
+
+Santo ::= "San" >( "Francesco" | "Pietro" | "Marco" | "Giovanni" | "Gennaro" | "Nicola"
+                 | "Sebastiano" | "Barnaba" | "Lorenzo" | "Tommaso" ["d'Aquino"]
+                 ) [apostolo | evangelista]
+       |  "Santa" >("Chiara" | "Lucia" | "Caterina" | "Maria Maddalena" | "Madre Teresa di Calcutta")
+                  [vergine]
+       |  "Sant'" ^ >("Anna" | "Agata" | "Aurelia" | "Antonio")
+       |  "Papa" >( "Clemente" | "Bonifacio" | "Celestino" | "Gregorio" ["Magno"]
+                  | "Giovanni Paolo" | "Pio" | "Paolo" | "Giovanni"
+                  ) [Num]
+;
+
+Num ::= "I" | "II" | "III" | "IV" | "V" | "VI" | "VII" | "VIII" | "IX" | "X"
+;
+
+Capelli ::= i capelli | le orecchie | la coppa | la barba | i peli [pubici]
+         |  il coppino | i testicoli | i calcagni | le unghie | i calli
+         |  i reni | il saio | il cappuccio | le vesti | la papalina | la stola
+;
+
+Clero ::= S: ( (a: al | art: il | di: del)
+               ( "Papa" | "Conclave" ["Vaticano"]
+               | "Pontefice" | "Signore" | sagrestano | parroco
+               )
+             | (a: a | art: _ | di: di)
+               (Santo | Eminenza | "Sua Eminenza" Clero.art.S.)
+             | (a: alla | art: la | di: della)
+               ("Madonna" | "Monaca di Monza" | perpetua)
+             )
+       |  P: ( (a: ai | art: i | di: dei)
+               ( >("Santi" | "Martiri") [della "Chiesa"]
+               | "Frati" ("Capuccini" | "Francescani" | "Benedettini")
+               | "Padri" ("Salesiani" | "Domenicani" | "Murialdini")
+               | preti | vescovi | cardinali | monaci ["Benedettini"]
+               )
+             | (a: alle | art: le | di: delle)
+               ( ("Sorelle" | "Suore")
+                 ("Carmelitane" [scalze] | di clausura | salesiane | domenicane)
+               )
+             )
+;
+
+Eminenza ::= il "Cardinale Richelieu" | il "Cardinal Martino" | "Padre Biffi"
+          |  il "Vescovo Milingo" | "Padre Orbieto" | "Don Abbondio"
+;
+
+Titolo ::= vicario | [arci^]vescovo | reverendo | cardinale | sagrestano
+;
+
+

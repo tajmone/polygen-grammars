@@ -1,0 +1,30 @@
+I ::=   "title:    Nomi Emiliani\n"
+      ^ "author:   Denis &lt;deferret@tin.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: Quelli che devono dare un nome (e un cognome) a un bambino emiliano\n"
+      ^ "disclaim: uh?\n"
+      ^ "created:  8/10/2004"
+;
+
+S ::= Prod 
+;
+
+Prod ::= Nome1^Nome2^Nome3 Cognome1^Cognome2
+;
+
+Nome1 ::= "Vil" | "Wol" | "Wer" | "I" | "Den" | "E" | "Ja" | "O" | "Sil" | "Wal" | "A" | "Vai" 
+;
+
+Nome2 ::= "m" | "s" | "l" | "n" | "t" | "zi" | "th" | "d" | "v" | "i" | "lj" | "vd"
+;
+
+Nome3 ::= "er" | "is" | "am" | "es" | "ar" | "el" | "as" | "os" | "an" | "son" | "y" | "mer" | "in" 
+;
+
+Cognome1 ::= "Ferr" | "Bert" | "B" | "Ross" | "Valent" | "Bar" | "Bertol" | "Ben" | "Mor" | "Catt" | "Bon" | "Mar"
+;
+
+Cognome2 ::= "ini" | "ellani" | "ari" | "azzi" | "etti" | "i" | "eschi" | "elli" | "illi" | "ani" | "ellini" | "oni"
+;

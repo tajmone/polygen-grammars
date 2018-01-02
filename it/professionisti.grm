@@ -1,0 +1,64 @@
+I ::=   "title:    Uomini e Donne della New Economy\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim:" [l'autore garantisce che] e' [solo | solamente] (una coincidenza | un caso)
+                   che gli uomini siano tecnici e le donne [esclusivamente] segretarie "\n"
+      ^ "poll:     chi" volesse sputtanare per sempre il proprio nominativo autorizzandone
+                   l'inserimento tra quelli della presente grammatica lo comunichi senza indugi
+                   "all'<a href=\"mailto:manta@polygen.org\">autore</a>\n"
+      ^ "created:  17/06/2003"
+;
+
+S ::= (Professionista "-" Professione).(tecnici|segretarie)
+;
+
+Professionista ::= (++ Titolo [Titolo] | _) Nome (tecnici: (-- ^", Ph.D." | _) | segretarie: _)
+;
+
+Professione ::= [\Anzianita] [\Qual] [\Qual] \Qual \Ruolo
+;
+
+Titolo ::= tecnici:    ("Dott." | "Ing." | "Prof." | "Geom." |- "Arch.")
+        |  segretarie: ("Rag." |-- "Inf." |- "Segr." | "Sig." ^(ra | na) | "Miss")
+;
+
+Nome ::= tecnici: ( "Alvise Spano'" | "Enrico Zeffiro" | "Helder" | "Diego Dainese"
+				  | "Fabio Tudone" | "Giulio Manzonetto" | "Giulio Marcon" | "Andrea Pavan"
+				  | "Marco Gaion" | "Marco Foco" | "Mattia Barbon" | "Paolo Quaglio"
+				  | "Emiliano Franchini" | "Claudio Tassitano" | "Davide Baroncelli"
+				  | "Giuseppe Calignano" | "Andrea Rota" | "Carlo Umberto Grazia"
+				  )
+	  |  segretarie: ( "Maria Serena Piccioni"
+                         | "Federica" (T ::= f | t | s | p | b | n | l; TT ::= ss | tt | nn | ll | pp | bb | ff | st | rt | rp | sb | rb | lp; \T^o^(T | TT)^on)  
+                         |  (M ::= m | gi; Z ::= z | gi; \M^or^Z^a \M^(a | o)^r^Z^ola))
+;
+
+Anzianita ::= (-- distinguished\ | _)
+			  ( senior | junior | veteran | apprentice | expert
+		      | [grand^]master | advanced | (high | low | mid)^"-level"
+		      )
+;
+
+Qual ::= tecnici: >( technical | analysis | system | ["meta-"^\] model | architecture
+                   | chief | product | business | development | java | engineering
+                   | "J2EE" |  "UML" | "JSP" | "HTML" | "XML" [^"-" ^ ("Schema" | "DTD")]
+                   | ("TXT" | "JPeG" | "MPeG" | "MP3") [\file]
+                   |-- (- turbo | ultra | mega | hyper) | technolog^(y | ical)
+                   )
+      |  segretarie: >( professional | human | office | official | administration
+                      | resource | financial | sales | operation | coordination | consulting
+                      | management | [quality\] assurance | business | [il^]legal
+                      )
+      |  web | wap | service | project | associate | operative | coordinate | intelligence
+      |  personnel | staff | [(inter | intra |- extra |- ultra)^]net | knowledge
+;
+
+Ruolo ::= tecnici: >( engineer | specialist | analyst | developer | architect | modeller
+                    | manager | operator
+                    )
+       |  segretarie: >(administrator | operator | coordinator | consultant | editor)
+       |  director | trainer | provider | evangelist
+;

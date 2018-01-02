@@ -1,0 +1,75 @@
+I ::= "title:    Titoli Canzoni Blues\n"
+    ^ "author:   gigiriva\n"
+    ^ "language: italian\n"
+    ^ "status: " \LUOGOT  "\n"
+    ^ "topic:    music\n"
+    ^ "audience: tu\n"
+    ^ "comment: " (blues|-----(jazz|----death metal)) is NOMEM    "\n"
+    ^ "created:  20 agosto 2005"
+;
+
+S ::=   "<b>" TITOLO "</b>" "<i> (" ^ANNO^ ") </i>" "\n \n"
+
+;
+
+
+
+
+TITOLO::=  (NOMEM|-------NOMEF) [("&" | with | and ) the ORCH | ++++++ _]  
+("-"| ---^":") CANZONE
+;
+
+ANNO ::= 19^(----1|-2|3|4)^(1|2|3|4|5|6|7|8|9|0)
+;
+
+
+NOMEM ::=  \["rev."| "mr."| STATO| CITY | +++blind  | big | sleepy | 
+whiskey| happy | fast |country | papa |tired | fat | dollar| slim |crippled 
+| dumb |deaf|++ _]
+           \NOM
+           \COGN
+;
+
+NOMEF ::=   \[mama | "miss." | "mrs." | +++++_] \(bessie | mama | pamela | 
+-----------gianna | lou | mary | marilyn | billie | ella | essa | et[^t]^a | 
+ida | clara | sarah | janis | tampa | hilary | odetta | doretta | lucille | 
+clementine | dolly | baby | clar[^iss]^a | NOM^ette )
+            \(COGN | ------_)
+;
+
+NOM ::= \(robert | willie | charl^(ie|es|y)| ++john[^ny|+++_] | james | fred 
+| napoleon |red | walter| ---- (o|+u)^sama ["Bin"] | sid | jack | sam | bama 
+| bubu | lemon  | slim | forrest | joe | george ["W."]| matt | bo |lonnie | 
+homer | jesus | sidney | bill  )
+;
+
+COGN ::=  ["Mc"^|++_] \(water[^s]| +++johnson |++ jackson | lewis | 
+james[^on] | richard[^s[^on]] | young | +smith | henry | morton |  red | 
+---corleone | broonzy | hart | carter | quack | clennan | hammond | dowell | 
+hurt | tell | arnold  | rooney | memphis | stark | man | jefferson | simpson 
+| house)
+;
+
+ORCH ::= \(+++++LUOGOT |NOMEM | NOMEF | NOM | COGN[^s]) [^"'s"|++++++++++_] 
+\[+++jazz | blues | ---church |++++_  | --jail] \(orchestra | band | 
+----(masnada | cupola | gang bang))
+;
+
+CANZONE ::=   (LUOGOT \(blues |------(rag| -song))
+               | \NOM \(blues | rag))
+;
+
+
+STATO ::= \(+++++mississipi | missouri | [ar^]kansas | texas | california | 
+mexico | america |michigan | ++alabama | illinois | georgia | (south | 
+north) "Carolina"| tennesee | --alaska | florida | oklahoma |  ---(argentina 
+| cuba | liechtenstein | malta | kamchakta | nepal))
+;
+
+LUOGOT := (STATO|CITY)
+;
+
+CITY  ::=  \(chicago| "New Orleans" | orlando | memphis |  denver | 
+NOM(^ville | ^town | "City") | --(havana | timbuktu | bazzano | "Rio De Janeiro" | tokyo | lambrate  ))
+;
+

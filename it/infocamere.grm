@@ -1,0 +1,27 @@
+I ::=   "title:    Veneto\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "created:  29/07/2004"
+;
+
+S ::= [Pre] ({Luogo} {Sviluppo | Sost} | Sost Sviluppo) [Post]
+;
+
+Pre ::= info | digi | tecno | tech | soft
+;
+
+Post ::= ["."^] (com | net | ware | web | soft)
+;
+
+Sviluppo ::= sviluppo | innovazione | opportunita' | ricerche | team
+;
+
+Sost ::= sistemi | compilatori | parser | software | media | informatica
+      |  tecnologie | impianti
+;
+
+Luogo ::= italia | veneto | umbria | basilicata | oriago | mestre | marghera | chirignago
+       |  mogliano | burano | venezia | vulci | ostia | mira | lucca | catanzaro | riace
+;

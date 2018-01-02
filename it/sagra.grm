@@ -1,0 +1,194 @@
+I ::= "title:    Sagre di paese!\n"
+    ^ "author:   eCompratelo &lt;info@ecompratelo.it&gt;\n"
+    ^ "language: italian\n"
+    ^ "status:   beta\n"
+    ^ "topic:    cultura\n"
+    ^ "created:  10/27/2004"
+;
+
+S ::= "..."^la NUMERO^"&#186;" \FESTE PRODOTTI di COMUNI
+;
+
+
+NUMERO ::= (1| 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20) 
+;
+
+
+
+FESTE ::= 
+(sagra | maratona culinaria | festa | rassegna | abbuffata agonistica | commemorazione mangereccia | degustazione | battaglia | spartizione | adorazione | benedizione)
+;
+
+PRODOTTI ::=("della Polenta Glassata" | 
+"del Succo di Pancetta" | 
+"dello Yogurt Grasso" | 
+"dello Stufato d'asino" | 
+"del Maiale tritato" | 
+"della caldarrosta bruciata" | 
+"del culatello arrossato" | 
+"della trippa coi carciofi" | 
+"del porco coi faggiuoli" | 
+"dello stinco di gatto" | 
+"del vino andato in aceto" | 
+"del coniglio schiacciato sull'asfalto" | 
+"delle rane impanate" | 
+"della coscia di mosca" | 
+"del succo di legno" | 
+"delle cozze morte di vecchiaia" | 
+"delle vongole stagionate" | 
+"della maionese impazzita" | 
+"dell'uovo marcio" | 
+"della sogliola geneticamente modificata" | 
+"del peperone clonato di fresco" | 
+"del polpo claudicante" | 
+"del polpettone marcescente" | 
+"del brodo primordiale" | 
+"delle interiora salmistrate" | 
+"del pecorino novello" | 
+"della rapa canterina" | 
+"delle alborelle da guerra" | 
+"delle pere mature" | 
+"del calzone farcito" | 
+"delle ascelle macerate" | 
+"della mortazza" | 
+"dell'orina di mulo" | 
+"delle anguille allegre" | 
+"della carie di lepre" | 
+"del nero sotto le unghie dei maiali")
+;
+
+COMUNI ::= ("SESTO"|"SETTIMO"|"QUARTO"|+++++_)(+++(["SAN"]("GUAZZ" | 
+"CAR"[^"D"] | 
+"BRUZZ" | 
+"BOLL"  |
+"VERG"  |
+"CUL" |
+"CAL" |
+"MAZZ" |
+"TRAV" |
+"CRESCENZ" |
+"CAS"[^"S"] |
+"CUS" |
+"COS" |
+"SCREANZ" |
+"CASTELL" |
+"B" |
+"BRESC"
+ )^("UGATE"|"ATE"|"ONE"|"INO"|"ANO"|"ALO"|"AMO"|"ELLO"|"AGO"|"ENNO"|"ETO"|"ETTO"|"ATO"|"USTO") | --"CAS"^("C"|"S")^("INA"|"INETTA")|-CAGATE)) [("DEL"|"SUL"|"DI"|"SU") CAGATE] [VARIANTI]^" ("^PROVINCIE^")"
+;
+
+
+CAGATE ::=(
+"MEMBRO" | "TEVERE" | "GOBBO" | "CEPPO" | "MERLO" | "CHIURLO" | "VOLGA" | "VALLO"[^"NE"] | ("S"|"M"|"T"|"P"|"C"|"B")^"ASSO" | "TICINO" | "MINCIO" | "TARO" | "TANARO" | "PANARO"
+)
+;
+
+VARIANTI ::=(
+"DI SOPRA" | "DI SOTTO" | "MAGGIORE" | "MINORE" | "DAVANTI" | "DI DIETRO" | "GRANDE" | "MILANESE" | "TORINESE" | "FIORENTINO" | "LOMBARDO" | "NELL'EMILIA" | "CAMPANO" | "ARSIZIO"
+)
+;
+
+PROVINCIE ::= (
+"LC" | 
+"LE" | 
+"AO" | 
+"VR" | 
+"MN" | 
+"PV" | 
+"RC" | 
+"RE" | 
+"BI" | 
+"TP" | 
+"VN" | 
+"AT" | 
+"PI" | 
+"FG" | 
+"IM" | 
+"OR" | 
+"CR" | 
+"MT" | 
+"RM" | 
+"FE" | 
+"PT" | 
+"PO" | 
+"AV" | 
+"CN" | 
+"IS" | 
+"MO" | 
+"BZ" | 
+"RG" | 
+"SS" | 
+"BA" | 
+"RN" | 
+"VC" | 
+"VE" | 
+"MI" | 
+"SP" | 
+"GO" | 
+"BR" | 
+"EN" | 
+"TE" | 
+"FR" | 
+"AP" | 
+"PA" | 
+"AL" | 
+"PZ" | 
+"GR" | 
+"CE" | 
+"CH" | 
+"CS" | 
+"VB" | 
+"TS" | 
+"BO" | 
+"RI" | 
+"UD" | 
+"SA" | 
+"CA" | 
+"LI" | 
+"TO" | 
+"PS" | 
+"KR" | 
+"FO" | 
+"LU" | 
+"PE" | 
+"PC" | 
+"AG" | 
+"BS" | 
+"CZ" | 
+"PG" | 
+"SI" | 
+"VA" | 
+"TR" | 
+"BN" | 
+"RO" | 
+"AQ" | 
+"NO" | 
+"CB" | 
+"FI" | 
+"CL" | 
+"GE" | 
+"TN" | 
+"SV" | 
+"SO" | 
+"CO" | 
+"TA" | 
+"MS" | 
+"ME" | 
+"VI" | 
+"PN" | 
+"BG" | 
+"MC" | 
+"PR" | 
+"CT" | 
+"BL" | 
+"LT" | 
+"PD" | 
+"NU" | 
+"SR" | 
+"AR" | 
+"RA" | 
+"NA" | 
+"LO" | 
+"AN" | 
+"VT" | 
+"TV");

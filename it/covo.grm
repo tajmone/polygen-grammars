@@ -1,0 +1,35 @@
+I ::= "title:    covo\n"
+    ^ "author:   Lapo Luchini &lt;lapo@lapo.it&gt;\n"
+    ^ "language: italian\n"
+    ^ "status:   newborn\n"
+    ^ "topic:    webcomics\n"
+    ^ "audience:" \(golo[^sino]|ceme[^ntino]) ^"\n"
+    ^ "comment:  chiedete a Google\n"
+    ^ "created:  4/9/2005";
+
+S ::= "<h1>"^ \(+covo|coro|cono|tono|tomo|pomo|dono|coso)
+    (degli >(+sbronzi|stronzi)|di "Tom Ponzi"|dei bonzi) ^"</h1>"
+    "<p>"^ \ovvero (la [vera]|una) storia di
+    (
+        (M:(+un fumetto [online]|un blog)|
+            F:(una cavolata|amicizia|vita vissuta|birra bevuta))
+        (disegnat|inchiostrat|creat)^T
+        da (\ceme[^ntino]|qualcuno|un [losco] figuro)
+        e (assemblata|stravolta|colorata|arredata) da
+        (\golo[^sino]|qualcun'altro|un \(alger|maghreb|tunis|marocch)^ino|un macaco)
+    ).(M|F) ^","
+    dove (gli asini|+le birre|i macachi|gli "Stupidi Utenti Medi")
+    (volano|parlano|+bevono|osservano|ruttano|scompaiono) e
+    (le tavole|le vignette|i fumetti|i forum|gli alcoorner|le ricette)
+    (vibrano|saltellano|stupiscono|sconvolgono) ^"."
+    \(c'^E chi|qualcuno|qualche anonimo) >(dice|afferma|sostiene|pontifica|parla)
+    di (un mondo (migliore|peggiore)|giovani (autori|fumettisti))
+    e di (patate|mouse|trackball|tavolette grafiche) che
+    (traballano|disegnano|si divertono|soffrono) ^","
+    ma (tanto|comunque) (sar|stupir)^"&agrave;" come
+    (morire|sbronzarsi|ubriacarsi|una nuova vita|mirare|amarrare|esondare) ^"."
+    "</p>";
+
+T ::= M:o|F:a;
+E ::= "&egrave;";
+

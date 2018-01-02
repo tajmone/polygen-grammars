@@ -1,0 +1,51 @@
+I ::= "title:    Silvio\n"
+    ^ "author:   Er Polo &lt;mogkogk@hotmail.com&gt;\n"
+    ^ "language: italian\n"
+    ^ "status:   refinable\n"
+    ^ "topic:    misc\n"
+    ^ "audience: anybody\n"
+    ^ "created:  07/11/2004"
+;
+
+
+S ::= \Sil \Ber;
+
+
+Sil ::=
+      +++++ [ ( gian | pier ) ^ ] ( gian | pier ) ^ silvio
+    | ++++ [ pier ^ ] si ^ ( rio | + lvan | -- lvester | lly )
+    | +++ [ pier ^ ] ( -- bivio | fulvio ) | ------ paperon \de
+    | ( ( en | do ) ^ decas | abras | persuas | evas | decis
+      | circonc | elis | deris | sorris | perquis | impazz
+      | espans | trans | esplos | innervos | deters | discors
+      | promess | depress | confus | indolenz | raggrinz | incis
+      ) ^ ilvio
+    | ( imperv | nev | + [ gi ^ ] uliv | emil [ ^ v ]
+      | gig | berill | lasciv | elargiv | +++++ lic
+      | basil [ ^ v ] | visibil | decliv | triv
+      ) ^ io
+    | ( cip | bisb | giac | barg | scons | merav | gozzov
+      ) ^ iglio
+    | carcarlo
+;
+Ber ::=
+>>     ( + bunker | --- disil | rimber | ++ pier | ---- cyber | sber
+       ) ^ lusconi
+    | ( buontemp | cianfrusc | + maneggi | + mattacchi | Ber1
+      | spendacci | paper | pravett | --- belbisci | --- belburl
+       | basett | barzell [ ^ ett ] | [ s ^ ] pernacchi
+      ) ^ oni
+    | -- bei ^ ( dobl | fig | mili ) ^ oni
+    | ber ^ ( buffoni | gonzoni | luscodonosor | nasconi | usconi )
+    | --- ( fara | lumac | baracc | + parrucc | melic | zotic | mozzic
+          | verruc | donad | torped | bestemmi | perversi | ++ collusi
+          | cavicchi | faragli | dormigli | rompigli | farfall | ciambell
+          | capell | cervell | brontol | fanfar | calder | chiacchier
+          | zampir | ciclotr | sganass | trapatt | buttigli
+          ) ^ oni
+    | ( "PresDel" | "BerLus") ^ "Cons"
+    | Ber2^usconi
+<<
+;
+Ber1 ::= b,(+p|v|-f)^e^(v|++r|+l)^(+r|v|m),l^us^(+c|g) ;
+Ber2 ::= (+++b|+p|v|-f)^e^(v|+++r|l)^(+r|+l|v|m) ;

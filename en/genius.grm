@@ -1,0 +1,140 @@
+
+I ::=   "title:    The computer genius\n"
+      ^ "author:   Manta\n"
+      ^ "language: english\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim:" Prods and Prod are
+        ( "Mulino Bianco" | "Barilla" | "Vodafone" | "MacDonald's"
+        | "Chupa & Chups" | "De Longhi" | "Ferrero" | "Burger King"
+        | "Calvin Klain" | "Valentino" | "Ferrari" | "Rolls Royce"
+        )
+        (^"," [limited] "inc.")
+        trademarks ^ "\n"
+      ^ "created:  12/11/2002"
+;
+
+Prod ::= Prog | Qual1 [Qual2]
+;
+Prods ::= Prod [^"," Prods]
+;
+
+S ::= \Question ^ "?\n\n" ^ \Answer ^ "."
+;
+
+Question ::= [man^","] [do you know] how
+             ( (can | may | could | might) "I" (Pred.inf | do for Pred.ing)
+             | to Pred.inf
+             ) [Locus]
+          |  [genius^","] "I" (cannot | ^'m not able to) Pred.inf [Locus]^","
+             how does it work
+;
+
+Answer ::= [first [of all] | the point is that] Period.inf
+;
+
+Period ::= [Locus]
+           you (Aux.neg Pred.inf | Either.(aff|neg))
+           (---- _
+           |     (^"," so that | and | ^"," >(in such | this) way | but) [then | therefore] Period.
+           |     [in order] to Pred.inf.
+           |     for Pred.ing.
+           )
+;
+
+Either ::= (aff: n^ | neg: _) either Aux Pred.inf^"," (aff: n^ | neg: _) or Aux Pred.inf
+;
+
+Aux ::= should [(neg: n^ | aff: _)ever]
+     |  ([1: (neg: n^ | aff: _)ever] (have | need) [2: (neg: not | aff: _)]).(1|2) to
+     |  can (neg: (^not | ^'t) | (neg: n^ | aff: _)ever | aff: _)
+     |  must
+;
+
+Pred ::= Verb Obj
+;
+
+
+Obj ::= (the | a) [[Qual1] [Qual2]] Noun
+     |- Obj (of | over | on | to) Obj
+;
+
+Locus ::= from Prog [(and | or) Locus]
+       |  from the [control] (preferences | options | file | tools | panel | folder | drawer)
+          [menu] (inside | within) Prog
+;
+
+Prog ::= ( ["X-"^]"Windows" | ["MS-"^]"DOS"
+         | ["Redhat" | "SuSe" | "Debian" | "Mandrake"] ["Mk"^]"Linux"[^"PPC"]
+         | [i^]"Mac"[^"OS" ["X"]] | "ICQ"
+         | "Office" | "Word" | "Excel" | "Outlook" ["Express"] | "Photoshop"
+         | "Flash" ["MX"] | ["Internet"] "Explorer" | "Netscape" | "AutoCAD"
+         ) [Ver]
+;
+
+Noun ::= controller | driver | [micro^]kernel | [operating] system | hard disk
+      |  floppy disk | case | [micro^]processor | "BIOS" | display | file
+      |  [(mini | midi)^]tower | monitor | modem | ["Internet" | "Web"] site
+      |  server | proxy | provider | mouse | cable | clock | ["front-side"] bus
+      |  virus | tool | software | program | hardware | mailer
+      |  attachment | forward | computer | [secret] (code | password)
+      |  (memory | "e-mail" | "Internet" | "Web") address | mousepad
+      |  sendmail | terminale | desktop | button | gadget | [sub^]menu
+      |  wordprocessor | editor | connector | pin | jumper | pointer
+      |  (front | back)^"-end" | firewall
+      |  [mother | key^ | graphics | sound] board | "SIMM" | printer
+      |  "CPU" | cache | memory | ["e-"^]mail | "URL" | utility | application
+      |  "GPU" | "FPU" | periferic | device | window | "GUI" | connection | login
+      |  shell | [command] prompt | icon | space bar
+      |  head | [Qual1 [Qual2]] port [Num] | line | fan | folder | directory
+;
+
+Qual2 ::= "SCSI" | ["E"^]"IDE" | "CD" | "AGP" | "PCI" | "ISA" | "DVD" | "ISDN"
+       |  "ADSL" | "BIOS" | "LCD" | "3D" | "Direct"^("X" | "3D" | "GL") | "OpenGL"
+       |  "3Dfx" | "DLL" | "AT"[^"I" | "X"] | ethernet | "TCP/IP" | "TCP" | "IP"
+       |  "2D" | "POP"[^3][^mail] | "SMTP" | "IRC"
+;
+
+Qual1 ::= "Fast" | "Ultra" [^"-wide" | ^"DMA" [^Num] | ^flat] | "RO" | "RW"
+       |  [("SG" | "D" | "S" | "EP")^] ("RAM" | "ROM") | laser | serial
+       |  parallel | graphic| "LCD" |  Num^"X" | Num^"-bit" | "USB" | coaxial
+       |  digital | analogic | "MIDI" | Num^"-inch" | "level-"^Num
+;
+
+Num ::= Digit [^Digit]
+;
+
+Digit ::= 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+;
+
+Ver ::= Digit^"."^Digit[^"."^Digit] | "NT" | "XP" | 9^Digit | Digit^000
+;
+
+Verb ::= [re^ | un^]install (ing: ^ing | inf: _) [on]
+      |  (renam | [re^]configur)^(inf: e | ing: ing)
+      |  (open | close) (ing: ^ing | inf: _)
+      |  debug (ing: ^ging | inf: _)
+      |  reset (ing: ^ting | inf: _)
+      |  get (ing: ^ting | inf: _) access (over | on)
+      |  turn (ing: ^ing | inf: _) (off | on)
+      |  (remov | delet)^(inf: e | ing: ing) [from]
+      |  cancel (ing: ^ling | inf: _)
+      |  digit (ing: ^ing | inf: _) (from | on)
+      |  ([un^]link | [dis^]connect) (ing: ^ing | inf: _) [to | from | with | into]
+      |  insert (ing: ^ing | inf: _) [in | on]
+      |  overclock (ing: ^ing | inf: _)
+      |  [un^]mount (ing: ^ing | inf: _)
+      |  (dis | en)^abl^(inf: e | ing: ^ing)
+      |  ping (ing: ^ing | inf: _) [to]
+      |  boot (ing: ^ing | inf: _) [from | with]
+      |  [up^ | down^] load (ing: ^ing | inf: _) [from | to]
+      |  log (ing: ^ging | inf: _) (from | on | in)
+      |  sav^(inf: e | ing: ing) [on | from | to]
+      |  explor^(inf: e | ing: ing) [with]
+      |  [double^]click (ing: ^ing | inf: _) [on | with]
+      |  send (ing: ^ing | inf: _) [to]
+      |  receiv^(inf: e | ing: ing) [from]
+      |  telnet (ing: ^ting | inf: _) (to | from | on)
+      |  forward (ing: ^ing | inf: _) (to | from)
+;

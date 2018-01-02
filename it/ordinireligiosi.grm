@@ -1,0 +1,118 @@
+I ::= "title: Ordini religiosi\n"
+    ^ "author: Lupigi\n"
+    ^ "language: italian\n"
+    ^ "created: 08/05/2008"
+    ^ "last update: 21/05/2008"
+;
+
+S ::= \ sostieni con il tuo 5 per mille
+        ( ( (M:il|F:la) Convento de^(M:i|F:lle) | (M:i|F:le) )
+        [ Aggettivo1 ] Congregazione
+        [ Aggettivo2 ]).(M|F) Dedicazione
+;
+
+Convento ::= M: >( \convento | \monastero ) |
+             F: >( \confraternita | -\(M:frat|F:sor)^ellanza | \trappa | \congregazione )
+;
+
+Congregazione ::= M: >(frati | monaci | -fraticelli | --monachelli | padri ) |
+                  F: >(sorelle | suore | monache | -sorelline | -monachelle)
+;
+
+Aggettivo1 ::= >(pi | devot) ^(M:i|F:e) | fedeli | --pertinaci
+;
+
+Aggettivo2 ::= >(scalz | addolorat | crocifiss | misericordios | doloros |
+               odoros | pietos | generos |  clariss | carmelitan | francescan |
+               domenican | benedettin | orsolin | archimandrit | pastorell |
+               pellegrin | oblat | norcin | laic(F:^h) | salesian | paolin |
+               petrin | dehonian | agostinian | trappist | confederat | gesuit |
+               scolop(F:^i) | somasch | recollett | urbanist | colettin |
+               cappuccin | calzat | visitandin | passionist | romit |
+               redentorist) ^(M:i|F:e) |
+               adoranti | oranti | claustrali | virginali | conventuali |
+               monacali | circestensi | premonastrensi | mendicanti
+;
+
+Dedicazione ::= ((M:del|F:della) Luogo).(M|F) di Santo |
+                di Santo [ e Oggetto ] | Oggetto [ -e ( di Santo | Oggetto ) ] |
+                ( della \madonna Dedicamaria |
+                di \nostra \signora ((M:del|F:della) AggettivoOgg NomeOgg).(M|F) |
+                di \nostra \signora Dedicamaria )
+;
+
+Santo ::= [\santa] \maria ( _ | +AggettivoMaria) |
+          [\nostro \signore] \gesu' [ \cristo ] AggettivoGesu |
+          +\san (Nome [AggettivoSanto]).(M|F) ( _ | -Origine)
+;
+
+Oggetto ::= ((M:del|F:della) AggettivoOgg NomeOgg).(M|F) [ di Santo ]
+;
+
+AggettivoMaria ::= \vergine [ --delle vergini ] | \immacolata | benedetta |
+                   liberatrice | consolatrice | ----sommozzatrice |
+                   piena di \grazia | incoronata | addolorata | piagata |
+                   piangente | \regina ( degli \apostoli | dei \martiri |
+                   dei \santi | dei \patriarchi | dei \profeti ) |
+                   \madre >( di \dio | del \salvatore | del \redentore |
+                   della \divina \grazia | del \creatore | di [\gesu'] \cristo |
+                   della \chiesa | di \misericordia ) | degli \angeli
+;
+
+Dedicamaria ::= d (
+                  ^i >(\loreto | \fatima | \medjugorie | \czsestochowa | \lourdes |
+                  \santiago | \montenero | \guadalupe ) |
+                  ^el >(\frassine | \monte | \carmine | \bosco | \deserto |
+                  \rosario | \suffragio | \mare | \naufragio | --\gazzo ) |
+                  ^ella >( \misericordia | \guardia ) |
+                  ^egli >( \angeli ) |
+                  ^ei >( \miracoli ) |
+                  ^elle >( \grazie | \fontane | \lacrime | \suppliche ) )
+;
+
+AggettivoGesu ::= \salvatore | \redentore | [ \buon ] \sacerdote |
+                  \archimandrita | \buon \pastore | \buon \samaritano |
+                  \taumaturgo | \risorto | \crocifisso | \bambino |
+                  \re [ dell'\universo | [\profeta] e \sacerdote | del \cielo ]
+;
+
+Nome ::= M: >(( \francesco | \saverio | \benedetto | \fatucchio | \pietro |
+                \luigi | \paolo | \agostino | \giacomo | \filippo | \marco |
+                \giovanni | \giuseppe | \gaetano | \cerbone | \callisto |
+                \tarcisio | \martino | \bartolomeo | \matteo | \marco | \luca ) |
+             ^t' ^( \antonio | \alessandro | \anselmo | \iginio | \ernesto |
+                 \osvaldo | \uberto )) |
+         F: ^ta >( \maria \maddalena | \chiara | \brigida | \genoveffa |
+                \emerenziana | \sabina | \serena | \laura | \lucia |
+                \alessandra | \giulia | \giuliana | \concetta | \fabiola |
+                \cecilia [ \metella ] | \marta | \lucrezia [ \romana ] |
+                \francesca [ \romana ])
+;
+
+AggettivoSanto ::= M: >( martire | apostolo | evangelista | abate | \papa |
+                      \battista | artigiano | -campanaro ) |
+                   F: >( vergine | martire | crocifissa | --\papessa )
+;
+                   
+Origine ::= di >( \sales | \gesu' [ \cristo] ) |
+            d' ^>( \assisi | \africa | \aquino ) |
+            da >( \porto \maurizio | \norcia | \siena | \padova ) |
+            della \croce
+;            
+
+AggettivoOgg ::= >( divin | \sacr | \sacratissim | \santissim | dolcissim |
+             divinissim | beatissim | \beat | preziosissim | --salatissim )
+             ^(M:o | F:a)
+;
+
+NomeOgg ::= M: >( \verbo | \sangue | \corpo | \cuore | \costato | \sacramento |
+               \rosario | \nome | \amore ) |
+            F: >( \grazia | \stigmata | \concezione | \assunzione | \cintola |
+               \traslazione | \assunzione | \reliquia | \spina | -\seggiola |
+               \misericordia | \croce )
+;
+
+Luogo ::= M: >( \duomo | -\chiostro ) |
+          F: >( \cattedrale | \cattedra | \basilica | \propositura |
+             \parrocchia | -\torre )
+;

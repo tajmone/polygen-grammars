@@ -1,0 +1,35 @@
+I ::=   "title:    Ai Poster L'Ardua Sentenza\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "comment:  i poco invasisvi cartelloni con cui il Sindaco d'Italia ha tappezzato le citta'. Dedicato a tutti quelli che non fanno altro che parlarne, sia bene che male\n"
+      ^ "disclaim: non si vuole recare offesa a nessuna etnia, salvo ovviamente "^RAZZA.A ^"\n"
+      ^ "warning:  l'autore ci tiene a sottolineare che non e' affiliato a nessuna corrente politica\n"
+      ^ "created:  13/04/2004"
+;
+
+
+S::= PREMESSA SEGNO.PU2 (PM COSAGEN PERCHI | PM COSAGEN SEGNO.V PM COSAGEN | COSAGEN SEGNO.V non COSAGEN | (CIFRA^CIFRA^CIFRA^)+ ^" "^ COSE in PM [nel 20^CIFRA^CIFRA] | COSAGEN e COSAGEN PERCHI)SEGNO.PU3;
+
+COSAGEN ::= COSA | COSE ;
+
+COSA ::= (tasse | topa | -\helder | comunismo | \milan [a due punte] | fatti | pugnette | pane | proibizionismo | sicurezza | sinistra | [dis^]occupazione | festivita' | pensioni | patente a punti | giustizia  );
+
+COSE ::= incidenti [stradali] | evasioni [fiscali] | RAZZA.NA | scorregge | euro | lifting | posti di lavoro | festivita' (aggiunte | tolte) | intellettuali [di sinistra] [rompicoglioni] |  disoccupati | toghe rosse ;
+
+RAZZA ::= ((A:i|NA:_)cinesi |(A:gli|NA:_) italiani |(A:gli|NA:_) onanisti |(A:i|NA:_) gay |-(A:_|NA:_) \helder |(A:i|NA:_) buddisti |(A:i|NA:_) marocchini |(A:gli|NA:_) eschimesi |(A:gli|NA:_) zingari |(A:i|NA:_) comunisti |(A:i|NA:_) rompicoglioni |(A:gli|NA:_) interisti|(A:gli|NA:_) ariani |(A:gli|NA:_) imbecilli |(A:i|NA:_) crucchi |(A:i|NA:_) francesi |(A:gli|NA:_) spagnoli|(A:gli|NA:_) albanesi |(A:i|NA:_) tibetani ) [clandestini];
+
+PERCHI ::= per (tutti | alcuni | me | la sinistra | RAZZA.A);
+
+PREMESSA ::= \(IMPEGNO.M concreto | {IMPEGNO.M} {CONCRETO.M} | {IMPEGNO.F} {CONCRETO.F}  );
+
+IMPEGNO ::= M:(un impegno | un obbiettivo | un compromesso ) | F:(una promessa | una politica | una soluzione) ;
+
+CIFRA ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+
+CONCRETO ::= [non] (mantenut | raggiunt | dimenticat | scartat | sottoscritt ) ^(M:o|F:a);
+
+PM ::= piu'|meno;
+
+SEGNO ::= (PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":" | PU3: ^"."\ | V: ^"," | VT: ^"\""\ );

@@ -1,0 +1,66 @@
+
+I ::=   "title:    Rappa NameZ\n"
+      ^ "author:   Manta\n"
+      ^ "language: english\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim: courtesy of"
+        ("EMI" | "Virgin" | "Sony" | "Philips" | "Columbia")
+        (["Music" | "Home"] "Entertainment" | "Records") ^ "\n"
+      ^ "created:  23/01/2003"
+;
+
+S ::= (+ Pre | _) Init.dot [Roman]
+   |  [Pre] Init.NOdot ^ "-" ^ Name
+   |+ [Pre] Name (Name |+ _) [Init.dot | Roman]
+;
+
+Roman ::= "II" | "III" | "IV" | "V" | "VI" | "VII" | "VIII" | "IX" | "X"
+;
+
+Num ::= + 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+;
+
+Init ::= Letter [^ (Letter |- Num) (^ (Letter |-- Num) |++ _)]
+;
+
+Pre ::= ("Dr." | "Doc.") | "Mr." | ("Big" |- "Little") ["Bro"] | "Dj"[^"."]
+     |  "Boss" | "Papa" | "Dad"[^dy] | "Ice"
+;
+
+Letter ::= [\] ( a | b |+ c | d | e | f | h | i |++ j |++ k | l | m | n | o
+               | p |+ q | r | s | t | u | v |+ w |++ x |+ y |+ z
+               ) (dot: ^"." | NOdot: _)
+;
+
+Name ::= \ (  [(j | k | q | x | b)^]
+              (a | e | o) ^
+              ([\]x[^[\]x] | [\]z[^[\]z] | [\]d[^[\]d] |--- Letter.NOdot )
+              [^ (e |- i | o)]
+           |  (p | d | f | b | z | x | w | j | g | n | t | r) ^
+              (a |- e | Y | O) ^
+              [\] (pp | dd | ff | bb | zz | xx | gg | nn | tt | rr) ^
+              (y | ie[^Z] | io[^o] | iu^Z)
+           |  ( C^ornel | a^T^roc | [s^]per^F^Y^d | C^(O | ew)^l
+              | a^(df | ff | F)^l^Y^C^t | add^Y^C^t | [a^]e^T^ern
+              | narc^Y^Z | con^F^l^Y^C^t | no^T^or | n^Y^C^ot^Y^n
+              | ne^(C | T)^tun | ne^C^ro^F^Y^l | zer | le^O^p^O^ld
+              | an^T^ra^(C | x) | n^O^Z | ma^Z | C^a[^l] | l^(Y | O)^l | C^Y^m
+              | sk^Y | l^(O | u)^d^O^vic | n^Y^n^F^o^[ma^]n | hel[^l]d^(er |- a)
+              ) ^ (ie | io[^o] |+ iu^Z | ity)
+           )
+;
+
+C ::= c[^h] | k |- q
+;
+F ::= f | ph
+;
+T ::= t[^h]
+;
+Y ::= i | y
+;
+Z ::= s |- [\]z[[\]^z]
+;
+O ::= o | [\]o^[\]o
+;

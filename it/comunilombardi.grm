@@ -1,0 +1,22 @@
+I ::= "title:    Comuni lombardi\n"
+    ^ "author:   Chettimar &lt;blogbroadway@gmail.com&gt;\n"
+    ^ "status:   beta\n"
+    ^ "topic:    geografia\n"
+    ^ "language: italian\n"
+    ^ "created:  18/12/2004" ;
+
+S ::= Prefisso ^ (+++++++"ate" |+ "ago" |--- "one" |- "ano" |-- "usco" | --- "ono" | ----- "edo") [Suffisso];
+
+Prefisso ::= \vertem | \canegr | \pantigli | \bremb | \capri | \bon | \galbi | \garl | \pesc | \olgin | \olgi | \rovagn |
+          \robbi | \carn | \usm | \vel | \vimerc | \orn | \osn | \agr | \capon | \caven | \camb | \gess | \car | \albi |
+          \giuss | \mari | \liss | \carug | \cern | \segr | \vign | \vimodr | \lambr | \lisc | \tribi | \melegn |
+          \coltur | \tavazz | \landri | \air | \anz | \lur | \carim | \cermen | \lent | \alb | \grand | \guanz | \trad |
+          \loc | \mozz | \lon | \ved | \cair | \fagn | \solb | \marn | \gallar | \besn | \samar | \magn | \busc | \arcon |
+          \nos | \turb | \galli | \bern | \ros | \bes | \casor | \vern | \born | \lardir | \bruzz | \albuzz | \copi |
+          \gerenz | \corn | \alz | \urgn | \ciser | \civid | \gard | \carciof | \asfalt | \fregnacci | \asport | \puzz |
+          \bon | \barz | \bulci;
+
+Suffisso ::= \sopra | \sotto | con \minoprio | \masciago | \molgora | \olona | \brianza | \comense | sul \naviglio |
+          \lombardone | \monzese | al \lambro | d'\adda | \milanese | \lodigiano | d'\erba | sul \seveso | \comasco |
+           \caccivio | \gentile | \varesino | \ceppino | san \gervasio | \gera d'\adda | san \salvatore | san
+           \bartolomeo | \mornasco | val \trompia | \monastero;

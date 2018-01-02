@@ -1,0 +1,115 @@
+I ::=   "title:    Messages for Cappuccino\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   useable\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  16/09/2006"
+;
+
+S ::= \ Phrase ;
+
+Phrase ::= >Unary 
+         | >Binary
+	 | -----"Found a bug in" Object ^"!  Reporting to" Adjective "BTS..."
+	 ;
+
+Unary ::= UnaryAction Object ;
+Binary ::= (>UnaryAction | >BinaryAction) Object (and|with) Object ;
+
+UnaryAction ::= -aggregating
+	| arranging
+	| -arranging
+	| assembling
+	| aligning
+	| clearing
+	| checking
+	| --clustering
+	| -collecting
+	| -combining
+	| compiling
+	| composing
+	| converting
+	| compressing
+	| --debugging
+	| evaluating
+	| gathering
+	| grouping
+	| growing
+	| installing
+	| inspecting
+	| linking
+	| mapping
+	| matching
+	| monitoring
+	| --mining
+	| optimizing
+	| organizing
+	| --pairing
+	| processing
+	| refining
+	| repairing
+	| sorting
+	| storing
+	| stripping
+	| testing
+	| transforming
+	| trimming
+	| verifying
+	| --deleting
+	| --formatting
+	| --unoptimizing
+	;
+
+BinaryAction ::= comparing | joining ; 
+
+Item ::= module | library | executable | agent | --bug | code ;
+
+Object ::= Adjective Item
+         | Item "#"^Number
+	 ;
+
+Adjective ::= _
+	| accessory
+	| addendum
+	| additional
+	| adjunct
+	| ancillary
+	| assisting
+	| auxiliary
+	| backing
+	| binary
+	| collateral
+	| complementary
+	| --contingent
+	| --defective
+	| --deputy
+	| extra
+	| helper
+	| -inessential
+	| instrumental
+	| modal
+	| main
+	| new
+	| -nonessential
+	| --other
+	| peripheral
+	| secondary
+	| --servant
+	| slave
+	| master
+	| spare
+	| subordinate
+	| subsidiary
+	| superfluous
+	| supernumerary
+	| supplementary
+	| supporting
+	| transitive
+	| ulterior
+	| unessential
+	| nonexistant
+	| unknown
+	;
+
+Digit ::= 0|1|2|3|4|5|6|7|8|9 ;
+Number ::= Digit (_| ++^Number) ;

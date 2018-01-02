@@ -1,0 +1,88 @@
+
+I ::=   "title:    Pythonizer\n"
+      ^ "author:   Pan &lt;pansk@tiscalinet.it&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   final\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  14/10/2002"
+;
+
+S ::= \Action ^"." \You ^"." \Parental ^"." \Final ^"."
+;
+
+Parental ::= (YourMother [^"," OtherParents] | YourFather [^"," OtherParents] | (YourMother "and" YourFather) | OtherParents)
+;
+
+OtherParents ::= Son | ("your grandmother" | "your aunt" | "your sister" | "your brother") ParentalInsult
+;
+
+Son ::= "son of" Insult1 ParentName
+;
+
+Insult1 ::= ("a silly" | "a stupid" | "an idiot" | "a fat" | "an ugly" | "a bad smelling" | "an old" | "a rather useless")
+;
+
+ParentName ::= ("person" | "police officer" | "dead parrot" | "three headed monkey" | "so-called" ("man" | "woman") )
+;
+
+Action ::= SelfAction | "I" MyAction
+;
+
+SelfAction ::= (Action1 | Action2 | Action1 "and" Action2)
+;
+
+MyAction ::= (Action3 | Action4 | Action3 "and" Action4)
+;
+
+Action1 ::= ("piss on" | "shit on" | "lick") Target
+;
+
+Target ::= "yourself" | "your bigaunt" | "your friends" | "your" Animal4
+;
+
+Action2 ::= "go" ["away"] | "boil your bottom" | "hit yourself" ["repeatedly"] "with a" ["large" | "big"] ("fish" | "eggplant")
+;
+
+Action3 ::= ("piss on" Target2 | "shit on" Target2 | "spit on" Target2 | "fart in your" ["general"] "direction")
+;
+
+Target2 ::= "you" | "your bigaunt" | "your friends" | "your" Animal4
+;
+
+Action4 ::= "boil your bottom" | "hit you" ["repeatedly"] "with a" ["large" | "big"] ("fish" | "eggplant")
+;
+
+YourMother ::= "your mother" ParentalInsult
+;
+
+Animal ::= Animal1 | Animal2
+;
+
+Animal1 ::= Insult1 Animal4
+;
+
+Animal2 ::= ("an hamster" | "a reindeer" | "a cow" | "an horse" | "a" [dead] "parrot" | "an asshole")
+;
+
+Animal3 ::= ("other peoples" | ["dead"] Animals)
+;
+
+Animals ::= ("hamsters" | "reindeers" | "cows" | "horses" | "parrots")
+;
+
+Animal4 ::= ("hamster" | "reindeer" | "cow" | "horse" | "dead parrot");
+YourFather ::= "your father" ParentalInsult
+;
+
+Smelling ::= "elderberries" | "strawberries" | "eggplants" | "shit" | "banana"
+;
+
+Final ::= Action
+;
+
+You ::= "you're" Animal | "You" ("wiper" | "cleaner" | "eater") "of" [Animal3] ("bottoms" | "private parts" | "escrements")
+;
+
+ParentalInsult ::= ("was" Animal | ("smelt" ("of" Smelling | "like" Animal)))
+;

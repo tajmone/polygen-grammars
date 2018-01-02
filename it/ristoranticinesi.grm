@@ -1,0 +1,17 @@
+I ::=   "title:    Ristoranti Cinesi\n"
+      ^ "author:   Lalaura &lt;laura@micionline.com&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  30/06/2004"
+;
+
+S ::= Inizio Fine 
+;
+
+Inizio ::= "Il Drago" | "Il Giardino" | "La Porta" | "Il Panda" | "La Cina" | "Il Drago" | "La Primavera" | "La Muraglia" | "La Pagoda" | "Il Mandarino" | "Il Bambu'" | "La Fortuna" | "Il Loto" | "La Prosperita'" | "L'Impero"
+;
+
+Fine ::= "di Pechino" | "Pechinese" | "di Shangai" | "di Chang" | "D'Oro" | "di Giada" | "della Fortuna" | "di Primavera" | "di Bambu'" | "Cinese" | "Della Felicita'" | "di Loto"| "D'Oriente" | "Italo Cinese" | "del Buddha" | "Imperiale"
+;

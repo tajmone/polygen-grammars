@@ -1,0 +1,117 @@
+I ::=     "title: Telecronaca calcistica di Bruno Pizzul\n"
+		^ "author:   Velenux &lt;velenux@oltrelinux.com&gt;\n"
+		^ "language: italian\n"
+		^ "status:   testing\n"
+		^ "topic:    azioni da moviola\n"
+		^ "audience: tutti i tifosi\n"
+		^ "dedicato a:" Giocatore ^"\n"
+		^ "created:  26/03/2004"
+;
+
+
+(* --- PRINCIPALE --- *)
+							  
+S ::= \ Inizio ^ "..." Svolgimento ^ "..." Fine [ S ] ;
+
+
+
+(* --- BLOCCHI PRINCIPALI --- *)
+
+Inizio ::= CentroCampo | RecuperoPalla | Punizione ;
+
+Svolgimento ::= AzionePersonale | AzioneOrchestrata ;
+
+Fine ::=  Gol [CommentoGol] | Legno [CommentoLegno] | Fuori [CommentoFuori]
+	| Fallo [CommentoFallo] ;
+
+
+
+(* --- BLOCCHI SECONDARI INIZIO --- *)
+
+CentroCampo ::= si riparte da centrocampo ^ "." Giocatore passa a Giocatore ;
+
+RecuperoPalla ::= Soggetto (recupera|ruba) palla InZona ;
+
+Punizione ::= dopo il brutto fallo [da dietro] su Giocatore ^ "," 
+	      si riparte con la punizione ^ ";" batte Giocatore ^ ","
+	      che AzioneOrchestrata ^ "..." ecco ;
+
+
+
+(* --- BLOCCHI SECONDARI SVOLGIMENTO --- *)
+
+AzionePersonale ::= calcia UnTiro direttamente da dove si trova 
+		  | AzioneGiocatore e poi tira in porta ;
+
+AzioneOrchestrata ::= (Passaggio|Cross|Lancio) Giocatore [^ "," che AzioneOrchestrata] ;
+
+
+
+(* --- BLOCCHI SECONDARI FINE --- *)
+
+Gol ::= ed "e`" [un gran[^de|^dissimo]] gol PuntiEsclamativi ;
+
+CommentoGol ::= una gran(^de|^dissima) azione PuntiEsclamativi | una azione che "restera`" negli annali del calcio;
+
+Legno ::= (palo[^(oo|oooo|ooooooo)]|traversa) PuntiEsclamativi ;
+
+CommentoLegno ::= "e`" una vera sfortuna per (Giocatore|la squadra) PuntiEsclamativi ;
+
+Fuori ::= (e Giocatore la butta fuori|ed "e`" a lato di poco|e spara alto) PuntiEsclamativi ;
+
+CommentoFuori ::= ma come ha fatto a sbagliare quel tiro ^ "???" | era "piu`" difficile sbagliare ^ "...";
+
+Fallo ::= e viene (messo "giu`"|atterrato|falciato) [da Giocatore] ^ "..." \ ;
+
+CommentoFallo ::= veramente una bruttissima entrata ^ "..." | un fallo tattico per fermare "l'azione" ^ "..." ;
+
+
+
+
+(* --- HELPERS --- *)
+
+Soggetto ::= il numero NumeroMaglia | ++ Giocatore | il giocatore NumeroMaglia ^ "," Giocatore ^ ",";
+
+InZona ::= a centrocampo | in difesa | nella "meta`" campo avversaria
+	 | al limite "dell'area" | poco oltre centrocampo 
+	 | vicino alla bandierina del calcio "d'angolo"
+	 ;
+
+UnTiro ::= (una (pennellata|scodellata|bomba|salamelecca|[gran] botta da fuori) 
+	   | un tiro (potente|preciso|ad effetto) )
+	   verso (la porta|"l'incrocio" dei pali|il (primo|secondo) palo|il portiere)
+	 ;
+
+AzioneGiocatore ::= [AzioneGiocatore ^ ","] (
+		    (parte|si invola) (sulla fascia|verso il centro)
+		  | dribbla NumeroDribling giocatori [ con una serie di finte ]
+		  | scatta in avanti
+		  )
+		  ;
+
+NumeroDribling ::= 2 | 3 | 4 ;
+
+PuntiEsclamativi ::= ^ ("!"|"!!"|"!!!") \ ;
+
+Passaggio ::= (passa|avvicina|tira) la (sfera|palla) [ancora|di nuovo] a ;
+
+Cross ::= (crossa|lancia alto) la (sfera|palla) [ancora|di nuovo] a ;
+
+Lancio ::= (lancia lungo) per ;
+
+
+
+
+(* --- HELPERS per gli HELPERS --- *)
+
+NumeroMaglia ::= 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 ;
+
+Giocatore ::= "Meneghin" | "Barelli" | "Branca" | "Stivetto" | "Baroni"
+	    | "Scamuorz (e` tedesco)" | [il brasiliano] "Duilio"
+	    | "Sempronio" | "LaMorte" | "Ciccio" | "Di Giovanni" 
+	    | "Rotulino" | "Del Giglio" | "Canimortis" | "Esposito"
+	    | "Di Francesco" | "Biddi" | "Cardu" | "Analis"
+	    ;
+
+
+

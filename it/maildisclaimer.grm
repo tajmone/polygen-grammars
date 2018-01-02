@@ -1,0 +1,107 @@
+I ::= "title:    MailDisclaimer\n"
+    ^ "author:   ..:: cki ::..\n"
+    ^ "language: italian\n"
+    ^ "status:   refinable\n"
+    ^ "topic:    office\n"
+    ^ "audience: anybody\n"
+    ^ "created:  20/01/2005"
+;
+
+
+S ::= (Soggetto >Per Cong Contiene Se Finale).(M|F) ;
+
+
+Soggetto ::= F:\questa ( stronzata | cazzata | mail | comunicazione)
+           | M: \ questo( messaggio | ------------papocchio)
+;
+
+Per ::= [((superflu|utilissim)^(F:a|M:o) | inutile | senza senso | avvincente)] e' Verbo Avverbio A
+;
+
+Verbo ::= (rivolt | indirizzat | spedit | inviat)^(F:a|M:o)
+;
+
+Avverbio ::=  esclusivamente | unicamente | solamente | soltanto
+;
+
+A ::= al destinatario AggA
+;
+
+AggA ::= designato
+;
+
+Cong ::= e ( puo'| potrebbe)
+;
+Contiene ::= (nascondere | contenere | essere farcit^(F:a|M:o) con) (>Contenuto).(S|P|I|O)
+;
+
+Contenuto ::= (P:(informazioni | notizie | note | news | nocciole | cozze | immagini)
+            |S: ( crema [pasticcera] | cioccolata )
+            | I: (allegati | alligatori | panini)
+            | O: (grana padano | prosciutto)) AggCont
+;
+
+
+AggCont ::= [assolutamente|decisamente] (riservat | privilegiat | privat | sopraffin | squisit
+          | caldissim | dolcissim | saporit | zozz)^(P: e | S: a | I: i | O:o)
+;
+
+Se ::= ^"." \(se | qualora | nel caso in cui)  Verbo2 Per2 Faccia ^"."
+;
+
+Verbo2::= (l'avesse (ricevut | apert | lett)
+        | le fosse (arrivat|giunt| stat^(M:o|F:a) (lanciat | tirat| inviat | mandat )))^(M:o|F:a)
+;
+
+Per2 ::= per (errore | sbaglio | distrazione | curiosita'| sport) ^","
+;
+
+Faccia ::= l^(M:o|F:a) (distrugga | elimini | cancelli | mangi | bruci | faccia sparire)  Avv2 E1 E2
+;
+
+Avv2 ::= >(immediatamente | senza (indugi^(o|are) | frapporre altro tempo in mezzo
+       | remore | alcun dubbio | farsi vedere))
+;
+
+Avv3 ::= >(immediatamente | senza (indugi^(o|are) | frapporre altro tempo in mezzo
+       | remore | alcun dubbio | farci vedere))
+;
+
+E1 ::= ^"," (spenga (il computer | il telefonino | la luce)| [ci] si faccia una minestra)
+;
+
+E2 ::=  e >(si ((getti | butti) dalla finestra | denunci Avv2) | balli un >Ballo
+     | compri una mortadella | ci (avverta|denunci|scriva|notizi) Avv2 )
+;
+
+Ballo ::= cha cha cha | ^a ( tarantella | polka | rumba | samba )
+;
+
+Finale ::= \ >(qualsiasi altro uso di questo messaggio da parte sua e' ParticFin
+         | se dovesse >Verbo3 questa mail >Faremo | la presente si autodistruggera' entro Tempo secondi ) ^"."
+;
+
+Tempo ::= (0 |1 ^Tempo|(2|3|4|5|6|7|8|9)  [^Tempo])
+;
+
+Verbo3 ::= riutilizzare | rileggere | forwardare | inviare a (Chi2).(MM|FF)
+;
+
+Chi2 ::= su^(MM:o|FF:a) (nonn|zi|cugin) ^(MM:o|FF:a)
+;
+
+Faremo ::= ((chiameremo [Avv3] | avvertiremo [Avv3] | la denun^(c|zi)^eremo [Avv3] (L:al^ |N: a | AI: a^)) >(Chi)).(L|N|AI)
+;
+
+Chi ::=  (L:>(la protezione civile | l'esercito [della salvezza]
+      | le forze dell'ordine | la forza pubblica | la legione straniera
+      | la milizia padana |+++ l'ispettore \(gadget | clouseau | colombo | zenigata))
+      | N: >(\topolino | \topo \gigio | striscia la notizia | \marrazzo
+      | mi manda rai tre | nostro cugino | \paola e \chiara | suor \germana | \braccobaldo | mr^"." \magoo )
+      | AI: >(i carabinieri | i servizi segreti [civili | militari]) | i gemelli diversi | i \jalise | i flaminio mafia)
+;
+
+ParticFin ::= vietato [dalla legge] | proibito | (vivamente | altamente) sconsigliato
+            | perseguibile [penalmente] | da ( coglioni| idioti | rincoglioniti)
+;
+

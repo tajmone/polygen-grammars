@@ -1,0 +1,291 @@
+I ::=   "title:    Art Exhibitions\n"
+      ^ "author:   Zcode &lt;zcode@tiscali.it&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  26/5/2004"
+;
+
+S ::= "<style type=text/css>"
+ 	  "P {LINE-HEIGHT:" LineH "}"
+	  "</style>"
+	  "<table width="Width"><tr><td>"
+	  "<p><font face=Tahoma size=6 color=" TitColor ">"
+	  "<b>" Intest "</b>"
+	  ["<br>"Subtitolo]
+	  ["-"Year|"("^Year^")"|^"<br>"Year]
+	  ["<br>"Museum]
+	  "</font></p>"
+	  "<p><font face=Tahoma size=6 color=" TxtColor ">"
+	  \Prop1 Text^"."
+	  "</font></p>"
+	  "</td></tr></table>";
+	  
+TitColor ::= "#CC9900" | "#339999";
+LineH ::= 1^(5|6|7|8|9)^px ;
+TxtColor ::= "#999999" | "#666666" | "#000000" | "#999966"; 
+Width ::= "70%" | "80%" | "90%" | "100%";
+
+Opera := Titolo;
+
+Intest ::= (Artists (":"|"-"|"::"|^"<br>")(Opera | "["^Opera^"]")) | 
+		   ((Opera | "["^Opera^"]") (":"|"-"|"::"|"<br>"|["<br>"]" by") Artists);
+
+Titolo ::= \ (Sostc^Dec) |
+		   	 (Sostd^Dec) | 
+		   	 (Verb >[Adva|Advb]^Dec) | 
+		   	 (Verb >[Adva|Advb|Advc] [Adj] >(Sosta|Sostb)^Dec) |
+		   	 ([Adj] >(Sosta|Sostb) (>(Adva|Advb|Advc)|of) Verb) |
+		   	 ([Adj] >(Sosta|Sostb) (>(Adva|Advb|Advc)|of) >(Sosta|Sostb)) |
+		   	 (\[>(Adva|Advc)] [the] [Adj] >(Sosta|Sostb)) |
+		   	 (>[Adva|Advc] >(Sosta|Sostb)[^"'s"] >(Sosta|Sostb)) |
+		   	 ([Adj] >(Sosta|Sostb) Cong [Adj] >(Sosta|Sostb)) | 
+		   	 (Verb [Adva] Cong Verb [Adva]^Dec ) ;
+		   	 
+Subtitolo ::= \ ( -- a retrospective | --recent works | +_);
+
+Sosta ::=  \(democracy | environment | galaxy | city | obsessions | suburbia | utopia | ghost |
+			babilonia | babylon | fly | neighborhood | accident | spaghetti | sorroundings |
+			progress | hysteria | objects | legend | eye | eyes | end | surfaces | light |
+			continuum | brain | heart | love | hate | odissey | trip | gap | temporality | 
+			river | star | witness | house | street | cube | tube | way | skin | domain | 
+			affection | discoveries | thoughts | cry | whispers | mouth | flower | things |
+			hell | blood | pride | jealousy | anger | lust | cyber | ontology | appearance |
+			dinner | meat | ball | man | woman | suffering | pain | beauty | god | existence | 
+			power | image | shot | feeling | envy | gluttony | sloth | greed | process |
+			findings | place | nature | truth | death | life | wall | phenomenon | science | 
+			creation | connections | divergence | convergence | center | sense | box | cry |
+			shell | child | music | atmosphere | hand | foot | step | emotions | model |
+			sea | lake | marks | sign | identity | path | religion | society | culture |
+			night | day | sun | skies | clouds | edge | years | visions | allucination | 
+			line | speech | robot | mosquito | paralellism | echoes | vibration | fullness |
+			joy | circle | light | logic | land | landscape | stranger | walker | figures |
+			motion | correspondency | perspective | sauce | pop | realm | perception | 
+			silence | violence | patterns | touch | project | frontiers | memory | memories |
+			bath | floor | concepts | meanings | butterfly | home | escape | theory | point of view |
+			views | door | reflections | possession | desire | devotion | prayer | chicken |
+			experiment | humankind | pipes);
+
+Sostb ::= \(space | body | dream | war | peace | work | fun | art | sphere | mind | orgasm |
+		   hell | media | blood | sex | science | word | net | tree | shit | vagina | penis |
+		   machine | sound | "USA" | "UK" | "Europe" | "URSS" | "Africa" | device | wonder |
+		   drug | soul | time | self | water | bomb | nowhere | nobody | nothing);
+
+Sostc ::= \Sostb^Suf;			 
+
+Sostd ::= \Pref^Suf;
+
+Pref ::= \(tecno | hystero | cyber | epistemo | andro | genea | psycho | teo | escato | 
+		  phenomeno | horror | mechano | schizo | para | mystero | eco | auto | bio | chromo);
+	 
+Suf ::=  (logy | sophy | topia | mania | tropy | genia | frenia | genesis | nomic | gnosis | morph);
+
+Adj ::= \( fast | long | bodily | flat | new | funny | open | closed | objective | subjective |
+		  urban | odd | even | abstract | your | my | our | semantic | impermanent | massive |
+		  wet | bloody | far | near | infinite | dead | living | public | spheric | sexual |
+		  private | beautiful | deep | perfect | imperfect | good | bad | little | human |
+		  scaring | painful | orgasmic | connected | created | electric | natural | old |
+		  young | evil | liquid | solid | visual | red | yellow | blue | orange | black | white |
+		  true | false | magic | made | light | stochastic | mathematical | american | european |
+		  russian | neural | asian | contemporary | african | entangled | purple | robotic |
+		  half | incomplete | sensation | powerful | explicit | implicit | progressive |
+		  pure | extrange | strange | static | dynamic | active | passive | insane | crazy |
+		  inner | outer | one | two | three | one hundred | a thousand | conceptual | sacred |
+		  golden | probabilistic | deterministic | better | worse | super | hyper | mega 
+		  atomic | pluralistic | experimental | civil | total);
+		  
+Verb ::= \(getting [to know] | discovering | going | coming | opening | closing | creating |
+		  listening | walking | crying | thinking | processing | searching | seeing | talking |
+		  illuminating | understanding | killing | giving | turning | laughing | driving |
+		  running | eating | sleeping | inventing | cutting | travelling | moving | looking |
+		  drawing | tracing | taking | breathing | dying | twisting | picking | destroying |
+		  investigating | reaching | escaping | evolving | living | breaking | trying | trascending);
+		  	  
+Adva ::= \(inside | through |  behind |  beyond |  beside | now | before | after);
+
+Advb ::= \(in | back | from | to | over | without);
+
+Advc ::= \(in front of | in the name of );
+		 
+Cong ::= \(and | or | without | versus | for | ^"," | ^"/"^) ;
+
+
+City ::= \ (usa: ("New York" | "San Francisco" | "Los Angeles" | boston | chicago | detroit |
+				 washington | miami | pittsburg  | charlottesville) |
+		   fr: (paris)|i: (rome | venice) |au: (sidney | adelaide) |
+		   ca: (toronto | vancouver) |uk: (london | liverpool | manchester) |
+		   za: (johannesburg | cape town) |dk: (copenhagen) |
+		   nw: (oslo) |sw: (stockholm) |ja: (tokyo | kyoto | osaka) |
+		   ag: ("Buenos Aires") |ho: (amsterdam) |hu: (budapest) |
+		   de: (berlin | bonn | munich) |pg: (lisbon) |in: (new delhi) | 
+		   ru: (moscow) |he: (zurich | geneve) |sp: (barcelona | madrid) |
+		   a: (vienna) |cz: (prague) |ie: (belfast | dublin) |  
+		   ch: (beijing) |si: (singapore) |be: (brussels) ) ;
+		
+State ::= \(usa: "USA" |fr: "France" |i: "Italy" |au: "Australia" |ca: "Canada" |uk: "UK" |
+		   za: "South Africa" |dk: "Denmark" |nw: "Norway" |sw: "Sweden" |ja: "Japan" |
+		   ag: "Argentina" |ho: "Holland" |hu: "Hungary" |de: "Germany" |pg: "Portugal" |in: "India" | 
+		   ru: "Russia" |he: "Switzerland" |sp: "Spain" |a: "Austria" |cz: "Czech Republic" |
+		   ie: "Ireland" |ch: "China" |si: "Singapore" |be: "Belgium" );  
+
+Museum ::= ( \ (Surname|State "National"|>City ["Metropolitan"]) 
+			 \ (museum [of art]| [art] gallery | 
+			   (centre|foundation) (of|for) \[contemporary]\(art|culture|paint|sculpture))
+			   ^", "  (City ^", " State)).(usa|fr|i|au|ca|uk|za|dk|nw|sw|ja|ag|ho|hu|de|pg|in|ru|he|sp|a|cz|ie|ch|si|be);
+
+Year ::= 19^N^N|200^N;
+Dec ::= ++_ | --(["'"^](9|0)^N);
+N ::= (0|1|2|3|4|5|6|7|8|9);
+
+Artist := Author;
+Artists := Authors;
+
+Authors ::= +++(Artist) | -(Artist^","Author) | 
+			--(Artist^","Author^","Author) | --(Artist^","Author^","Author "&" Author);
+
+Author ::= Name Surname;
+
+Name ::= \ (sonia | absalon | georges | eva | alan | jane | bjorn | siemon | darren | pavel | tariq | fernando | francis | marti | janine | john | gustavo | michael | michael | mikael | shimon | gerrit | miroslaw | stephan | oladele | fiona | lothar | iain | vanessa | simone | joseph | ashley | bili | sanford | guillaume | dara | rob | barbara | john | christian | peter | cosima von | christine | jonathan | eberhard | frederic bruly | celeste | luchezar | martin | pavel | ricardo | lisa | vince | a.a. | marcel | stanley | tania | daniele | lee | angela | chris | jean marc | james lee | sophie | pier paolo | luis | mircea | janet | lawrence | maurizio | dinos | jake | melvin | judy | ping | marco | joelle | lygia | michael | jan | com | martin | minerva | stephane | bjorn | horia | hanne | douglas | destiny | thierry | silvie | jeanne claude | wim | braco | mark | uros | peter | bjorn | wang | anita | sam | jimmie | keith | mo | maria | olafur | ger van | toshikatsu | ayse | leandro | iran do | jan | angus | malachi | teresita | urs | peter | sylvie | ceal | irene | michel | jacqueline | andrea | luca | vera | yona | katharina | yang | william | meschac | giuseppe | anya | ryan | carlos | alberto | guido | kendell | rupprecht | isa | jeff | simryn | liam | robert | dorothee | felix | anthony | rodney | dan | gotthard | angela | nancy | renee | joseph | katharina | asta | thomas | wenda | cai | martin | fabrice | hans | otto herbert | ann | david | al | beck | siobhan | jan | rachel | mona | loes | dejanov | georg | christine | gary | susan | thomas | damien | candida | christine | irene | carsten | nancy | katie | jenny | martin | nan | laura | roni | rebecca | craigie | hans van | douglas | bethan | fabrice | michael elmgreen | gunther | runa | sanja | alfredo | henrik plenge | zuzanna | koo | choi | magdalena | gerald van der | anish | allan | kazuo | tadashi | on | mike | mary | niek | anne mie van | yuki | bodys isek | suchan | martin | imi | job | joachim | peter | chris | igor | john | joseph | jannis | jaroslaw | cees | barbara | zofia | suzanne | wolfgang | sean | michael | abigail | nikolaus | anna | hanne | louise | charles | jozef | henrietta | jorgen vincent | jac | zoe | gabriel | sherrie | erik van | atelier van | won ju | donald | thomas | richard | liza | rafael | kristin | sarah | urs | attila richard | david | heinz | michel | noguchi | mark | senzeni | jenny | kerry james | tony | fabio | allan | jonathan | maslen | cildo | bjarne | gerhard | marisa | mario | annette | philippe | aernout | yong soon | cathy de | jonathan | reinhard | geert | juan | takashi | wangechi | hidetoshi | brigitte | yukio | masato | ken | mike | ernesto | mariele | rivane | max | matthew | graham | olaf | carsten | hermann | cady | masanori | marcel | chris | helio | keisuke | rainer | henrik | joao | roman | julian | tatsumi | gabriel | studio | pepon | tony | marry | tsuyoshi | nam june | mimmo | giulio | jorge | cornelia | laura | philippe | jonathan | simon | joao | dan | finnbogi | judy | paul | daniel | patricia | jack | adrian | michelangelo | hermann | paola | jaume | peter | stephen | marc | l.a. | jim | alexandra | navin | charles | tobias | pedro cabrita | jason | gerwald | john | maria | tracey | tom | jan | doris | karin | roderick | julia | carolee | gregor | thomas | diller | berni | beverly | ene liis | servaas | kofi | peter | shozo | taro | chiharu | yinka | alexei | roman | charles | kamera | andreas | kiki | nedko | yutaka | eliezer | keith | simon | georgina | haim | michael | lily van der | danae | peter | elaine | tabaimo | tomoko | ana maria | jennifer | mathilde | nahum | paul | robert | wolfgang | rirkrit | jaime david | rasa | moniek | slaven | anders | yasunao | attilio | thanassis | george | addo lodovico | rosemarie | evanthia | fatimah | keith | piotr | ulay | micha | eulalia | jeanne | adriana | minnette | costas | steina | woody | sergio | roy | thomas | carel | wolf | nick | jeremy | mark | franz erhard | marijke van | lois | lawrence | david | monika | franz | pae | rachel | tine | sue |
+ fred | maaria | johannes | martin | cerith | sisley | huang | keun byung | peng | sun | heimo | gilberto | joe | agata | yael | sebastian | angela | ksenia | tracey | buelent | juny | kjell | djos);
+		
+Surname ::= \ (abian | absalon | adeagbo | adele | albenda | alborough | alexander | allen | almond | althamer | alvi | alvim | alys | anson | antoni | armleder | artigas gorocica | asher | ashkin | askergren | attie | van | bakel | balka | balkenhol | bamgboye | banner | baumgarten | baxter | beecroft | berti | beuys | bickerton | bidjocka | biggers | bijl | birnbaum | birza | bloom | bock | boltanski | bonde | bonin | borland | borofsky | bosslet | bouabre | boursier mougenot | boyadjiev | boyce | braila | brey | brice | briffa | bronson | broodthaers | brouwn | bruguera | buetti | bul | bulloch | burden | bustamente | byars | calle | calzolari | camnitzer | cantor | cardiff | carroll | cattelan | chapman | chapman | charney | chicago | chong | cianfanelli | ciona | clark | clegg | de | cock | creed | cuevas | dafflon | dahlem | damian | darboven | davis | deacon | de cordier | defraoui | de guillebon | delvoye | dimitrijevic | dion | djuric | downsbrough | du | dube | durant | durham | edmier | edoga | eichhorn | eliasson | elk | endo | erkmen | erlich | espirito santo | fabre | fairhurst | farrell | fernandez | fischer | fischli | fleury | floyer | fortuyn o'brien | francois | fraser | fraser | frei | frenkel | friedman | fritsch | fudong | furlong | gaba | gabellone | gallaccio | gander | garaicoa | garutti | geelen | geers | geiger | genzken | geys | gill | gillick | gober | golz | gonzales torres | gormley | graham | graham | graubner | grauerholz | graves | green | grigely | grosse | groting | grunfeld | gu | guo qiang | guttmann | gygi | haacke | hajek | hamilton | hammons | hansen | hapaska | harrison | hatoum | heebink | heger | herold | hill | hiller | hirschhorn | hirst | hofer | hohenbuchler | holler | holt | holten | holzer | honert | hoover | horelli | horn | horsfield | houwelingen | huebler | huws | hybert | ingar dragset | ingo | islam | ivekovic | jaar | jacobsen | janin | jeong | jeong hwa | jetelova | kaap | kapoor | kaprow | katase | kawamata | kawara | kelley | kelly | kemps | kerckhoven | kimura | kingelez | kinoshita | kippenberger | knoebel | koelewijn | koester | kogler | kohlhofer | kopystiansky | kormeling | kosuth | kounellis | kozlowski | krijnen | kruger | kulik | lafont | laib | lambie | landers | landy | lane | lang | langa | langlands | bell | language | lascari | lauridsen | lawler | ledray | legrand | lehtonen | leijenaar | leirner | leonard | lester | levine | lieshout | lieshout | lim | lipski | locher | long | lou | lozano hemmer | lucas | lucas | luethi | lukacs | mach | mack | majerus | manders | marasela | marketou | marshall | matelli | mauri | mccollum | meese | mehra | meireles | melgaard | merz | merz | merz | messager | meste | mik | min | monchaux | monk | mucha | mul | munoz | murakami | mutu | nagasawa | nahon | nakagawa | nakamura | nakazawa | nelson | neto | neudecker | neuenschwander | neuhaus | ngui | nicholls | nicolai | nicolai | nitsch | noland | oda | odenbach | ofili | oiticica | oki | oldendorf | olesen | onofre | opalka | opie | orimoto | orozco | orta | osorio | oursler | overtoom | ozawa | paik | paladino | paolini | pardo | parker | parnes | parreno | parsons | patterson | penalva | peterman | petursson | pfaff | pfeiffer | pflumm | piccinini | pierson | piper | pistoletto | pitz | pivi | plesma | pommerer | prina | quinn | raeven | ramer | ranner | rawanchaikul | ray | rehberger | reis | rhoades | rockenschaub | roloff | roosen | rose | sachs | valentin | saether | salcedo | sander | sauveur | scher | schneemann | schneider | schutte | scofidio | searle | semmes | semper | setordji | shelton | shimamoto | shinoda | shiota | shonibare | shulgin | signer | simonds | sisimizzi | skura | slominski | smith | solakov | sone | sonnenschein | sonnier | starling | starr | steinbach | stevenson | stokker | stratou | struycken | sturtevant | takahashi | tavares | tee | ter heijne | tevet | thek | therrien | tillmans | tiravanija | tischler | todosijevic | toebosch | tolj | tomren | tone | tono | totsikas | trakas | trinci | trockel | 
+ tsantila | tuggar | tyson | uklanski | ullman | valldosera | van heeswijk | varejao | vari | varotsos | vasulka | vega | villevoye | virnich | visser | vostell | vostrikov | wafer | wallinger | walther | warmerdam | weinberger | weiner | weiss | weiss | west | white | whiteread | wilde | williamson | wilson | wirkkala | wohnseifer | wong | wyn evans | xhafa | yong ping | yook | yu | yuan | zobernig | zorio | zucker | zwierzynska | bain | bartana | diaz | morales | ferreira | galiaeva | rose | sangar | yang | bj | rgeengen | janssens | bjrgeen | ikeda | tashimoto | naguchi | matsumoto | takashi);
+ 
+Subject ::= "imaginative process of scientific research" | "human life" | "science and technology" | "world" | "society" |
+			"politics" | "social and political problems" | "nature realm" | "visual elaboration of images" | 
+			"elaborating process of information" | art as a (public|social|political|religious|spiritual|natural|artificial)
+			instrument | "communication of feelings and sensation" | "media and communications" | "buildings and living space"|
+			"pollution" | "community" | "personal choice" | "how we perceive things" | "identity" | "struggle for personal freedom" |
+			"sex taboos" | "migration" | "revealing of past and present in the light of future expectations" |
+			"shielding of heritage and environment" ;
+
+Object ::= typewriters | condoms | vibrators | candybars | lollypops | panties | dirty socks | sausages | electric cables |
+		   leather boots | animals heads | human hair | syringes | cigarettes | shoes | nails | organs;
+ 
+Text ::= ((^","|^";"|^"."\) >>(Prop1|Prop2)<<) (_ |++++ Text);
+
+Prop1 ::= "in" Opera ^"," Artist "entwines" (language|technology|information|science)"and"(architecture|art|religion)"in a complex work touching every aspect of" Subject |
+		 "the metaphor reveals something deep of the" Subject |
+ 		 "old memories are found and dragged  back to present to our imaginations" |
+ 		 "every building has things that people like to point out, quirks of history that come to define it" |
+ 		 "there is maybe a sense of other times in this work, within the present tense transmitted to the screen"|
+ 		 "the work does result from an awareness of the kinds of activity: collecting, analysing and sharing data"|
+ 		 Artist " physically engages the surface of all the abstract works"|
+ 		 "in both media, drawings as well as paintings, linear segments or surfaces are built through accumulation"|
+ 		 "there is a naturalistic quality of light that creates an immediate connection to this as a world we know but yet have never experienced before"|
+ 		 "the layers of time and place involved in the works of art presented engage the viewer in the complexity and awareness of the situation"|
+ 		 "the art of" Artist ^" emphasises an awareness of" Subject|
+ 		 Artist ^"'s work confronts the spectator, while distancing him/her from their intense experience"|
+ 		 Artist "investigates the interplay of time and space, the now and the before, and the way we can relate to their perceptions"|
+ 		 Artist ^"'s nearly imperceptible sound paths unconsciously stop the visitors in their tracks"|
+ 		 "all art works are derived from a particular situation and consciousness, extracting observations and private histories from the artists' archive of personal experiences"| 
+ 		 "the current works represent earth art that celebrates how we're all connected on the one web of life"|
+ 		 Artist ^"'s works are characterized by a clear vocabulary"|
+ 		 "all around us the fundamentals of life are crying out to be shaped or created"|
+ 		 "the new works reflect the artist's ambition to capture his own experiences and observations in such a poetic and abstract manner"|
+		 "the current tension and diverging statements in art challenges us to re-evaluate our personal criteria in the composing of visual concepts"|
+		 "the title of the project captures the described image and concept"|
+		 "the starting point for" Opera^" is the corner, 'the boundary between interior and exterior', between indoors and outdoors, between" Adj^" and "^Adj|
+		 "the installations of" Artist ^"- sometimes called" Titolo^" by the artist - cast their spell over the viewer at first glance"|
+		 "the installation reflects artist's idea of the animation of the machine as a mirror of" Subject;
+ 		 
+Prop2 ::= "that is the transformations and the invented narratives through thousands of repetitive images" | 
+		 "the primary form will refer to the human figure and/or forms found in geographical landscape"| 
+		 "it is the ability of text to stimulate our imaginations and to communicate images and meanings to each of us" |
+		 "as readers, we fill in the gaps of her text and imagine far more than what we see, carrying our own interpretation of the lines" |
+		 "there is some idea of an almost physiological study of" Subject^", of considering it as though it were an organism"|
+		 "but the images themselves are distorted in ways quite unlike those made through microscopes" |
+		 "that contrast between areas in and out of focus, exaggerates the sharpness in the central area" |
+		 "there is something quite important about this central focus to the images" |
+		 "it's a sense of active seeking and scrutiny"|
+		 "we never think about it"|
+		 "we find that in the hidden spaces"|
+		 "there is an archaeology of" Subject " and of people living and working with that"|
+		 "but there is still something inhuman about this work"|
+		 "the changes that are theoretically visible over time will never be registered by the eye"|
+		 "this work may then in turn have serious relevance to human needs and the formulation of policies"|
+		 "the results of the research could have impact across the globe"|
+		 "just being in this place changes anyone's awareness"|
+		 "each image emerges as a kind of performance of applying paint, rubbing, erasing, sanding and reapplication until the moment of completion"|
+		 "the final work exists as a result of its own history, resonating with the memory of each mark"|
+		 "together these elements form within their layering an illusion of architectural dimensionality which never denies its inherent flatness"|
+		 "at the same time a biomorphic quality is acquired through partial erasure, bleeding and multiple applications"|
+		 "the resulting images present abstract forms merging with a visceral landscape, simultaneously appearing to be drawn from such traditions as Islamic ornamentalism or the Ecole de Paris and a futuristic, space-age biomorphicism"|
+		 "leading to new ways of exploring and understanding individual circumstances"|
+		 "there is the immediate visual, three-dimensional impact"|
+		 "the use of vivid colors, often primary, and of mirror effects playing on light to create the desired atmosphere"|
+		 "the use of pre-recorded soundtracks to accentuate this atmosphere"|
+		 "the use of texts or single words to engage the viewer"|
+		 "the use of lettering as a means of contributing to the atmosphere and playing on perception"|
+		 "however, there is a sub-text, a slight twist, a sideswipe at conformism, a throwing off-balance both physical and mental"|
+		 "it is up to the viewer to decide whether to immerse in the sub-text, whether or not to participate in the scenario"|
+		 "this consciousness prompts the artists to deal with the political, the geographical, and the everyday in a non-didactic way"|
+		 "no conclusions drawn, however"|
+		 "rather than a single obvious reading, there are several readings that are available"|
+		 "a constant oscillation between reality and fiction, fiction and documentary, the communal and the private realm of the individual is offered"|
+		 "is a segment between two points"|
+		 "it is not a departure nor an arrival"|
+		 "but a moment that almost functions as a number of stills that are isolated from a film creating a new situation"|
+		 "through this, it relaxes our impulse for a historically conditioned static viewing of this abstract work"|
+		 "that engages a revitalized appreciation of the genre"|
+		 "the artist uses a quasi-scientific presentation of data"|
+		 "while the work documents a personal approach to investigating questions about" Subject^" and "^Subject|
+		 "after all, the information it reveals is easily accessible to anyone who wants it"|
+		 ["displayed on an eye-level platform that snakes through the gallery,"]"the installation reiterates the performative aspects of the making of the work"|
+		 "in that way it leads us to view the world around us differently"|
+		 "the unique design of these works takes them beyond the realm of a cultural craft into sculpture and mixed media, beyond any simplistic categorization"|
+		 "this is the crucial fact we've to realise, and this broader concept of creativity is" Artist^"'s concept of art"|
+		 "everybody can determine the content of life in his particular sphere"|
+		 "our idea of culture is severely restricted because we've always applied it to art"|
+		 "our concept of art must be universal and have an interdisciplinary nature"|
+		 "the success of" Opera " lies in this very process"|
+		 "at the same time the work represents the ultimate symbol of the cycle of life"|
+		 "it symbolizes the artist's optimistic belief in beauty and change"|
+		 "even if it deals with currently important themes like" Subject^", "^Subject^" or "^Subject|
+		 "personal desires and fears remain the starting point for artist practice"|
+		 "another, equally important aspect of this work is the search for beauty in the world around"|
+		 "this poetic work is exemplary of" Artist^" eye for detail"|
+		 "the artist fills seemingly simple images with light and air to evoke a sense of purity and serenity"|
+		 "we are faced with what appears to be a direct transcription of the impossible"|
+		 "images are exactly truthful representations of what they record, the strangeness they represent is all carefully setup before the shot is taken"|
+		 "the relationship of the fictional world to reality is reflected in the constant preoccupation with the relationship of photography to painting and of either to experience reality"|
+		 "if presented in that way, figures give to the sign which they produce, "literature" and that, in turn, is easily appropriated by myth"|
+		 "within each work a 'statement' functions to describe the continuum within a balance of constants and variables"|
+		 "that gives to its percipient the information that joins with whatever is represented as visual"|
+		 "we see the image, which is the 'work' produced by the percipient as an event in his or her time"|	 
+		 "illustrating subject matter to the viewer is not artist primary concern"|
+		 "these objects are indeed more closely related to fables than to inventories, as much about what is implied as what is delineated"|
+		 Artist^"'s objects are" Object^", "^Object^" and "^Object|
+		 "this art immerses viewers into the magic by which paint transforms itself into things being described and back again"|
+		 "the artist places provocative and beautifully rendered objects such as " Object^" and "^Object|
+ 		 "we are forced to explore the question of how the museum consciously or unconsciously perpetuates beliefs and behavior"|
+ 		 "consciously or unconsciously, the setting of the image expresses the particular sensitivity of the viewer"|
+		 "this principle reveals purity in sensuality which never ceases to move us"|
+		 "this art, a sophisticated gaze, pursues the permanence of a gesture or a presence"|
+		 "that conveys a feeling of intimacy and serenity"|
+		 "the images often show, that the lighting has been reworked"|
+		 "the artworks supply us with the ever topical, ever desirable presence of a poetic spirit, away from the turmoil of trends and generations"|
+		 "it's a mystery in silence"|
+		 "what we find is the permanence in the personal approach in expressive settings"|
+		 "what we see is the musicality of light and the exquisite pleasure of surprise"|
+		 "it's like an enchantment"|
+		 "each artist's individual work can only affirm itself in the wider context of concurrent developments"|
+		 "this reflection evokes multiple aspects about our physical and mental condition"|
+		 "the obvious material function of the" Object^" is re-interpreted and transformed to communicate a spiritual, intellectual and psychological message of art as dialogue and as cross-cultural interaction"|
+		 "the" Object^" may cover several references to connected meanings, events, experiences, but the correlation of the whole group of" Object " generates the actual inter-relation of fragmented realities"|
+		 "the statement remains obscure until the juxtaposition of all art works in a continuous collective revelation process"|
+		 "these works reflect a dramatic change from" Artist^"'s biting social commentaries on" Subject^" to works expressing the inner being in relationship to the beauty of creation on earth and beyond"|
+		 "it takes more than just visual or acoustic reception to understand the works, for they are synaesthetic, appealing simultaneously to the visual, acoustic and physical perceptions of the viewer and captivating in their precision"|
+		 "without change - significant change via experimentation - contemporary art risks fading into stale predictability"|
+		 "the latest productions forego such temptation, and confirm their refreshing willingness to embrace change"|
+		 "all of the artist's objects and installations animate history in ways that give it new meaning and relevance";
+		 
+		 
+		 
+		 
+
+		 
+		 
+		 
+		 

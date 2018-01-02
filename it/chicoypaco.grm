@@ -1,0 +1,136 @@
+I ::=   "title:      Chiquito y Paquito\n"
+      ^ "author:     Alan aka ^anakin^ &lt;alanzap@email.it&gt;\n"
+      ^ "language:   italian\n"
+      ^ "status:     refinable\n"
+      ^ "topic:      telenovela\n"
+      ^ "comment:    basato sulla parodia delle telenovelas di e con Massimo Olcese e Adolfo Margiotta.\n"
+      ^ "ps:         la verita' e' che tu (si' proprio tu che stai" (+leggendo|Verb.Ger) ^") sei" (Cosa|Chi)^".\n"
+      ^ "created:    20/11/2004";
+
+S ::= "<b>"^Puntata^"</b>\n\n"^
+      (-_|Battuta.C Battuta.P) (-_|Battuta.C Battuta.P) Battuta.C (* per fare in modo che una puntata sia anche di una sola battuta, tipo: "-123a puntata- Paco: e quindi? -fine-*)
+      "\n<b>-Fine" Puntata^"-</b>";
+
+Paco := "Paco";
+Cico := "Chico";
+
+Inizio ::= "<b>"^(P:Paco|C:Cico)^"</b>"^[+_|-" ["^(Verb.Si|-Verb.Ger [-_|+Cosa]|arrabbiato|sorpreso|bisbigliando|urlando|preoccupato|++in posizione yoga)^"]"]^":";
+
+InizioNormale ::= (P:Inizio.P|C:Inizio.C);
+InizioInverso ::= (P:Inizio.C|C:Inizio.P);
+
+Battuta ::= (P: Inizio.P \ Frase.P [++_|-(^"..."|\) Frase.P]
+            |C: Inizio.C \ Frase.C [++_|-(^"..."|\) Frase.C])^"\n"^
+            Imprevisti [Imprevisti];
+
+Frase ::=  (-ciao (P:Cico|C:Paco)^"."
+           |non mi fido di (te|Chi)^"."
+           |Chi [non] si (++fidava|Verb.P3Imp) di (me|te|Chi|-Cosa) [Dove]^"."
+           |Verb.Imp [Chi] PacoCico Punto
+           |Verb.(Mi|Ti) [Cosa] PacoCico ^"."
+           |[(scusami|Verb.(Mi|Ti))^","] stavo Verb.Ger [Persona|Cosa] [Dove] PacoCico^"."
+           |Chi [non] (e' Chi|(e'|ha) Cosa) PacoCico Punto
+           |chi e' Chi PacoCico^"?"
+           |[non] e' (Chi|Cosa|Dove) Punto
+           |io lo so che (Verb.(P1|P2|P3|P3Imp|Cond|+Rem)|(hai|ho) (torto|ragione)) PacoCico^"."
+           |++[non] Verb.(P2|+Rem|Cond) (++il ragionamento|-Nome.(M|F).Il)^"."
+           |perche' Verb.(P1|P2|P3|P3Imp|Cond|+Rem) Punto
+           |++(+infatti|[[non] e']vero|si'|no|ehhh|certo|ma cosa dici) [^"," e' [im^] possibile] PacoCico ^("."|"!")
+           |++(si'|certo|infatti)^", ma e' " Aggettivo.(M|F) Punto
+           |dove (hai|ho) (torto|ragione) PacoCico^"?"
+           |+dove ((sto|stai) Verb.Ger|(hai|ho|ha) Verb.Part|Verb.Cond) PacoCico^"?"
+           |tu Verb.(P2|+Rem) PacoCico Punto
+           |[non] (ha a che (fare|vedere|-Verb.Inf)|Verb.P3Imp) con Chi Punto
+           |Verb.Ti PacoCico^"," (ora|adesso) ti (++diro'|Verb.Fut) (+un [altro] segreto|-Cosa)^"."
+           |ecco perche' ((sto|mi (sento|Verb.P1)|ti (senti|Verb.P2)|Chi (sta|si (sente|Verb.(P3|P3Imp)))) (bene|male)|--(ho|hai) Cosa)^"."
+           |ecco perche' [Chi] ((e'|ha) Cosa|Verb.(P3|P3Imp))^"."
+           |perche' mi hai fatto Verb.Inf PacoCico^"?"
+           |+ora mi (+spiego|-Verb.P1) (Nome.(M|F).Il [di Chi][Dove]|perche' Verb.P3Imp [Cosa] [Dove])^"."
+           |++++e (allora|quindi|con questo|cosa (vorresti dire|Verb.Rem))^"?"
+           |Chi si Verb.(P3|P3Imp) di (me|te|Chi|Cosa)^"."
+           |++++(perche'|++la verita' e' che) (Chi [non] e'|+io [non] sono|tu [non] sei) (+Chi|Cosa) PacoCico^"."
+           |Chi (Verb.P3|[si] sta Verb.Ger) Punto
+           |tu Verb.Cond (Chi|Cosa)^"?"
+           |cosa (mi (++devi|dovresti)|ti (devo|dovrei)) (dire|Verb.Inf)^"?"
+           |-Cosa si basa su (+un assurdo|Cosa) PacoCico Punto
+           |++Verb.(Mi|Ti) PacoCico^"," Verb.(Mi|Ti) (cosi'|ancora|di piu') (^"."|+((^"," non Verb.Inf [Cosa|Chi][Dove])+)+^".")
+           |-Chi e' una delle Numero^" "^personalita' di Chi PacoCico Punto
+           |-ho (Verb.Part|+visto) Chi (mentre|quando) (Verb.P3Imp|stava Verb.Ger) (Chi|Cosa) PacoCico ^"."
+           |-Verb.Inf non fa per (me|te|-Chi) PacoCico ^"."
+           |-(oggi|domani|ora|adesso) (devo|dovresti|dovrei) andare Dove^"."
+           |++non (+farlo|Verb.(+Inf|Cond)) PacoCico ^"," [lo sai che] c'e' (Chi|Cosa)^"."
+           |[che] cos'e' Nome.(M|F).Il PacoCico^"?"
+           |Chi e' Cosa^"."
+           |(io [non] l'ho|tu [non] l'hai|Chi [non] l'ha) Verb.Part PacoCico Punto
+           |se (io fossi|(+Chi|-Cosa) fosse) in (me|te|Chi|Cosa) e (tu fossi|Chi fosse) in (me|te|Chi|Cosa)^"," quante probabilita' avremo di (riconoscerci|Verb.Ci)^"?"
+           |+(e' Giorno|ero sul piu' (bello|Aggettiv.M)|sono solo le Cifra del mattino|stavo Verb.Ger Chi) PacoCico ^", perche' mi hai fatto venire?"
+           |++++(ti ricordi di|hai presente) Chi PacoCico^"?\n"
+            ^(P:(-_|"[Paco mostra"  (+un portaritratto|una foto) di Cosa ^"]\n") "<b>Chico</b>: No.\n<b>Paco</b>:"\(+neanch'io|-io si')^"."
+             |C:(-_|"[Chico mostra" (+un portaritratto|una foto) di Cosa ^"]\n") "<b>Paco</b>: No.\n<b>Chico</b>:"\(+neanch'io|-io si')^"."
+             )
+             (* problemi con label incapsulate(?) *)
+           |perche' sono cosi' Aggettivo.M PacoCico ^"?"
+           |Chi e' Aggettivo PacoCico Punto
+           |+(tu sei|io sono|Chi e') (+morto|-Verb.Part) Dove PacoCico ^"!"
+           |Verb.(-P2|+Ti) PacoCico ^", devi" Verb.Inf o Chi ti Verb.FutP3^"!"
+           |+ma perche' [non] [ti] Verb.P2 PacoCico^"?"
+           |ti rendi conto di quello che (mi|ti) stai (chiedendo|dicendo|-Verb.Ger)^"?"
+           |Verb.Rem^"!"
+           |Chi Verb.P3Imp PacoCico^"?"
+           |-oh PacoCico^"!" \ Chi ^"," (([chissa'] (perche'|+dov'e')^"?"\)+)+
+           |++ti piace (la mia Nome.F.NoArt|il mio Nome.M.NoArt|Cosa) PacoCico^"?\n"^(P:"<b>Chico</b>: No.\n<b>Paco</b>: Neanche a me."|C:"<b>Paco</b>: No.\n<b>Chico</b>: Neanche a me.") (* idem? *)
+           |+"ma come" PacoCico ^", l'ho visto io che" Verb.P3Imp [Cosa|Chi] [Dove] PacoCico ^"!"
+           |e' per questo che ti ho fatto (+venire|Verb.Inf)^"."
+           );
+
+Punto ::= ^(+"."|--"?"|"!");
+
+Imprevisti ::= (+_|-"["^
+               ("*"^(dr^(iii^)+n|(plin|plon)(^"-"^(plin|plon))+|toc(^"-toc")+)^"*"
+               |+schiaffo a (Paco|Cico)
+               |Paco (guarda|abbraccia|-Verb.P3) Cico|Cico (guarda|abbraccia|-Verb.P3) Paco
+               |(Cico|Paco) guarda (nel vuoto|il pavimento|Nome.(M|F).Il)
+               |-(Paco|Cico) Verb.P3 Nome.(M|F).Il
+               |(Paco|Cico) ([pro^]va a Verb.Inf [Nome.(M|F).Il]|se ne va)
+               |++(Cico|Paco) si (sdraia|+mette in posizione yoga|+siede|+alza|gira [dall'altra parte])
+               |(Cico|Paco) (Verb.P3 [Cosa]|(abbassa|alza) lo sguardo|(sta per mettersi|scoppia) a piangere)
+               |(Cico|Paco) (mostra|guarda) (+un portaritratto|una foto) di Cosa
+               |+("..."^)+
+               )^"]\n");
+
+Verb ::= (++(ricord|guard|+affrust|strangol|scav|pens|violent|approfitt|accett|cigol|++rannicchi|spalm|confess|mostr|err|schiant|sput)^(P1:o|P2:i|P3:a|Mi:ami|Ti:ati|Si:andosi|Ci:arci|Imp:a|Cond:eresti|Ger:ando|Rem:asti|Fut:ero'|FutP3:era'|Part:ato|P3Imp:ava|Inf:are)
+         |-----(riflett)^(P1:o|P2:i|P3:e|Mi:imi|Ti:iti|Si:endosi|Ci:erci|Imp:i|Cond:eresti|Ger:endo|Rem:esti|Fut:ero'|FutP3:era'|Part:uto|P3Imp:eva|Inf:ere)
+         |-----(esist)^(P1:o|P2:i|P3:e|Mi:imi|Ti:iti|Si:endosi|Ci:erci|Imp:i|Cond:eresti|Ger:endo|Rem:esti|Fut:ero'|FutP3:era'|Part:ito|P3Imp:eva|Inf:ere)
+         );
+
+Persona ::= (N: (AggPoss:_               |NoAgg:_) (-_|+\(mary|mc^|fritz|cacio|jordan|jennifer|pamela|arthur))\(annhofer|papena|stangassinger|barrazza|caliendo|ortega)
+            |F: (AggPoss:(mia|tua|nostra)|NoAgg:_) (moglie|madre|figlia|nonna|zia|cugina|sorella)
+            |M: (AggPoss:(mio|tuo|nostro)|NoAgg:_) (marito|padre|figlio|nonno|zio|cugino|fratello)
+            );
+            
+Nome ::=    (M:   (Un:un |Il:il |Nel:nel   |NoArt:_) (+bidello|tavolo|cassetto|+minorchio|+postrugno|+cotrogno|tucano|+ragionamento|+postulato|+chirurgo|+ghiacciolo|+picozzo|+pizzo|+meridiano|merluzzo|mocambo|portaritratto)
+            |---M:(Un:un |Il:l'^|Nel:nell'^|NoArt:_) (agente segreto|armadio|uomo|ermafrodita)
+            |F:   (Un:una|Il:la |Nel:nella |NoArt:_) (donna|bidella|ninfomane|+minorchia|+postrugna|+cotrogna|porta|finestra|barba|maniglia|tubatura|pala|+trascendenza|cicogna|casa|mongolfiera)
+            );
+
+Dove ::= (da|a casa di) Chi|+Nome.(M|F).Nel|a ("Dresda"|"Tolone"|"Spitzfield")|al forno [di Chi]|nel (mio|tuo) intimo;
+
+Cosa ::= Nome.(M|F).Un;
+
+Chi  ::= Persona.(M|F|N).AggPoss;
+
+Giorno ::= \(natale|pasqua|ferragosto|quaresima);
+
+Aggettiv ::= ( (meridionale|perpendicolare|ermafrodita|sterile|incinta|intelligente)
+              |(bell|brutt|alt|bass|mort|viv|amat|scem|timid)^(M:o|F:a)
+             );
+             
+Aggettivo ::= Aggettiv.(M|F);
+
+PacoCico ::= [^"," (P:Cico|C:Paco)];
+
+Cifra ::= 1|2|3|4|5|6|7|8|9;
+
+Numero ::= ((Cifra^)+)+;
+
+Puntata := Numero^"<sup>a</sup> puntata";

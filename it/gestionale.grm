@@ -1,0 +1,64 @@
+I ::=   "title:      Esami di Ingegneria Gestionale\n"
+      ^ "author:     MauroZ &lt;zcode@tiscali.it&gt;\n"
+      ^ "language:   italian\n"
+      ^ "status:     mature\n"
+      ^ "topic:      misc\n"
+      ^ "audience:   Carla in particolare\n"
+      ^ "created:    15/01/2003"
+;
+
+S ::= ++Esame1 | Esame2 | --Esame3;
+
+Esame1 ::= Esame [e Esame];
+
+Esame2 ::= Pre Esame;
+
+Esame3 ::= "Materiali" AggettivoMat;
+
+Pre ::= "Principi di" | "Laboratorio di" | _;
+
+Art ::= M: (C: (S: il | P: i) | V: (S: l'^ | P: gli))
+     |  F: (C: (S: la | P: le) | V: (S: l'^ | P: le));
+
+Ne  ::= M: (C: (S: nel | P: nei) | V: (S: nell'^ | P: negli))
+     |  F: (C: (S: nella | P: nelle) | V: (S: nell'^ | P: nelle));
+
+De  ::= M: (C: (S: del | P: dei) | V: (S: dell'^ | P: degli))
+     |  F: (C: (S: della | P: delle) | V: (S: dell'^ | P: delle));
+
+Titolo1 ::= ((((Nome Aggettivo).S).(-V|+C)).F | (((Nome Aggettivo).(+P)).(+C)).(M|F) | (((Nome Aggettivo).(P)).(V)).(M));
+Titolo2 ::= ((((NomeDe).S).(-V|+C)).F) ((((De Nome Aggettivo).S).(-V|+C)).F | (((De Nome Aggettivo).(+P)).(+C)).(M|F) | (((De Nome Aggettivo).(P)).(V)).(M) | (((De Risorsa [Aggettivo]).(S)).(V)).(M|F)) ;
+
+Esame ::= ++ Titolo1
+       |  + Titolo2
+       |  (Titolo1|Titolo2) "per" ((((Art Nome Aggettivo).S).(-V|+C)).F | (((Art Nome Aggettivo).(+P)).(+C)).(M|F) | (((Art Nome Aggettivo).(P)).(V)).(M)) |
+	      Carattlist ((((Ne Nome Aggettivo).S).(-V|+C)).F | (((Ne Nome Aggettivo).(+P)).(+C)).(M|F) | (((Ne Nome Aggettivo).(P)).(V)).(M)) |
+	      - Carattlist ((((Ne NomeDe).S).(-V|+C)).F) ((((De Nome Aggettivo).S).(-V|+C)).F | (((De Nome Aggettivo).(+P)).(+C)).(M|F) | (((De Nome Aggettivo).(P)).(V)).(M))
+;
+
+Nome ::=  M: (V: (P: "Impianti" | "Automatismi") | C: (P: "Sistemi" | "Servizi" | "Robot"  | "Controlli")) |
+	  F: (V: (S: "Informazione" | "Economia" ) | C: (S: ("Logistica" | "Meccatronica" | "Gestione") | P: ("Macchine" | "Costruzioni") )) ;
+
+
+NomeDe ::=  F: (V: (S: "Organizzazione") | C: (S: "Gestione" | "Produzione" | "Progettazione" | "Costruzione" )) ;
+
+
+Caratt ::=  ("Qualita'" | "Sicurezza" | "Affidabilita'" | "Accuratezza"  | "Controllo") ;
+
+
+Carattlist ::= Caratt [(^"," Caratt e Caratt) | (e Caratt)];
+
+
+Aggettivo ::=  (("Automatic" | "Impiantistic" | "Robotic" | "Econonomic" | "Logistic")
+	      ^(F: (S: a | P: he) | M: (S: o | P: i))) |
+	      (("Integrat" | "Operativ" | "Informativ" | "Distributiv" | "Costruttiv" | "Produttiv")
+	      ^(F: (S: a | P: e)  | M: (S: o | P: i))) |
+	      (("Aziendal" | "Gestional" | "Industrial")
+	      ^(S: e | P: i)) ;
+
+AggettivoMat ::= "Metallici" | "Duttili" | "Legnosi";
+
+Risorsa ::=  M: (V: (S: "Ambiente") ) |
+	    F: (V: (S: "Energia" |"Industria") ) ;
+
+

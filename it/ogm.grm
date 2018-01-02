@@ -1,0 +1,55 @@
+I ::=     "title:    Organismi Geneticamente Modificati\n"
+		^ "author:   Velenux &lt;velenux@oltrelinux.com&gt;\n"
+		^ "language: italian\n"
+		^ "status:   testing\n"
+		^ "topic:    strani incroci...\n"
+		^ "audience: anybody\n"
+		^ "created:  20/09/2003"
+;
+
+
+							  
+S ::= \ Primario ^ Secondario [Modificato] ;
+
+
+
+Primario ::= AggettivoPrimario | +++ AnimalePrimario ;
+
+Secondario ::= mucca | cane | gatto | zebra 
+			 | giraffa | potamo | scimmia | pony
+			 | rinco | foca | puma | pantera 
+			 | aquila | lupa | farfalla | papera
+			 | lepre | pecora | ragno | elefante
+			 | drillo | poiana | porco | marmotta
+			 | pettirosso | volpe | iena
+			 ;
+
+Modificato ::= a (due|tre|quattro|cinque|sei) zampe
+			 | a (tre|quattro|cinque|dieci) occhi
+			 | a pois | rapace | subnormale
+			 | genetico | (super|iper|mega) ^ sviluppato
+			 | cibernetico | in fibra di (carbonio|vetro|titanio)
+			 | +++ (addizionato|modificato|++potenziato) al 
+			 	(plutonio|carbonio|ferro|cesio|bario|tungsteno
+				|neon|cromo|manganese|potassio|fluoro
+				 |^ "l'" ^ (uranio|elio|acciaio|idrogeno|argon|oro|argento)
+				 |^ lo (stronzio|iodio|scandio)
+				 )
+			 ;
+
+
+
+AggettivoPrimario ::= sinto | quasi | tecno | simil | gomma | plasto ;
+
+
+
+AnimalePrimario ::= pollo | squalo | muflon | capron 
+				  | ornito | leon | delfin | rino
+				  | ippo | gufo | luccio | toro 
+				  | falco | goril | lupo | topo
+				  | tarta | rospo | verme | antilopo
+				  | dromeda | cocco | alliga | bradipo
+				  | maial | orso | coguaro | capriol
+				  ;
+
+

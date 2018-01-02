@@ -1,0 +1,57 @@
+I ::=   "title:    Aria Fritta che Gira in Tondo\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "comment:  questa e' una grammatica che genera i tipici discorsi degli attivisti politici confusi che scendono in piazza un po' per contestare il sistema, un po' per starsene un giorno a casa da scuola e/o dal lavoro. \n"
+      ^ "warning:  l'autore ci tiene a sottolineare che non e' affiliato a nessuna corrente politica.\n"
+      ^ "created:  27/04/2004"
+;
+
+S ::= \[MANIF perche'] [WHY] FRASE (SEGNO.V e | SEGNO.PU1 inoltre) RICORS PROPOSITO WITHOUT SEGNO.PU1 e' (per questo [motivo | pretesto] | per questa ragione | cosi' ) che MANIF SEGNO.PU3 [FINALE] ;
+
+FINALE ::= e [dunque | quindi | allora | percio' ] tutti (quanti | insieme) (gridiamo | urliamo) SEGNO.PU2 " " SEGNO.VT^ URLI (SEGNO.PUE)+ SEGNO.VT ;
+
+URLI ::= assassini | buffoni | in galera | viva la PAX.F | giu' le mani dal PAX.M ;
+
+RICORS ::= (FRASE | PROPOSITO) [SEGNO.V WITHOUT] SEGNO.PU1 [[MANIF perche'] [WHY] RICORS] ;
+
+FRASE ::= ( ((SOGG TOBE [ADV] AGGNEG).(M|F)) | ((DISC del [vice^]presidente DELLACOSA TOBE [ADV]AGGNEG).(M|F)) | (e' AGGNEG.M che il presidente DELLACOSA di^(ca|ce|rebbe|cesse) che ((M:il|F:la)PAX TOBE AGGNEG).(M|F)) | DITTATORE SEGNO.V infatti (il suo operato | il suo governo | questo signore | questo individuo ) e' quanto di piu' [ADV] AGGNEG.M )   ;
+
+DITTATORE ::= se il (dittatore | generale | colonnello | criminale) \(hitler | stalin | pinochet | helder) TOBE in vita SEGNO.V (ved^(e|rebbe|esse) il suo erede nel | sa^(rebbe|resse) un grande amico del | non si comporte^(rebbe|resse) diversamente dal ) [vice^]presidente DELLACOSA ;
+
+MANIF ::= {[noi]} {[oggi]} (siamo scesi in piazza | protestiamo | abbiamo deciso di protestare | abbiamo indetto uno sciopero | facciamo questo girotondo) ;
+
+PROPOSITO ::= [noi] (auspichiamo | proponiamo | speriamo in ) ((M:un|F:una) WHAT [che TOBE] PM AGGPOS).(M|F) INORDERTO ((M:un|F:una) PAX [che TOBE] [PM|ADV] AGGPOS).(M|F);
+
+INORDERTO ::= (per | al fine di (avere|raggiungere|stabilire) | cosicche' si (raggiunga | abbia)) ;
+
+PM ::= piu' | meno ;
+
+WHAT ::= M:(governo | provvedimento | disegno di legge | attacco) | F:( globalizzazione | devolution | riforma | opposizione | maggioranza | legge | guerra ) ;
+
+DISC ::= M:(il discorso | l'intervento)|F:(l'uscita | la sparata | la censura);
+
+WHY ::= ([noi] THINK | TOBE evidente | i fatti recenti provano ) che;
+
+THINK ::= crediamo | pensiamo | riteniamo | siamo sicuri | [non] accettiamo ;
+
+SOGG ::= M:(il presidente DELLACOSA | questo WHAT.M) | F :(questa WHAT.F);
+
+PAX ::= M:(governo | paese | welfare | parlamento | popolo  )|F:(democrazia | pace | societa' | popolazione | bandiera della pace | liberta' [di PAX.(M|F)] | satira);
+
+DELLACOSA ::= della \camera | del \senato | del \consiglio | della \repubblica | della \p2 | dell'\oriente \italiano | della "CGIL" | della "CISL" | della "UIL" ;
+
+ADV ::= inevitabilmente | spaventosamente | [in^]costituzionalmente | onanisticamente | veramente | davvero;
+
+WITHOUT ::= senza CONG e senza CONG ;
+
+CONG ::= se | ma | perche' | percio' | allora | dunque | non | quemadmodum ;
+
+AGGNEG ::= incostituzionale | fascista | ingiust^(M:o|F:a) | illecit^(M:o|F:a) | illegale | infelice ;
+
+AGGPOS ::= pacific^(M:o|F:a) | democratic^(M:o|F:a) | giust^(M:o|F:a) | migliore | simpatic^(M:o|F:a) | tollerante | costituzionale | liberale | legale | legittim^(M:o|F:a) | duratur^(M:o|F:a) ;
+
+TOBE ::= e' | sia | fosse | sarebbe ;
+
+SEGNO ::= (PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":"\ |  PU3: ^"."\ | PUE: ^"!"\ | V: ^"," | VT: ^"\""\ );

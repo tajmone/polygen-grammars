@@ -1,0 +1,42 @@
+I ::=   "title:    Springsteen cover band\n"
+      ^ "author:   ilgioa &lt;ilgioa@yahoo.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   basic\n"
+      ^ "topic:    music\n"
+      ^ "audience: " Nome "," Nome "," Nome "e tutti gli altri...\n"
+      ^ "created:  15/08/2005"
+;
+
+S ::= Lett "Street Band" |
+      Nome "& the" Lett "Street Band" |
+      Nome "& the" Lett "Street" Ng |
+      Nome "& the" Gruppo |
+      -----"The" Song |
+      -----"Born to" Verbo |
+      ----"The" Dec^Num "Avenue Freeze-Outs";
+      
+Lett ::= "A" | "B" | "C" | "D" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" |
+         "T" | "U" | "V" | "W" | "X" | "Y" | "Z" | "57th" | "82nd" | ----"Bruce";
+
+Nome ::= Agg Name;
+
+Agg ::= "Wild" | "Crazy" | "Cautious" | "Promised" | "NJ" | "Balboa" | "Little" | "Mighty" | "Cadillac" | "Spanish" |
+        "Barefoot" | "Innocent" | "Galveston" | "Highway" | "10th Avenue" | "Lucky" | "Broadway" | "NYC" |
+        "Red headed" | "Sinaloa" | "Hazy" | "Killer" | "NY" | "Catfish" | "Puertorican" | "Sonic" | "Doctor" |
+        "Professor" | "Phantom" | "Asbury" | "Red Bank" | "Rumson";
+
+Name ::= "Cat" | "Billy" | "Boss" | "Johnny" | --"Johnny 99" | "Rosie" | "Sandy" | "Adam" | "Bishop" | "Max" | "Candy" |
+         "Cynthia" | "Frankie" | "Kitty" | "Mary" | "Davie" | "Joe" | --"Joe Roberts" | --"Zero" | "Terry" | "Jenny" |
+         "Zoom" | "Adele";
+
+Gruppo ::= Agg Ng;
+
+Ng ::= "Boom" | "Band" | "Brothers" | "Mill" | "Child" | "Shuffle" | "Seven" | "Rockers" | "Saints" | "Dukes";
+
+Song ::= "Factory" | "Backstreets" | "Dollhouse" | "Jungleland" | "Roulette" | "Spare parts";
+
+Verbo ::= "Run" | "Fade away" | "Ride" | "Dream";
+
+Dec ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+
+Num ::= "1st" | "2nd" | "3rd" | "4th" | "5th" | "6th" | "7th" | "8th" | "9th" | "0th";

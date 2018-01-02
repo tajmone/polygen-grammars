@@ -1,0 +1,38 @@
+I ::=   "title:    Boyband names\n"
+      ^ "author:   Zcode &lt;zcode@tiscali.it&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: dedicated to" \Nome^, \Nome [^, \Nome] 'n \Nome ^"\n"
+      ^ "created:  30/06/2003"
+;
+
+S ::= Band;
+
+Band ::=  Verbo (Pron|Num) | [\the] Num^[s] | 
+	  (Boys|Pron|Num) to (Boys|Pron|Num) | 
+	  (Back^Street Boys).(1|2) |
+	  '^\(n|m|r|s|v|p|w|x)\(+sync|sink|sick|silk|Boys|Pron|Num) |
+	  (Boy) ^zone;
+
+Back ::=  \ (1: >(black | break | beck | bank | breast | pack ) | 
+             2: >(back | front | down | left | right | side ));
+
+Street ::=  (1: >(strip | streap | string | steak | stream | strict) | 
+	     2: >(street | road | avenue | zone));
+
+Boy ::= \(1: boy | 2: ( boy | guy | kid | men));
+Boys ::= (Boy) ^(s|z);
+
+Verbo ::= \(take | bring | push | pull | get | pick);
+
+Pron ::= \(that | this | those | these | it | them | all | back);
+
+Num ::= \(three | four | five | six | seven | eight | nine | ten | eleven | twelve);
+
+Nome ::= (jason|jay|howie|ralph|ryan|marc|robbie|david|
+	  nick|brian|kevin|aj|gary|howard|ronan|stephen|
+	  keith|mikey|shane|jc|justin|chris|lance|joey) 
+	 [[^Suff]];
+
+Suff ::= "-"^\(b|c|d|g|j|k);  

@@ -1,0 +1,22 @@
+I ::=   "title:      I fratelli di Nico\n"
+      ^ "author:     Alan aka ^anakin^ &lt;alanzap@email.it&gt;\n"
+      ^ "language:   sardo\n"
+      ^ "status:     refinable\n"
+      ^ "comment:    Nico (diminutivo di Salvatore) era il personaggio fatto da Giovanni di <i>Aldo, Giovanni e Giacomo</i> a Mai Dire Goal di qualche anno fa, ahio'.\n"
+      ^ "created:    20/11/2004";
+
+S ::= Nome "," Nome "," Nome "," Nome "," Nome "," Nome "," Nome ", Franco e" Nome ".";
+
+Nome   ::= Inizio (Pezzo)+;
+
+Inizio ::= \(C|C2)^V;
+
+Pezzo  ::= ^( +(C|C2|CDoppia)^V | (c[^c]|g[^g])^hi^(+a|e|+o|++u) )^;
+
+V  ::= +a|e|i|+o|++u;
+
+C  ::= p|t|f|g|s|r;
+
+C2 ::= ([s^](p|t|f|+g)[^r] | -gn);
+
+CDoppia ::= (K:=C; K^K);

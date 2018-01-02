@@ -1,0 +1,68 @@
+
+I ::=   "title:    Facciamo ordinazione\n"
+      ^ "author:   Pan &lt;pan@spinningkids.org&gt;, Pasu & Pete\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim: e' estate, prendiamoci un " Prod ^"\n"
+      ^ "created:  03/08/2004"
+;
+
+S ::= IDomanda \IOrdinazione;
+
+PlainS ::= Domanda \Ordinazione;
+
+IDomanda ::= "<i>" Domanda "</i>"^;
+
+Domanda ::= ("I lor signori desiderano?" | "Dite." | "Pronti?" | "Comandi" | "Dite pure" | ----"Prima di notte riusciamo ad ordinare?") "\n"^;
+
+IOrdinazione ::= Prods (IAltroNo | +(IAltroSi IOrdinazione));
+
+Ordinazione ::= Prods (AltroNo | +(AltroSi Ordinazione));
+
+Prods ::= Prod | +(ListaProd "e" Prod);
+
+ListaProd ::= (ListaProd ^"," Prod) | Prod;
+
+Prod ::= Prodotto.M.S | -Prodotto.M.P | -Prodotto.F.S | --Prodotto.F.P;
+
+Prodotto ::= Num ProdCaffetteria Temp ((((DicuiCorr [(--^"" | ((P:"e") Tazza))]) | (CorrTransl [(--^"" | (Dicui Tazza))])) ) | ([Dicui] Tazza) | ++^"");
+
+ProdCaffetteria ::= (M: ("caffe'" | "the" | ((S: ("marocchino" | "cappuccino" | "latte" | ------"eritreo")) (P: ("marocchini" | "cappuccini" | "bicchieri di latte" | ------"senegalesi"))))) (F: (S: ("cioccolata" | "grappa")) (P: ("cioccolate" | "grappe")));
+
+Temp ::= ++^"" | +(("cald" | "fredd" | "tiepid" | "gelat") Conj) | (("bollent" | "ustionant") ^((S: "e") (P: "i")));
+
+TempC ::= ++^"" | +(("cald" | "fredd" | "tiepid" | "gelat") ConjC) | (("bollent" | "ustionant") ^((CS: "e") (CP: "i")));
+
+Num ::= (S: ((F: "una") (M: "un"))) (P: ("due" | "tre" | "quattro" | "cinque" | "sei" | "sette" | "otto" | "nove" | "dieci" | ----"trentasette" | ------"quarantadue"));
+
+Correzione2 ::= ("corrett" ConjC (--^"" | TipoCorrezione2)) | ----(("sbagliat" | ---"maleducat") ConjC);
+
+Correzione ::= Correzione1 Correzione2;
+
+Correzione1 ::= ++^"" | ("macchiat" ConjC TempC) | ("lung" ConjC2) | ("ristrett" ConjC) | ---("pacioccon" ConjC);
+
+TipoCorrezione2 ::= "sambuca" | --"mandarinetto" | "nardini" | ----"salmiakki" | ----"ch-inotto" | "cointreau" | "vecchia romagna" | "anisetta" | "cognac" | "whiskey" | "whisky" | "courvoisier" | "bourbon";
+
+Dicui ::= (P: "di cui" (((M: "uno") (F: "una")) | "due" | --"tre"));
+
+DicuiCorr ::= (P: "di cui" (((M: "uno" Correzione.CM.CS) (F: "una" Correzione.CF.CS)) | (("due" | --"tre") CorrTransl))) (S: CorrTransl);
+
+CorrTransl ::= (P: ((M: Correzione.CM.CP) (F: Correzione.CF.CP))) (S: ((M: Correzione.CM.CS) (F: Correzione.CF.CS)));
+
+Tazza ::= "in" (Luogo.LM | Luogo.LF);
+
+Luogo ::= ((LF: ("tazzina" | "tazza" | ---"bottiglia")) (LM: ("bicchiere" | "bicchierino"))) ["grande" | (LM: ("piccolo" | "medio")) (LF: ("piccola" | "media"))] [(LM: ("caldo" | "freddo" | "tiepido")) (LF: ("calda" | "fredda" | "tiepida"))] [++^"" | "di vetro" | "di plastica" | --"di terracotta" | -----"di selce" | -----"di peltro" | ---"di argilla" | ---"con due manici" | -"blu" | ------"con tre manici" | ---"rosa antico"];
+
+Conj ::= ^((M: (S: "o") (P: "i")) (F: (S: "a") (P: "e")));
+ConjC ::= ^((CM: (CS: "o") (CP: "i")) (CF: (CS: "a") (CP: "e")));
+ConjC2 ::= ^((CM: (CS: "o") (CP: "hi")) (CF: (CS: "a") (CP: "he")));
+
+IAltroNo ::= ^".\n<i>"^ ("Basta?</i>\nSi," | "Altro?</i>\nNo,") ("siamo a posto." | "grazie." | "a posto cosi'." | "basta cosi'." | "e' ok.") ;
+
+AltroNo ::= ^".\n"^ ("Basta?\nSi," | "Altro?\nNo,") ("siamo a posto." | "grazie." | "a posto cosi'." | "basta cosi'." | "e' ok.") ;
+
+IAltroSi ::= ^".\n<i>"^ ("Basta?</i>\nNo," ["dimenticavo... ci porti"] "anche" | "Altro?</i>\nSi, anche");
+
+AltroSi ::= ^".\n"^ ("Basta?\nNo," ["dimenticavo... ci porti"] "anche" | "Altro?\nSi, anche");

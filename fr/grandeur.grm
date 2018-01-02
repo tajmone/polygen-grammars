@@ -1,0 +1,40 @@
+
+I ::=   "title:    La Grandeur Francaise\n"
+      ^ "author:   Manta\n"
+      ^ "language: french\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: non-french people\n"
+      ^ "created:  02/12/2003"
+;
+
+S ::= \ A.1.i ^"," \ A.(-1|+2).i ^"," \ A.(--1|2|++3).f ^"!"
+;
+
+A ::= 1: ( egalite' | fraternite' | [il^]legalite' | liberte'
+         | [im^]moralite' | maternite' | humilte' | [im^]mortalite'
+         )
+   |  2: ( (f: la | i: _) surete' | decollete' | enchante' | deshabille'
+         | [f: le "Cardinal" | i: _] "Richelieu" | "Chardonnaix" | desole'
+         | (f: le | i: _) >(sommelier | gourmet) | bouquet
+         | excusez | bidet | cassoulet | (tran | omo | bi)^sexualite'
+         | [f: les freres | i: _] "Montgolfier" | "pret-a-porter"
+         | trezeguet | atelier
+         | specialites
+         )
+   |  3: ( marrons glaces | (allez | >P) allez | le jeux sont fait
+         | Cibo (flambe' | laquais | aromatise') | a' la sante'
+         | >(a' la | je suis) francais | "avez-vous" pete'
+         | "voulez-vous" >(dancer | coucher | poulet)
+         | "Gerard Depardieu" | "qu'est-ce que c'est" | "Grand Marnier"
+         | les "Champs Elysees" | mon "Dieu" | "Caprice des Dieux"
+         | petit pate' | s'il vous plait | fait chier | parbleu
+         | sans papiers
+         )
+;
+
+Cibo ::= canard | poulet | champagne | potage | jambon
+;
+
+P ::= garcon | monsieur | madame
+;

@@ -1,0 +1,93 @@
+I ::=   "title:    Ghezzi Simulator\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    cinematography\n"
+      ^ "audience: chi ha visto almeno una volta La Corazzata Potemkin\n"
+      ^ "thanks:   si ringrazia Beppo per l'idea\n"
+      ^ "created:  27/07/2004"
+     ;
+
+
+
+
+S::= \ECCO TITOLO SEGNO.V [di REGISTA SEGNO.V] FILM (SEGNO.PU1 (TITOLO | questo film | _ ) | SEGNO.V che) DESCR ({BULLSHIT} {PERSONALE})+;
+
+ECCO ::= ecco [a voi] | eccovi | osserviamo ;
+FILM ::= un [vecchio] ( film | lungometraggio | cortometraggio | mediometraggio ) NAZIONE del ANNO ;
+
+TITOLO := ""SEGNO.VT^TITOLO2 SEGNO.VT;
+ALTROTITOLO ::= ""SEGNO.VT^TITOLO2 SEGNO.VT;
+
+TITOLO2 ::= \([un | le | mon ] (chien | homme | mer | fleur | baguettier | barbezieux ) (andalou| dequeulasse | debile |tarabiscot^"\233" | tatillon | imbu | loufogue | du tonnerre)) [-----est mort]| 
+\((das | die | der) \[(uber|utter|achter)\^](kabinett | strasse | eier | scheisse | knochen | schmutz | wasche | zimmer) [der \(doktor | meister | herr ) NOME.GER] );
+
+
+
+NOME ::= \
+(
+GER:(schu|klins|bodens|grunt|magnus|[st^]ein)^(tein|her|mann|s^(e|o)^n)  |
+SLAV:((savice|stojako|mijato|[kol^]ivano|boriso|sergeij|buko|kieslo)^(v[^ic]|wskij))  |
+FRA:((dela|du|bo|cha|re|moi)^{(s|r|l)}^{(d|t)}^(eau[^x]|oi[^x]|ard)) 
+)
+;
+
+REGISTA := NOME.(GER|SLAV|FRA) ;
+
+NAZIONE ::= polacco | tibetano | israeliano | indiano | vietnamita | groenlandese | eschimese | francese | [bielo^]russo | paraguaiano | sanmarinese | vaticano | basco;
+
+ANNO ::= "1"^CIFRA^CIFRA^CIFRA ["a.C." | "d.C"] ;
+
+CIFRA ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "0" ;
+
+DESCR::= NUTSHELL TECNICAMENTE ;
+
+NUTSHELL::=  (e' | puo' essere visto come | si propone come) (ART::=un^(M:""|F:a); ART AGG GENERE).(M|F) [BERSAGLIO] (PREP::=di un^(M:""|F:a); PREP {AGG} {CARATTERISTICA [CARATT2]} ).(M|F) SEGNO.PU3 ;
+
+TECNICAMENTE ::= (TITOLO | questo film | _ ) (e' | viene reso da REGISTA come| appare come) (RACCOLTA CARATT2).(M|F) di OGGETTO [SEGNO.V (RACCOLTA CARATT2).(M|F) di OGGETTO ] SEGNO.PU1 ;
+
+RACCOLTA ::= M: (un "pot-pourri" | un melting pot | un calderone | un mescolone un insieme ) | F: (una raccolta | un'unione | una sequenza);
+
+AGG ::= fredd^(M:o|F:a) | gelid^(M:o|F:a) | triste | grigi^(M:o|F:a) | monocorde|  salace| tagliente | malriuscit^(M:o|F:a)| utopi^[sti^]c^(M:o|F:a) | distopi^[sti^]c^(M:o|F:a) | orwellian^(M:o|F:a) | eliottian^(M:o|F:a) ;
+
+CARATTERISTICA ::= M:(sintetismo | ermetismo | senso della CARATTERISTICA.F ) | F:( sintesi | logica | coerenza ) ;
+
+CARATT2 ::= antitetic^(M:o|F:a) | pleonastic^(M:o|F:a) | ermeneutic^(M:o|F:a) | catartic^(M:o|F:a)| anabasic^(M:o|F:a)| sofferente ;
+
+GENERE  ::= M:(spaccato | ritratto | panorama) | F:(critica|satira|parodia);
+
+BERSAGLIO ::= (X::=(dell'ingiustizia | del bigottismo | dei pericoli | della stupidita' | dell'insensatezza | dell'inutilita'); [X [e X]]) (della societa' | del sistema | della politica | del modernismo | del progresso | dell^(a|'alta|a piccola) borghesia | dell'ancien regime );
+
+GERUNDIO ::= (narrando | facendo menzione | parlando | raccontando) ;
+
+BULLSHIT ::= [AVVERBIO] [NOTICE] (CONTESTO DICHECOSA ACAUSADI).(M|F) OGGETTO AGGETTIVO [SEGNO.V e AGGETTIVO] SEGNO.V SOGGETTO POTREBBE [AVVERBIO] AVVERBIO2 [AGG.M] (SEGNO.PU1 | SEGNO.V GERUNDIO (del concetto | del senso) BERSAGLIO (rispetto | paragonato | confrontato ) alle [PREFIX]OGGETTO di (\godard | \eisenstein | \dreyer | NOME.(GER|SLAV|FRA) ) SEGNO.PU1);
+
+AVVERBIO ::= indubbiamente | certamente | ovviamente | probabilmente | forse |  senza dubbio ;
+
+AVVERBIO2 ::= [PREFIX] ( differentemente | conformisticamente | kafkianamente | godardianamente | biograficamente );
+
+PREFIX ::= casual^ | metro^ | pseudo^ | ant(^e|^i)^ | meta^ | preter^ | auto^ ;
+
+NOTICE ::= (possiamo notare | osserviamo | ci si puo' rendere conto | ci si accorge ) che;
+
+CONTESTO ::= F:(in un'ottica | in una visione | in una circostanza | in un'espressione | da un'angolazione | in una \weltanschaaung) | M:(in un contesto | in un ambiente) ;
+
+DICHECOSA ::= di ([e^]straniamento | smarrimento | ascensione | emozione | ermeneuticita' | catarsi | \bildungsroman | crescita [morale | spirituale] | pulsione | sensualita' ) ;
+
+ACAUSADI ::= dovut^(M:o|F:a) a | causat^(M:o|F:a) da | derivat^(M:o|F:a) da | improntat^(M:o|F:a) a ;
+
+OGGETTO ::= presenze sceniche | sequenze di immagini | sonorita' mute | tematiche trasformate in OGGETTO | precessioni "causa-effetto" | disposizioni luminose | casualita' | introspezioni (epanal|prol)(^e|--^a)^ttiche | citazioni ;
+
+AGGETTIVO ::= [AVVERBIO] (retro' | di dubbio gusto | colte | sequenziali | oniriche | godardiane | kafkiane | dreyeriane | barocche | manieristiche | [anti^]conformiste );
+
+SOGGETTO ::= il protagonista | il regista [REGISTA] | REGISTA | lo spettatore | il figurante | l'interprete | il soggetto | il contenuto emozionale ;
+
+POTREBBE ::= potrebbe essere visto | si potrebbe vedere | potrebbe considerarsi |  potrebbe palesarsi | potrebbe riscoprirsi | si potrebbe reinventare ;
+
+(* Ora vi sfido a capire qualcosa in questa cosa qui. *)
+
+PERSONALE ::= \[personalmente | in effetti | devo dire che | bisogna dire che | d'altra parte ] ((([non] (mi trovo d'accordo |  concordo | ci si potrebbe trovare d'accordo )) con NOME.FRA) | ((ritengo | credo | penso | mi sembra)[comunque] che NOME.FRA [non] (abbia ragione | sia in torto)))
+quando (dice | afferma | asserisce | insinua ) che (TITOLO | il (film | capolavoro) di REGISTA) sia ([solo] RACCOLTA di OGGETTO | soltanto (un esercizio | un'esibizione) [di stile] [registico] (per mezzo di | tramite | attraverso) (un uso | un utilizzo | uno sfoggio)[smodato|eccessivo|ridondante] di OGGETTO ) [SEGNO.V e basta] SEGNO.PU1 [AVVERBIO SEGNO.V confrontando,paragonando TITOLO con,a ALTROTITOLO SEGNO.V [di NOME.(FRA|GER|SLAV) SEGNO.V | sempre di REGISTA SEGNO.V] NOTICE (e' presente in TITOLO | e' [quasi] palpabile | fa sempre la sua presenza | il film e' permeato da ) (una sensazione | un sentore | un "fil-rouge") DICHECOSA (che [pochi] altri registi (sanno | possono | sono in grado di ) offrir(^e|^ci) | che e' {[diventato]} {[un po' | in effetti ]} (il marchio | tipico ) di REGISTA | che (non | difficilmente | raramente | quasi mai) (troviamo | troveremo | abbiamo trovato) in (film | lungometraggi | opere) come ALTROTITOLO [o ALTROTITOLO]) SEGNO.PU1 ] ;
+
+
+SEGNO ::= (PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":"\ | PU3: ^"."\ | V: ^"," | VT: ^"\"" | PI: ^"?"\ | PE: ^"!"\ );

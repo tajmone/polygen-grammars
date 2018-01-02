@@ -1,0 +1,230 @@
+
+I ::=   "title:    Ordinanze comunali surreali di limitazione del traffico\n"
+      ^ "author:   <a href=\"http://manetti.homelinux.com/~maurizio\">"^
+      			   (Suff ::= etti | izio;
+      			    {"Maur" ^ Suff}
+      			    {["Gian" ^ (franzo | nizzero | nozzo | mauro | "-Baptiste")]}
+      			    {"Man" ^ Suff}
+      			   )^"</a>\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: Amministrazioni Comunali che non hanno tempo da perdere\n"
+	  ^ "disclaim: non si nutre alcun" (particolare | speciale)  (astio | rancore | risentimento)  per l'amministrazione comunale di  \COMUNE ^"\n"
+	  ^ "created: 23/01/2004\n"
+;
+
+S ::= PREAMBOLO OL DIVIETI ESONERI DEROGHE OF;
+
+COMUNE := roma | firenze | milano | torino | napoli | bologna | bari | genova;
+
+PREAMBOLO ::= CENTER BIG^ PROVVEDIMENTI ^NOBIG ORDINANZA NOCENTER ;
+
+PROVVEDIMENTI ::= (\provvedimenti ( di limitazione del traffico 
+	| relativi alla circolazione dei veicoli ) |
+	\prevenzione dell'inquinamento atmosferico NL e per la tutela [della salute] dei cittadini |
+	\blocchi programmati (del traffico | della circolazione) |
+	\azione per il contenimento NL dell'inquinamento atmosferico da traffico)
+	[NL anno ANNO] NL2 
+	;
+
+ANNO ::= 20 ^(05|06|07|08|09|10);
+
+ORDINANZA::= CHI NL2 B^ COSAFA ^NOB NL;
+
+CHI ::= (\il \sindaco | \la \giunta \comunale | \il \magnifico \rettore | 
+	il consiglio dei cavalieri \jedi | il consiglio degli \anziani |
+	lo splendido \assessore (al traffico | alla [im^]mobilita') | 
+	(\la \mamma | \la \moglie | \l'^\amante) del \sindaco | 
+	(\la \direzione | \il \servizio \tutela) \ambiente [e \territorio])
+	del comune di \COMUNE
+	;
+
+COSAFA ::= "D I S P O N E" | ++"O R D I N A" | "C O M A N D A" | "I M P O N E" | "P R E S C R I V E" | ++"D E L I B E R A" | "S U G G E R I S C E" | "A Z Z A R D A";
+
+DIVIETI ::= LI DIVIETO LF LI DIVIETO LF;
+
+DIVIETO ::= il "DIVIETO" [++assoluto | moderato | relativo] di (circolazione | transito) DOVE QUANDO ^V DALLE ALLE ^V 
+	alle seguenti categorie di veicoli^DP NL2 UL VEICOLI UF LF NL;
+
+DALLE ::= dalle ore (7|8|9)^":00" | dall'^(alba | aurora) | dal canto del gallo | da dopo che il gallo avra' cantato CIFRA volte fino;
+
+ALLE ::= alle (17|18|19|20)^":00" | all'ora di (cena | merenda) | al crepuscolo (civile | nautico | astronomico) | 
+all'ora (della preghiera islamica (del pomeriggio | della sera) calcolata secondo il metodo \(shafi'i|hanafi) | del \vespro);
+
+DOVE ::= (nel territorio >(+++comunale | provinciale | regionale | nazionale) | nel centro (abitato | [sub^]urbano) di \COMUNE ) ^V;
+
+QUANDO ::= tutti i giorni | GIORNOPERIODICO.(M1|F1) | nei giorni GIORNI;
+
+GIORNI ::= [[ di GIORNO ^V] di GIORNO ^V ] di GIORNO e (GIORNO | GIORNOPERIODICO.(M1|F1));
+
+GIORNOSETTIMANA ::= M1: \>(lunedi' | martedi' | mercoledi' | giovedi' | venerdi' | sabato) | F1: \domenica;
+
+GIORNO ::= GIORNOSETTIMANA | \(pasqua |  natale | ferragosto | santo \stefano | berlingaccio);
+
+GIORNOPERIODICO ::= ogni ENNESIMO GIORNOSETTIMANA ( del mese | dell'anno | della settimana | 
+	(successiv^(M1: o | F1: a) | antecedente ) al ENNESIMO.M1 (pleni|novi)^lunio STAGIONE );
+
+ENNESIMO ::= (prim | second | terz )^(F1: a | M1: o);
+
+STAGIONE ::= d'^\ >(inverno|autunno|estate) | di \primavera;
+
+VEICOLI ::= [[LI VEICOLO.(M|F) LF ] LI VEICOLO.(M|F) LF ] LI VEICOLO.(M|F) LF LI VEICOLO.(M|F) LF LI VEICOLO.(M|F) LF LI VEICOLO.(M|F) LF;
+
+VEICOLO ::= F: (motociclette [dieci "HP"] [dotate di sidecar] | motocarrozzette 
+	| motorette [che sgommano^V inchiodano e vanno a manetta [e fanno cagare addosso il governo e i matusa]] |
+	barche | autovetture | biciclette | carrozze[^lle] | locomotive | jeep | slitte [da neve] | zattere | ruspe) |
+	M: (ciclomotori | motorazzi | autoveicoli | tram | pullman | autobus | tricicli | aeromobili | 
+	elicotteri | deltaplani | riscio' | monopattini | gatti delle nevi | autoarticolati | trattori)
+	{[^V CONDUCENTE]}
+	{[^V PASSEGGERI]}
+	{[^V TARGA]}
+	{[^V ALIMENTAZIONE]}
+	{[^V IMMATRICOLAZIONE]}
+	{[^V ALTRECARATTERISTICHE]}
+	[^V NUMERORUOTE];
+
+IMMATRICOLAZIONE ::= immatricolat^(M: i| F: e) per la ENNESIMO.F1 volta precedentemente al DATAIMMATRICOLAZIONE 
+	[ad eccezione di quell^(M:i | F: e) conformi alla direttiva CIFRA^CIFRA^"/"^CIFRA^CIFRA[^CIFRA]^"CE"[^"E"]];
+
+DATAIMMATRICOLAZIONE ::= GI^"/"^MI^"/"^AI;
+
+GI ::= 0^CIFRA | 1^CIFRA | 2^CIFRA;  
+
+MI ::= 0^>CIFRA|10|11|12;
+
+AI ::= 199^CIFRA;
+
+CIFRA ::= 1|2|3|4|5|6|7|8|9;
+
+ALTRECARATTERISTICHE ::=  di cilindrata (superiore | inferiore) a CIFRA^CIFRA^CIFRA cc | 
+		destinat^(M: i | F: e | S: o) al trasporto (merci fino a CIFRA^V^CIFRA (tonnellate|once) | 
+		passeggeri fino a CIFRA^CIFRA persone);
+
+TARGA ::= con targa 
+	(pari | dispari | avente numeri primi tra loro 
+	| la somma delle cui cifre sia un numero (primo | pari | divisibile per CIFRA)
+	| la somma delle cui cifre sia uguale alla data di (nascita|battesimo|circoncisione) del (conducente|proprietario)
+	| avente la prima lettera (vocale | consonante)
+	| avente lettere di posizione pari nell'alfabeto (italiano | anglosassone | latino | copto | fenicio)
+	);
+
+CONDUCENTE ::= guidat^(F: e | M: i) da conducenti (
+		nati (sotto il | nella ENNESIMO.F1 decade del) segno de^ZODIACO
+		| ((omo|etero|bi|tri)^sessuali	| di religione RELIGIONE | con codice fiscale (pari|dispari) | matusa));
+
+ZODIACO ::= ll'^\ariete | l \leone | l \sagittario | l \toro | ^lla \vergine | l \capricorno | i \gemelli 
+	| ^lla \bilancia | ll'^\acquario | l \cancro | llo \scorpione | i \pesci | l \serpentario; 
+
+PASSEGGERI ::= con {a bordo} {((meno|piu') di | almeno) CIFRA passeggeri} [(compreso|escluso) il conducente];
+
+ALIMENTAZIONE ::= alimentat^(M: i | F: e) a > CARBURANTE | 
+	a > (motore | pedali | vela | pile | traino (animale | di schiavi) | spinta | vapore) |
+	ad alimentazione >(elettrica | geotermica | ibrida);
+
+CARBURANTE ::= ( ++diesel | metano | [licenza] "GPL" | alcool | miscela 
+		|gas naturale | curegge | propano | butano | benz^(olo|ene|+++ina) | catrame 
+		| bitume | vodka | legno | carbone[^lla] | zampirone | coccoina | rifiuti solidi urbani 
+		| idrogeno | deuterio | trizio | uranio [arricchito | impoverito] | plutonio | aria compressa);
+
+NUMERORUOTE ::= a CIFRA ruote | a CIFRA^CIFRA raggi per ruota | 
+	con ruote di diametro (sup|inf)^eriore a CIFRA^CIFRA (centimetri | pollici | palmi | piedi);
+
+ESONERI ::= LI \sono esonerati dai divieti di (transito | circolazione)^V di cui ai punti "1)" e "2)" 
+	della presente ordinanza^V i seguenti veicoli^DP NL2 OLA VEICOLIESONERATI OF LF NL;
+
+VEICOLIESONERATI ::= [[LI VEICOLOESONERATO LF] LI VEICOLOESONERATO LF] LI VEICOLOESONERATO LF LI VEICOLOESONERATO LF LI VEICOLOESONERATO LF LI VEICOLOESONERATO;
+
+VEICOLOESONERATO ::= VEICOLO.(M|F) | ++++VEICOLOSPECIALE;
+
+VEICOLOSPECIALE ::= veicoli ALIMENTAZIONE.M | 
+		i possessori di contratto di (acquisto | affitto | noleggio | comodato d'uso | leasing) relativo ad una autovettura^V o a un autoveicolo ALTRECARATTERISTICHE.S |
+		veicoli in servizio FORZE |
+		veicoli UTILIZZIVARI;
+	
+FORZE ::= [[[FORZA^V ] FORZA^V ] FORZA^V ] FORZA e FORZA;
+
+FORZA ::= "delle Forze di Polizia" | "dei Carabinieri"  | "dei Vigili del Fuoco" | "della Protezione Civile" |
+			 "dei Bersaglieri" | "dell'Esercito della Salvezza" | "delle Crocerossine" | "delle pubbliche Assistenze" |
+			 "della Guardia Medica" | "della Polizia a Cavallo" | "degli Alpini" | "della Polizia Municipale" |
+			"delle Forza Amate" | "del 3&deg; Reggimento Cavalleria Savoia" | "dei Granatieri" | "dei Minatori" |
+			"dei Saltimbanco" | "degli Sminatori" | "dei Frombolieri" | "dei Carpentieri" | "delle Guardie Svizzere" |
+			"del Sacro Ordine dei Cavalieri di Malta" | "dei Cowboys" | "dell'A-Team" | "dei Martiri di Al-Aqsa" | "degli Hezbollah" |
+			"delle Brigate Rosse" | "dei Carmelitani Scalzi" | "dei NAS" | "delle Teste di Cuoio" | "della Delta Force One" |
+			"delle Guardie Imperiali" | "della Capitaneria di Porto" | "dei Guerrieri Elfici" | "dei Cavalieri Jedi" | "della Guardia Nazionale Padana" | 
+			"della 'ndrangheta" | "di Cosa Nostra" | "della Mafia" (russa|cinese|giapponese|portoricana) | 
+			"delle Camicie" (rosse|nere|verdi) | "degli Accalappiacani" | "degli Ultras" ("dell'Inter" | "del Milan" | "della Juve"^[ntus] | "della Roma" | "della Lazio" 
+			| "del Napoli" | "della New Team" | "del Cervia" | "dell'Atletico Van Goof" ) | "del Team America World Police" | "del Sacro Ordine dei" 
+			( "Templari" | "Cavalieri Teutonici");
+			
+RELIGIONE ::= cattolica | calvinista | islamica | ebraica | buddhista | taoista | mormone | new age | animista | atea;
+
+UTILIZZIVARI ::= utilizzati dai lavoratori con turni lavorativi (casuali | flessibili | tali da impedire la fruizione dei mezzi di trasporto pubblico) |
+			dei sacerdoti e dei ministri del culto [di qualsiasi confessione | di confessione >RELIGIONE] |
+			degli operatori di [dis^]informazione |
+			degli untori |
+			dei monatti | 
+			di trasporto dei commercianti [non de^]ambulanti |
+			impegnati per particolari o eccezionali attivita' [a discrezione degli "Agenti" FORZA] | 
+			utilizzati per il trasporto di (persone | animali) che si rechino >(
+			a effettuare acquisti nei negozi di proprieta' del [(cugino | cognato | ^lo zio | ^la mamma) del ] \sindaco  |
+			presso le strutture sanitarie per sottoporsi a visite specialistiche^V terapie ed analisi programmate |
+			a \quel \paese)
+			;
+
+DEROGHE ::= LI in "DEROGA" ai divieti di transito veicolare stabiliti con la presente ordinanza 
+	sono normalmente (+++aperti | chiusi) alla circolazione veicolare^DP NL2 UL TRATTI UF LF;
+
+TRATTI ::= [[LI TRATTO LF] LI TRATTO LF] LI TRATTO LF LI TRATTO LF LI TRATTO LF LI TRATTO;
+
+TRATTO ::= tratti di strade sterrate [e fangose] | tratti di strade [di collegamento] tra gli svincoli autostradali ed 
+	i parcheggi (sotterranei | posti in corrispondenza delle stazioni [periferiche] dei mezzi pubblici) |
+	tratti di strade verticali |	stretti marittimi [infestati da (squali | meduse | alligatori)] | 
+	ponti e pontili a CIFRA campate | tratti autostradali^V strade [statali e] provinciali ricadenti nei territori dei comuni 
+	[dis^]interessati dalla presente delibera | ++++\VIA \TOPONIMO |
+	++++ il tratto di collegamento da \AREACIRCOLAZIONE \TOPONIMO a \AREACIRCOLAZIONE \TOPONIMO | 
+	tratti fluviali destinati al trasporto merci | gallerie sottomarine | tratti di transiberiana |
+	sentieri "CAI" [alpini] | piste sciistiche di pendenza (sup|inf)^eriore al CIFRA^CIFRA^"%" | 
+	piste ciclabili e zone pedonali | seggiovie e funivie;
+
+
+VIA ::= via | viale;
+AREACIRCOLAZIONE ::= +++piazza | +++largo | +++>VIA | piazzale | piazzetta | vicolo | calle | corso;
+
+(* le vie in Italia si chiamano tutte uguali *)
+
+TOPONIMO ::= PERSONAGGIO | NOBILECAUSA | NOMERANDOM;
+
+PERSONAGGIO ::= STORICO | RELIGIOSO | LETTERARIO | ARTISTICO;
+
+STORICO ::= garibaldi | mazzini | cavour | dei \mille | gramsci | de \gasperi;
+
+RELIGIOSO ::= madonna (della \tosse | del \trattore | del \sacro \cuore | delle \stelle | della \salute | delle \grazie) 
+	| san \marco | degli \angeli | della \[sacra|sant[^issim^]a|sacrosanta] \croce | santa \caterina da \siena 
+	| san \francesco | santa \rita da \cascia | sant'^\anna | san \filippo \neri;
+
+LETTERARIO ::= dante \alighieri | petrarca | ariosto | tasso | manzoni | leopardi | pascoli | d'\annunzio | de \amicis | benedetto \croce;
+
+ARTISTICO ::= giotto | masaccio | michelangelo | brunelleschi | bramante | della \robbia;
+
+NOBILECAUSA ::= della \>(liberta'| pace) | repubblica | italia | europa | indipendenza; 
+
+NOMERANDOM ::= (bra|sma|fi|tra|cala)^(mba|mbe|ghe|fi|fo|co)^(ni|te|ga|tallo);
+
+V ::= ",";
+DP ::= ":";
+NL ::= "\n";
+NL2 ::= "\n\n";
+CENTER ::= "<div align=\"center\">";
+NOCENTER ::= "</div>";
+OLA ::= "<ol style=\"display: block; list-style: lower-alpha outside; margin-left: 15px\">";
+OL ::= "<ol>";
+OF ::= "</ol>";
+UL ::= "<ul style=\"display: block; list-style: disc inside; width: 90%\">";
+UF ::= "</ul>";
+LI ::= "<li style=\"display: list-item; margin-left: 5px\">";
+LF ::= "</li>";
+BIG ::= "<big>";
+NOBIG ::= "</big>";
+B ::= "<b>";
+NOB ::= "</b>";

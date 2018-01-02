@@ -1,0 +1,70 @@
+I ::=   "title:    Nobilta' d'oggi\n"
+      ^ "author:   FJF\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: Per tutti coloro che amano" (leggere | sfogliare | accartocciare | incartare le triglie con ) "'<b>"^(novella2000 | evatremila | chi | stop | visto | cronaca vera | confidenze | gente | oggi | babilonia )^"</b>' "
+      ^ "mentre sono "^( al cesso | nella bara | al volante | dal barbiere | in fila alle poste )^" e non si perdono neanche una puntata dei resoconti delle "^(meravigliose | stronzissime | esilaranti | inutili) (feste | puttanate | cazzate | pagliacciate )^" del jet-set "^( inter | trans)^"nazionale...\n"
+      ^ "disclaim: Nomi, soprannomi, luoghi e titoli nobiliari sono frutto di una combinazione casuale e irripetibile (per lo piu'), per cui - se proprio qualcuno vuole incazzarsi - se la prenda con la sorte cinica e bara, e non con il sottoscritto.\n"
+      ^ "created: 13/02/2006\n"
+;
+
+S ::= \ ( SCHIATTA )
+;
+
+SCHIATTA ::= \ ( FEMMINILE1 | MASCHILE1 | FEMMINILE2 | MASCHILE2 )
+;
+
+FEMMINILE1 ::= \ ( [TITOLIDONNA] NOMIDONNA (COGNOMI | ++(COGNOMI COGNOMI)) [TOPONOMASTICA]("" | -(^", detta '<i>"^(SOPRANNOMEDONNA)^"</i>'")))
+;
+
+FEMMINILE2 ::= \ ( ["Donna" | "Zarina" | --"Prof.ssa" | -"Avv.ssa" | -"Dott.ssa" | ---"Casalinga" ] NOMIDONNA (COGNOMI | ++(COGNOMI COGNOMI)) [^", "^TITOLIDONNA TOPONOMASTICA])
+;
+
+MASCHILE1 ::= \ ( [TITOLIUOMO] NOMIUOMO (COGNOMI | +(COGNOMI COGNOMI)) [TOPONOMASTICA]("" | -(^", detto '<i>"^(SOPRANNOMEUOMO)^"</i>'")))
+;
+
+MASCHILE2 ::= \ ( ["Don" | "Zar" | --"Prof." | -"Avv." | -"Dott." | ---"(In attesa di prima occupazione)" ] NOMIUOMO (COGNOMI | +(COGNOMI COGNOMI)) [^", "^TITOLIUOMO TOPONOMASTICA])
+;
+
+TITOLIDONNA ::= \ ( "Sua Altezza Reale" | "Sua Maest\224" | "Sua Santit\224" | "Contessa" | "Duchessa" | ("Arci"|"Gran")^"duchessa" | "Principess"^("a"|"ina") | "Marchesa" | "Nobildonna" | "Delfina" | "Infanta" )
+;
+
+TITOLIUOMO ::= \ ( "Doge" | "Sua Altezza Reale" | "Sua Maest\224" | "Sua Santit\224" | "Conte" | "Ducaconte" | "Duca" | ("Arci"|"Gran")^"duca" | "Princip"^("e"|"ino") | "Marchese" | "Visconte" | "Imperatore" | ++"Nobil"^(h|u)^"omo" | "Delfino" | "Infante")
+;
+
+NOMIDONNA ::= \ ( "Jacaranda" | "Fatima" | "Martha" | "Pucci" | "Melba" | "Jonella" | "Kicca" | "Ljuba" | "Diamanta" | "Lavinia" | "Isabella" | "Ginevra" | "Giuditta" | "Donatella" | "Micaela" | "Genoveffa" | "Artemisia" | "Erszebeth" | "Cleopatra" | "Fiamma" | "Letizia" | "Salom\233" | "Marinella" )
+;
+
+NOMIUOMO ::= \ ( "Helder" | "Vlad" | "Rapha\235l" | "Fawaz" | "Serge" | "Rupert" | "Ranier"^("i"|"o") | ("G"|"R")^"offredo" | "Emanuele" | "Filiberto" | ("Pier"^COMPOSTO) | ("Gian"^COMPOSTO ) | "Fulco" | "Adnan" | "Ascanio" | "Jakob" | "Lapo" | "Lupo" | "Krassimir" | "Ranieri" | "Orso" | "Gaddo" | "Manfredi" | "Sigismondo" | "Winifred" | "Teodulo" | "Urbano" | "Aristide" | "August" | "Pi\244tr" | "Aleksej" | "Vladimir" | "Anton" | "Misha" | "S\252leyman" )
+;
+
+COGNOMI ::= \ ( "\197ngstr\246m" | "Serbelloni" | "Mazzanti" | "Viendalmare" | "Vendramin" | "T\233pes" | "Santanch\232" | "Roman\244v" | "Rizzoli" | "Rothschild" | "Murdoch" | "Al-Fayed" | "Bos\233" | "Dominguin" | "Agnelli" | "Spencer" | "Falck" | "Ruffo" | "Rocco" | "Caetani" | "Borghese" | "Pacelli" | "Elkann" | "Sforza" | "Ruspoli" | "Arquata" | "Lovatelli" | "Bernardini" | "De Pace" | "Pecci" | "Bl\252nt" | "Gruosi" | "Borromeo" | "Brachetti" | "Peretti" | "Della Gherardesca" | "Santapace" | "Ratzinger" | "Rattazzi" | "Th\252rm-und-Taxis" | "Bath\243ry" | "Khassoggi" | "Kennedy" | "Auf-der-Maur" | "Latsis" | "Onassis" | "Papadimitriou" | "Hilton" | "H\244ssein" | "Van Helsing" | "R\244stropov" | "Ant\244nov" | "Amundsen" | "Bergsson" | "Levy-Strauss" | "Visconti" | "Doria" | "Provera" | "Kandemir\244gl\252" | "Cort\233s" )
+;
+
+TOPONOMASTICAITALIANA ::= ("di Torrepaduli" | "di Calabria" | "di Jugoslavia" | "di Grecia" | "di Monaco" | "di Saint-Just" | "di H\228nnover" | "di Savoia" | "di Borbone" | "di San Severo" | "d'Altavilla" | "di Cutrofiano" | "di Sicilia" | "di Valacchia" | "di Bisanzio" | "di Turingia" | "di Manfredonia" | "di Sassonia-Coburgo" | "di Rivombrosa" | "di Friburgo" | "d'Oriente e"^("t"|"d")^" Occidente" | "di Torbellamonaca" | "del Tufello" | "di Vigata" | "di Malta" | "del Santo Sepolcro" | "del Trono di Salomone" | "d'Aquitania" | "d'Occitania" | "d'Oceania" | "di Modrone" | "di Montezemolo" | "di Montezuma" | "di Montecristo" | "d'Otranto" | "di Ocane")
+;
+
+TOPONOMASTICASTRANIERA ::= \ ( "Von H\246henstaufen" | "Von Bismarck" | "D'H\226uteville" | "De La Serna" | "Auf Wiedehersen" | "Von Thyssen-B\246rnemisza" | "Hyerosolimitani" | "D'Orl\233an" )
+;
+
+TOPONOMASTICA ::= ( TOPONOMASTICAITALIANA | TOPONOMASTICASTRANIERA | "et de "^SUFFISSIESTERI | "di tutte le "^SUFFISSIITALIANIF | "di tutti gli "^SUFFISSIITALIANIM )
+;
+
+SUFFISSIESTERI ::= \ ( "Milan" | "Russie" | "S\226voy" | "Paris" )
+;
+
+SUFFISSIITALIANIF ::= \ ( "Russie" | "Spagne" | "Ande" | "Puglie" | "Marche" | "Sardegne" | "Venezie" )
+;
+
+SUFFISSIITALIANIM ::= \ ( "Abruzzi" | "Appennini" )
+;
+
+COMPOSTO ::= ( "riccardo" | "giovanni" | "maria" | "carlo" | "roberto" | "jean" | "arturo" | "filippo" | "emanuele" | "filiberto" | "teofrasto" )
+;
+
+SOPRANNOMEUOMO ::= \ ("L'impalatore" | "L'impalato" | "Lo stantuffo" TOPONOMASTICAITALIANA | "Il granbuco" TOPONOMASTICAITALIANA | "Il manfruito" | "Franco" | "Pipino il breve" | "Il deprivato" )
+;
+
+SOPRANNOMEDONNA ::= \ ("L'impalatrice" | "La vorace" TOPONOMASTICAITALIANA | "La maitresse" TOPONOMASTICA | "Gola profonda" | "Poppea" | "L'insaziabile" )
+;

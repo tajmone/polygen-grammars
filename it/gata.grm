@@ -1,0 +1,267 @@
+I ::=   "title:    G.A.T.A. - Generatore Automatico Trame Anime\n"
+^ "author:   ZeD &lt;zed.est.deus@gmail.com&gt;\n"
+^ "language: italian\n"
+^ "status:   embrional\n"
+^ "topic:    anime\n"
+^ "audience: anybody\n"
+^ "disclaim: aiuta anche tu, partecipa all' ampliamento del G.A.T.A.!\n"
+^ "created:  14/11/2004"
+;
+
+S ::= (A (B C D).(HAR|HOR) E F G H Ii J K).(MA|FE);
+
+
+A ::=  (MA: AM | FE: AF )^",";
+Fin1 ::= (MA: "o " | FE: "a ");
+Lui ::=  (MA: "lui" | FE: "lei");
+Gli ::=  (MA: "gli" | FE: "le");
+Lo ::=   (MA: "lo"  | FE: "la");
+Il ::=   (MA: "il"  | FE: "la");
+
+AM ::=  ( "Un ragazzino che non sa fare niente" |
+"Un ragazzo insulso e senza niente di particolare" |
+"Un ragazzo assatanato e sempre intento a dare la caccia alle ragazze"|
+>(
+("Un bambino pigro e svogliato" |
+"Un bambino irrequieto e sempre in movimento" |
+"Un orfano"
+) ["che vive con il suo fratello minore"]) |
+>(
+("Un giovanotto con una faccia da teppista, ma in realta' di buon cuore"|
+("Un ragazzino che vorrebbe essere il miglior " A4 " del Giappone")|
+("Un ragazzo che in realta' e'" A2 ))
+^[", e comunque sempre intento a dare la caccia alle ragazze"])|
+"Un ragazzo con la faccia da ragazza"
+);
+
+AF ::= (  "Una ganguro" |
+"Un'orfanella" |
+"Una ragazza posata e tranquilla" |
+"Una extraterrestre molto sexy" |
+"Una ragazza con la faccia da ragazzo" |
+>( "Una ragazza che sogna di diventare una" A1 )
+);
+
+A1 ::= "principessa" |
+"ballerina" |
+"speleologa" |
+"biologa"
+;
+
+A2 ::= A3 |
+( "un ragazzo che crede di essere" A3 )
+;
+
+A3 ::= "una ragazza" |
+"un robot" |
+"un adulto rimpicciolito" |
+"un extraterrestre" |
+"un vegetale" |
+"un'entita' cosmica parassitaria" |
+"una deita' giudicatrice" |
+"un antico faraone redivivo" |
+"un ragazzo"
+;
+
+A4 ::= "pugile" |
+"pescatore" |
+"calciatore" |
+"giocatore di baseball" |
+"ciclista" |
+"pilota" |
+"piastrellista" |
+"tramviere"
+;
+
+B ::=  ( Bloc |
+(("viene arruolat"^ Fin1 ^"come pilota"  Bsoc) |
+("salva un" B1 "da alcuni ragazzini che lo perseguitano.\n" Bconj Bloc)|
+("viene assunt"^ Fin1 ^ "come" B2 Bsoc))
+);
+
+Bsoc ::= ("da una potente organizzazione non governativa,"|
+"da un corpo special e delle forze di autodifesa giaponesi,"|
+"da un istituto di ricerca," |
+"da un gruppo di criminali,");
+
+Bconj ::= ("A seguito di questo" | "Dopo questo fatto");
+
+Bloc ::= (HAR:"finisce per vivere in una casa con tante belle ragazze,"|
+HOR:("entra di nascosto nel sotterraneo del tempio dei suoi avi," |
+"cade in un pozzo nel giardino di casa sua,"))
+;
+
+B1 ::= "gattino" |
+"conglietto" |
+"folletto" |
+"porcellino" |
+"polipo"
+;
+
+B2 ::= "uomo delle pulizie" |
+"cuoco"
+;
+
+C ::=  (
+"dove avvengono equivoci e situazioni piu' o meno piccanti," |
+("dove trova un demone intenzionato a mangiarse"^Lo^",") |
+("dove trova una demonessa intenzionata a sposar"^Lo^",") |
+("dove viene mess"^Fin1 "alla guida di un robot gigante che"
+ "salvera' il mondo,") |
+("dove trova" Ccount "di" Cwhat "di tutti i tipi e dimensioni," )|
+("dove riceve" C1 "che" Gli "permette di trasformarsi in"
+C2 "e" Gli "dona insoliti poteri,") |
+("dove viene colpit"^ Fin1 "da un'improbabile maledizione che" Lo
+"rende follemente desiderat"^ Fin1 Cdes "ogni volta che in televisione"
+"appare il capo del governo,") |
+"dove risolve un misterioso rompicapo, e, come ricompensa, viene"
+"possedut"^Fin1 "dallo spirito di un antico giocatore di"
+"scacchi dalle dubbie tendenze,")^
+"dato che"
+;
+
+Ccount ::= "una quantita` inenarrabile" |
+"un' infinita`" [numerabile] |
+"un discreto numero"
+;
+
+Cwhat ::= "belle ragazze" |
+"robottoni giganti" |
+"bei ragazzi" |
+"demoni";
+
+Cdes ::= "dai ragazzi" | "dalle ragazze" | "da un trans";
+
+C1 ::= "un medaglione incantato" |
+"una spatola magica" |
+"un orologio magico" |
+"una bacchetta fatata"
+;
+
+C2 ::= "animale" |7
+"deita'" |
+"demone" |
+"robot" |
+"puffo" |
+"folletto"
+;
+
+D ::=  (
+HAR:("a turno tutte queste si innamorano di" Lui ) |
+HOR:((( Lui "e'" Il "prescelt" ^ Fin1) |
+("e' il figli" ^ Fin1 "dello scienziato pazzo") |
+("e' la reincarnazione della regina di Atlantide, e dotat"^Fin1^
+ "dei suoi formidabili poteri") |
+("e' stat" ^ Fin1 ^ "colpit"^Fin1^"in testa da un muflone, "
+ "e ha acquisito dei misteriosi super-poteri") |
+("quella che tiene in mano e' un'arma mistica, e per pura fortuna"
+  Lui "e'" Il "prim" ^ Fin1 " che la tocca da diciassettemila anni,"
+ "divenendo l'unic" ^ Fin1
+"in grado di utilizzarla contro l'incombente malvagita'") |
+("e'"Il " figli"^Fin1 "segreto dell'Imperatore delle Tenebre,"
+ "anche se non lo sa")|
+("e' stato mors"^Fin1 " da un " D1 " radioattivo") |
+("e' finit"^Fin1 "nel pastrufatore genetico insieme al suo"
+ D1 ^", e i due si sono fusi" ))))^ ".\n";
+
+D1 ::= "cane" |
+"gatto" |
+"topo" |
+"criceto" |
+"tamagotchi"
+;
+
+E ::=  (
+"Le ragazze provano a offrirgliela in tutti i modi,"
+"anche i piu' plateali e"|
+"Immani mostri distruttori arrivano in quantita', in ordine alfabetico,"
+"ciascuno con il suo bravo numero. Sempre uno alla volta. Tuttavia" |
+"Ovunque vada, avvengono misteriosi furti ed omicidi, che prova"
+"a risolvere, ma"
+);
+
+F ::=  (
+( Lui "non capisce assolutamente _mai_") |
+( Lui "capisce tutto, ma ha ben altre mete, e la sua figura svetta"
+  "possente contro"
+( "la luna alta nel cielo" | "il sole al tramonto sul mare")
+"(si arrampica apposta su una torre)"
+) |
+( Lui "capisce tutto, e si trasforma immediatamente in un maniac"^Fin1
+"voglios"^ Fin1 ^", al che"
+( MA: "le fanciulle" | FE: " i ragazzi" )
+"con terrore" Lo "respingono e il ciclo ricomincia da capo")
+) ^ ".\n";
+
+G ::= (
+"Nell'ultimo episodio," |
+"Nel penultimo episodio" |
+"Nel terzultimo episodio, gli ultimi due" G1 |
+"Nel primo episodio, che misteriosamente e' identico all'ultimo"
+);
+
+G1 ::= "non vengono trasmessi per le proteste dei genitori" |
+"vengono perduti" |
+( "vengono perduti e la seconda volta, al loro posto, trasmettono"
+"un patchwork dei disegni avanzati" )
+;
+
+H ::= (
+"quando finalmente sta per dichiararsi alla sorella-non-di-sangue, "
+"assistiamo frementi alle ultime battute." |
+"sta per sconfiggere il Supremo Re dei Morti" |
+"viene spiegato nei minimi dettagli cos'e' un Sarchiapone, e come ha"
+"controllato fino a quel punto le esistenze dei protagonisti" |
+"acquista improvvisamente il potere supremo, lo sc****o cosmico" |
+("acquista finalmente coscienza di se stess"^Fin1 )
+)^".\n";
+
+Ii ::= (
+"Lei" |
+"Il Re del Male" |
+"Il Re della Distruzione" |
+"L'Imperatore delle Tenebre" |
+"Lo Czar della Mannarite"
+) ("dice: \"" |
+"gli dice pacatamente: \""
+) ^ I1 ^".\n" ;
+
+I1 ::= "hiroshi... vorresti un te'?\"" |
+"Mi ami?\"" |
+"Lo sai che hai la faccia simile a quella di una scimmia?\"" |
+I2 |
+("Ascolta" ^ ( "mi bene" | ", ragazz"^Fin1 ) ^ ":" I2 ) |
+("Noi non dobbiamo combattere: vedi, io, in realta', sono" I3
+"ed esibisce un contratto matrimoniale dell'anno prima, quando il "
+"protagonista si era sbronzato a capodanno." ) |
+"Babbo, babbo!\"" |
+"Sai che ore sono? Ho perduto l'orologio!\""
+;
+
+I2 ::= "ho scoperto... che siamo veramente fratelli!\" *singhiozzi*" |
+(("figli"^Fin1 "mi"^Fin1^"... io sono" |
+"noi siamo nemici, ma, in realta'... io sono" ) I3 )
+;
+
+I3 ::= "tuo padre\"" |
+"tuo nonno\"" |
+"tua moglie\"" |
+"tuo Zio!\"" |
+"tuo Cuggino!\"" |
+"tuo Cognato!\"" |
+"tua Suocera!\""
+;
+
+J ::=  ( "E " Lui ": \"" | "Infine" Lui "risponde: \"" ) ^ (
+"...volentieri\"." |
+"Sai? Era tanto tempo che desideravo dirtelo. Anche se mi"
+"chiamo Oscar, in realta' io sono... una donna!!!\"" |
+"Stando cosi` le cose, giochereremo i tempi supplemetari\""
+) ^ "\n";
+
+K ::= (
+"Fine." |
+"La storia continua in un'altra dimensione." |
+"Era tutto un sogno." |
+"La storia si rivela un flashback nella mente di... "
+);

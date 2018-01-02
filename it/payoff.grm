@@ -1,0 +1,30 @@
+
+I ::=   "title:    Payoff un sakko k00l\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   larvale\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  25/08/2002"
+;
+
+S ::= \( [non Verbo.inf Agg ^","] Verbo.imp Agg
+       | Verbo.imp Agg Cong Agg
+       ) ^ "!"
+;
+
+Cong ::= "&" | e |- and | ma | ^"," non
+;
+
+Verbo ::= inf: >( pensare | vivere | stare | andare | guidare | vedere | muoverti
+                | volare | sedere | essere
+                )
+       |  imp: >( pensa | vivi | stai | vai | guida | vedi | muoviti | vola
+                | siedi | sii
+                )
+;
+
+Agg ::= giovane | fermo | smart | cool | fine | fresh | hot | free | safe
+     | groove | funk[^y] | happy | jungle | out | in | young | fun | high | alto
+     | alla grande | "Helder"
+;

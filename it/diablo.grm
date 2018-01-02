@@ -1,0 +1,53 @@
+     I ::= "title: Generatore di"(armi | armature | scudi | cazzate)^" di Diablo: \n"
+         ^ "author:  Mont\n"
+         ^ "language: Italian\n"
+         ^ "status:" ("Work in progress" | "Ce sto a lavora'") "\n"
+         ^ "topic:   Film\n"
+         ^ "audience: Cesar" (puzza|odora|emana un afrore) "di" (merda|sterco|concime|culo) "\n"
+         ^ "comment: Montini e'" (il migliore | il piu' (bello | grande | figo | intelligente)) "\n"
+         ^ "created:  5/4/2005 " ;
+
+
+        S ::=  "\n"(Arma.M (( Agg.M ) | (Agg.M Suff1 ) | (Agg.M Suff2) | ( Suff1 Suff2) | Suff1 | Suff2)|
+               Arma.F (( Agg.F ) | (Agg.F Suff1 ) | (Agg.F Suff2) | ( Suff1 Suff2) | Suff1 | Suff2)|
+               Arma.M (( Agg.M ) | (Agg.M Suff1 ) | (Agg.M Suff2) | ( Suff1 Suff2) | Suff1 | Suff2))
+                "\n"
+               (("\n"(("+"|"-") Num[^Num] (^""| "%" )Att))+)+
+               (("\n"(("+"|"-") Num[^Num] (^""| "%" )Att))+)+
+               ;
+               
+
+               Num ::= (--0|1|2|3|4|5|6|7|8|9) ;
+               Att ::= a (^lla forza | ^lla destrezza | ^ll'energia | ^lla vitalita' | ^lla sfiga | ^lla puzza |
+                       tutte le abilita' | scovino | ^l vomito | ^l danno da Tipo | ^l danno | ^ll'attacco |
+                       ^lla difesa | ^lla resistenza a (^lla Tipo.F|^l Tipo.M) | ^i calli | ^lla bolletta del C);
+                       
+               Tipo ::= (M:(fuoco | ghiaccio | veleno | fulmine | pus | cesar | sporco | sputo )|F:( patatona| merda) );
+               C ::= ^"l'acqua" | "gas" | ^"la luce";
+        Arma ::= M:("Flagello" | Martello | Pugnale | Bastone | Scudo | Elmo)|
+                 F:(Spada | Mazza | Lancia | Ascia | Armatura) ;
+                 
+                 Martello ::= ("Martello" | "Maglio") ( + _ |"da guerra");
+                 Pugnale ::= ("Pugnale" | "Katar" | "Pugnale malese");
+                 Bastone ::= ("Bastone" ("da guerra" | "nodoso" | "da battaglia"))| "Bastone";
+                 Scudo ::= "Scudo" (Dim.M | del nibbio | della torre | gotico);
+                 Elmo ::= "Cappello" | "Elmo" | "Copricapo" | "Visiera" ;
+                 Spada ::= "Spada" ("bastarda" | "a due mani" | "gigante" | Lun.F)|"Katana";
+                 Mazza ::= "Mazza chiodata" | "Mazza" | "Clava" ;
+                 Lancia ::= "Lancia" | "Picca" | "Alabarda" ;
+                 Ascia ::= "Ascia" (Dim.F | "a due mani") ;
+                 Armatura ::= "Armatura" ("gotica" | "di cuoio" | "di piastre" | "di maglie") ;
+        
+        Dim ::= (piccol | medi)^(M:o | F:a)|grande;
+        Lun ::= (cort | lung)^(M:o | F:a);
+        Agg ::= (ross | sanguinari | azzurr | velenos | schifos | pover | legger |
+                violent | antic | settic | luminos ) ^(M:o | F:a) | inutile | sbocchevole |
+                gigante | palese | demente | notevole | cortese ;
+        
+        Suff1 ::= del Suff | -----"di Gars";
+        Suff2 ::= del Suff;
+        
+        Suff ::= ghoul | lupo | ^lo storpio | ^la morte | ^la guerra | morto | ^le terga |
+                 ^l'acqua | fuoco | ghiaccio | ^la luce | guerriero | cavaliere | monello |
+                 ^l'aquila | tonno | ^la forza | ^la velocita' | ^le arpie | cazzo | kamasutra |
+                 cinghiale | bollito | ^la lebbra | ^ll'oscenita' ;

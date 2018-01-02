@@ -1,0 +1,52 @@
+
+I ::=   "title:    Autostorpiatore\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    heraldic?\n"
+      ^ "warning:  in realta' mi chiamo "^CUG^".\n"
+      ^ "warning2: si', ho l'erre moscia. E allora?.\n"
+      ^ "disclaim: vorrei farvi notare che se sfogliate un libro di storia non troverete mai un personaggio chiamato "^CUG^"."
+;
+
+S::= CUG;
+
+CUG ::= [Titolo] {[Altro]} {Carlo} [\Umberto] Grazia [Numero] ;
+
+Altro ::= \ (giuseppe |
+              ------ vittorio \emanuele |
+	      -------------obi^"-"^\wan [\kenobi]
+	     ) ;
+
+
+Carlo ::= \ ( (----car^|+++++_)ca^R^l^(+++o^(++++""|---s)|--etto|Umberto|omagno|omartello)  
+
+	      );
+
+Umberto ::=  ( +++u[^m^]   |
+		(e|a)^R^i  |
+		fili |
+		dago |
+		al |
+		---tale |
+		gia^(m|ndo)  )
+		^
+		( ++++be^R^t^(+++o|ide|oldo|uccio) |
+		  baldo |
+		  ---bano |
+		  bestio |
+		  pesce | 
+		  boia |
+		  ---fredo
+		  );
+
+Grazia ::= [\[gian^]maria]  \ [dis^] ( g^R^azi^(a|e) |
+	       garcia | 
+	       grazia [e \giustizia | \graziella e \grazie al \cazzo] 
+	       ) ; 
+	
+Titolo ::= \ (re | conte | duca | marchese | ammiraglio | barone | capitano | --guardiamarina );
+
+Numero ::= "I" | "II" | "III" | "IV" | "V" | "VI" | "VII" | "VIII" | "IX" | "X" | ^"-X" | "XI" | "XII" | "XIII" ;
+
+R::=++++++"r"|--------"V";

@@ -1,0 +1,96 @@
+I ::=   "title:    Piani Sanitari\n"
+      ^ "author:   Guido Gambardella &lt;g.gambardella@tdd.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   final \n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  07/02/2003"
+;
+
+S ::= \ A1 A2 A3 A4 A5 A6 A7 ^"."
+;
+
+A1 ::= l'utenza potenziale
+    |  il bisogno emergente
+    |  il quadro normativo
+    |  la valenza epidemiologica
+    |  il nuovo soggetto sociale
+    |  l'approccio programmatorio
+    |  l'assetto "politico-istituzonale"
+    |  il criterio metodologico
+    |  il modello di sviluppo
+    |  il metodo partecipativo
+;
+
+A2 ::= si caratterizza per
+    |  privilegia
+    |  prefigura
+    |  riconduce a sintesi
+    |  persegue
+    |  estrinseca
+    |  si propone
+    |  presuppone
+    |  porta avanti
+    |  auspica
+;
+
+A3 ::= il ribaltamento della logica assistenziale preesistente
+    |  il superamento di ogni ostacolo "e/o" resistenza passiva
+    |  un organico collegamento interdisciplinare ed una valutazione
+    |  la puntuale corrispondenza fra obiettivi e risorse
+    |  la verifica critica degli obiettivi istituzionali e l'individuazione di fini qualificanti
+    |  il riorientamento delle linee di tendenza in atto
+    |  l'accorpamento delle funzioni ed il decentramento decisionale
+    |  la ricognizione del bisogno emergente e della domanda non soddisfatta
+    |  la riconversione e articolazione periferica del servizio
+    |  un corretto rapporto fra strutture e sovrastrutture
+;
+
+A4 ::= nel primario interesse della popolazione
+    |  senza pregiudicare l'attuale livello delle prestazioni
+    |  al di sopra di interessi e pressioni di parte
+    |  secondo un modulo di interdipendenza orizzontale
+    |  in una visione organica ricondotta a unita'
+    |  con criteri non dirigistici
+    |  al di la' delle contraddizioni e difficolta' iniziali
+    |  in maniera articolata e non totalizzante
+    |  attraverso i meccanismi della partecipazione
+    |  senza precostituzione delle risposte
+;
+
+A5 ::= sostanziando e vitalizzando
+    |  recuperando ovvero rivalutando
+    |  ipotizzando e perseguendo
+    |  non assumendo mai come implicito
+    |  attualizzando e concretizzando
+    |  non sottacendo ma anzi puntualizzando
+    |  potenziando e incrementando
+    |  non dando certo per scontato
+    |  evidenziando ed esplicitando
+    |  attivando e incrementando
+;
+
+A6 ::= nei tempi brevi^"," anzi brevissimi
+    |  in un'ottica preventiva e non piu' curativa
+    |  in un ambito territoriale omogeneo^"," ai diversi livelli
+    |  nel rispetto della normativa esistente
+    |  nel contesto di un sistema integrato
+    |  quale sua premessa indispensabile e condizionante
+    |  nella misura in cui cio' sia fattibile
+    |  con le dovute ed imprescindibili sottolineature
+    |  in termini di efficacia e di efficienza
+    |  a monte e a valle delle situazione contingente
+;
+
+A7 ::= la trasparenza di ogni atto decisionale
+    |  la non sanitarizzazione delle risposte
+    |  un indispensabile salto di qualita'
+    |  una congrua flessibilita' delle strutture
+    |  l'annullamento di ogni ghettizzazione
+    |  il coinvolgimento attivo di operatori e utenti
+    |  l'appianamento delle discrepanze e discrasie esistenti
+    |  la ridefinizione di una nuova figura professionale
+    |  l'adozione di una metodologia differenziata
+    |  la demedicalizzazione del linguaggio
+;
+

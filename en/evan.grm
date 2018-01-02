@@ -1,0 +1,221 @@
+I ::=   "title:    Evan\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   Basic\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  " ^ ("20/06/2006" | "1 Messidor CCXIV")
+;
+
+S ::=  "<h1>"^Day Month Year ^"</h1>\n\n"^ Entries;
+
+Entries ::= Entry ( _ | ^"\n\n"^ Entry );
+
+Entry ::= "<h2>"^ Title ^"</h2>\n\n"^ Text ^ "\n\n" ^"<p>"^ Tags ^"</p>" ;
+
+Day ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 ; 
+
+(* Month and day names taken from http://en.wikipedia.org/wiki/French_Republican_Calendar *)
+
+Month ::=   "Vendémiaire"
+          | "Brumaire"
+          | "Frimaire"
+          | "Nivôse"
+          | "Pluviôse"
+          | "Ventôse"
+          | "Germinal"
+          | "Floréal"
+          | "Prairial"
+          | "Messidor"
+          | "Thermidor"
+          | "Fructidor"
+	  ;
+
+Year ::= "C" ^ Year0 ;
+Year0 ::= (++"C" | "X") ^ Year1 ;
+Year1 ::= (++"X" | +"V" | "I") ^ Year2 ;
+Year2 ::= ("V" | +"I" | _) ^ Year3 ;
+Year3 ::= (--"V" | +_ | "I") ^ ( ++_ | Year3 ) ;
+
+DayName ::= "Raisin" | "Safran" | "Châtaigne" | "Colchique" | "Cheval" |
+	    "Balsamine" | "Carotte" | "Amarante" | "Panais" | "Cuve" |
+	    "Pomme de terre" | "Immortelle" | "Potiron" | "Réséda" | "Âne" |
+	    "Belle de nuit" | "Citrouille" | "Sarrasin" | "Tournesol" | "Pressoir" |
+	    "Chanvre" | "Pêche" | "Navet" | "Amaryllis" | "Boeuf" | "Aubergine"
+	    | "Piment" | "Tomate" | "Orge" | "Tonneau" | "Pomme" | "Céleri" |
+	    "Poire" | "Betterave" | "Oie" | "Héliotrope" | "Figue" |
+	    "Scorsonère" | "Alisier" | "Charrue" | "Salsifis" | "Macre" |
+	    "Topinambour" | "Endive" | "Dindon" | "Chervis" | "Cresson" |
+	    "Dentelaire" | "Grenade" | "Herse" | "Bacchante" | "Azerole" |
+	    "Garance" | "Orange" | "Faisan" | "Pistache" | "Macjonc" | "Coing" |
+	    "Cormier" | "Rouleau" | "Raiponce" | "Turneps" | "Chicorée" |
+	    "Nèfle" | "Cochon" | "Mâche" | "Chou-fleur" | "Miel" | "Genièvre" |
+	    "Pioche" | "Cire" | "Raifort" | "Cèdre" | "Sapin" | "Chevreuil" |
+	    "Ajonc" | "Cyprès" | "Lierre" | "Sabine" | "Hoyau" | "Erable sucré" |
+	    "Bruyère" | "Roseau" | "Oseille" | "Grillon" | "Pignon" | "Liège" |
+	    "Truffe" | "Olive" | "Pelle" | "Tourbe" | "Houille" | "Bitume" |
+	    "Soufre" | "Chien" | "Lave" | "Terre végétale" | "Fumier" |
+	    "Salpêtre" | "Fléau" | "Granit" | "Argile" | "Ardoise" | "Grès" |
+	    "Lapin" | "Silex" | "Marne" | "Pierre à chaux" | "Marbre" | "Van" |
+	    "Pierre à plâtre" | "Sel" | "Fer" | "Cuivre" | "Chat" | "Étain" |
+	    "Plomb" | "Zinc" | "Mercure" | "Crible" | "Lauréole" | "Mousse" |
+	    "Fragon" | "Perce-neige" | "Taureau" | "Laurier-thym" |
+	    "Amadouvier" | "Mézéréon" | "Peuplier" | "Coignée" | "Ellébore" |
+	    "Brocoli" | "Laurier" | "Avelinier" | "Vache" | "Buis" | "Lichen" |
+	    "If" | "Pulmonaire" | "Serpette" | "Thlaspi" | "Thimelé" |
+	    "Chiendent" | "Trainasse" | "Lièvre" | "Guède" | "Noisetier" |
+	    "Cyclamen" | "Chélidoine" | "Traîneau" | "Tussilage" |
+	    "Cornouiller" | "Violier" | "Troène" | "Bouc" | "Asaret" |
+	    "Alaterne" | "Violette" | "Marceau" | "Bêche" | "Narcisse" |
+	    "Orme" | "Fumeterre" | "Vélar" | "Chèvre" | "Épinard" | "Doronic" |
+	    "Mouron" | "Cerfeuil" | "Cordeau" | "Mandragore" | "Persil" |
+	    "Cochléaria" | "Pâquerette" | "Thon" | "Pissenlit" | "Sylve" |
+	    "Capillaire" | "Frêne" | "Plantoir" | "Primevère" | "Platane" |
+	    "Asperge" | "Tulipe" | "Poule" | "Bette" | "Bouleau" | "Jonquille" |
+	    "Aulne" | "Couvoir" | "Pervenche" | "Charme" | "Morille" |
+	    "Hêtre" | "Abeille" | "Laitue" | "Mélèze" | "Ciguë" | "Radis" |
+	    "Ruche" | "Gainier" | "Romaine" | "Marronnier" | "Roquette" |
+	    "Pigeon" | "Lilas" | "Anémone" | "Pensée" | "Myrtille" | "Greffoir" |
+	    "Rose" | "Chêne" | "Fougère" | "Aubépine" | "Rossignol" |
+	    "Ancolie" | "Muguet" | "Champignon" | "Hyacinthe" | "Râteau" |
+	    "Rhubarbe" | "Sainfoin" | "Bâton-d'or" | "Chamérops" | "Ver à soie" |
+	    "Consoude" | "Pimprenelle" | "Corbeille d'or" | "Arroche" |
+	    "Sarcloir" | "Statice" | "Fritillaire" | "Bourrache" | "Valériane" |
+	    "Carpe" | "Fusain" | "Civette" | "Buglosse" | "Sénevé" |
+	    "Houlette" | "Luzerne" | "Hémérocalle" | "Trèfle" | "Angélique" |
+	    "Canard" | "Mélisse" | "Fromental" | "Martagon" | "Serpolet" |
+	    "Faux" | "Fraise" | "Bétoine" | "Pois" | "Acacia" | "Caille" |
+	    "Oeillet" | "Sureau" | "Pavot" | "Tilleul" | "Fourche" | "Barbeau" |
+	    "Camomille" | "Chèvrefeuille" | "caille-lait" | "Tanche" |
+	    "Jasmin" | "Verveine" | "Thym" | "Pivoine" | "Chariot" | "Seigle" |
+	    "Avoine" | "Oignon" | "Véronique" | "Mulet" | "Romarin" |
+	    "Concombre" | "Echalote" | "Absinthe" | "Faucille" | "Coriandre" |
+	    "Artichaut" | "Girofle" | "Lavande" | "Chamois" | "Tabac" |
+	    "Groseille" | "Gesse" | "Cerise" | "Parc" | "Menthe" | "Cumin" |
+	    "Haricot" | "Orcanète" | "Pintade" | "Sauge" | "Ail" | "Vesce" |
+	    "Blé" | "Chalémie" | "Epeautre" | "Bouillon blanc" | "Melon" |
+	    "Ivraie" | "Bélier" | "Prêle" | "Armoise" | "Carthame" | "Mûre" |
+	    "Arrosoir" | "Panis" | "Salicorne" | "Abricot" | "Basilic" |
+	    "Brebis" | "Guimauve" | "Lin" | "Amande" | "Gentiane" | "Ecluse" |
+	    "Carline" | "Câprier" | "Lentille" | "Aunée" | "Loutre" | "Myrte" |
+	    "Colza" | "Lupin" | "Coton" | "Moulin" | "Prune" | "Millet" |
+	    "Lycoperdon" | "Escourgeon" | "Saumon" | "Tubéreuse" | "Sucrion" |
+	    "Apocyn" | "Réglisse" | "Echelle" | "Pastèque" | "Fenouil" |
+	    "Epine vinette" | "Noix" | "Truite" | "Citron" | "Cardère" |
+	    "Nerprun" | "Tagette" | "Hotte" | "Eglantine" | "Noisette" |
+	    "Houblon" | "Sorgho" | "Ecrevisse" | "Bigarade" | "Verge d'or" |
+	    "Maïs" | "Marron" | "Panier" ;
+
+Tags ::= "tags:" TagList;
+TagList ::= ---Tag | Tag ^ "," TagList;
+Tag ::= advocacy | blog | blogs | bornfreund | cache | calendar | canada | captain |
+	community | copyright | dns | don | feed | freedom | geist | jobs | marcus |
+	marti | messidor | michael | montreal | nefarious | nested | online |
+	parody | parser | phillips | pigdog | piglog | pingomatic | planet |
+	poisoning | propaganda | quebec | rss | rye | sam | universal | web |
+	whisky | yes ;
+
+
+Text ::= "<p>"^ ( "So," | "Ok, well," | \ ) LongText ^"." \ Conclusion ^"</p>";
+
+LongText ::= FirstPhrase
+           | FirstPhrase and LongPhrase
+	   | FirstPhrase "("^\ AnyPhrase ^")"
+	   | FirstPhrase ^".</p><p>"^ \ LongPhrase
+	   ;
+
+LongPhrase ::= ++++ AnyPhrase
+           | LongPhrase and LongPhrase
+	   | LongPhrase "("^\ AnyPhrase ^")"
+	   | LongPhrase ^".</p><p>"^ \ LongPhrase
+	   ;
+
+AnyPhrase ::= FirstPhrase | Phrase ;
+
+Title ::= ("I" LoveHate | "Creative re-use of" | \) SimpleTitle ;
+
+SimpleTitle ::= "my big mouth"
+              | "Planet"
+	      | "international shipping"
+	      | Website
+	      | "some things I've noticed"
+	      | "three décades of blogging"
+	      | "other weeks"
+	      | "my brilliant invention"
+	      | "Wikitravel content"
+	      | "Ikea"
+	      | "Firefox 1.5.0.4"
+	      | "gnus of the world"
+	      | "net Neutrality"
+	      | "rainy Saturday"
+	      | "Evan Almighty"
+	      | "Dang!"
+	      | "Un-dang!"
+	      | "woohoo"
+	      ;
+
+LoveHate ::= "♥" | "☠" ;
+
+Period ::= "second"
+         | "minute"
+         | "hour"
+         | "day"
+         | "week"
+         | "month"
+         | "year"
+         | "decade"
+	 ;
+
+FirstPhrase ::= 
+        - "it's the first day of a new season in the French Revolutionary Calendar"
+	| "today is the day of" DayName "in the revolutionary calendar"
+	| "today is my "^Day^"-"^Period^" blogiversary"
+	| "I missed one day of blogging"
+	| "I gotta say"
+	| "I saw the link to" Website
+	| "I'm pretty excited"
+	| "yes, I just made that word up"
+	| "I've been blogging for a couple of months now"
+	| "I've been listed on the" Website "meta-blog for Montreal bloggers"
+	| "I guess it was probably a good idea not to name the site" Website
+	| -"<b>Honk honk honk! honk honk honk honk!</b>"
+	| "it's about time"
+	| "I woke up at 5AM this morning and couldn't get back to sleep"
+	| "Long" (hot|cold) "days in Montreal -- which means a lot of fun for me"
+	;
+
+Phrase ::= >FirstPhrase
+	| "anyways, I've added the" Website "badge to my sidebar"
+	| "I'm going to have to start instituting some anti-spam measures"
+	| "building Ikea furniture isn't really all that fun"
+	;
+
+Website ::= (ping | net | chicken | yul | blog | wiki | pig | geo) ^ (omatic | joven | blog | wiki | travel | dog | url) ^ "." ^ (com | net | org | edu) ;
+
+Technology ::= "DNS poisoning" | "blog" | "XHTML" | "WiLiKi" | "OpenID" ;
+
+Conclusion ::= "right?  Right."
+             | "I think I'll have to have some rye whisky to celebrate."
+	     | "is this some kind of nefarious" Technology ^", or a real hacking? Or both?"
+	     | Technology "makes me very sad."
+	     | "but I've been pretty happy about it."
+	     | "what the chicken?"
+	     | "all in all, I'm glad I've been doing this, and I hope it continues to grow."
+	     | "maybe it's the kick in the pants needed to get some of my favorite writers writing again."
+	     | "only... shouldn't that be Marcus Bornfreund?"
+	     | "and if my luck holds this post will show up on" Website "when I post it."
+	     | "but there's still a lot Todo before that'd be ready."
+	     | "so I'm tempted to try it here."
+	     | "it's a cool part of being in such a multiculti city."
+	     | "so we'll see what happens here."
+	     | "hooray for me!"
+	     | "ech."
+	     | "then again, if it weren't this, it'd be something else."
+	     | "I'm not sure any of this makes sense, but it's kind of interesting to see these automated estimates."
+	     | "at least I hope so!"
+	     | "right now I'm concentrating on the mainline functionality."
+	     | "looks pretty good to me!"
+	     | "the cats were mad, but they always are."
+	     | "now, I read his blog daily. Gar."
+	     | "I'm looking forward to it."
+	     | "I highly recommend it."
+	     ;

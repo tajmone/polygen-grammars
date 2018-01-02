@@ -1,0 +1,77 @@
+I ::=   "title:    Disclaimer\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "comment:  ecco" finalmente il disclaimer per il POLYGEN per SOMEPEOPLE e specialmente per l'\enrica cosi' magari diventa un po' meno monotematica SEGNO.PU3 ^"\n"
+      ^ "created:  09/04/2004"
+;
+
+S::= \[PRE] THIS e' [REP] ADV AIM SEGNO.PU3 BUT (STAFF | THIS) DISC BUT COULD ;
+
+REP ::= reputato | ritenuto | stato definito | considerato ;
+
+SEGNO ::= (PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":"\ | PU3: ^"."\ | V: ^"," | VT: ^"\""\ );
+
+PRE ::= [attenzione SEGNO.PU2] (il servizio offerto da | il contenuto di | lo scopo di );
+
+STAFF ::= lo staff di THIS | l'insieme di imbecilli che gestisce THIS | NOME SEGNO.V TITLE di THIS SEGNO.V ;
+
+NOME ::= \(manta | "Vision-X" | helder | gioppino | zeff );
+
+TITLE ::=  (titolare | [[il^]legale] rappresentante | [nudo] proprietario | inventore | detentore ) [e TITLE];
+
+WHAT ::= F: (offese | discriminazioni | ingiurie | perdite di profitti | cecita' | ernie) | M: (fallimenti | danni | malfunzionamenti );
+
+DERIV ::= (derivat | causat | generat | -cagionat | procurat | innescat | originat | arrecat | indott | apportat | effettuat)^(F:e|M:i);
+
+BYWHAT ::= (M:( dall'[ab]^uso | dall'utilizzo | dall'impiego)| F:(dalla consultazione));
+
+SMOD ::= (smodat | eccessiv | non controllat | [non] morigerat )^(M:o|F:a);
+
+BUT ::= (ma | tuttavia | quantunque | in ogni caso | d'altra parte | d'altro canto | infatti | in effetti | dunque | invero | effettivamente | nonostante cio' SEGNO.V | comunque );
+
+
+DISC ::= DECL EVERY THING ABOUT POSSIBLE (WHAT.F DERIV.F | WHAT.M DERIV.M) (BYWHAT.M SMOD.M | BYWHAT.F SMOD.F) di THIS SEGNO.PU0 [BUT ((STAFF | THIS) DISC | COULD)] ;
+
+DECL ::= (respinge | non accetta | evita | elude | ricusa | dice di no a | declina | rigetta | finge di non accorgersi di | se ne frega di );
+
+EVERY ::= (ogni | un po' di | una parte di );
+
+THING ::= (correttezza | responsabilita' | offese | accuratezza | ignoranza | conseguenza );
+
+ABOUT ::= (riguardo | derivante da | su | riguardante | concernente | che non abbia niente a che vedere con );
+
+POSSIBLE ::= (possibili | probabili | inevitabili | inoppugnabili | indecifrabili | [im^]prevedibili | impredicabili );
+
+THIS ::= (questo sito | tale sito | POLYGEN);
+
+AIM ::= ( casuale | a scopi ludici | [in^]offensivo | parodistico | satirico | gratuito | pornografico | scatologico | dendrofilo | [in^]controllato );
+
+COULD ::= SOMEPEOPLE MAY POLYGEN ADV AIM SEGNO.PU3 ATS (STAFF| THIS) WARN che POLYGEN SEGNO.V RAND SEGNO.V puo' GEN INCR SEGNO.PU3 ATS STAFF CONS SEGNO.PU0 [BUT ((STAFF | THIS) DISC | COULD)];
+
+SOMEPEOPLE ::= (certe persone | certi gruppi etnici | certi individui ) [ADJPEOPLE] ;
+
+ADJPEOPLE ::= [ADV] ( "politically-correct" | in minoranza | ADV adirabili | mancanti di senso dell'umorismo | -che evidentemente non hanno un (marone | cavolo | \helder | ^a minchia | tubo) da fare [tutto il giorno]);
+
+MAY ::= potrebbero >(trovare | reputare | ritenere | giudicare | considerare | (incazzarsi | adirarsi | alterarsi | inalberarsi | inebetirsi) perche' (considerano| reputano | ritengono | giudicano));
+
+ADV ::= ( particolarmente | puramente | chiaramente | ovviamente | facilmente | ridicolamente | ignobilmente | omosessualmente | onanisticamente | helderamente | inevitabilmente | inconfutabilmente | schifosamente | tristemente | inequivocabilmente | molto | poco | quasi );
+
+ATS ::= a tale scopo | percio' | dunque | per questo [motivo] | infatti | di conseguenza | conseguentemente | per tali ragioni | per tali ragioni ;
+
+RAND ::= in modo casuale | in maniera involontaria | involontariamente | senza preavviso | casualmente; 
+
+GEN ::= generare | creare | causare | portare | cagionare | procurare | innescare | originare | arrecare | indurre | apportare;
+
+INCR ::= (((incresciose | spiacevoli | deprecabili | fastidiose ) (incomprensioni | ambiguita' | offese)) | ((incresciosi | spiacevoli | fastidiosi | deprecabili) (qui pro quo | incidenti [diplomatici]))) [e INCR] ;
+
+CONS ::= (( consiglia | ordina | chiede ) (all'utenza | agli utenti | a lorsignori ) | prega (l'utenza | gli utenti | lorsignori) )TODO;
+
+TODO ::= di (rivolgersi a | protestare con | picchiare | mandare un'email piena di proteste a | concedersi carnalmente a ) NOME SEGNO.V TITLE di THIS ;
+
+WARN ::= rende noto | avverte | fa sapere | ricorda | ci tiene a ricordare | mette al corrente | comunica | segnala | avvisa | notifica ;
+
+POLYGEN ::= \(+pol | flop | frung | prot | cip[^p] | zof | sperm | mant | zef | held | cug | rutt | spor^(c|k) | romp) ^(i|+y) ^(+gen | zeff | pel | lef | sperm | dent | gref[^f] | flep | pen | gnec[^s] | perl );
+
+

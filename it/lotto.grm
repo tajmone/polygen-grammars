@@ -1,0 +1,35 @@
+
+I ::=   "title:      Numeri vincenti del Lotto\n"
+      ^ "author:     Vision-X.it, Manta\n"
+      ^ "language:   italian\n"
+      ^ "status:     final\n"
+      ^ "topic:      misc\n"
+      ^ "audience:   giocatori del lotto\n"
+      ^ "beerware:   chi vince ci deve una birra\n"
+      ^ "created:    8/12/2002"
+;
+
+S ::= "<table border=\"0\" width=\"100%\" cellpadding=\"2\" cellspacing=\"2\">"
+      "<tbody>"
+      "<tr><td>Bari</td>"       N N N N N "</tr>"
+      "<tr><td>Cagliari</td>"   N N N N N "</tr>"
+      "<tr><td>Firenze</td>"    N N N N N "</tr>"
+      "<tr><td>Genova</td>"     N N N N N "</tr>"
+      "<tr><td>Milano</td>"     N N N N N "</tr>"
+      "<tr><td>Napoli</td>"     N N N N N "</tr>"
+      "<tr><td>Palermo</td>"    N N N N N "</tr>"
+      "<tr><td>Roma</td>"       N N N N N "</tr>"
+      "<tr><td>Torino</td>"     N N N N N "</tr>"
+      "<tr><td>Venezia</td>"    N N N N N "</tr>"
+      "</tbody>"
+      "</table>"
+;
+
+N ::= "<td>" ("&nbsp;" >Cifra | >Cifra8 ^ >(0 | >Cifra) | 90) "</td>"
+;
+
+Cifra8 ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+;
+
+Cifra ::= >Cifra8 | 9
+;

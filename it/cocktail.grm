@@ -1,0 +1,20 @@
+I ::=   "title:    Cocktail\n"
+      ^ "author:   Scettico &lt;newjersey@tin.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody"
+      ^ "created:  11/10/2003"
+;
+
+
+S ::= Attributo Nome "-" (Alcool)^"," [(Alcool)^","] [(Ingrediente)^","](Ingrediente) e (Guarnizione); 
+
+Attributo ::= "Jamaica" | "Cuba" | "Sardinia" | "Mexican" | "Ibiza" | "Manhattan" | "Monterey" | "Malibu" | "Long Island" | "Russian" | "Copacabana" | "Tequila" | "Brazil" | "Italian" | "Irish" | "Hawaiian" | "Yellow" | "Green" | "Red" | "White" | "Black" | "Pink" | "Frozen" | "Banana" | "Lemon" | "Mango" | "Strawberry" | "Orange" ;
+
+Nome ::= "Sunrise" | "Sunset" | "Libre" | "Ice Tea" | "Caipi" >(^rinha |^roska |^rissima ) | "Julep" | "Mojito" | "Alexander" | "Slammer" | "Daiquiri" | "Coffee" | "Lemonade" | "Margarita" | "Martini" | "Sour" | "Pina Colada" | "Shooter" | "Shooter" | "Punch" | "Screwdriver" | sbagliato ;
+
+Alcool ::= "Rum bianco" | "Tequila" | "Gin" | "Vodka" [al>(^la>(menta |pesca |fragola) | melone | limone )] | "Galliano" | "Curacao" | "Mezcal" | "Rum scuro" | "Whisky" | "Martini rosso" | "Martini bianco" | "Bitter" | "Assenzio" | "Sambuca" | "Porto" | "Grappa" | "Brandy" | "Batida" | "Spumante" | "Triple sec" | "Sangria" | "Birra" | "Cachaca" | --"Vov" | ---"Vin brule" | "Cointreau" | "Kahlua" | --"Calvados" ;
+
+Ingrediente ::= +"Coca Cola" | "Sprite" | -"Aranciata" | "Tonic" | "Lime" | "Latte" | "Granatina" | "Succo di" >(ananas | -mango | fragola | pera | mela | arancia | -papaya | -maracuja | ---pomodoro ) | "Panna" | --"Latte di cocco" | "Sciroppo di zucchero" | --"Ginger" ;
+
+Guarnizione ::= "Frutta fresca" | +"Ghiaccio tritato" | +"Soda" | "Cacao in polvere" | -"Oliva" | +"Foglie di menta" | +"Zucchero di canna" | --"Tabasco" | "Arancia" ;

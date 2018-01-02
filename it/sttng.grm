@@ -1,0 +1,125 @@
+I ::=
+      "title:    Star Trek : The Next Generation\n"
+    ^ "author:   Mistobaan &lt;mistobaan_thecool@hotmail.com&gt;\n"
+    ^ "language: italian\n"
+    ^ "status:   beta\n"
+    ^ "topic:    fantascienza\n"
+    ^ "audience: tutti i trekkies dell'universo\n"
+    ^ "disclaim: spazio : ultima frontiera, questi sono i viaggi\n"
+    ^ "          dela nave stelare Enterprise, la sua missione e' di\n"
+    ^ "          esplorare strani, nuovi mondi, alla ricerca di\n"
+    ^ "          nuove forme di vita e di nuove civilta', per arrivare la'\n"
+    ^ "          dove nessuno e' mai giunto prima!"
+    ^ "\n"
+    ^ "created:  02/12/2004"
+;
+
+
+S ::= SCENA STDATE INTRO PARLA SEGNO.PUC PARLA SEGNO.PUC PARLA SEGNO.PUC PARLA SEGNO.PUC PARLA SEGNO.PUC PARLA [SEGNO.PUC PARLA] [SEGNO.PUC PARLA] [SEGNO.PUC PARLA];
+
+SCENA ::= ( ( \astronave ( "Enterprise-D" | "Enterprise-E" ) "-" \SEZIONE )  | \pianeta PLANET | STBASE ) "\n\n"^;
+
+SEZIONE ::=  in ( plancia | infermeria | sala motori | sala teletrasporti )
+                  | nella sezione ingegneria | negli alloggi ufficiali | nel bar di prora | sul ponte;
+
+STDATE ::= ( \data stellare NR^NR^NR^NR^NR^"."^NR "\n\n"^);
+
+INTRO ::=  (\siamo [appena] arrivati | \siamo diretti | \siamo intrappolati | \una questione urgente ci sta trattenendo)
+           (nel sistema stellare di ( ZORG | PLANET ) | sul pianeta ( ZORG | PLANET ) | nei pressi ( di  ZORG | del sistema stellare di ZORG | di PLANET)) (( SEGNO.V dove  faremo ( rifornimento | rendezvous con i ALIENI | un comizio | un simposio | una conferenza | --una pagliacciata ) SEGNO.V) | (per
+           ( una ricognizione | una missione diplomatica | una mediazione | una missione di esplorazione
+              | fornire supporto (ai ALIENI | al gruppo \terraforming | alla flotta )) SEGNO.V)) ( dopodiche' | dopoche' | subito dopo ) faremo rotta verso ( il pianeta ( ZORG | PLANET ) | la base stellare CIFRA | l'avamposto federale CIFRA) SEGNO.PU3 ^"\n\n"^;
+ZORG ::= ( \k | \j | \s | \r | \f | \z )^( a | o | e | i | u )^( q | r | s | p | l | t | b | m | n | c | x | z )^( w | g | r | m | n | b | f | l | p );
+
+PLANET ::= \ >>(helder | qo'nos | kessok | ferenginar | vulcano | orione | andoria | romulus | remus | terra | bolarus | cardassia primo | talos \i^\v | rokel | rigel | haven )<<;
+
+STBASE ::= ( (\base stellare | \avamposto federale) CIFRA ) ;
+
+CIFRA ::=  NR [^ CIFRA] ;
+
+NR ::=  1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 ;
+
+PARLA ::= +++PICARD | +++DATA | ++WORF | +LAFORGE | +TROI | +RIKER | ++WESLEY | +EFFECT;
+
+PICARD ::= "PICARD : "(\aprite il fuoco SEGNO.PE | -"FUOCOOOOOO!"|
+		\[oh SEGNO.V no SEGNO.PE] siamo stati colpiti SEGNO.PE
+                | ORDINE.PI SEGNO.V come possiamo fare per BABBLE WHAT SEGNO.PI
+                | ORDINE.PI SEGNO.V trovi un modo per BABBLE WHAT SEGNO.PE
+                | \qui parla il capitano \picard ( (dell'astronave \enterprise | della "U.S.S. Enterprise") [SEGNO.PU3 \siamo in missione
+                                               ( +di esplorazione | segreta | diplomatica | +scientifica | +punitiva | ricognitiva | per conto dei ALIENI) [SEGNO.PU3 ALIENS SEGNO.V rispondete]] SEGNO.PU3)
+                | ORDINE.PI SEGNO.V ha qualche idea SEGNO.PI
+		| \sullo schermo [SEGNO.V ORDINE.PI] SEGNO.PU3
+		| \non vedo segni di vita intelligente sul ponte SEGNO.PU3^SEGNO.PU3^SEGNO.PU3
+		| \picard a \enterprise SEGNO.PU3 \ci porti su SEGNO.V "O'Brien" SEGNO.PU3
+		| \worf SEGNO.PE \la smetta di picchiettarmi sulla pelata SEGNO.PE
+                | \non lascero' mai l'\enterprise ai ALIENI SEGNO.PE | \allarme rosso SEGNO.PE
+                | ALIENS SEGNO.V abbassate gli scudi SEGNO.PE
+                | \evidentemente il comandante \data ( ha ragione | +e' impazzito) SEGNO.PU3
+                | \staccate il comandante \data da quel magnete SEGNO.PU3^SEGNO.PU3^SEGNO.PU3 );
+
+DATA ::= "DATA : "  ( -\elementare SEGNO.V ORDINE.DA SEGNO.PE | -\non capisco SEGNO.PU3^SEGNO.PU3^SEGNO.PU3
+                    | \interessante ( SEGNO.PU3^SEGNO.PU3^SEGNO.PU3 | SEGNO.V ) ( sembra che AZDATA
+                    | +il comportamento umano e' ( strano | sorprendente | +fonte di EMOZIONE | curioso | affascinante | misterioso )) SEGNO.PU3^SEGNO.PU3^SEGNO.PU3
+                    | -CAPDATA
+                    | --\a questa velocita' ci metteremo NR^NR ore SEGNO.V NR^NR minuti e NR^NR^SEGNO.PU3^SEGNO.PU3^SEGNO.PU3 "\nPICARD : Silenzio, Data!"
+                    |  +\ho appena ( ---rotto | ++( [dis^] (azionato | accordato | attivato | allineato | surriscaldato ))) WHAT SEGNO.PE
+		    | "I'M SIIIINGING IN THE RAAAAIN! JUST SIIIINGING IN THE RAAAAIN!"
+                    | "ARE YOU LONESOME TONIIIIGHT? DO YOU MISS ME TONIIIIGHT?" );
+AZDATA ::= ([non] si possa BABBLE WHAT);
+CAPDATA ::= \ho capito SEGNO.V (OGGDATA1 SEGNO.V OGGDATA1 SEGNO.V OGGDATA1 SEGNO.V OGGDATA1 SEGNO.PE SEGNO.PUC |
+                                OGGDATA2 SEGNO.V OGGDATA2 SEGNO.V OGGDATA2 SEGNO.V OGGDATA2 SEGNO.PE SEGNO.PUC |
+                                OGGDATA3 SEGNO.V OGGDATA3 SEGNO.V OGGDATA3 SEGNO.V OGGDATA3 SEGNO.PE SEGNO.PUC
+                                ) "PICARD : Silenzio, Data!";
+OGGDATA1 ::=  ( un gioco ["di parole"] | uno scherzo | una battuta | una frase comica | ahahahaha );
+OGGDATA2 ::=  ( entrare di soppiatto | origliare | curiosare | ficcanasare | spiare );
+OGGDATA3 ::=  ( un sinonimo | un modo di dire | una frase colloquiale | un gergo );
+
+WORF ::= "WORF : "((ORDINE.WO SEGNO.V (( scudi al NR^NR per cento SEGNO.PE) |i ALIENI ( hanno (( fatto | aperto il ) fuoco ) | hanno abbassato ( gli scudi | le armi)) SEGNO.PE))
+                                      | ( (\siluri ( quantici | fotonici) | \phaser ) armati SEGNO.PE ));
+
+LAFORGE ::= "LAFORGE : "(ORDINE.LA SEGNO.V non so quanto potra' durare cosi' SEGNO.PE
+                      | ORDINE.LA SEGNO.V non credo di poterla potenziare piu' di cosi' SEGNO.PE
+                      | ORDINE.LA SEGNO.V non credo di poter ridirezionare piu' energia verso WHAT SEGNO.PE
+                      | \[ORDINE.LA SEGNO.V] ho bisogno di piu' energia SEGNO.PE
+                      | +\abbiamo avuto un guasto SEZIONE SEGNO.PE | \abbiamo perso WHAT SEGNO.PE
+                      | \integrita' al NR^NR per cento SEGNO.PE);
+
+TROI ::= "TROI : " ( \sento ( EMOZIONE SEGNO.PU3^SEGNO.PU3^SEGNO.PU3 | che stanno mentendo SEGNO.PE )
+			| ---"Ti amo, mio caro Imzadi!"
+			| \dov'e' il mio [[stra^] maledett ( ^o | ^issimo)] cioccolato SEGNO.PI );
+EMOZIONE ::= [ tanta ] ( freschezza | omerta' | felicita' | tristezza | obesita' | golosita' | impulsivita' | esplosivita')
+           | [tanto] ( odio | astio | rancore | ++dolore | risentimento | amore | affetto | --dilithium | --cioccolato );
+
+WESLEY ::= "WESLEY : " (\rotta per il pianeta PLANET inserita SEGNO.PE
+			| \velocita' warp NR^"."^NR inserita SEGNO.PE
+			| \avanti a ( un quarto di | meta' | pieno | tre quarti di) impulso
+                        | \i ALIENI ci stannno contattando SEGNO.PE
+                        | \frequenze di chiamata aperte SEGNO.PU3
+                        | ( \capitano | \comandante ) SEGNO.V siamo in rotta di collisione [con i ALIENI ]SEGNO.PE);
+
+RIKER ::= "RIKER : " ( \squadra di ricognizione SEGNO.V prepararsi al teletrasporto SEGNO.PE
+			| ( \geordi | \data | \wesley ) SEGNO.V potresti BABBLE WHAT SEGNO.PI
+			| \signor \worf SEGNO.V fuoco SEGNO.PE
+			| \computer SEGNO.V BABBLE WHAT SEGNO.PU3
+			| \capitano SEGNO.V cosi' perderemmo l' ^\enterprise SEGNO.PE
+			| \ne e' sicuro SEGNO.V capitano SEGNO.PI
+			| \la situazione e' piu' ( teribile | orrenda | grave | inutile | -impazzita ) di quanto pensassimo SEGNO.PU3^SEGNO.PU3^SEGNO.PU3
+			| \mi sembri piu' ( eccitata | arrapata | ingrifata | vogliosa | cioccolosa ) del solito [stasera] SEGNO.V ( \deanna | amore | tesoro ) SEGNO.PU3^SEGNO.PU3^SEGNO.PU3);
+
+EOL := ^"\n"^\ ;
+
+SEGNO ::= ( PUC: ^"\n"^\ | PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":"\ | PU3: ^"."\ | V: ^"," | VT: ^"\""\ | PI: ^"?"\ | PE: ^"!"\ );
+
+BABBLE ::= [de^|dis^][ri^](transmogrifare | crittografare | materializzare | teletrasportare | allineare | accordare | frequenziare | galvanizzare );
+
+ORDINE ::= (PI:(\guardiamarina \crusher | \tenente \worf | \consigliere \troi | ---\guinan | \tenente \laforge| \numero \uno | \comandante \data) |
+	   DA:(\capitano | \comandante | \consigliere | \wesley | \signor \worf | \geordi ) |
+	   WO:(\capitano | \signore | \comandante | \signor \data | +"Qapla'!..." | \tenente ) |
+   	   LA:(\capitano \picard | \tenente | \dottoressa | \wesley | \comandante ( \data | \riker ) | \consigliere) );
+
+ALIENS ::=  (\nave | \fregata | \stazione) ( \klingon | \ferengi | \cardassiana | \romulana | "Jem' Hadar" );
+ALIENI ::= ( \ferengi | \romulani | \klingon | \kessok | \borg | \pirati di orione | \romulani | \remani | \cardassiani | \necron);
+WHAT ::= i condotti di jeffreys | i deflettori | le gondole a curvatura |il nucleo a curvatura | il generatore materia^"-"^antimateria
+          | il sensore principale | il ponte ologrammi | gli smorzatori inerziali | i sistemi di supporto vitale | il generatore di gravita' |
+           il computer di bordo| i[^"l generatore "^] phaser | i collettori \bussard | il portasiluri ( protonici | fotonici | quantici );
+
+EFFECT ::= "[BZZZZZZOT!]" | "[KA-BLAAAAAM!]" | "[FHTU-FHTU-FHTUM!]" | "[BZZZZzzzz...zzzZZZZ!]" | "[WOOOoooo...]" | "[SFRRRRRZZZZOT!]" |"[EEEEK! EEEEK! EEEEK!]";

@@ -1,0 +1,88 @@
+
+I ::=   "title:    Review quotations\n"
+      ^ "author:   Manta\n"
+      ^ "language: english\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  07/10/2002"
+;
+
+S ::= "<I>" ^ Quotation ^ "</I>" "\n -" Source
+;
+
+Source ::= "La Repubblica" | "Harold Tribune" | "The" ("Sun" | "Stars" | "Moon")
+        |  "GirlPower" | "Cosmopolitan" | "The Times" | "Rolling Stone" | "Melody Maker"
+        |  State "Today" | ("Daily" | "Monthly" | "Weekly" | "Yearly") "Telegraph"
+;
+
+State ::= "Italy" | "Thailandia" | "Germany" | "Holland" | "Rwanda" | "Chile" | "Uganda" | "Ciad" | "Sudan" | "Mexico"
+       |  "Turkey" | "Turkmenistan" | "Azerbaijan" | "Burundi" | "Tibet" | "San Marino" | "Vatican"
+       |  "Lichtenstein" | "Luxemburg" | "Monaco Principality" | "Slovenia" | "Ecuador" | "Uruguay" | "Paraguay"
+       |  "Dalmatia" | "Moldavia" | "Macedonia" | "Kurdistan" | "Malta" | "Argentina" | "Etruria"
+       |  "Kamcatka"
+;
+
+Quotation ::= [\Exclam ^ "."]
+              ("..."^ | \)
+              ( the Eulogy Software ever (written | designed | made)
+                [for Topic] [(after | since) Program]
+	          | [finally] the [ultimate] solution to all [your] [Problem] problems
+              | (such a | this) Software (has long been awaited | couldn't be seen)
+                since Program times
+              | the Software everybody was [so] [long | anxiously | desperately]
+                (waiting for | expecting | desiring)
+	          ) ^ "."
+	          [\Exclam ^ "."]
+;
+
+Problem ::= >Topic | pollution | (over | under)^population | demagogy | rethoric | bulimia
+         |  diarrhoea
+;
+
+Exclam ::= [simply | completely | rather | definitely]
+           (unmissable | terrific | marvellous | brilliant | fantastic | perfect)
+        |  (won't disappoint you | >(no way to | do not) miss it)
+;
+
+Eulogy ::= best | worst | finest
+        |  (most | least) >(important | complex | sophisticated)
+;
+
+Software ::= [computer] program | tool | [piece of] software | utility | application | product
+;
+
+Topic ::= [intensive] (farming | cultivation) | gastronomy
+	   |  (stamp | butterly | toy soldier | tin) collectionism
+       |  ( jazz | hardcore | classical | baroque | medieval | rinaissance | provence
+	      | [(prog | death | black | street | heavy | gothic) ^ "-" ^]
+            (rap | rock | metal | pop)
+          | folk | popular
+	      ) music
+       |  fishing | poaching | hunting | poaching
+       |  gardening | ["hand-"^]sewning [and needleworking] | safari | alpinism
+       |  [hitch] hiking | driving | web design
+       |  occultism | (textile | metallurgic) industry | adventure | sex [magick]
+       |  pornography | tantra
+       |  "Him" | "Her" | man | woman | kids
+;
+
+Program ::= Name (Rel | Ver)
+;
+
+Rel ::= (6 | 7 | 8 | 9) ^ Digit
+     |  (2 | 3 | 4) ^ 00 ^ Digit
+     |  "XP" | "NT" | "X"
+;
+
+Digit ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+;
+
+Ver ::= Digit ^ "." ^ Digit [^ "." ^ Digit] [^ (a | b | g | d)]
+;
+
+Name ::= "Word" | "Excel" | "Outlook" ["Express"] | "Publisher" | "Photoshop" | "Illustrator"
+      |  "Quark Express" | "Qbase" | "Cakewalk" | "Vegas" | "Rebirth" | "Reason" | "Dream Weaver"
+      |  "Flash MX" | "Internet Explorer" | "Mozilla" | "Netscape" | "Opera" | "AutoCAD"
+      |  "3D Studio" | "Maya" | "Office"
+;

@@ -1,0 +1,87 @@
+I ::=   "title:    Flamewar message\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   useable\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  30/06/2006"
+;
+
+S ::= \ Phrase ^"."\ Conclusion ^("."|"!"|-"!!"|--"!!!"|---"!!!!") ;
+
+Content ::= Phrase
+          | Phrase ^"." Pause ^"." Phrase
+	  ;
+
+Phrase ::= (_|-Please) ReproachingRequest [Reinforce] ^("."\|",") [Please] ReasonablePlea (_|-Reinforce);
+
+ReasonablePlea ::= "let's not drag this into another flame war"
+       | "do not continue this thread"
+       | "let's be reasonable"
+       ; 
+
+ReproachingRequest ::=
+	  "you are welcome to propose a GR"
+	| Please {(quit|stop) BadThing} and {start GoodThing}
+	| Please {(quit|stop) BadThing}
+	| Please {start GoodThing}
+	| "stop CC-ing me"
+	;
+
+Please ::= please | kindly | do (me|us|us all|everyone) a favour and ;
+
+Reinforce ::= "at once" | "one day" | "please" | "if you can" | "thank you" ;
+
+Pause ::= [just] my two ( [euro^] cents | pence )
+	| [very] friendly
+	| "sorry, but I need to get it out of my chest"
+	| "/me ducks"
+	| "SCNR"
+	| "I'll not answer this thread anymore"
+	| "I'm not going to followup" [this thread] [anymore]
+	| "I'm not a troll"
+	| "I'm just making a polite request"
+	| "I'd rather not have written this message"
+	| "I" (apoligise|apologize) if you (perceive this as BadThing | don't perceive this as GoodThing)
+	| "I wonder where is freedom of speech"
+	| ditto
+	;
+
+BadThing ::= "being off-topic"
+           | whining
+	   | insulting
+	   | (using|writing with) bad grammar
+	   | "CC-ing when writing to the list"
+	   | "doing ad-hominem attacks"
+	   | being Bad
+	   | posting [nonsense | Bad messages]
+	   | poisoning the discussion
+	   | (misquoting|ignoring) the policy
+	   ;
+
+GoodThing ::= "doing something useful"
+            | "using correct" (grammar|-grammer)
+	    | "correctly using Mail-Followup-To"
+	    | being Good
+	    | posting [Good messages]
+	    | (reading|understanding|correctly quoting) the policy
+	    ;
+
+Bad ::= insulting | irresponsible | factually wrong | imprecise | vague |
+	confused | ambiguous | bland | erratic | frivolous | fuzzy | generic |
+	gratuitous | inaccurate | incoherent | inconsistent | indecisive |
+	inexact | irresolute | lazy | lax | meaningless | obscure | opaque |
+	out of focus | subtle | unclear | vacuous | abusive | arrogant |
+	calumnious | cold | insolent | offensive | fastidious | picky |
+	religious | rigid | strict ;
+
+Good ::= responsible | precise | explicit | unambiguous | correct | accurate |
+	 coherent | consistent | exact | meaningful | clear | focused | calm |
+	 careful | detailed | direct | rigorous | strict | "well-defined" ;
+
+Conclusion ::= >Pause
+             | (_|-Please) >ReasonablePlea (_|-Reinforce)
+	     | (_|-Please) "do not send copies of list mail to me; I read the list"
+	     | (_|-Please) "no private replies" (_|-Reinforce)
+	     | ("*plonk*" | "*PLONK*" )
+	     | "HTH" ["HAND" ["etc."]]
+             ; 

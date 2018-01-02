@@ -1,0 +1,32 @@
+I ::= "title:    Chinese names\n"
+    ^ "author:   Manta, 2d &lt;dekar2@libero.it&gt;\n"
+    ^ "language: english\n"
+    ^ "topic:    misc\n"
+    ^ "status:   refinable\n"
+    ^ "audience: anybody\n"
+    ^ "created:  16/09/2003"
+    
+;
+
+S ::= (X ::= \A; X X (+ X (- X | _) | _))
+;
+
+A ::= >>
+      ch^(NG | ao)
+   |  w^(o | a | u | e)^ng
+   |  t^(z | s)^(e | o | a[^o])
+   |  sh^(NG | ao)
+   |  t[^h]^(NG.g | ai | ao)
+   |  (y |j)^NG
+   |  f[^h]^NG.g
+   |  k[^h]^(in | (o | u |- e)^ng)
+   |  ( te
+      | l^(o | a[^i] | i)
+      | (l | m | z |- s |- n)^ao
+      | f^(e | u)
+      ) (loop: ^"-"^ <A.NOloop | NOloop: _)
+  <<
+;
+
+Voc ::= i | o | a | e | u ;
+NG  ::= Voc ^ n (n: _ | g: ^g | [^g]) ;

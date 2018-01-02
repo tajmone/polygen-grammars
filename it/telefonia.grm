@@ -1,0 +1,39 @@
+I ::=   "title:    TELEFONIA\n"
+      ^ "author:   Melena &amp;lt;eletosi@freemail.it&amp;gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "created:  12/07/2004"
+     
+;
+
+S ::= ^"Benvenuto al customer care " \ Uno ^". " \ Due ^ " digita" Tre ^". "  \ Due ^ " digita" Tre ^". "  \ Due ^ " digita" Tre ^". " \ Quattro
+;
+
+
+Uno ::= "PippaCom" | "MinchiaTel" | "TeleBue" | "RuboTel"
+; 
+
+Due ::= per avere informazioni sul profilo tariffario di tuo cuggino 
+ | per scoprire se tua moglie ti fa le corna
+ | per essere sempre informato sulla tua soap opera preferita 
+ | per parlare con un cartomante di marte
+ | per controllare se l'acqua bolle 
+ | per la teleconferenza con un alieno
+ | per essere sempre informato sulle operazioni chirurgiche di "Michael Jakson" 
+ | per insultare un operatore 
+ | la informiamo che il suo telefono sta per autodistruggersi per confermare 
+ | per scaricare la suoneria di "Giggi D'Aostino" "Giggi D'Alessio" o "Giggi Sabbani"
+ | sapere dove e' "Bin Laden" e se il suo telefono e' raggiungibile
+ | questo servizio e' totalmente gratuito eccetto lo scatto alla risposta di 300 euro "." per riagganciare
+ | per la soluzione del quesito della susi
+ | per addebitare le sue telefonate sul cellulare di berlusconi 
+ | per tirare lo sciacquone
+ | siamo spiacenti il suo credito e' terminato e il suo telefono e' un cesso "!" per l'autoesplosione 
+;
+
+Tre ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+;
+
+Quattro ::= grazie | buona sera | buona notte | buona giornata
+;

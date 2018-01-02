@@ -1,0 +1,73 @@
+I ::=   "title:    Haiku\n"
+      ^ "author:   Mefistofele &lt;matteo@genhome.org&gt;"
+      ^ "language: italian\n"
+      ^ "status:   embrional\n"
+      ^ "topic:    poetry\n"
+      ^ "audience: anybody\n"
+      ^ "created:  11/10/2004"
+;
+
+S ::= (
+     (Poesia3 "\n"^(Poesia1 | Poesia2))
+    |(Poesia3 "\n"^ACTION "\n"^(Poesia1 | Poesia2))    
+     )^"\n"
+;
+
+Poesia1 ::= ( [in] (Object.M.art di Obj12) "\n"^(Verb d^("'"^Obj11)));
+
+Poesia2 ::= (Verb d^("'"^Obj11) "\n"^(Object.M.art di Obj12)) 
+          | (Verb d^("'"^Obj11) "\n"^(Object.F.art di Obj12)) 
+;
+
+Verb ::= ((osservar | veder | contemplar | ammirar | [ancora] amar | venerar | trafigger | posseder 
+           | raccontar)^(e|+ti))
+         | concepire | [ancora] morire | carpire | ricordare [(forse)] | conservare 
+         | soffrire | credere | nascere | fremere | tremare
+         | [im]^memore | vittima | incubo | seguace | segreto | dubbio | mancanza | assenza | solitudine 
+         | frenesia | brivido | fremente
+;
+
+Object ::= (art: (M: un | F: un) | NOart: _)
+             (
+              M: (bosco | fiume | regno | confine | dolore | ^"o spazio" | custode [geloso]) 
+              | 
+              F: (
+                   ^"'"^(alba | aurora | alcova) 
+                  | ^"a" (catacomba | rovina | tomba | marea )
+                 )
+             )
+;
+
+Objects ::= (M: (tramont | vent | ocean | ricord | raccont) | F: (nebbi | mare | strad | nuvol));
+
+Obj1 ::= (Object.NOart | (Objects.M^(o|i)) | (Objects.F^(a|e)));
+
+Obj11 ::= autunno | inverno | estate;
+
+Obj12 ::= luce | fuoco | primavera | neve | ghiaccio | metallo;
+
+Poesia3 ::= (APlace (AObject.art.M | AObject.art.F) AVERB);
+
+APlace ::= quando | [la] dove;
+
+AMObj ::= cuore | sospiro [(di|nel) vento] | sogno | vento | vuoto | crepuscolo;
+
+AFObj ::= (^"'"^(anima | ombra | onda | alternativa | assenza | oscura (madre|sorella|signora))) 
+          | (^a ((goccia di rugiada) | lacrima | marea | foglia | memoria 
+          | tenebra | notte | sera | tomba)
+          )
+;
+
+AObject ::= (art: (M: (un | il) | F: (un | l)))(M: (AMObj) | F: (AFObj));
+
+AVERB ::= brucia|arde|(s|ri)^compare|nasce|svanisce|[si] nasconde|(s|ri)^vela|attende|aspetta|sogna;
+
+ACTION ::= (
+             (
+              (uccider|affogar|(ri|s)^cordar|dimenticar|[ri]^fuggir|narrar|attender|aspettar|immaginar
+              |creder|sgozzar|soffocar)^(e|ti)
+             ) 
+             |vivere|sognar^(e|ti)[e sognare]|raccontare
+           )  [forse|ancora [una volta|e ancora]] [^"?"|^"!"]
+;
+

@@ -1,0 +1,64 @@
+I ::= "title:    Prodotti Beghelli\n"
+    ^ "author:   Er Poly &lt;mogkogk@hotmail.com&gt;\n"
+    ^ "language: italian\n"
+    ^ "status:   refinable\n"
+    ^ "topic:    misc\n"
+    ^ "audience: anybody\n"
+    ^ "slogan:   "^ogni soldo ( ++++risparmi | +bagn | +ragion | +stagion | disarm | disper
+                              | ripos | rovesci | +scamosci | scapigli | scudocroci | -rub ) ^ ato
+                  e' un soldo ( ++++guadagn | +fortun | +++magagn | debosci | disagi | svergogn
+                              | +rincagn | ++scalcagn | +scarogn | sfig ) ^ "ato\n"
+    ^ "created:  19/09/2004"
+;
+S ::= \ Prodotto.art ( _ | -"626" | ----"SOS" ) \beghelli
+;
+Prodotto ::= \
+    ( (noart:_|art:il \) [tele^\]
+       >( +++ salva (_|----^\allarma) ^ \ Cosa.(+++++art|noart).1.2.3.4.5.7.8.11.12.16.17.18
+        | + controlla ^ \ Cosa.noart.1.2.3.4.5.11.12.15.16.17.18
+        | metti^\a^\norma ^ \ Cosa.art.1.2.3.4.5.11.12.16.17
+        | proteggi (_|-------^\allarma) ^ \ Cosa.(art|noart).1.2.3.4.5.7.11.12.15.16.17
+        | ( vivi ^ \ Cosa.(art|noart).4.11.12.16
+          | risolvi ^ \ Cosa.noart.9.15.16
+          | -- respira ^ \ Cosa.(art|noart).10.11.12.16.18
+          | -- migliora ^ \ Cosa.(art|noart).1.2.3.4.5.11.12.15.16.17.18
+          | -- (rivela|rileva|--senti) (_|--^\allarma) ^ \ Cosa.noart.10.15.18
+          | ---- passa ^ \ Cosa.art.13
+          | ---- togli ^ \ Cosa.art.6
+          | ---- ritrova ^ \ Cosa.art.1.3.4.5.11.12.14.16.17.18
+          )
+        ).
+    | (noart:[tele^\]|art:(l'|il \tele)^\)
+       >( illumina ^ \ Cosa.(noart|-----art).1.2.3.4.5.11.12.15.16.17.18
+        | >( aiuta | avvisa | allarma | avverti ) ^ \ Cosa.(noart|-----art).2.3.4.5.11.12.15.16.17.18
+        | ( ( aspira | --- assaggia | + odora ) ^ \ Cosa.(-----art|noart).10.11.12.15.16.18
+          | ( acciuffa | accoppa | ammazza | annienta | arresta | uccidi ) ^ \ Cosa.noart.18
+          )
+        ).
+    )
+;
+Cosa ::=
+(  1:  (noart:_|art:la^\) >( ++faccia | diga | bara | roba | cacca | droga | pippa | terra )
+|  2: >( vescica | dentiera | +vecchietta | verginita' | baracca | caramba )
+|  3:  (noart:_|art:le^\) >( palle | scale | chiappe )
+|  4: >( +cagate | gonadi | rapine | serate | budella | crimine | galline | +mutande
+       | persone | +puttane | centrale | scemenze | contatore | emorroidi
+       | stronzate | +vecchiette | sciocchezze )
+|  5: >( cani | ladri | furti | vicini | sbirri | malati | +drogati | pianeti | +parenti | micetti
+       | orifizi | genitali | pompieri | soccorsi | culo | bidet | cefalo | vicino | armadio
+       | governo | piffero | impianto | computer )
+|  6: >( dai^\guai | le^\castagne^\dal^\fuoco | la^\vita )
+|  7:  (noart:_|art:la^\) >( +++pelle | serata | virtu' )
+|  8: >( apparenze | twin^\towers | in^\(corner|extremis) | con^\nome | gli^\ostaggi )
+|  9: >( +++problemi | faccende | questioni | equazioni | serata )
+| 10: >( +++++++++++++++gas | +++++metano | sars )
+| 11:  (noart:_|art:la^\) >( +++casa | ++++fi^(c|g)^a | sorca | +fregna | +++nonna | +++vita | merda )
+| 12: >( azienda | immondizia | ---nonnina | tastiera )
+| 13: >( la^\canna | la^\palla | a^\miglior^\vita )
+| 14: >( ++++++++++++++++++ la^\fede | +++++++ la^\strada )
+| 15: >( furt^(++o|i) | rapina | incendi[^o] | ----malor^(++e|i) | intrusioni )
+| 16: >( gas | tutto | sicuro | ufficio | incendio | universo | soccorso )
+| 17: >( +++vecchia | ++vista ["TV"] | +fiat | +gnocca | +minchia | passera | patria | suocera | suora )
+| 18: >( ladr^(++o|i) | intrus^(++o|i) | rapi[^na]^tor^(++e|i) | terrorist^(a|+++i) )
+)
+;

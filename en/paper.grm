@@ -1,0 +1,147 @@
+I ::=   "title:    Papers and Publications in Computer Science\n"
+      ^ "author:   Manta\n"
+      ^ "language: english\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: researchers\n"
+      ^ "created:  07/02/2003"
+;
+
+S ::= \
+      ( (Adj.art Algo.NOart | Algo.art) for Aim [Way]
+      | (DataStruct.S Operation ("vs." | versus) DataStruct.S Operation).(noun|ing)
+      | "How To" Operation.inf DataStruct.P  [Way]
+      )
+;
+
+Way ::= (by | with) [DataStruct.S] Operation.noun
+     |  (while | by | against) (Operation.ing DataStruct.P | DataStruct.S Operation.ing)
+     |  in [expected] \Time "Time"
+;
+
+Adj ::= (art: an) \
+        >( [in^]efficient | un^ >(scalable | portable | stable) | elementary
+         | [un^]orthodox | undecidible | ["N"^]"P-"^(hard | complete) | asymptotic
+         | informal | optimal | indeterministic | infinite | algebraic
+         )
+     |  (art: a) \
+        >( quantum | scalable | stable | portable | fast | greedy | lazy | common
+         | categorical | reticular | neural | mechanical | theoretical | standard
+         | practical | pragmatic | heuristical | simple | complex | topological
+         | decidible | ["non-"\]polinomial | structural | functional | imperative
+         | mathematical | discrete | quick | geometrical | probabilistic | formal
+         | trivial | static[^al] | dynamic | potential | general | generic | modular
+         | deterministic | simmetric | parallel | logarithmic | [de^]finite | naive
+         )
+;
+
+Algo ::= (art: an | NOart: _) \
+         >(approach | algorithm)
+      |  (art: a | NOart: _) \
+         >( system | method[^ology] | heuristic | [data\] structure | notation
+          | function | theorem | proof | description | strategy | conjecture
+          | fundation | definition | framework | calculus
+          )
+;
+
+Aim ::= [\Qual [^"-"^Qual]] DataStruct.S Operation.noun
+     |  Operation.ing [Operation.noun (of | over | on | from)]
+        [\Qual [^"-"^Qual]] DataStruct.P
+;
+
+Qual ::= >> ( (large | wide | close) [^r | ^st]
+            | (short | long | deep | high | low | small) [^er | ^est]
+            | mid | huge | full | tiny | minimum | maximum | double | triple | quadruple
+            | single | basic | direct | best | worst | average | better | worse
+            | <Num | binary | sub | super | inter | intra | multiple | random
+            )
+            <[^"-"^
+             ( priority | performance | rank | range | delay | level | degree | size
+             | dimensional | spanning | case | access | search | interval | built
+             )]
+          | association | "Red-Black" | fibonacci | union | pull | push | lambda
+          | <[( strongly | "non-" | highly | heavly | perfectly | shortly | widely
+              | randomly | positively | negatively
+              )
+             \]
+            ( mergeable | searchable | countable | solvable | ranked | private
+            | matchable | removable | chainable | [un^]linked | [data\] structured
+            | connected | associative | <Time | boolean | definite | protected
+            | static | dynamic | open | [dis^]joint | random[^ized] | rooted
+            | delayed | selected | [a^]cyclic | directed | sparse | public | convex
+            )
+         <<
+;
+
+Time ::= ["non-"]
+         >> [( bi | tri | quadri | poli | mono | ultra | hyper
+             | (log | pluri | multi | single | iso | hypo | sigma | delta)^"-"
+             )^]
+            (linear | [poli^]nomial | partite | tonic | factorial)
+          | continuous | discrete
+         <<
+;
+
+Num ::= 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+;
+
+DataStruct ::= [S: _ | P: DataStruct.S.] \
+               ( >( array | vector | space | tree | graph | circuit | relation
+                  | set | "Data Structure" | path | flow | tuple | pair | element
+                  | heap | equation [\system] | DataStruct.S. "Forest"
+                  | node | key | list | degree | component | formula | variable
+                  | queue | stack | pointer | reference | object | chain
+                  | sequence | helder | polygon | table | constraint | number
+                  | string | integer | factor | automata | "lambda-abstraction"
+                  ) (S: _ | P: ^s)
+               |  >(hash | class) (S: _ | P: ^es)
+               | S: >(matrix | vertex)
+               | P: >(matrices | vertices)
+               )
+;
+
+Mode ::= ["in-"^] (depth | breadth | place) ^"-first"
+      |  "in-"^ (depth | breadth | place)
+      |  ["anti-"^]clockwise
+      |  (pre | post) ^"-"^
+      |  (first | last) ^"-in-"^ (first | last) ^"-out"
+      |  (lift | front | back | end) ^"-to-"^ (lift | front | back | end)
+;
+
+Operation ::= \ [Mode \]
+             >> ( search | match | access | order | count | bound | sort | query
+                | jump
+                )
+                (ing: ^ing | inf: _ | noun: _)
+              | noun: ( unification | matching | exploration | calculation
+                      | representation | simplification | intersection
+                      | termination | analysis | solution | deletion
+                      | operation | decrease | increase | compression
+                      | deforestation | summation | formulation | substitution
+                      | iteration | recursion | distribution | maintainance
+                      | property | insertion | rotation | augmentation
+                      | triangulation | selection | schedule
+                      | growth | relaxation | multiplication | comparison
+                      | computation | verification | invertion | implementation
+                      | factorization | reducibility
+                      )
+              | ing: ( unifying | exploring | building | simplifying
+                     | intersecting | finding | analyzing | chaining | solving
+                     | deleting | removing | binding | bounding | decreasing
+                     | increasing | compressing | formulating | substituting
+                     | iterating | distributing | maintaining | inserting
+                     | augmenting | triangulating | selecting | scheduling
+                     | growing | relaxing | multiplying | comparing | breaking
+                     | verifying | inverting | implementing | factorizing
+                     | covering
+                     )
+              | inf: ( unify | explore | build | calculate | represent | simplify
+                     | intersect | terminate | find | analyze | solve | delete
+                     | operate | decrease | increase | compress | sum | formulate
+                     | substitute | iterate | recur | distribute | maintain
+                     | insert | rotate | augment | triangulate | select | schedule
+                     | make | multiply | compare | [re^]move | bind | break | verify
+                     | invert | implement | factorize
+                     )
+             <<
+;

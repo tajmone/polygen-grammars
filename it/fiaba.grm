@@ -1,0 +1,80 @@
+I ::= (T ::= \tipica avventura di formazione ;
+
+        "title:   "\T ^"\n"
+      ^ "author:   Auletride\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "created:  dicembre 2004"
+      )
+;
+
+S ::= INIZIO "\n" GIORNO "\n" INCONTRO "\n" STORIA "\n" FINE ;
+
+NOME1 := ("Brid"|"Smi"|"Lun"|"Curi"|"Mani"|"Noppa"|"Lella"|"Depu"|"Ille") [^(maticon|frumb|kelar |nustr |mulc |frip) ]  [^(falo | mani | pare | graro | yoppi) ]  [^(linetta | cara | daria | buse | dunni )]  ;
+
+NOME2 := ("Brid"|"Smi"|"Lun"|"Curi"|"Mani"|"Noppa"|"Lella"|"Depu"|"Ille") [^(maticon|frumb|kelar |nustr |mulc |frip) ]  [^(falo | mani | pare | graro | yoppi) ]  [^(linetta | cara | daria | buse | dunni )]   ;
+
+NOME ::= ("Brid"|"Smi"|"Lun"|"Curi"|"Mani"|"Noppa"|"Lella"|"Depu"|"Ille") [^(maticon|frumb|kelar |nustr |mulc |frip) ]  [^(falo | mani | pare | graro | yoppi) ]  [^(linetta | cara | daria | buse | dunni )]  ;
+
+AGG ::= semplic(M:^e|F:^e|S:^e|P:^i)| monoton(M:^o|F:^a|S:^o|P:^i) |stupid(M:^o|F:^a|S:^o|P:^i) |schifos(M:^o|F:^a|S:^o|P:^i) |ammirevol(M:^e|F:^e|S:^e|P:^i) |
+mirabolant(M:^e|F:^e|S:^e|P:^i) |depriment(M:^e|F:^e|S:^e|P:^i) |allegr(M:^o|F:^a|S:^o|P:^i) | stomachevol(M:^e|F:^e|S:^e|P:^i) |imprevedibil(M:^e|F:^e|S:^e|P:^i) |
+fedel(M:^e|F:^e|S:^e|P:^i) | degn(M:^o|F:^a|S:^o|P:^i)|felic(M:^e|F:^e|S:^e|P:^i)|effervescent(M:^e|F:^e|S:^e|P:^i) ;
+
+CIF ::=  ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |0 ) ;
+
+INIZIO ::= NOME1  era un giovane (scimunito|contabile|panettiere|contadino|pescatore|sognatore) che da CIF [^CIF] [^CIF] anni conduceva una vita AGG.F in mezzo a (gente comune|animali pelosi|piante carnivore) in un (villaggio turistico|campo profughi|deserto roccioso|^a vallata ombrosa) ^"."
+"\n" \il suo (piu' grande desiderio |sogno segreto| delirio di grandezza) era tuttavia quello di SOGNO per SOGNO o magari anche SOGNO ^"."
+\invece non poteva far altro che (andare in giro|perdere tempo) con i suoi AGG.P amici NOME e NOME ^"," che erano due perfetti (cretini|materialisti|gentiluomini|lazzaroni|falliti|imbecilli) e (non volevano sentir parlare di|non erano interessati a|non pensavano mai di|se ne infischiavano di) SOGNO ^"."  ;
+
+SOGNO ::= cavalcare lontano|studiare la magia|imparare a volare| viaggiare per il mondo|costruire un(^a barca|^a zattera|carro|^a catapulta|osservatorio|^a torre altissima)|(ammazzare|sterminare|massacrare|redimere|addomesticare) qualche BESTIA.S| (stroncare|combattere|cancellare)
+il male nel mondo|evocare il potere [arcano] del(fuoco|^la terra|^l'^acqua|vento)|adorare la mistica \luna (\azzurra|\verde|\viola|\a \pois|\a \righe) che regolava i destini dei popoli|imparare a cucinare|prevedere i terremoti ;
+
+GIORNO ::= \un giorno particolarmente AGG.M ^"," NOME1 fu mandato da sua PARENTE a (^l mercato|^lla citta' vicina|^l guado|^l fiume|^l crocevia) per (comprare|vendere|noleggiare|rubare|regalare) ROBA ^"." \si sentiva di lontano il (canto|gracchiare|frinire|silenzio) dei BESTIA.P ^"," ed era un mattino AGG.M ^"," cosi' il nostro
+NOME1 decise di prendere una scorciatoia ^"." \ben presto^"," pero'^"," si accorse di essersi (sprofondato|perso|distratto|infangato|insabbiato|bagnato|asciugato|affamato|dissetato) in una (tana di coniglio|palude|radura|foresta|strada|buca) [puzzolente|mai vista prima|spaventosa|molto profonda|affascinante|
+labirintica] e si spavento'^"." ;
+
+BESTIA ::= (quacco|farfa|mucco|nippo|giraffo|tonto|micro|tera|bidello) ^ (potam(S:^o|P:^i)|dont(S:^e|P:^i)|porc(S:^o|P:^i)|lunt(S:^e|P:^i)|doc(S:^o|P:^i)|can(S:^e|P:^i)|capr(S:^o|P:^i)|nigl(S:^io|P:^i));
+
+PARENTE ::= zia|nonna|moglie|sorella|cugina|mamma ;
+
+ROBA ::= il pane|le uova|dei polli|dei vestiti|una torta|bottiglie di vino|i biscotti|la legna|una parrucca ;
+
+INCONTRO ::= \ma ecco che (fu colpito da|fu abbagliato da|fu visitato da|vide|sogno'|incontro') un (^a luce (fortissima|colorata|mistica)|baule|serpente parlante|AGG.M BESTIA.S|^a donna stupenda)
+che gli disse ^":" '^\ricorda tuo cugino NOME2^"!"^' \allora NOME1 si (arrabbio'|commosse|confuse|stanco'|distrasse|
+rallegro'|mise a sbadigliare) (moltissimo|pochissimo) poiche' la storia di NOME2 [non] gli era ben nota^"." ;
+
+STORIA ::= AVVENTURA SCAPPA ;
+
+SCAPPA ::= \mentre NOME2 ( si dirigeva | correva | andava | scappava | procedeva ) verso (il cancello | il casello [dell'^autostrada] | i prati verdi della sua giovinezza | l^'uscita (della grotta | del tunnel | dell'^autostrada) |
+ lo sbarramento) gli capito' di (udire | sentire) ancora quella voce AGGETTIVO che PARLA dietro di lui ^":"'^\(miserabile|onorevole|gentile|adorato|sudicio|schifoso) (ladro|cliente|benefattore|passante|avventuriero|sapiente) ^","
+ lascia che ti (MINACCIA|OFFERTA)^"!" \co(^l cavolo| ^n piacere|^n gioia|^l fischio) ti offriro' un altro (caffe'|passatempo|articolo|momento di gentilezza) ^"!" \che tu possa (viaggiare sereno|precipitare in una fossa|calpestare
+ escrementi|muoverti leggiadro) ad ogni passo^"!"^'\e allora NOME2 (comprese|capi'|si penti'|si rallegro') di aver (offeso|onorato|insultato|reso omaggio a) NOME ^"," la \dea [\(mucca|serpente|rana|sirena|aquila|elefantessa|farfalla|
+ gatta|lepre|gazzella)] de (^ll'^ \amore|^l \focolare|^i \guai|^lla \sapienza|^lla \guerra|^lla \famiglia|^lla \fortuna|^lla \vendetta|^i \supplizi) e si (arrabbio'|commosse|confuse|stanco'|distrasse|rallegro'|mise a sbadigliare)
+ [(moltissimo|pochissimo)] sapendo che non avrebbe avuto (mai piu'|altro che) (amore|focolare|guai|sapienza|guerra|famiglia|fortuna|vendetta|supplizi) nella vita ^"." ;
+
+AGGETTIVO ::= soave | suadente | sensuale | dolce | musicale | roca | catarrosa | minacciosa | sinistra | disperata | stentorea | flebile | soffocata | sibilante | argentina | blesa ;
+
+PARLA ::= impreco'|sospiro'| canto'| grido'| invei'|domando'| pianse| brontolo'| rise ;
+
+OGGETTO ::= ("Bracciale"|"Collare"|"Anello"|"Orecchino"|"Semicupio"|"Acciarino"|"Portachiavi"|"Astuccio"|"Spillone") [\parlante|\luminoso|\invisibile|\maledetto|\canterino|\incantato|\musicale|\profumato] d
+(^'^\oro|^'^\argento|^'^\alluminio|^i \cartapesta|^i \rame|^i \velluto|^i \rubino|^i \diamante |^i \plastica) ;
+
+MINACCIA ::= (prenda|raggiunga|acciuffi|incontri un'^altra volta) ;
+
+OFFERTA ::= (mostri|regali|consigli|illustri) anche questo altro OGGETTO ;
+
+AVVENTURA ::= NOME2 (si nascondeva da|era sfuggito a|aveva perso|aveva litigato con) (gli amici|i genitori|un gruppo di nani|una torma di orchi|uno sciame di BESTIA.P) e
+(attraversando|aspettando in mezzo a|esplorando) un (atrio [buio]|^a caverna [umida]|^a casa (diroccata|abbandonata)|tempio [maledetto]|accampamento di (girovaghi|artisti|cammellieri|lupi mannari))
+era stato (avvicinato|aggredito|fermato|supplicato|sfidato) da una (creatura|persona|figura) (ermafrodita|muta|deforme|timida|dalla incerta sessualita'|spigliata|patetica|mostruosa|AGG.F) dotata di una voce AGGETTIVO ^"."
+\(costui|costei) lo aveva (pregato|minacciato) di (vendere|regalare|rubare|restituire|comprare|buttare via) un OGGETTO per poter curare la sua grave (calvizie|fotofobia|sindrome di \tourrette|tossicodipendenza|malinconia|
+avitaminosi|scoliosi|allergia|dermatite|emicrania) ^"." \mosso da (paura|compassione|avidita'|fastidio|noia|curiosita') ^"," NOME2 aveva quindi accettato [di buon grado] [^"," visto anche che non sapeva giocare a (nascondino|
+carte|^lla morra|^i mimi)]^"." "\n" \poi pero' (il metal detector|l'altare|il portone|il bosco|il laghetto|il posto di lavoro) de (^gli elfi|^i nani|^i maghi|^i cavalieri|^gli scudieri) (era esploso| si era incendiato|aveva suonato|
+aveva cessato di esistere) mentre passava lui ^"," impedendogli di SOGNO ^"." ;
+
+FINE ::= \e dunque NOME1 si desto' di botto e scopri' di avere davvero in tasca un OGGETTO ^"."  \mentre tornava verso casa ^"," era cosi' AGG.M che una strana (sagoma|ombra|figura) sul viale gli sembro'
+(un drago |un orco |un nano|un balrog |un tabaccaio|un mago|\gollum|\cthulhu|\yog^"-"^\sothoth) (dormiente|maleducato|incazzato|con la faccia blu|fiammeggiante) [che (veniva verso di lui|si contorceva|lo minacciava)] ^"," ma invece si
+trattava solo di sua PARENTE che gli corse incontro e lo (abbraccio'|riempi' di sberle|bacio' affettuosa|pesto' a sangue|lodo'|rimprovero' aspramente) perche' aveva perso ROBA [ed era in grave ritardo]^";" NOME1 tuttavia [non] si
+(turbo'|preoccupo'|consolo'|rattristo'|rallegro'|congratulo') poiche' la storia che aveva ricordato (non aveva nulla a che fare con lui|gli aveva cambiato la vita| era una stupidaggine|era un esempio di saggezza)
+e seppe nel suo cuore che (credendo fervidamente nel|facendo affidamento sul) suo nuovo OGGETTO prima o poi sarebbe riuscito a SOGNO ^".";
+

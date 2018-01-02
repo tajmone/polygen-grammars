@@ -1,0 +1,41 @@
+I ::=   "title:    Thanks\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   Basic\n"
+      ^ "topic:    General\n"
+      ^ "created:  28/06/2006"
+;
+
+S ::= Noend  [^"," Followup] ^End ;
+
+Noend ::= \ Thank;
+
+Thank ::= thanks
+        | thank you
+        | thank you Much
+	| Much thank you
+	;
+
+Much ::= Very much
+       | a big deal
+       ;
+
+Very ::= _ | very | so | so very | Really ;
+
+Really ::= really
+         | -- ( Really ^"," Really )
+	 ;
+
+Followup ::= it is Very appreciated
+           | it is Very much appreciated
+	   | "I" am Very grateful
+	   ;
+
+End ::= "."
+      | "!"
+      | -"!!"
+      | --"!!!"
+      | ---"!!!!"
+      | ----"!!!!!"
+      | -----"!!!!!!"
+      ;

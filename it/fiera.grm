@@ -1,0 +1,56 @@
+I ::=   "title:    Alla fiera dell'est\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   embryonic\n"
+      ^ "topic:    misc\n"
+      ^ "disclaim: non me ne voglia Branduardi, che stimo seriamente\n"
+      ^ "audience: anybody\n"
+      ^ "created:  20/11/2002"
+;
+
+S ::= Incipit^"."
+      "\nE" venne Ogg.3 Verso
+      "\nche" al mercato mio padre Compro^"."
+;
+
+Incipit ::= "Alla" fiera de Est
+            "\nper" (due | tre) soldi
+            "\nun" Topolino mio padre Compro
+;
+
+Est ::= ^ll'est | ^l >(west | web)
+;
+
+Topolino ::= topolino | maialino |- ermellino | formaggino | tortellino
+;
+
+Compro ::= ++ compro' | rubo' | frego'
+;
+
+Verso ::= "\nche" Pred (_ |++++++ Verso.)
+;
+
+Pred ::= Verbo.2 (Ogg.2 | Ogg.3) | Verbo.3 Ogg.2
+;
+
+Ogg ::= >> 2: >> il ( gatto | cane | fuoco | matto | topo | toro | grasso | rospo
+                   | cuoco | marcio | guasto
+                   )
+               | l'^ (acqua | aria | oro)
+               | "Helder"
+              <<
+         | 3: >> il (pastore | mercato | bastone | "Signore" | gelato | marpione)
+               | l'^ (arrosto)
+              <<
+        <<
+;
+
+Verbo ::= >> rifl: (2: (mangio' | bevve | pincio' | trombo' | purgo' | tarmo'))
+           | 2:    ( spense | brucio' | picchio' | legno' | giro' | morse
+                   | rubo' | compro' | frego' | cambio' | cago' | presto'
+                   )
+           | 3:    ( (uccise | respinse | digeri' | inculo' | si sfondro')
+                   | si <Verbo.2.rifl.
+                   )
+          <<
+;

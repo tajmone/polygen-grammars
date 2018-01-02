@@ -1,0 +1,206 @@
+I ::=   "title:    BOFH Excuses\n"
+      ^ "author:   Velenux &lt;velenux@karma.oltrelinux.com&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  12/09/2003"
+;
+
+S ::= \ >( [Problem] OggettoProblema^"."
+         | Interferenza [(^ "." | ^ ":" Soluzione)]
+	     | DannoUtente [(^ "." | ^ ":" Soluzione)]
+	     | ProblemaStileWin^"."
+	     | DonnaPulizie [(^ "." | ^ ":" Soluzione)]
+	     )
+        ;
+
+Interferenza ::= [ errore NumeroSei ^ ":" | (c^"'e`" | si (verifica|"e`" verificata) | e^"`" venuta a prodursi) una ]
+		 {[AggProblema.F]} {(interferenza|"incompatibilita`"|discrepanza)}
+		 tra OggettoProblema e OggettoProblema ;
+
+
+Problem ::= [ c^"'e`" | si (verifica|"e`" verificato) | e^"`" venuto a prodursi ] un
+	    {[AggProblema.M]} {(problema [NumeroSei]|inconveniente|pasticcio|casino)} con
+	    | il {[AggProblema.M]} {problema [NumeroSei]} "e`" ;
+
+
+DannoUtente ::= ("L'utente"|il >CaricaImportante) ha VerboDanno OggettoProblema ;
+
+
+ProblemaStileWin ::= errore NumeroSei [^ "." | ^ ":" Soluzione] ;
+
+
+DonnaPulizie ::= ( (la (donna delle pulizie | >(mamma | cuginetta [viziata] [dalle manine pacioccose]
+			        		|amante [scema|svampita|bionda|bruna|mora]
+						|zia [novantenne|rincoglionita] [che viene da(^l "Congo"|lontano)] ) del CaricaImportante ) ha )
+		 | (i (tizi delle pulizie|tecnici poco affidabili|bambini della scolaresca in visita) hanno )
+		 ) VerboDanno OggettoProblema ;
+
+
+OggettoProblema ::= RobaTecnica | RobaNonTecnica | Server ;
+
+
+RobaTecnica ::= ( la >("velocita`" | lentezza | temperatura | prontezza | "rapidita`") de
+	        | il >(carico | numero di pipeline | Bus | clock | ciclo di rivoluzione) de )
+		(^lla >("CPU" | "RAM" | macchina | scheda Scheda) | ^l >(computer|Cavo|Bus) | Disco );
+
+
+RobaNonTecnica ::= l  ( ^a >("velocita`" (di (rivoluzione|rotazione|avvicinamento) | angolare)
+		      | "luminosita`" | temperatura | vicinanza | lontananza
+		      | (interferenza|carica|potenza) [elettro ^] (magnetica|statica) )
+		      |
+			^e [varie|molteplici|strane|correnti|vecchie] implementazioni
+		      )
+		      del
+		      ( ^la (sedia [imbottita|con le rotelle|del CaricaImportante|di legno|Colore.F]
+		    	    |radio [a transistor|fm|^lina]
+			    |scheda Scheda
+			    |(tv|televisione) [a colori|in bianco e nero|"Philips"]
+		      ) ) ;
+
+
+Server ::=  il (client|server|cluster|mainframe ["IBM"]) TipoServer [ArchServer] [basato su OSServer] ;
+
+
+VerboDanno ::= toccato | interagito con | rotto | avuto a che fare con
+	     | sbagliato a (toccare|toccare|pacioccare|interagire) con | rovinato | giocato con
+	     | messo le mani su | pacioccato con | modificato ;
+
+
+Soluzione ::= [ si prega ["l'utente"] di ] (ConsultareDoc | AgireInQualcheModo) ;
+
+
+ConsultareDoc ::= [provare a] (leggere|consultare|fare riferimento al ^) la
+		  >(documentazione|knowledgebase
+		  |sezione [di] (supporto [clienti]|help|aiuto|troubleshooting|risoluzione dei problemi)
+		  |guida {[di help]} {[in linea|"on-line"]}
+		  ) [ su ("Internet" | ^l sito [del produttore|Sito|di Distro]) ] ;
+
+
+AgireInQualcheModo ::= [provare a] ( (mettere in contatto|far interagire|confrontare) OggettoProblema con OggettoProblema
+			     	   | (aprire|chiudere|[s^]muovere|controllare) OggettoProblema
+			     	   | (riavviare|chiudere la sessione e rifare il login|spegnere il computer|cliccare su "Start")
+				   | AzionePersonale
+				   ) ;
+
+
+Scheda ::= >{ ethernet | di rete | wireless [ "802.11b" | "802.11g" ] | video ["3dfx"|"Geforce"|"ATI"|"Matrox"] | audio [dolby] | di espansione }
+	   >{ pcmcia | "PCI" | "ISA" }
+	   >{[a (16|32|64|128|256) ^ bit]} ;
+
+
+Bus ::= bus >{ interno | esterno | di (collegamento | controllo) | dati }
+	    >{ a ( ^d alt (^a|^issima) | media | bass (^a|^issima) | incredibile ) ("priorita`"|"velocita`"|trasparenza|tolleranza|"conduttivita`"|latenza) }
+	    ;
+
+
+Cavo ::= cav (^o | ^ett [^in] ^o)
+	    {[Colore.M|Colore.M (e|^"-"^) Colore.M]}
+
+	    { "USB" ["2.0"] | "ATP" | "UTP" | "CAT5" | "CAT3" | {["E"^] "IDE"} {[("S"|"U")^]"ATA"}
+	    | {"SCSI"} {[("UWide"|"Ultra Wide") (160|320)]} | ("IEEE1394"|"Firewire")
+	    | seriale | parallelo | ethernet }
+
+	    { piatto | tondo | sottile | grosso
+	    | di (collegamento | alimentazione | controllo) }
+
+	 ;
+
+
+Disco ::= S: >> ( (^l (disco | "disk-array") | ^"ll'hard-disk")   TipoDisco ) << |
+	  P: >> ( (^i (dischi | "disk-array") | ^gli "hard-disk") TipoDisco ) <<
+	  ;
+
+
+TipoDisco ::= ( {[[("S"|"U")^] "ATA"]} {["E"^] "IDE"}
+	      | {"SCSI"} {[("U"^|"Ultra") "Wide" [160|320]]}
+	      )
+	      [[ con | with | "\\w" ] (2|8|16|32|64) ^ "Mb" [of|di] cache ] ;
+
+
+TipoServer ::= "FTP" | "SSH" | "Telnet" | "SMTP" | "DNS"
+	     | "Gopher" | "HTTP" | "POP3" | "Portmap"
+	     | "NNTP" | "NetBIOS" | "IMAP" | "SNMP"
+	     | "MySQL" | "Oracle" | "PostgreSQL" | "IRC" ;
+
+
+ArchServer ::= [dual|quad] ( ("Alpha"|"Dec"|"Sparc"|"VAX") [\ ^ station] | "Tru64"
+		|"x86"|{["Xeon"]} {["Intel"]}|{["AMD"]} {["Athlon"|"Opteron"|"Athlon64"]}
+		|"RISC"|"CISC"|"MIPS"|"m68k"|"PPC"|"C64")
+	       [ a (8|16|32|64|128) bit ] ;
+
+
+OSServer ::= {[Distro]} {"GNU/Linux"} [VersioneSoft] | "Solaris" [VersioneSoft]
+	      | "OSF/1" | "VMS" | "AmiOS" | "MacOS" [VersioneSoft|"X"]
+	      | "FreeBSD" [VersioneSoft]  | "OpenBSD" [VersioneSoft|"CVS"]
+	      | "NetBSD" [VersioneSoft] | "AtheOS" [VersioneSoft] | "SkyOS" [VersioneSoft]
+	      | "BeOS" [VersioneSoft] | "IRIX" [VersioneSoft] | "SunOS" [VersioneSoft]
+	      | "AIX" [VersioneSoft] | "QNX" [VersioneSoft]
+	      | "Windows" ["3.1"|"9x"|"NT 4.0"|"2000"|"2003"] ["Advanced"] ["Server"] ;
+
+
+Distro ::= "Debian" | "Gentoo" | "Slackware" | "Mandrake" | "Red Hat" | "SuSE" | "Conectiva" | "Yellow Dog" | "Knoppix" ;
+
+
+Colore ::= (blu|ciano|arancio[^ne])
+	   | M: (bianco | giallo | verde | rosso | nero)
+	   | F: (bianca | gialla | verde | rossa | nera) ;
+
+
+AggProblema ::= M: (fottuto | maledetto | terribile | bastardo | sconosciuto) |
+		F: (fottuta | maledetta | terribile | bastarda | sconosciuta) ;
+
+
+CaricaImportante ::= "CEO" | capo | "General Manager" | "Beancounter" | "CTO" ;
+
+
+Numero ::= Cifra | Numero.nz [^Numero.] ; 				(* direttamente dalla documentazione! *)
+
+NumeroDue ::= Cifra ^ Cifra ;
+
+NumeroTre ::= Cifra ^ Cifra ^ Cifra ;
+
+NumeroQuattro ::= Cifra ^ Cifra ^ Cifra ^ Cifra ;
+
+NumeroCinque ::= Cifra ^ Cifra ^ Cifra ^ Cifra ^ Cifra ;
+
+NumeroSei ::= Cifra ^ Cifra ^ Cifra ^ Cifra ^ Cifra ^ Cifra ;
+
+VersioneSoft ::= Cifra ^ "." ^ Cifra [ ^ "." ^ Cifra ] ;
+
+Cifra ::= z: 0 | nz: {1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9} ;
+
+Sito ::=  "http://www.microsoft.com"
+	| "http://www.redhat.com"
+	| "http://www.mandrake.com"
+	| "http://www.debian.org"
+	| "http://www.slackware.com"
+	| "http://www.gentoo.org"
+	| "http://www.suse.de"
+	| "http://www.sun.com"
+	| "http://www.ibm.com"
+	| "http://www.apple.com"
+	| "http://www.hp.com"
+	| "http://www.sco.com"
+	| "http://www.novell.com"
+	| "http://www.sgi.com"
+	| "http://www.oracle.com"
+        | "http://www.intel.com"
+        | "http://www.amd.com"
+        | "http://www.asus.com"
+        | "http://www.cisco.com"
+        | "http://www.linux.com"
+        | "http://www.freebsd.org"
+        | "http://www.openbsd.org"
+        | "http://www.adobe.com"
+        | "http://www.symantec.com"
+;
+
+AzionePersonale ::= suicidarsi | sculacciarsi | flagellarsi | piangersi addosso
+		  | chiedere "pieta`" | [s^]battere la testa [Numero volte] sul muro
+		  | rivolgersi (al congresso|al "Senato"|gruppo dei "Verdi")
+		  | togliersi >(la vita|i pantaloni|i vestiti|quella orrenda (cravatta|camicia|felpa|magli(^a|^etta)))
+		  | sparire {[per sempre]} {[dalla mia vista]}
+		  ;
+

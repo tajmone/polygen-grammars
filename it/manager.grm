@@ -1,0 +1,117 @@
+
+I ::=   "title:    Manager della New Economy\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim:" Marchio e Marchi sono marchi registrati di
+        ( "Mulino Bianco" | "Barilla" | "Omnitel" | "Wind" | "San Carlo"
+        | "Chupa & Chups" | "Saila" | "Doria" | "De Cecco" | "Sacla'"
+        | "Mediaset" | "Pasta Jolly" | "La Molisana" |  "Sile caldaie"
+        | "De Longhi" | "Cepu" | "Mondadori" | "De Agostini" | "Santarosa"
+        | "Ferrero" | "Perugina" | "Bauli"
+        )
+        ("S.p.a." | "srl." | ^", Inc.") ^ "\n"
+      ^ "created:  25/08/2002"
+;
+
+Marchio ::= Java | Internet
+;
+Marchi ::= Marchio [^"," Marchi]
+;
+
+S ::= \Periodo.ind^"."
+;
+
+Periodo ::= (Aux Verbo Ogg (---- _
+                           | (con cui | e) [quindi | percio' | pertanto] Periodo.ind.
+                           | (>(di | in) modo che | affinche' | perche' | cosicche') Periodo.cong.
+                           | per [Verbo] Ogg
+                           )
+            ).(S|P)
+;
+
+Aux ::= bisogn^(ind: (era' |- erebbe) | cong: i)
+     |  (ind: dovrem^(o |- mo) | cong: si debba (S: _ | P: ^no))
+     |  (ind: potrem^(o |- mo) | cong: (possa | si possa) (S: _ | P: ^no))
+     |  (ind: (e' | sara' |- sarebbe) | cong: sia) (necessario | bene | opportuno | possibile)
+;
+
+Ogg ::= (Sostantivo Aggettivo).(M|F)
+     |  S: (lo sviluppo | il design) di Genitivo
+;
+
+Sostantivo ::= M: >( (S: un | P: [dei])
+                     >( sistem^(S:a | P:i) | tool | controll^(S:o | P:i)
+                      | progett^(S:o | P:i) | server
+		              | servizi (S:^o | P:_) | provider | portal^(S:e | P:i)
+		              )
+                   | (S: un | P: [degli])
+                     >(applicativ^(S:o | P:i) | engine | application server)
+                   )
+	        |  F: (S: una | P: [delle])
+                  >( soluzion^(S:e | P:i) | strategi^(S:a | P:e) | applicazion^(S:e | P:i)
+                   | architettur^(S:a | P:e) | tecnologi^(S:a | P:e) | politic^(S:a | P:he)
+                   | piattaforma^(S:a | P:e)
+		           )
+;
+
+Aggettivo ::= >( [di Genitivo] Internet [^"-"^(based | oriented | like | native | mobile)]
+               | "on-demand" | (on | off)^"-line" | "on-the-fly"
+               | "out-of-the-box" | software | hardware | firmware | shareware | freeware
+	           | public domain | di rete | embedded | "auto-startanti" | "peer-to-peer"
+               | "fine-grained" | "loosely-coupled" | enterprise | "e-" ^ ("Commerce" | "Business")
+               )
+	       |  >( integrat | applicat | interattiv | globalizzat | massificat | computerizzat
+               | informatizzat | faxat | proprietar
+	           ) ^ (M: (S: o | P: i) | F: (S: a | P: e))
+           |  >(virtual | multimedial | gestional | performant | aziendal | visual)
+              ^ (S: e | P: i)
+;
+
+Internet ::= "Internet" | "Net" | "Web" | "Wap" | "MMS" | "SMS" | "WWW" | "GPRS"
+          |  "World Wide Web" | "B2B" | 3D | "B2C" | "ISDN" | "ADSL" | "Business"
+          |  "Consumer" | ["TCP/"^]"IP" | ("PGP" | "GPG") [^"-key"]
+;
+
+Genitivo ::= software
+          |  hardware
+          |  >(app | serv)^let [Java]
+          |  "Information-retrieval"
+          |  acquisizione dati
+          |  ambienti
+          |  piattaforme
+          |  "Data-entry"
+          |  "Database"
+          |  (intelligenza artificiale | "AI")
+          |  (applicazioni | applicativi) [Java]
+          |  "Net-surfing"
+          |  pagine ("JSP" | "HTML" | "ASP" | "PHP" | "CGI"[^"-bin"] | "XML")
+;
+
+Java ::= ["Enterprise"] "Java"[^"Bean"] | "J2EE" | "C++" | "C#" | ".Net" | "JMS"
+         | "JNDI" | "EJB" | ["Shockwave" | "Macromedia"] "Flash" | "XML"
+;
+
+Verbo ::= [re^]integrare
+       |  [re^]implementare
+       |  gestire
+       |  massimizzare
+       |  globalizzare
+       |  [ri^]definire
+       |  realizzare
+       |  minimizzare
+       |  [re^]iterare
+       |  surclassare
+       |  [ri^]monitorare
+       |  interagire con
+       |  [ri^]mappare
+       |  [ri^]configurare
+       |  [re^]installare
+       |  debuggare
+       |  testare
+       |  rilasciare
+       |  deployare
+       |  verticalizzare
+;

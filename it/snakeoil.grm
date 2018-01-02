@@ -1,0 +1,36 @@
+I ::= "title:    Snake Oil Cryptography\n"
+    ^ "author:   Lapo Luchini &lt;lapo@lapo.it&gt;\n"
+    ^ "language: english\n"
+    ^ "status:   newborn\n"
+    ^ "topic:    cryptology\n"
+    ^ "audience: your eyes only\n"
+    ^ "comment:  better go <a href=""http://www.interhack.net/people/cmcurtin/snake-oil-faq.html"">here</a>\n"
+    ^ "created:  2005/09/16";
+
+S ::= "<p>"^ [\(mega|virtual|ultra|super)^]
+    \(crypto|secure|priv[^ate])^
+    \(file|desk[^top]|shield|lane|id)^
+    \(9^(5|8)|200^(0|1|2|3|4|5)|xP|nT)
+    (uses|exploits|contains)
+    (a (^n|provably) unbreakable|a breaktrough|a revolutionary|a new type of|
+        military grade|an unique)
+    (cryptographic >(cipher|system|algorithm)|encryption scheme|paradigm)
+    (based on|(using|implementing) ideas from)
+    (cellular automata|neural net[^work]^s|genetic algorithms|chaos theory|
+    a (new branch|different kind) of >([pure] mathematics|computer science|statistics))^". </p>"
+    "<p>"^ \key features are^": </p><ul>"
+    FeatureLI
+    (FeatureLI)+
+    "</ul>";
+
+FeatureLI ::= "<li>"Feature^"</li>";
+Feature ::= >((one million bits|>(512|768|1024|2048|4096) bits secret)|
+    no need for secret|infinite length) keys|not based on usual theories|
+    absolutely secure|proven unbreakability|a secret and secure scheme|
+    an unique design|not based on mathematics|cannot be brute forced|
+    exceptional degree of security at low computational cost|
+    differs from known data security measures|
+    uses lots of sources to seed the rng|
+    design is secret for increased security|
+    content of the message is not sent with the encrypted data;
+

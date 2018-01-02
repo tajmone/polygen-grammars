@@ -1,0 +1,67 @@
+
+I ::=   "title:    Payoffs a' la Microsoft\n"
+      ^ "author:   Manta\n"
+      ^ "language: english\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  25/09/2002"
+;
+
+S ::= \ (W Pred.(inf|ing)).(where|what|how|who) (_ |++ Adverb) ^ "?"
+;
+
+W ::= where: where | what: what | how: how | who: who
+;
+
+Pred ::= ing: (Be Person).(1|+++2|---3) [Verb]
+      |  inf: (will |- shall | could |- may | might |+ do | would) Person.
+              ((like | wish) to Verb.be |+ Verb)
+      |  inf: (Be Person).(1|+++2|---3) going to Verb.be
+;
+
+Be ::= 1: am | 2: are | 3: is
+;
+
+Person ::= 1: "I" |+++ 2: (you |- we) |--- 3: "Helder"
+;
+
+Verb ::= where: ( be: be
+	            | go (ing: ^ing | inf: _) [to]
+	            | com ^ (inf: e | ing: ing) (from | to)
+	            | arriv ^ (inf: e | ing: ing) [from | to]
+	            | leav ^ (inf: e | ing: ing) for
+	            | stay (ing: ^ing | inf: _) [with | by]
+                | liv ^ (inf: e | ing: ^ing) [by]
+                | tak ^ (inf: e | ing: ^ing) off (to | for)
+                | land (ing: ^ing | inf: _) [upon]
+                )
+      |  what:  ( be: be
+	            | do (ing: ^ing | inf: _)
+	            | (think | feel) (ing: ^ing | inf: _) [of | about]
+	            | look (ing: ^ing | inf: _) [at | for | like]
+	            | get (ing: ^ting | inf: _)
+	            | inf: seem [like]
+	            | tast ^ (inf: e | ing: ing) [of]
+	            | smell (ing: ^ing | inf: _) [of]
+                | belong (ing: ^ing | inf: _) to
+                )
+      |  how:   ( be: be
+	            | do (ing: ^ing | inf: _)
+	            | go (ing: ^ing | inf: _) on
+	            | (think | feel) (ing: ^ing | inf: _) [of | about]
+                | liv ^ (inf: e | ing: ^ing)
+                | tak ^ (inf: e | ing: ^ing) off
+                )
+      |  who:   ( be: be
+                | look (ing: ^ing | inf: _) [at | for | like]
+	            | see (ing: ^ing | inf: _)
+	            | inf: seem [like]
+	            | get (ing: ^ting | inf: _)
+                | belong (ing: ^ing | inf: _) to
+                | tak ^ (inf: e | ing: ^ing) off with
+                )
+;
+
+Adverb ::= today | tomorrow |- tonight
+;

@@ -1,0 +1,50 @@
+I ::=   "title:    Piero-a simulator\n"
+      ^ "author:   grimmo &lt;luigi.messina@fastwebnet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: frequentatori di postare.it\n"
+      ^ "created:  26/03/2004"
+;
+S ::= \Soggetto [sempre] che (Problema.FS Pron.SI | Problema.MP Pron.PL | Problema.MS Pron.SI | Problema.FP Pron.PL) PostumAzione Fuffa^"." (\o|\che|\oppure|\tuttavia|\invece|\altrimenti|\senno') MoreFuffa^ [","NOOP]^"." \(quindi|ritengo che |percio'|-laonde|pero'|pertanto|-[indi] per cui | allora) Soluzione^"." [ \Finalizza ] ^"."
+;
+Soggetto ::= 
+PPS: io Verbo.PPS |
+ALTRI: ( mio  (babb|fratell|nonn|zi|suocer|nuor|moros|cuggin)^o |  mia (mamm|sorell|nonn|zi|suocer|moros|nuor|cugin)^a ) Verbo.ALTRI |
+ESIMII: [importanti|rinomati|stimati] (socio|psico) ^ (logi|terapeuti) Verbo.ESIMII
+;
+
+Verbo ::=
+PPS: ( penso | dico ) |
+ALTRI: ( pensa | dice ) |
+ESIMII: (pensano | dicono | dichiarano | pontificano | affermano [chiaramente] )
+;
+
+Problema ::= 
+FS: la >((pace|guerra) [nel mondo|nella \palestina|in medio oriente|nell'universo|in \iraq|in \israele]| politica | criminalita' [organizzata] | societa' | riforma (delle pensioni | della scuola | della sanita') | margherita | lega \nord | democrazia | monarchia | droga|camorra|rivoluzione bolscevica|'ndrangheta|stidda|corruzione|sacra corona unita | (sete|fame) nel mondo | xenofobia | scabbia | pubblicita'| radiazione di fondo dell'universo | questione morale | finanza [creativa|etica])| 
+FS: l'^ >(\italia|\inghilterra|imprenditoria giovanile|energia [pulita] | economia )|
+FP: le >(banche | assicurazioni | bombe)|
+MS: il >(malcostume [moderno] | conflitto d'interessi | fascismo | comunismo | maoismo | \duce | terrorismo | buonismo | brigantaggio [di basso livello] | buddhismo | taoismo | militarismo | pacifismo | sufismo | totalitarismo | carovita| medio circolante | deficit | debito pubblico | carobenzina | petrolio | canone \rai|\pil|\g8 [a \genova]|lavoro | razzismo | terzo mondo)|
+MS: "" >(\berlusconi|\bertinotti|\fini|\fassino|\bossi|\prodi|\rutelli|\mussolini)|
+MP: gli >(ufo [invasori]| evasori [fiscali] | \ogm | eventi traumatici | sciiti | iracheni | israeliani | attentati [terroristici | di stampo terroristico | mafiosi])|
+MP: i >(cortei | manifestanti | lavoratori | bambini | giovani [di oggi] | malavitosi | talebani [e \bin \laden])
+;
+PostumAzione ::= costituito|costruito|causato|inglobato|globalizzato|avuto successo|accettato|legalizzato|influenzato [pesantemente|coerentemente] |senza sottilizzare [sui quando e sui perche'];
+NOOP ::= (ovviamente|naturalmente|+conseguentemente|veramente|-niente);
+Pron ::= SI: ha | PL: hanno ;
+Fuffa ::= secondo un'analisi storica [con tanto di bibliografia] | 
+una debolezza strutturale | 
+visti attraverso uno strumento mediatico |
+pur [non] essendo [non|ampiamente] condivisibile nelle direttrici generali |
++una convivenza dei macrosistemi | un macrosistema delle convivenze|
+una reciproca soddifazione economica|
+--una catastrofe psicocosmica che infrange contro le mura del tempo |
+una responsabile e mirata opera di immagine
+;
+MoreFuffa ::= se ognuno [non] rimane nel proprio ruolo (implica|causa|porta a|equivale a|significa) un (diverso| uguale) e [probabilmente] (opposto|medesimo|uguale|stesso) (approccio | modo di valutare | comportamento | imbarbarimento | impoverimento [culturale|morale]) | dovrebbe essere una zappa ma bastoni|funzionale ad una guerricola|gli schemi [non] esistono|[non] si capisce il consenso alle scelte|il comportamento collettivo e' costruito sull'imitazione|il moltiplicarsi delle posizioni crea la ragione|questo non e' un processo legale|ha a che fare con le pellicce|un no secco senza spiegazioni non e' meno no di uno con dietro un libro di razionali|sara' molto piu' convincente dell'altro, ma cio' non toglie che entrambi esistano|se e' logica come puo' essere magia|ripensavo alla storia del caos come possibile generatore|il desiderio di ingoio rappresenta un'altra forma di possessione maschile |e' un'intelligenza dotata di raziocinio | e' costante nell'universo|quelli che sono arrivati qua ci siano arrivati per sbaglio|noi possiamo percepire queste situazioni ma una volta innescate non abbiamo la certezza di controllarle (e|o) di fermarle|gli altri parlano se non rilevano atteggiamenti ostili|secondo la propria accezione che non viene esplicitata|poi ci si appiccicano etichette umanitarie e politiche | una politica di (alto|basso|medio) profilo|comporta soluzioni mediate piene di se e di ma | [non] e'  molto salutare
+;
+
+Soluzione ::= ((bisogna|occorre|e' necessario|tocca) (comprendere e capire | ascoltare e ascoltare) [e' indispensabile]) | richiede una risposta professionale [che non e' semplice da montare] | basta inglobar^(MS: lo | FS: la | MP: li | FP: le) nel sistema | non cambieranno perche' [non] c'e' (nessun|un) motivo che (le|li) faccia cambiare | rimangono reazioni nervose standard | nulla di nuovo sotto le stelle | l'occidente dovrebbe isolarsi nel suo territorio | l'"Islam" andrebbe a sostituire con la sharia l'ex blocco sovietico|[non] e' tale pure perche' [dentro|fuori] idee [nuove|vecchie] di gestione [non] arrivano|questo e' nel reale| vedere cio' che si semina|non mi aspetto grosse differenze fisiche|sicuramente non mi aspetto una pietra o un gas che ragionano|la situazione potrebbe non essere pulita come quando e' cominciata|come per tutte le cose sconosciute occorre prudenza|in questo caso tacciono o aggrediscono|sono dinamiche sociali | se dovessi scegliere fra \berlusconi e le bombe sceglierei \berlusconi|fare in modo che su ogni soluzione escano tutti soddifatti|in genere non ci sono grandi problemi a fare qualsiasi cosa
+;
+
+Finalizza ::= [ \e comunuque ] in un altro post ho gia espresso la mia opinione in tal proposito | ripensavo al caos come possibile generatore | voi che ne pensate | si potrebbe dire che manchi di un pizzico di lungimiranza | ma nessuno si sogna di esportare democrazia| al limite serve la stabilita'| in genere la buona gestione la si costrusce con il fruscio delle banconote;

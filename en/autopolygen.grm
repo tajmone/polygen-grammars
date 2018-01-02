@@ -1,0 +1,87 @@
+I ::=   "title:    Polygen-based screen saver\n"
+      ^ "author:   Enrico Zini &lt;enirco@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   embrionic\n"
+      ^ "topic:    common life\n"
+      ^ "comment:  You need to run the output\n"
+      ^ "created:  10/07/2005"
+;
+
+S ::=     "polygen" Grammar "| fmt" ( "|" Filter | + _ ) "|" ("cowsay" | - "cowthink") ( + _ | "-f" Cows )
+	;
+
+Grammar ::= bio
+	  | genius
+	  | manager
+	  | photoshop
+	  | pythoniser
+	  | boyband
+	  | designpatterns
+	  | metal
+	  | ms
+	  | paper
+	  | papertitle
+	  | payoff
+	  | pornsite
+	  | rappaz
+	  | reviews
+	  | videogames
+	  ;
+
+Filter ::= jethro
+	  | kraut
+	  | cockney
+	  | jive
+	  | nyc
+	  | ken
+	  | ky00te
+	  | newspeak
+	  | eleet
+	  | b1ff
+	  | chef
+	  | jibberish
+	  | "upside-down"
+	  | rasterman
+	  | studly
+	  | fudd
+	  | censor
+	  | spammer
+	  | uniencode
+	  ;
+
+Cows ::= beavis.zen
+       | bong
+       | "bud-frogs"
+       | bunny
+       | cheese
+       | cower
+       | daemon
+       | default
+       | dragon
+       | "elephant-in-snake"
+       | elephant
+       | eyes
+       | ghostbusters
+       | hellokitty
+       | kiss
+       | kitty
+       | koala
+       | meow
+       | milk
+       | moofasa
+       | moose
+       | ren
+       | satanic
+       | sheep
+       | skeleton
+       | small
+       | stegosaurus
+       | stimpy
+       | turkey
+       | turtle
+       | tux
+       | udder
+       | www
+       | vader
+       | apt
+       ; 

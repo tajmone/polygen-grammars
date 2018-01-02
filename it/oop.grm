@@ -1,0 +1,61 @@
+I ::=   "title:      Lezioni di Object-oriented Programming\n"
+      ^ "author:     CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language:   italian\n"
+      ^ "status:     mature\n"
+      ^ "topic:      misc\n"
+      ^ "dedication: dedicato amichevolmente al Prof. G. B.\n"
+      ^ "comment:    tipica lezione di linguaggi di programmazione a oggetti, con i soliti stereotipi e i nomi disneyani\n"
+      ^ "warning:    io odio walt disney\n"
+      ^ "thanks:     si ringraziano Genuflesso ed il Generale per gli spunti discorsivi\n"
+      ^ "created:    28/5/2004"
+;
+S::= \FACCIAMO CLASSE (DISNEY |MICROSOFT) SEGNO.PU3  ( X::= GUARDATE SEGNO.(PU3|PU2) CPV SEGNO.V CASO [PROBLEM]; \X (++(\(ora | adesso) X) [\(ora | adesso)X] ));
+
+CASO ::= ( PROP NOME e' VISIBILITA SEGNO.PU3  |
+	 la classe DISNEY,MICROSOFT eredita da MICROSOFT,DISNEY SEGNO.PU3 )
+	 WHY RISPNEG  [ SEGNO.PU2 SCUSE] SEGNO.PU3;
+
+FACCIAMO ::= apriamo | esaminiamo | sulla slide possiamo vedere ;
+
+GUARDATE ::= ( guardate | fate attenzione | state attenti ) [perche' e' importante] ;
+CPV ::= come potete vedere | se osservate bene | se siete ancora svegli;
+
+CLASSE ::= la classe | il diagramma "UML" della classe | la struttura della classe | le proprieta' della classe;
+
+DISNEY ::= \( [super^\]pippo | pluto | paperin^(o|a) | gastone | topolino | "nonnaPapera" | gastone | paperoga
+            | "zioPaperone" | ciccio | brigitta | minni | orazio | clarabella | qu^(o|i|a) | archimede[^\pitagorico]
+            | rockerduck | [banda^\]bassotti | basettoni | "gambaDiLegno" | "filoSganga" | paperinik
+            | "etaBeta" | "paperBat" | manetta | "indianaPipps" | "picoDePaperis" | "nonnoBassotto"
+            | "gancioIlDritto" | "macchiaNera" | plottygatt | "paperettaYeYe" | ci^[o]^p | spennacchiotto
+            | zapotec | marlin
+            );
+
+MICROSOFT ::= \(system)SEGNO.PU3^ ( X::=MSNAME SEGNO.PU3^;  ( ++X [X]|_)^MSNAME );
+
+MSNAME ::= \collections | \xml | \reflection | \windows | \assembly | \paint | \helder ;
+
+SEGNO ::= (PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":" |  PU3: ^"."\ | PUE: ^"!"\ | V: ^"," | VT: ^"\""\ | PUI: ^"?"\ );
+
+PROP ::= la proprieta' | l'attributo | il campo | il metodo | l'evento | il delegato ;
+
+NOME ::= [ (\on | \do | \is )^ ] ( \write | \containing | \has | \new | \move | \push | \pop | \enqueue | \dequeue | \start) ^ (\element | \member | \attribute | \field) ;
+
+VISIBILITA ::= public | private | protected | virtual | in override | readonly ;
+
+WHY ::= perche' [[SEGNO.V] questo] SEGNO.PUI | c'e' una ragione particolare [per questo] SEGNO.PUI | in effetti potremmo chiederci la ragione di quest'apparente complicazione SEGNO.PU2 ;
+
+RISPNEG ::= (sinceramente non ne ho la piu' pallida idea | dipende  | e' una semplice convenzione | purtroppo non ho capito perche' sia stato implementato cosi' in questa versione |  eh SEGNO.V non e' facile ) [-- SEGNO.V ma RISPPOS ];
+
+RISPPOS ::= ( e' irrilevante | e' soltanto zucchero sintattico | niente di piu' facile SEGNO.V SOLUTION | la risposta giusta e' ""SEGNO.VT^\dipende SEGNO.VT  | >SOLUTION ) ;
+
+SCUSE ::=  ( del resto lo sviluppatore non sono io SEGNO.V non so cos'aveva in mente chi l'ha fatto | fateci una dormitina sopra e vedrete che la mattina avrete risolto | hanno gia' detto che alla prossima versione questo problema sara' eliminato | (provateci voi | voglio poi vedervi) a (fare una cosa del genere | farlo) senza l'ausilio di un TRICK  ) [SEGNO.PU3 personalmente SEGNO.V io (ci avrei messo | avrei usato | avrei introdotto) una classe chiamata MICROSOFT^SEGNO.PU3^DISNEY ];
+
+PROBLEM ::= [e (dunque | allora) ] (come faremo a | come fare per) ( ereditare | catturare | enumerare | stampare | elaborare | salvare su "XML" ) PROP SEGNO.PUI RISPPOS [ SEGNO.PU2 REST] [SEGNO.PU3 FINE] SEGNO.PU3;
+
+SOLUTION ::= > (e' (necessario | sufficiente) | basta )(fare un TRICK | premere il tasto cans^"\232"^l | spegnere e riaccendere );
+
+TRICK ::= foreach | gettype | typeof | enum | get^\enumerator ;
+
+FINE ::= fine [della trasmissione] | tutto qui | stop | basta | proprio cosi' | nient'altro ;
+
+REST ::= al resto ci pensa (il compilatore | il garbacollettor | il framework | il "CLR" | il "CLS" | il "CLI") ;

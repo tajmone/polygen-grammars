@@ -1,0 +1,25 @@
+
+I ::=   "title:    Prodotti Ponti\n"
+      ^ "author:   Zeff\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim: Ponti S.p.a. rivendica i diritti su" Prod ^"\n"
+      ^ "created:  5/12/2002"
+;
+
+S ::= Prod "Ponti"
+;
+
+Prod ::= Verdura^Suff
+;
+
+Verdura ::= "Carcio" | "Fungo" | "Peper"[^on] | "Pomo" | "Fungo" | "Finocchio"
+          | "Verza" | "Aspara" | "Fagio" | "Melanza" | "Insala" | +++"Condi"
+	      | +++"Gusta" | "Cipol" | "Riso" | "Pinzi" | "Pasta" | "Pizza" | "Sapor" | "Pisel"
+	      | "Tonno" | "Capper"
+;
+
+Suff ::= ++lizia | slurp | monio | +ghiotto | gnam | lette | gusto | +godi | mangia
+;

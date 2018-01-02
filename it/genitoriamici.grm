@@ -1,0 +1,37 @@
+I ::=   "title:    Genitori Amici\n"
+      ^ "author:   Denis e Laura &lt;laura@micionline.com&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: tutti\n"
+      ^ "created:  23/3/2005"
+;
+
+S ::= Nascita Difficolta Auguri Conclusione
+;
+Nascita::= "Quando" ( nascesti | sei venuto alla luce | ti ho trovato in un cassonetto | papa' se n'e' andato | mamma e' venuta a mancare | papa' si e' ammalato ) era ( gennaio | dicembre | novembre | marzo | febbraio ) e (c'era la neve | pioveva | c'era freddo | c'era il vento | c'era l'alluvione | c'era stato il terrremoto)^"." "Io" ( avevo Numero anni | lavoravo in Postaccio | avevo acceso un mutuo per comprare la roulotte in cui abitavamo | avevo scoperto da poco di avere Malattia.art.(M|F) | avevo perso da poco i genitori) ^"," ma tu con il tuo sorriso mi davi ogni giorno forza e speranza ^"."
+;
+Difficolta::= "Poi" sei cresciuto^";" fin da piccolo hai mostrato un grande interesse per Disciplina.art.(M|F)^";" ricordo che il tuo sogno era andare a Citta e una volta (mi hai rubato i soldi dal portafoglio | hai scippato una vecchietta | hai rapinato il tabaccaio | hai picchiato la nonna per rubarle i soldi | hai venduto l'orologio di papa' | hai venduto il gatto al ristorante cinese | hai scassinato la cassaforte della scuola) per poterti comprare Oggetto.art.(M|F)^";"
+;
+Auguri::= "Io" dapprima ho perso le staffe e mi spiace per tutte quelle (cattiverie che ti ho detto | botte che ti ho dato | cinghiate | brutte parole) ma poi ho capito che per te era veramente importante e oggi sono qui a farti i miei migliori auguri perche' tu possa veramente un giorno diventare famoso e fare quello che desideri^"." "Non" trovo le parole per dire ( quanto ti stimo | come ti voglio bene | quanto ti sia vicino )^"."
+;
+Conclusione::= "Non" ci credere a tutte quelle persone invidiose e cattive che ti dicono che tu non sei (capace a | bravo di | buono a) (cantare | recitare | ballare | parlare)^";" sono tutte persone che parlano solo per (invidia | cattiveria | malafede | risentimento | astio )  tu vai dritto per la tua strada che ce la farai e sono qui questa sera per (augurarti un grande in bocca al lupo | farti i miei migliori auguri | esprimere tutto l'affetto che ho per te | tifare per te con tutto il mio cuore ) e spero che tu possa un giorno ( coronare il tuo sogno | sposarti con "Maria" de "Filippi" | guadagnare tanti soldi | prenderti quella macchina che tanto sogni | diventare famoso anche all'esetero | diventare un vip )^"."
+;
+
+Numero ::= ( 17 | 16 | 15 | 19 | 18 | 43 | 52)
+;
+Postaccio ::= ( fonderia | miniera | fabbrica | risaia | un bordello | un frantoio | "Germania" | continente | campagna | officina | "Fiat" | profumeria )
+;
+Malattia::= F: la >(gotta | lebbra | scabbia | gonorrea | tisi | tubercolosi | salmonellosi | sclerosi multipla)
+               |  M: l'^>(aids | epatite)
+               |  M: il >(parkinson | vaiolo | colera | cancro)
+;
+Disciplina ::= F: la >( danza | musica | recitazione | televisione )
+
+           | M: il >( ballo | canto | teatro | cinema)
+;
+Citta ::= ( "Hollywood" | "Cinecitta'" | "Roma" | "New York" | "Londra" | "Las Vegas" | "Montecatini Terme" | finire in "TV" | "New Orleans" )
+;
+Oggetto ::= F: la >(chitarra | batteria | scuola di danza )
+               |  M: il >(corso di dizzione | chiodo | cantatu' | disco di "Madonna" | biglietto dei "Take That")
+;

@@ -1,0 +1,618 @@
+I ::= "title:      Supereroi\n"
+    ^ "author:     Frank von Doom, &lt;frankdoom@virgilio.it&gt;, Capitan Pixel, &lt;cappixel@ratmanfc.com&gt;\n"
+    ^ "language:   italian\n"
+    ^ "status:     gamma\n"
+    ^ "topic:      supereroi contro la "^Editore^"\n"
+    ^ "audience:   quasi tutti\n"
+    ^ "disclaimer: non abbiamo nulla contro "^Persona^"\n"
+    ^ "comment:    ''"^"<span style=\"font-size: 1em; font-style:italic;\">"^"Ci si puo' fidare de"^Supergruppo^Esclamo^"</span>"^''"\n"
+    ^ "created:    23/5/2005"
+;
+
+S ::= \ (( "Il superpotere" | "L'abilita'" ) di Combo ^[", "^membro de^(Supergruppo)^","]^Abilita.E^"."
+      "Solitamente" indossa Costume^"."
+      "Ha" come (Nemico^nemico | partner | aiutante ) Combo^[", "^membro de^(Supergruppo)^","]
+      ^Abilita.Puo^". Scopri'" di avere i suoi Poteri.M.P poteri quando [^"," Luogo^","] Evento^"."("Comparve" per la prima volta | "Fu" creato | "Ha" esordito)
+      nel numero Semero della serie Serie^"," pubblicata
+      da Editore nel Mese Anno Nazione^". Nel"
+      numero Semero della serie Serie^"," pubblicata
+      da Editore nel Mese Anno Nazione^","
+      (Evento^", "^Evento e affronto' Combo
+      | affronto' Combo^"," Evento e Evento
+      | affronto' Combo
+      | Evento
+      | Evento e Evento
+      | Evento e affronto' Combo
+      | affronto' Combo e Combo ) [ Luogo ]^"."
+      "Il" suo grido di battaglia e' Grido^"." [ "E'" morto nel
+      numero Semero della serie Serie^"," pubblicata da Editore nel Mese Anno Nazione^"," per resuscitare nel numero Semero della serie Serie^"," pubblicata
+      da Editore nel Mese Anno Nazione^"." ] )
+;
+
+Combo ::= "<span style=\"font-size: 1em; font-weight:bold;\">"^(Nome.M ( Attributo.M | \Poteri.M.S ) | Nome.F ( Attributo.F | \Poteri.F.S ) | ( "Capitan" | "Lady") Nazione2 | Name^Adj | Name Adj | NameS AdjS | NameS Adj | Name AdjS )^"</span>"
+;
+
+Nome ::= ( M: >( "Androide"
+              | "Capitan" | "Cavaliere" | "Combattente"
+              | "Detective"| "Dottor"
+              | "El"
+              | "Fantasma"
+              | "Giustiziere"
+              | "Maestro" | "Mago" | "Mr"
+              | "Ninja"
+              | "Professor"
+              | "Ragazzo" | "Robot"
+              | "Samurai"
+              | "Uomo"
+              | "Vigilante" )
+         | F: >( "Combattente"
+              | "Detective" | "Donna"
+              | "Lady"
+              | "Meraviglia" | "Miss" | "Mrs" | "Ms"
+              | "Ragazza"
+              | "Sfinge"
+              | "Vigilante" ) )
+;
+
+Attributo ::= ( M: >( "Androide"
+                  | "Formaggino" | "Fuoco" | "Futuro"
+                  | "Ghiaccio"
+                  | "Invisibile" | "Ionico"
+                  | "Liberta'"
+                  | "Meraviglia"
+                  | "Ragno" | "Ratto" )
+              | F: >( "Androide"
+                  | "Formaggino" | "Fuoco" | "Futuro"
+                  | "Ghiaccio"
+                  | "Invisibile" | "Ionica"
+                  | "Liberta'"
+                  | "Meraviglia"
+                  | "Ragno" | "Ratto" ) )
+;
+
+Name ::= ( "Action" | "Ash"
+         | "Bat" | "Big" | "Bird" | "Black" | "Blue"
+         | "Cat" | "Cold" | "Cut" | "Cuts" | "Cyber"
+         | "Day" | "Dead" | "Death" | "Demon" | "Devil" | "Doom"
+         | "Evil" | "Extreme"
+         | "Fire" | "Flame" | "Free" | "Frog"
+         | "Ghost" | "Gold" | "Green"
+         | "Hell"
+         | "Ice" | "Ionic" | "Iron"
+         | "Judo"
+         | "Karate"
+         | "Light"
+         | "Magic" | "Marvel"
+         | "New" | "Night"
+         | "Pit" | "Power"
+         | "Rain" | "Ray" | "Rat" | "Red" | "Robot" | "Rock"
+         | "Shadow" | "Sky" | "Speed" | "Spider" | "Steel" | "Star" | "Storm" | "Strike" | "Strong" | "Super"
+         | "Thing" | "Thunder"
+         | "White" | "Wild" | "Wonder"
+         | "Yellow" | "Young"
+         | _)
+;
+
+NameS ::= ( "Adam" | "Al" | "Amazing" | "Android" | "Angus"  | "Archie" | "Autumn" | "Avenger"
+          | "Billy" | "Brother"
+          | "Captain"
+          | "Damage" | "Doctor" | "Dylan"
+          | "Fantastic" | "Force" | "Freak" | "Freeze" | "Fritz"
+          | "Guardian"
+          | "Hank" | "Hogan" | "Hulk" | "Human"
+          | "Impossible" | "Invisible"
+          | "John"
+          | "Lady" | "Lantern" | "Liberty" | "Lightening"
+          | "Master" | "Maximum" | "Miss" | "Monster" | "Mr" |"Mrs" | "Ms" | "Mutant"
+          | "Ninja"
+          | "Parker" | "Pete" | "Peter" | "Pitt" | "Poison" | "Professor"
+          | "Resurrection"
+          | "Samurai" | "Sgt." | "Silver" | "Sinister" | "Sister" | "Slim" | "Spring" | "Stevie" | "Summer"
+          | "Thor" | "Thrasher"
+          | "Ultimate"
+          | "Venom" | "Vindicator"
+          | "Walt" | "Winter"
+          | "X"
+          | "Zombie"
+          | _)
+;
+
+Adj ::= ( "Bird" | "Boy"
+        | "Cat" | "Cold" | "Crawler"
+        | "Demon" | "Devil" | "Dog" | "Doom"
+        | "Eagle"
+        | "Fire" | "Flame" | "Flash" | "Free"
+        | "Ghost" | "Girl" | "Gold" | "Guy"
+        | "Ice"
+        | "Judo"
+        | "Karate" | "Kid"
+        |+++++++++++ "Man"
+        | "Pool" | "Power"
+        | "Rat" | "Rider" | "Rock"
+        | "Show" | "Sleeper" | "Speedster" | "Spider" | "Star" | "Storm" | "Strike"
+        | "Thunder"
+        | "Walker" | "Wild" | "Woman"
+        | _)
+;
+
+AdjS ::= ( "Adam" | "Al" | "Android" | "Angus"  | "Archie" | "Arrow" | "Avenger"
+         | "Billy"
+         | "Commando"
+         | "Diablo" | "Dylan"
+         | "Evil"
+         | "Fantastic" | "Force" | "Freak" | "Freeze" | "Fritz"
+         | "Guardian"
+         | "Hank" | "Hogan" | "Hulk"
+         | "Impossible" | "Invisible"
+         | "John"
+         | "Lantern" | "Liberty"
+         | "Marvel" | "Mysterio"
+         | "Parker" | "Pete" | "Peter" | "Poison"
+         | "Queen"
+         | "Resurrection" | "Robot"
+         | "Sinister" | "Slim" | "Soldier" | "Stevie" | "Stroke"
+         | "The Cat" | "The Dog" | "The Frog" | "The Kid" | "The Speedster" | "The Thing" | "The Zombie" | "Thing" | "Thor" | "Thrasher" | "Torch" | "Tornado"
+         | "Venom" | "Vindicator" | "Voodoo"
+         | "Walt" | "Warlock" | "Warrior" | "Wisdom" | "Wizard"
+         | "X"
+         | "Zombie"
+         | _)
+;
+
+Verbo ::= ( baciare
+          | colpire
+          | dare | dire
+          | emettere
+          | far volare | fare
+          | immaginare
+          | lanciare
+          | pensare
+          | riempir^( e | ti di ) | rigenerare | rigirare
+          | saltare | scavare | scindere | scovare | soffiare | sollevare | sparare | spostare | sputare
+          | teletrasportare | toccare
+          | uccidere | utilizzare )
+;
+
+Azione ::= ( avere la mascella quadrata
+           | confonderti | consegnare tapiri | correre all'inverosimile | costruire castelli ( con la sabbia | con i lego | in aria) | costruire oggetti inutili
+           | dire ( "''No!''" | "''Si'!''" ) in Emero^Emero modi diversi | dirti la sua | diventare invisibile [ se nessuno lo guarda ] | dormire
+           | essere un ( vampiro | lupo mannaro )
+           | far cadere il mondo | fare la bua | flettere i muscoli e gettarsi nel vuoto
+           | incazzarsi
+           | leggere le menti
+           | non capire una mazza | non fare niente | non mandarla a ( dire | fare ) | [ non ] trattenere il fiato [ per Emero^Emero minuti ]
+           | pagare uno sceneggiatore per scrivere fumetti sulle sue avventure (spacciandole per vere) | parlare (bene | male) in ("Italiano" | "Inglese" | "Afrikaans") | pavoneggiarsi
+           | respirare aria | resuscitare | rigenerare le sue ferite | rigirarsi i pollici [ a velocita' incredibili ] | rimanere [ visibilmente ] turbato | rosicare
+           | scaccolarsi | scassare le palle | scavare | sentire le voci | spalmarti | sparire al momento sbagliato
+           | toccarsi | trasformarsi
+           | uccidere | avere una motosega al posto di un braccio )
+;
+
+Abilita ::= E: ( " e'" (Verbo Oggetto | Azione)
+               |---- " non e'"(Verbo Oggetto | Azione)^", ma e'" (Verbo Oggetto | Azione))
+            |
+            Puo: (" che")
+                 (puo' (Verbo Oggetto | Azione)
+                 |---- non puo' (Verbo Oggetto | Azione)^", ma puo'" (Verbo Oggetto | Azione))
+;
+
+Evento ::= ( aiuto' una vecchietta [ radioattiva ] ad attraversare la strada | alzo' la sua spada al cielo [ e grido' ''per il potere della porchetta^Esclamo^'' | e grido' ]
+           | capi' a cosa serv^( e la milza | ono i polmoni )
+           | fu investito da un camion [ radioattivo ] | fu morso da AnimaleUn che emetteva radiazioni
+           | si accorse che gli erano piaciuti "Matrix 2 e 3"
+           | lo colpi' un fulmine
+           | mangio' da "McDonald's" | mori' e resuscito'
+           | pago' uno sceneggiatore per scrivere delle sue gesta (spacciandole per vere) | (provoco' | fu coinvolto nel^ ) l'esplosione di una centrale nucleare
+           | raggiunse il "Nirvana" | ( riusci' a trovare la marmotta della "Milka" | incontro' il mago "Othelma" ) [^", che gli rivelo' i segreti del"^("l'uni" | " multi")^"verso" ]
+           | (sconfisse | fu sconfitto da) Combo | si guardo' l'ombelico | si scaccolo' | strinse la mano PersonaA (_ | "(rimanendo" ( visibilmente | _ ) "turbato)")
+           | trattenne il fiato per Emero^Emero minuti
+           | ( uccise | salvo' ) Persona
+           | vide la luce )
+;
+
+Oggetto ::= ( acqua | aria | assi | ( assi | ferri ) da stiro
+            | calci
+            | donne
+            | elettricita'
+            | frasi a caso | fulmini | fuoco
+            | ghiaccio
+            | tetti
+            | laser | legno
+            | menti | monete
+            | oggetti inutili | ossigeno
+            | piombo | piscine | piume | pugni
+            | raggi ottici | ragnatele
+            | sentenze
+            | terra | tubi
+            | uomini
+            | _)
+;
+
+Luogo ::= ( a Citta
+          | da ( qualche | "un'altra" ) parte
+          | in aria
+          | Nazione | nell'acqua
+          | sopra un tetto | sotto una cascata | sottoterra | (su | in) un vulcano (spento | attivo) | sull'acqua )
+;
+
+Supergruppo ::= ( i ( "Fantasmagorici" | "Fantastici" | "Fichissimi" | "Miseri" | "Misteriosi" ) Emero
+                | ( i ^Numero | gli 8 ) ( "Buffoni" | "Salti in Padella" | "Sofficini" | "Vendicatori" [ \Poteri.M.P ] )
+                | "l Commando" \Poteri.M.S
+                | "l Dinamico" Gamero
+                | lla ( "Squadra" | "Lega" | "Societa'" ) \Poteri.F.S
+                | "lle"^Numero "Lanterne" | "lle"^Numero "Latrine" | l gruppo (Name | NameS | Adj | AdjS) ( ^s | "Agents" )
+                | i \Poteri.M.P "Amici"
+                | gli (Name | NameS | Adj | AdjS) (_ | ^) "Men" )
+;
+
+Numero ::= ("" | " 2" | " 3" | " 4" | " 5" | " 6" | " 7" | " 9" | " 10")
+;
+
+Emero ::= (------- 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |------- 10 |------- 11 |------- 12 |------- 13 |------- 14)
+;
+
+Bavero ::= ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 )
+;
+
+Gamero ::= ( "Duo" | "Trio" | "Quartetto" | "Quintetto" | "Sestetto" | "Settetto" | "Ottetto" )
+;
+
+Anno ::= (--- 20 |+++ 19 |--- 18 )^Bavero^Bavero
+;
+
+Semero ::= (--- Emero^Emero^Emero | Emero^Emero | Emero )
+;
+
+Mese ::= ( gennaio | febbraio | marzo | ^l'aprile | maggio | giugno | luglio | ^l'agosto | settembre | ^l'ottobre | novembre | dicembre )
+;
+
+Nemico ::= ( arci | super | "vecchio " | "")
+;
+
+Poteri ::= M: (S: ( amorevole
+              | cosmico | cremoso
+              | disordinato | disorientante | disturbante
+              | fantastico | futile
+              | [dis^]gustoso
+              | imbarazzante | improbabile | impossibile | improprio | intenso | inutile
+              | mascarato | mascherato | mitico
+              | oscuro
+              | piacevole | profondo
+              | radioattivo
+              | sacro | santo | sconvolgente | segreto | sinistro | spaventoso | strano | straordinario | stupido | superfluo
+              | tecnologico )
+              | P: ( amorevoli
+              | cosmici | cremosi
+              | disordinati | disorientanti | disturbanti
+              | fantastici | futili
+              | [dis^]gustosi
+              | imbarazzanti | improbabili | impossibili | impropri | intensi | inutili
+              | mascarati | mascherati | mitici
+              | oscuri
+              | piacevoli | profondi
+              | radioattivi
+              | santi | sconvolgenti | segreti | sinistri | spaventosi | strani | straordinari | stupidi | superflui
+              | tecnologici ) )
+         | F: (S: ( amorevole
+              | cosmica | cremosa
+              | disordinata | disorientante | disturbante
+              | fantastica | futile
+              | [dis^]gustosa
+              | imbarazzante | improbabile | impossibile | impropria | intensa | inutile
+              | mascarata | mascherata | mitica
+              | oscura
+              | piacevole | profonda
+              | radioattiva
+              | sacra | santa | sconvolgente | segreta | sinistra | spaventosa | strana | straordinaria | stupida | superflua
+              | tecnologica )
+              |P: ( amorevoli
+              | cosmiche | cremose
+              | disordinate | disorientanti | disturbanti
+              | fantastiche | futili
+              | [dis^]gustose
+              | imbarazzanti | improbabili | impossibili | improprie | intense | inutili
+              | mascarate | mascherate | mitiche
+              | oscure
+              | piacevoli | profonde
+              | radioattive
+              | sacre | sante | sconvolgenti | segrete | sinistre | spaventose | strane | straordinarie | stupide | superflue
+              | tecnologiche ) )
+;
+
+Editore ::= (++ (++++++++ Casa | Name | NameS ) ( Casa | Fumetto | Name | NameS ) Fumetto |----  Casa "&" (+++++++ Casa | Fumetto | Name | NameS ) [ Fumetto ] )
+;
+
+Casa ::= ( 2000 | 3000
+         | "All" | "American" | "Ass." [ "Cult." ] | "Associazione" [ "Culturale" ]
+         | "Bongo" | "Brambilla"
+         | "Cenisio" | "Comic" | "Comico" | "Corno" | "Cult"
+         | "Daily" | "DC" | "DeAgostini" | "Dino" | "Disney"
+         | "Educational" | "Ekkehart" | "Entertaining" | "Event" [ ^s ]
+         | "Fabbri" | "Funny"
+         | "Graphics" | "Guybrush"
+         | "Hobby"
+         | "Image"
+         | "King"
+         | Lettera^"C" | Lettera^Lettera | "Lurido"
+         | "Magic" | "Marvel" | ("Max" |"MAX") | "Mondadori" | "Mortadella"
+         | Nazione2 | "New"
+         | "Oscar"
+         | "Panini" | "Penthouse" | "Play" | "Pop" | "Porchetta" | "Pull"
+         | "Rasmussen"
+         | "Sandwich" | "Schwarzmueller" | "Sirius" | "Special" | "Star" | "Super"
+         | "Threepwood" | "Thundra"
+         | "Ultra" | "Unto"
+         | "War" | "Williams" | "Work" | "Works"
+         | _)
+;
+
+Fumetto ::= ( 2000 | 3000
+            | "Art" [ ^s ]
+            | "Best"
+            | "Classic" [ ^s ] | "Collection" | "Comic" |++++++++++++++ "Comics" | "Comix"
+            | "Deluxe" | "Double" [ "Feature" ]
+            | "Edition" [ ^s ] | "Editore" | "Editoriale" | "Edizioni" | "Entertainment" | "Event" [ ^s ] | "Extra"
+            | "Fantasy" | "Feature" [ ^s ]
+            | "Graphic"
+            | "Hits"
+            | "Magazine" [ ^s ] | "Mania" | "Mega" | "Mix"
+            | Nazione2 | "Novel" [ ^s ]
+            | "Pop" [ "Art" ] | "Presenta" | "Presents" | "Press" | "Productions"
+            | "Saga" | "Special" | "Spotlight" | "Strips" | "Studios" | "Superheroes" | "Syndicate"
+            | "Team-up" | "Top"
+            | _)
+;
+
+Serie ::= ''^"<span style=\"font-size: 1em; font-weight:bold;\">"^
+          (Casa Fumetto
+          | Combo
+          | Name Fumetto
+          | Adj Fumetto)
+          ^"</span>"^''
+;
+
+Lettera ::= ("A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z")
+;
+
+Nazione ::= ( in NazioneIn | a NazioneA | ad NazioneAd | negli NazioneNegli | nei NazioneNei | nel NazioneNel | nell'^NazioneNell | nello NazioneNello | nella NazioneNella | nelle NazioneNelle | su NazioneSu | sulla NazioneSulla | NazioneSpec )
+;
+
+Nazione2 ::= ( NazioneIn | NazioneA | NazioneAd | NazioneNegli | NazioneNei | NazioneNel | NazioneNell | NazioneNello | NazioneNella | NazioneNelle | NazioneSu | NazioneSulla )
+;
+
+NazioneIn ::= ( "Afghanistan" | "Africa" | "Albania" | "Algeria" | "America" | "Andorra" | "Angola" | "Anguilla" | "Antartide" | ( "Arabia" | "Arabia Saudita" ) | "Argentina" | "Armenia" | "Asia" | "Australia" | "Austria" | "Azerbaijan"
+            | "Bahrain" | "Bangladesh" | "Belgio" | "Benin" | "Bhutan" | "Bielorussia" | "Bolivia" | "Bosnia" | "Botswana" | "Brasile" | "Brunei" | "Bulgaria" | "Burkina Faso" | "Burundi"
+            | "Cambogia" | "Camerun" | "Canada" | "Cecoslovacchia" | "Cile" | "Cina" | "Colombia" | ("Congo" | "Congo-Brazzaville" | "Congo-Kinshasa") | ("Corea" | "Corea del Nord" | "Corea del Sud") | "Costa d'Avorio" | "Costa Rica" | "Croazia"
+            | "Danimarca" | "Dominica"
+            | "Ecuador" | "Egitto" | "Eritrea" | "Estonia" | "Etiopia" | "Europa"
+            | "Finlandia" | "Francia"
+            | "Galles" | "Gambia" | "Georgia" | "Germania" | "Ghana" | "Giamaica" | "Giappone" | "Giordania" | ("Gran Bretagna" | "Gran Bretagna e Irlanda del Nord") | "Grecia" | "Groenlandia" | "Guadalupa" | "Guam" | "Guatemala" | "Guinea" | "Guinea-Bissau" | ("Guyana" | "Guiana")
+            | "Honduras"
+            | "India" | "Indonesia" | "Inghilterra" | "Iran" | "Iraq" | "Irlanda" | "Islanda" | "Israele" | "Italia"
+            | "Jugoslavia"
+            | "Kazakhistan" | "Kenia" | "Kuwait" | "Kyrgyzstan"
+            | "Lapponia" | "Latveria" | "Lesoto" | "Lettonia" | "Libano" | "Liberia" | "Libia" | "Liechtenstein" | "Lituania" | "Lussemburgo"
+            | "Macedonia" | "Madagascar" | "Malawi" | "Malesia" | "Mali" | "Malta" | "Marocco" | "Martinica" | "Mauritania" | "Messico" | "Micronesia" | "Moldavia" | "Mongolia" | "Mozambico" | ("Myanmar" | "Birmania")
+            | "Namibia" | "Nepal" | "Nicaragua" | "Niger" | "Nigeria" | "Norvegia"
+            | "Oceania" | "Olanda" | "Oman"
+            | "Pakistan" | "Palestina" | "Papua-Nuova Guinea" | "Paraguay" | "Peru'" | "Polinesia" | "Polonia" | "Porto Rico" | "Portogallo"
+            | "Qatar"
+            | "Romania" | "Ruanda" | "Russia"
+            | "Scandinavia" | "Scozia" | "Senegal" | ("Serbia e Montenegro" | "Serbia") | "Sierra Leone" | "Siria" | "Slovacchia" | "Slovenia" | "Somalia" | "Spagna" | "Sri Lanka" | "Sudafrica" | "Sudan" | "Suriname" | "Svezia" | "Svizzera" | "Swaziland"
+            | "Tagikistan" | "Thailandia" | "Tanzania" | "Tibet" | "Togo" | "Tunisia" | "Turchia" | "Turkmenistan"
+            | "Ucraina" | "Uganda" | "Ungheria" | "Uruguay" | "Uzbekistan"
+            | "Vaticano" | "Venezuela" | "Vietnam"
+            | "Zambia" | "Zimbabwe"
+            | Regione )
+;
+
+NazioneA ::= ( "Barbuda"
+             | "Belize"
+             | "Capo Verde" | "Cipro" | "Cuba"
+             | "Gibilterra" | "Gibuti" | "Grenada" | "Guernsey"
+             | "Jersey"
+             | "Kiribati"
+             | "Macao" | "Malta" | "Manx" | "Mayotte" | "Monaco" | "Montserrat"
+             | "Nauru" | "Niue"
+             | "Palau" | "Panama"
+             | "Riunione"
+             | ("San Kitts e Nevis" | "San Kitts" | "Nevis") | ("San Tome' e a Principe" | "San Tome'" | "Principe") | "San Marino" | ("San Pierre e Miquelon" | "San Pierre" | "Miquelon") | "Santa Lucia" | "Sark" | "Sealand" | "Seborga" | "Singapore"
+             | "Taiwan" | "Timor Est" | "Tokelau" | "Tonga" | ("Trinidad e a Tobago" | "Trinidad" | "Tobago") | "Tristan de Cunha" | "Tromelin" | "Tuvalu"
+             | "Vanuatu"
+             | ("Wallis e Futuna" | "Wallis" | "Futuna") )
+;
+
+NazioneAd ::= ( "Alderney" | ( "Antigua" | "Antigua e Barbuda" ) | "Aruba" | "Haiti" | "Hong Kong" )
+;
+
+NazioneNegli ::= ( ("Emirati Arabi Uniti" | "Emirati" | "Emirati Arabi") | ("USA" | "Stati Uniti" | "Stati Uniti d'America") )
+;
+
+NazioneNei ::= ( "Paesi Bassi" )
+;
+
+NazioneNel ::= ( "Ciad" | "Cipro del Nord"
+               | "Gabon"
+               | "Laos"
+               | "Montenegro" | "Multiverso"
+               | "Principato di Monaco" | "Principato di Seborga"
+               | "Regno Unito"
+               | "Sahara" [ "dell'Ovest" ] | "Salvador" )
+;
+
+NazioneNell ::= ( "Irlanda del Nord" | "Isola di Man" | "Isola Norfolk" | "Isola Wake" | "Universo" | ( "Unione Sovietica" | "URSS" ) )
+;
+
+NazioneNello ::= ( "Yemen" )
+;
+
+NazioneNella ::= ( "Guiana Francese" | "Guinea Equatoriale"
+                 | [ "Nuova" ] "Caledonia" | [ "Nuova" ] "Zelanda"
+                 | "Polinesia Francese"
+                 | "Repubblica Ceca" | "Repubblica Centroafricana" | "Repubblica Dominicana" | "Repubblica di San Marino" )
+;
+
+NazioneNelle ::= ( "Antille" [ "Olandesi" ]
+                 | "Bahamas" | "Barbados" | "Bermuda"
+                 | "Filippine"
+                 | ("Isole Cayman" | "Cayman") | ("Isole Cocos" | "Cocos") | "Isole Comore" | "Isole Cook" | "Isole di Natale" | ("Isole Falkland" | "Falkland") | ("Isole Faroe" | "Faroe") | ("Isole Fiji" | "Fiji") | "Isole Marshall" | ("Isole Mauritius" | "Mauritius") | "Isole Midway" | ("Isole Pitcairn" | "Pitcairn") | "Isole Salomone" | ("Isole Vergini" | "Isole Vergini Britanniche")
+                 | "Maldive" | "Marianne del Nord"
+                 | ("Samoa" | "Samoa Americane") | "Seychelles" )
+;
+
+NazioneSu ::= (  "Giove" | "Krypton" | "Marte"| "Mercurio" | "Venere"  )
+;
+
+NazioneSulla ::= ( "Luna" )
+;
+
+NazioneSpec ::= ( nelle "Bermuda (dove tutte le copie scomparvero misteriosamente)"
+                | nel "Commonwealth" [ britannico ] | nella "Comunita' del Pacifico"
+                | in "Danimarca (dove c'e' del marcio)"
+                | nella "Federazione Russa"
+                | (nella ("Georgia del Sud e nelle Isole Sandwich del Sud" | "Georgia del Sud") | nelle ("Isole Sandwich" | "Isole Sandwich del Sud"))
+                | (nelle "Isole Heard e McDonald" | nell'^"Isola Heard" | nell'^"Isola McDonald") | (nelle "Isole Turks e Caicos" | nell'^("Isola Turks" | "Isola Caicos") | a ("Turks" | "Caicos"))
+                | nel "Mondo" intero
+                | nei paesi arabi
+                | (a ("San Vincent e nelle Grenadine" | "San Vincent") | nelle "Grenadine") | (a ("Sant'Elena" | "Sant'Elena e nelle sue dipendenze") | nelle dipendenze di "Sant'Elena") | nella ("Santa Sede" | "Citta' del Vaticano") | nel sud^"-"^est asiatico
+                | nei territori britannici (in "Antartide" | dell'"Oceano Indiano") | nei terroritori francesi (in "Antartide" | del sud)
+                | in "un'altra" dimensione )
+;
+
+Citta ::= ( ^d "Agrigento" | ^d "Alessandria" | ^d "Ancona" | ^d "Andria" | ^d "Aosta" | ^ll'"Aquila" | ^d "Arezzo" | ^d "Ascoli Piceno" | ^d "Asti" | ^d "Avellino"
+           | "Bari" | "Barletta" | "Bassano del Grappa" | "Belluno" | "Benevento" | "Bergamo" | "Biella" | "Bologna" | "Bolzano" | "Brescia" | "Brindisi"
+           | "Cagliari" | "Caltanissetta" | "Campobasso" | "Carbonia" | "Carrara" | "Caserta" | "Catania" | "Catanzaro" | "Cesena" | "Chieti" | "Como" | "Cosenza" | "Cremona" | "Crotone" | "Cuneo"
+           | "Domodossola"
+           | "Enna"
+           | "Fermo" | "Ferrara" | "Firenze" | "Foggia" | "Forli'" | "Frosinone"
+           | "Genova" | "Gorizia" | "Grosseto"
+           | "Iglesias" | "Imperia" | "Isernia"
+           | "La Spezia" | "Lanusei" | "Latina" | "Lecce" | "Lecco" | "Livorno" | "Lodi" | "Lucca"
+           | "Macerata" | "Malibu" | "Mantova" | "Massa" | "Matera" | "Messina" | "Milano" | "Modena" | "Monza"
+           | "Napoli" | "New York" | "Novara" | "Nuoro"
+           | "Olbia" | "Oristano" | "Otranto"
+           | "Padova" | "Palermo" | "Parma"| "Pavia" | "Pesaro" | "Pescara" | "Perugia" | "Piacenza" | "Pisa" | "Pistoia" | "Pordenone" | "Potenza" | "Prato"
+           | "Ragusa" | "Ravenna" | "Reggio Calabria" | "Reggio Emilia" | "Rieti" | "Rimini" | "Roma" | "Rovigo"
+           | "Salerno" | "San Giovanni Valdarno" | "Sanluri" | "Sarajevo" | "Sassari" | "Savona" | "Siena" | "Siracusa" | "Sondrio"
+           | "Taranto" | "Tempio Pausania" | "Teramo" | "Terni" | "Torino" | "Tortoli'" | "Trani" | "Trapani" | "Trento" | "Treviso" | "Trieste"
+           | "Udine" | "Urbino"
+           | "Varese" | "Venezia" | "Verbania" | "Vercelli" | "Verona" | "Vibo Valentia" | "Vicenza" | "Viterbo"
+           | "Washington"
+           | "Zagabria" )
+;
+
+Regione ::= ( "Abruzzo" | "Alto Adige" | "Basilicata" | "Calabria" | "Campania" | "Emilia" | "Emilia-Romagna" | "Friuli" | "Friuli-Venezia Giulia" | "Lazio" | "Liguria" | "Lombardia" | "Marche" | "Molise" | "Piemonte" | "Puglia" | "Romagna" | "Sardegna" | "Sicilia" | "Toscana" | "Trentino" | "Trentino-Alto Adige" | "Umbria" | "Valle d'Aosta" | "Veneto" | "Venezia Giulia" )
+;
+
+Animale ::= ( bradipo
+            | canarino | cavietta | cane | cincilla' | coleottero | criceto
+            | ermellino
+            | furetto
+            | gatto | ghiottone
+            | lombrico
+            | marmotta | marmotta della "Milka"
+            | nonnina | nonnino
+            | pipistrello | polipo | politico
+            | ragno
+            | serpente
+            | tapiro
+            | vecchietta )
+;
+
+AnimaleUn ::= ( un ( bradipo
+            | canarino | ^a cavietta | cane | cincilla' | coleottero | criceto
+            | ermellino
+            | furetto
+            | gatto | ghiottone
+            | lombrico
+            | ^a marmotta [ "forse quella della Milka?" ]
+            | ^a nonnina | nonnino
+            | pipistrello | polipo | politico
+            | ragno
+            | serpente
+            | tapiro
+            | ^a vecchietta ) )
+;
+
+Persona ::= ( "Dante" [ "Alighieri" ]
+            | [ "Silvio" | "Piersilvio" ] "Berlusconi" | [ "George" | "George W." ] "Bush"
+            | "Jim Carrey" | "Fidel Castro" | "Tony Clifton"
+            | [ "Massimo" ] "D'Alema" | [ "Alessandro" ] "Del Piero"
+            | "Fonzie"
+            | "Bill Gates" | [ "Mikhail" ] "Gorbaciov" | "Che Guevara"
+            | [ "Jimi" ] "Hendrix" | [ "Adolf" ] "Hitler"
+            | "Andy Kaufmann"
+            | "Lenin"
+            | "Freddy Mercury" | "Jim Morrison"
+            | "Leo Ortolani" | "Othelma"
+            | "Pac-Man" | il "Papa" | "Elvis" [ "Presley" ] | [ "Romano" ] "Prodi"
+            | [ "Toto'" | "Salvatore" ] "Riina" | [ "Francesco" ] "Rutelli"
+            | "Bruno Vespa" | "Sid Vicious" | "Stalin"
+            | "Margaret Thatcher"
+            | ("Andy" | "Larry") "Wachowski" )
+;
+
+PersonaA ::= ( a ( "Dante" [ "Alighieri" ]
+            | [ "Silvio" | "Piersilvio" ] "Berlusconi" | [ "George" | "George W." ] "Bush"
+            | "Jim Carrey" | "Fidel Castro" | "Tony Clifton"
+            | [ "Massimo" ] "D'Alema" | [ "Alessandro" ] "Del Piero"
+            | "Fonzie"
+            | "Bill Gates" | [ "Mikhail" ] "Gorbaciov" | "Che Guevara"
+            | [ "Jimi" ] "Hendrix" | [ "Adolf" ] "Hitler"
+            | "Andy Kaufmann"
+            | "Lenin"
+            | "Freddy Mercury" | "Jim Morrison"
+            | "Leo Ortolani" | "Othelma"
+            | "Pac-Man"  | ^l "Papa" | "Elvis" [ "Presley" ] | [ "Romano" ] "Prodi"
+            | [ "Toto'" | "Salvatore" ] "Riina" | [ "Francesco" ] "Rutelli"
+            | "Bruno Vespa" | "Sid Vicious" | "Stalin"
+            | "Margaret Thatcher"
+            | ("Andy" | "Larry") "Wachowski" ) )
+;
+
+Grido ::= ''^"<span style=\"font-size: 1em; font-style:italic;\">"^( "Acciderbol"^Ina^Esclamo
+          | "Difendero'" coloro che abitano Nazione "dal male"^Esclamo
+          | "Non dire "^Animale^" se non ce l'hai nel sacco"^Esclamo
+          | "Per "^Din^Rin^Ina^Esclamo | "Portero' la pace" Nazione^Esclamo
+          | \Poteri.F.S polenta^Esclamo | ( "Su" | "Giu'")^"," ( su | giu' ) "e via"^Esclamo
+          | ("Ti sconfiggero'" | "Mi sconfiggerai")^", con i "^(miei | tuoi)^" poteri "^Poteri.M.P^Esclamo )^"</span>"^''
+;
+
+Esclimo := ( ("!"^)+ | ("?"^)+ | ("!?"^)+ )
+;
+
+Esclamo ::= (Esclimo | Esclimo^Esclimo | Esclimo^Esclimo^Esclimo)
+;
+
+Din ::= ( din | dindin | di | dindi)
+;
+
+Rin ::= ( rin | ri | rinrin | ririn | rinri)
+;
+
+Ina ::= ( ina | inaina | inina | inaaaaaaaaaaaaaaa)
+;
+
+Costume ::= ( ( una giacca [ a Geom ] [ di colore Colore ]^",") ( un costume | una calzamaglia | una divisa ) [ a Geom ] [ di colore Colore | di colore Colore e Colore ]^[" con un simbolo" Colore ]^(" e" un mantello [ a Geom ] [ di colore Colore | di colore Colore e Colore ]^)
+            | ( un costume | una calzamaglia | una divisa ) [ a Geom ] [ di colore Colore | di colore Colore e Colore ]^[" con un simbolo" Colore ]^(" e" un mantello [ a Geom ] [di colore Colore | di colore Colore e Colore ]^)
+            | ( una giacca [ a Geom ] [ di colore Colore ] e) ( un costume | una calzamaglia | una divisa ) [ a Geom ] [ di colore Colore | di colore Colore e Colore ]^[" con un simbolo" Colore ]
+            | una giacca [ a Geom ] [ di colore Colore | di colore Colore e Colore ]^[" con un simbolo" Colore ]
+            | ( un costume | una calzamaglia | una divisa ) [ a Geom ] [ di colore Colore | di colore Colore e Colore ]^[" con un simbolo" Colore ] )
+;
+
+Geom ::= ( strisce ( verticali | orizzontali ) | scacchi | pois )
+;
+
+Colore ::= ( amaranto | arancione | avorio | azzurro
+           | bianco | blu
+           | ciano | crema | cremisi
+           | fucsia
+           | giallo | grigio
+           | indaco
+           | lilla
+           | marrone
+           | nero
+           | porpora
+           | rosa | rosso
+           | verde [ pisello | speranza ] | viola | violetto )
+;

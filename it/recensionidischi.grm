@@ -1,0 +1,34 @@
+I ::=   "title:    Recensioni album\n"
+      ^ "author:   WallyG &lt;wallyg@laboratoriosonoro.com&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   not mature\n"
+      ^ "topic:    music\n"
+      ^ "comment:  recensioni tecniche degli ultimi album\n"
+      ^ "warning:  attenzione, potreste esserci anche voi li' in mezzo\n"
+      ^ "created:  30/11/2004"
+;
+
+S ::= \INTRO "\n";
+
+INTRO ::= oggi recensiamo il cd dei BAND ":" TITOLO
+	  | questa settimana parliamo del nuovo album dei BAND ":" TITOLO
+	  | eccoci [dunque] alla recensione [attesissima] del cd (+++dei | "di un grande gruppo, i") BAND ^", con" TITOLO
+	  | TITOLO ":" il nuovo [attesissimo | straordinario] album dei BAND
+	  | finalmente nel nostro [bellissimo | fikissimo] giornale TITOLO^"," il nuovo album dei BAND
+        | il vostro mitiko "DJ" ("WallyG" | "Carbo" | "Carlo" | "Ezy" | "Starlight" | "Iceman" | "Fuckfinder") oggi vi propone il [fikissimo] nuovo "CD"
+dei BAND^", che spakka" [veramente il kulo | ^", lasciatemelo dire"] ^":" TITOLO;
+
+BAND ::= \INIZIO \POSTILLA;
+
+TITOLO ::= "'"^\NOME [PREPOSIZIONE] NOME [^","VOLUME]^"'";
+
+INIZIO ::= september | martin's \job | beegles | cradle \of | puddle \of | minnesota | love \for \the | men \in \the [\fucking] | nobody's ;
+
+POSTILLA ::= mudd | filth | hell | music | sound \ (acoustic \(quartet | trio | duo | band) | electric \(love | band | big band | quintet) |
+		jazz \(quartet | band | misc));
+
+NOME ::= candle | mystery | damn | joy | nothing | everything | songs | friends;
+
+PREPOSIZIONE ::= is | of | in | for ;
+
+VOLUME ::= ( volume (1 | 2 | 3 | 122 | 133bis | 2 special release) | special release | double pack | "DVD edition");

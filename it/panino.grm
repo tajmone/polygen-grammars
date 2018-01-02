@@ -1,0 +1,93 @@
+I ::=   "title:    Panino - il meglio della cucina mediterranea\n"
+      ^ "author:   ..::cki::.. &lt;ckiikc@yahoo.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "topic:    alimentazione\n"
+      ^ "audience: per voi," (gente | [u^]omini | tizi | giov^(i|++a)^ni ) "di chiara fame\n"
+      ^ "disclaim: per te, "
+         ^( uomo | ++++++gi^[u]^ov^(a|i)^n^(e|otto[^ne]) | stallone | uomo | omo | rude
+| truce )
+	 ^" dallo stomaco "
+	 ^( debole | sensibile | stracciato | rilassato | triste | moscio ) ^ "\n"
+	  ^ "created:  17/09/2003"
+;
+
+(* fermo restando che Vision-X e' un secchio *)
+
+S ::="<B>" \l'angolo di^"..." Personaggio "</B>\n" "<I>" \ mi andrebbe proprio (un Panino con Cibo e Contorno
+| un piatto[^ne] di Piatto al Salsa di Contorno | un'insalata di Cibo e Contorno | un brodo di Contorno
+| una (bistecca [di Bistecca] | fiorentina) con salsa di Contorno | una purea di Contorno | una mousse di Contorno ) "</I>"
+;
+
+Panino ::= panino | ^(a rosetta) | tramezzino | ^(a baguette)
+;
+
+Bistecca ::= maiale | manzo | vitella
+;
+
+Piatto ::= pasta | riso | linguine | pappardelle | maltagliati | fettuccine
+| strozzapreti | trofie | fusilli | "mezze maniche" | polenta
+;
+
+Salsa ::= sugo | pesto | ragu'
+;
+
+Personaggio ::= \ilaria | \rocco | \roberta | \adriano | \(jimbo | emijano)
+;
+
+Cibo ::=   Alimento
+;
+
+(* alimenti vari
+*)
+Alimento ::= >(Carne | Formaggio | Pesce | Animale | Verdure)
+;
+
+(* essenza meno profumata anzi
+*)
+Contorno ::= sudore | fogna | monnezza | topi | cerume | muffa 
+| percolato | pus | croste | catarro
+| sputo | lamette | calcinacci | unghie [affumicate]| cera | malta | forfora [a cubetti]
+| mercurio | cenere | sassi | vetri | chiodi | segatura | carta | batterie
+| coriandoli | forbici | mosche | vermi | formiche | zecche | pulci | lombrichi
+| scarafaggi | farfalle | gesso | bolo | freccette | siringhe | croste | brufoli
+| nei | ciglia | capelli | pidocchi | bidet | carta igienica | baffi | polvere
+| silicone | cellulite [a scaglie] | nero di unghie | tartaro | ghiaccio | saliva
+| acari | glaucomi | carie | placca | prostata | grilli | cavallette
+| coleotteri | sebo | calz^(ini | ettoni) [sudati | bucati] | polistirolo | peli [ascellari]
+| calli | ragni | moccolo | sporco
+;
+
+(* formaggi
+*)
+Formaggio ::= caciotta | pecorino | ricotta | provola | scamorza | 
+gorgonzola | parmigiano | grana | sottilette
+;
+
+(* carni varie
+*)
+Carne ::= bistecca | spezzatino | bresaola | salame | prosciutto | coppa
+| ossocollo | cotechino | salsiccia | cotenna | strutto | lardo ["di Colonnata"]
+;
+
+(* pesci
+*)
+Pesce ::= "baccala'" | anguilla | sgombro | sarde | carpa | cernia
+| pescegatto
+;
+
+(* animali
+*)
+Animale ::= bue | capra | montone | pecora | capriolo
+| porco | abbacchio | porchetta | pollo
+;
+
+(* verdure
+*)
+Verdure ::= verza | cicoria | lattuga | broccoli | spinaci | carote | cipolle |
+scarola | indivia | pomodori
+;
+
+(* frutta
+*)
+Frutta ::= fragole | mele [cotte] | uvetta | fichi [secchi] | ciliege [sotto spirito]
+;

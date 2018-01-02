@@ -1,0 +1,163 @@
+I ::= "title:    L'Ottimista!\n"
+    ^ "author:   Er Poly &lt;mogkogk@hotmail.com&gt;\n"
+    ^ "language: italian\n"
+    ^ "status:   beta\n"
+    ^ "topic:    poesia, fantascienza\n"
+    ^ "audience: tutti i pessimisti\n"
+    ^ "disclaim: dedicato a Tonino Guerra, nella speranza che rinsavisca presto\n"
+    ^ "created:  12/09/2004"
+;
+S ::=
+    \(_|--pronto P3)
+    (_|++(_|+++ciao|-ohi|----(chi (sei|e') Q [oh])) GIANNI ESCL)
+    (_|--------SPLOTCH ( --[ah V] ci voleva [proprio] ESCL e' (la|l'ennesima|un'altra)
+                       dimostrazione che | ((lo vedi che e'),(e' proprio) vero P3,che) ))
+    LOTTIMISMO
+    VIENIDA
+;
+LOTTIMISMO ::=
+    ( +sono OTTIMISTA
+      | l'ottimismo
+      ( ++e' il (+++++profumo
+                |+++>(bromuro|duodeno|prosciutto|motoraduno|profluvio|prolasso)
+                |>(golfino|proscenio|panino|sambuco|prepuzio|dirupo|deodorante)
+                |-->(raggrumo|pianterreno|tartufo|protone|prozac|(cu|rin)^culo)
+                ) della vita
+      | e' il profumo
+         ( +++della fi^(+++c|g)^a
+         | di [quella (gnocca|topa|sorca) di] tua sorella [ESCL "Ah!Ah!Ah!"]
+         | ----dei piedi [a primavera|quando si fa sera]
+         )
+      | --vola ESCL ESCL
+        [e a volte ti vola (proprio|pure) (nel [buco del] culo|tra le chiappe) [ESCL "Ah!Ah!Ah!"] ESCL]
+      | ----non puo' morire [mai]
+      )
+    | ( +l'eufemismo | il dadaismo | lo strabismo | il feticismo | l'agnosticismo
+      | il fascismo | ++il buddismo | +++il nudismo | +l'ateismo | ++l'assenteismo
+      | +il catechismo | il masochismo | -----l'LSD | +++l'onanismo | ++l'alcolismo
+      ) e' il profumo della vita
+    )
+    ESCL NL
+;
+OTTIMISTA ::=
+    ++++++++ ottimista
+    | +estremista | allarmista | tassidermista | feticista
+    | nudista | scambista | assenteista | ++etilista
+    | comunista | fascista  | buddista | +masochista
+    | fuori pista | +++onanista | ++alcolista
+;
+OTTIMISTA2 ::=
+      costumista | +antennista | +linotipista | apprendista
+    | automobilista | +autostoppista | batterista | camorrista
+    | mezzofondista | monopolista | ----guastafeste
+;
+VIENIDA ::=
+    ( ( vieni anche tu [qui ALLAUNIEURO|V dai] ESCL NL
+      | [dai ESCL] corri ({[anche tu]} {ALLAUNIEURO}) ESCL NL
+      | [qui] ALLAUNIEURO
+      )
+      ( (++++ci sono|+ho visto|vedrai) COSECHEVOLANO
+      | ----cerchiamo il piu' (>OTTIMISTA | >OTTIMISTA2)
+        d'^\italia
+      ) ESCL
+      (_|-----NL chi sta meglio di noi Q3)
+    | (++++++++++++vedo|immagina) COSECHEVOLANO ESCL
+    ) NL
+;
+ALLAUNIEURO ::= alla (+"UniEuro"|"Neuro")
+;
+COSECHEVOLANO ::=
+    ( {((X: COSE.A | Y: COSE.B) CHEVOLANO.A).(E|I)} (V|ESCL|P3)
+      {((X: COSE.B | Y: COSE.A) CHEVOLANO.B).(E|I)} ).(X|Y)
+;
+SPLOTCH ::=
+    NL NL "**"^(+++"SPLOTCH"|+++"SPLATCH"|"PLIP"|"SHMERD")^"**" NL NL
+    ("Ah!Ah!"|"Eh!Eh!"|"Oh!Oh!") \
+    [che bello ESCL]
+    un ( [garrulo] >( +++piccione | ++passerotto | ++++uccellino
+       | avvoltoio) | ^o pterodattilo | condor | pipistrello )
+    (---ottimista
+    | mi ha [appena]
+      ( ( A: (++depositato|sganciato) un (+++^a [+bella|generosa] (patacca[^ta])|+po') (di|del suo) ottimismo
+        | B: (cosparso|++decorato|riempito|colorato)
+        )
+        ( (A:in|B:la) faccia
+        | (A:in un'occhio|B:gli occhi)
+        | --(A:sulla|B:la) (camicia|giacca)
+        )
+        (B:((con un po' del|col) suo|di) ottimismo)
+      ).(++A|B)
+    )
+    ESCL NL
+;
+COSE ::=
+      E: ( A: ( ++montagne | +lava^>(trici|stoviglie) | sedie | cucine | aiuole
+              | donne [nude] | porte | bombe atomiche | escrescenze | mattonelle
+              | luci[^ne] | astronavi | creature | cose | molecole | forme di vita
+              | tecnologie | mucose | scale
+              )
+         | B: ( ++macchine | +++commesse | mucche | tapparelle | farfalle
+              | +radio | --stanze | +tastiere | -maniglie | finestre | rondini
+              | +[brave]persone | encefalopatie [spongiformi] | +lampade | pareti
+              | antenne | microspie
+              )
+         )
+    | I: ( A: ( ++cani | -asini | +computer | +++scaffali | +oggetti | +stereo
+              | +altoparlanti | tavoli | lavandini | poeti | alberi | delfini
+              | atomi | controsoffitti | morbi di alzheimer | arcobaleni
+              | commercialisti | pavimenti | psicofarmaci
+              )
+         | B: ( +++telefoni[^ni] | +climatizzatori | +anziani | +frullatori
+              | spacciatori | cellulari | muri | +televisori | -funghi | utensili
+              | -gatti | ++carrelli | lombrichi | +++elettrodomestici | -elefanti
+              | esseri | professionisti
+              )
+         )
+;
+CHEVOLANO ::=
+      A: ( +++che > ( +ridono | +++volano | luccicano | --ti aspettano
+                    | (ti|mi|ci) amano | parlano (_|----con l'aldila')
+                    | si masturbano | --[non] dormono | (tra|+re)^spirano
+                    | risolvono (++problemi|equazioni) | vibrano
+                    | ammiccano | mangiano | ti vogliono [conoscere]
+                    | escono da sottoterra | (mi|ti) seguono
+                    | (mi|ti) sorridono | si drogano | cantano
+                    | [mi|ti] (++vendono|offrono|regalano) la droga
+                    | si grattano | si prendono cura di (me|te)
+                    | si lasciano (accarezzare|toccare)
+                    )
+         | (I:superdotati|E:ancora vergini)
+         | invisibili | trasparenti | fosforescenti | giganti | ------senzienti
+         | piccolissim^(I:i|E:e) | --copert^(I:i|E:e) di [soffice] (lanugine|muffa)
+         | ----intelligenti | pien^(I:i|E:e) (d'aria|di idee|di droga) | colorat^(I:i|E:e)
+         | nel cielo | fra le nuvole | dappertutto | sorridenti | iridescenti
+         | [che (risplendono|(mi|ti) riempiono (l'aria|il culo))]
+           di mille colori
+         )
+    | B: ( +++che > ( non (puzzano|++inquinano) | godono | ---scopano | +pensano
+                    | vanno in retromarcia | ----esplodono | ---giocano
+                    | cinguettano | +fanno l'amore | +sognano | scodinzolano
+                    | -prendono il (metadone|prozac|viagra) | +cadono dal cielo
+                    | ++si muovono | ++sanno di buono | [ti] ascoltano | zompettano
+                    | (mi|ti) (+++guardano|fissano) | ++appaiono dal nulla
+                    | +si programmano da sol^(I:i|E:e) | vanno a metano
+                    | hanno un buon (odore|sapore) | camminano | ballano
+                    )
+         | [che >(gorgogliano|copulano|corrono)] felici
+         | +con > ( la coda | due teste | il reggiseno | i capelli
+                  | +++le >(ali | calze a rete | scarpe | ruote )
+                  | ----cento occhi )
+         | col marsupio | commestibili | dalle mille forme
+         | rivestit^(I:i|E:e) (+++d'alluminio | di uranio)
+         | di un'altr^ >(----o mondo|o pianeta|a dimensione|a galassia)
+         | a manovella | ----triangolari | ultrapiatt^(I:i|E:e)
+         )
+;
+GIANNI ::= \ ( gi^(aa(^aa)+)^nn^(ii(^ii)+) | ----------s^(ii(^ii)+)^lvi^(oo(^oo)+) )
+;
+P3 := ^"..." ;
+Q := ^"?"\ ;
+Q3 := ^"???"\ ;
+ESCL ::= ^ ("!" | -"!!!"[(^"!")+])  \ ;
+V := ^",";
+NL := ^"\n"^\;

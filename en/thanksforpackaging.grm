@@ -1,0 +1,18 @@
+I ::=   "title:    Thanks for packaging...\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   basic\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  2005-09-15"
+;
+
+S ::=  \ Phrase ^ ( "." | -"!" );
+
+Phrase ::= + Thanks "for" Packaging "PACKAGE" 
+         | Thanks "for" [all] "your" (work | efforts) "on PACKAGE" 
+	 | "You did great" [work] "on PACKAGE"
+	 ;
+
+Thanks ::= (kudos | [many] thanks) ;
+
+Packaging ::= packaging | taking care of | your (work | [continued] efforts) on ;

@@ -1,0 +1,78 @@
+I ::=   "title:    UNIX command Meme\n"
+      ^ "author:   Tobias Klauser &lt;tklauser@access.unizh.ch&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   Basic\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  24/09/2006\n"
+;
+
+S ::= \ Introduction ^(":"|".") ( ^"\n\n" ^Commandline | ^"\n") ^"\n" Result ( ^"\n\n" ^Conclusion | "" );
+
+Introduction ::= "check out this new meme seen" SeenAt
+		| "I" Really "didn't expect this"
+		| "I was" Really "suprised"
+		| "my results for this" Enhancement "meme seen" SeenAt
+		| ["sorry,"] "I couldn't resist"
+		| "this one surprised me" ["when I saw it" SeenAt]
+		| "I don't like memes, but this one is" Enhancement
+		| [boring] meme [time]
+		| "a bit surprising"
+		| Really surprising
+		| "nice one-liner to find out what the highest number of commands is that you use"
+		| "For me, the output is"
+		| "This looks like a 'planet-acceptable' meme."
+		| "That history meme"
+		;
+
+Prompt ::= ">" | "%" | "$" ;
+
+Commandline ::= Prompt "history | awk '{print $2}' | awk 'BEGIN {FS=\"|\"} {print $1}' | sort | uniq -c | sort -nr | head -10"
+		| Prompt "print -l -- ${(o)history%% *} | uniq -c | sort -nr | head-n 10"
+		| Prompt "history 1|awk '{print $2}'|awk 'BEGIN {FS=\"|\"} {print $1}'|sort|uniq -c|sort -nr|head -10"
+		| Prompt "history | while IFS=\" \\\"\" read a b c; do echo $b; done | sort | uniq -c | sort -nr | head -10"
+		| Prompt "history > foo;" Editor foo
+		;
+
+Result ::= (Number " " Command ^"\n" Number " " Command ^"\n" Number " " Command
+^"\n" Number " " Command ^"\n" Number " " Command ^"\n" Number " " Command ^"\n"
+Number " " Command ^"\n" Number " " Command ^"\n" Number " " Command ^"\n"
+Number " " Command |--- "history not found");
+
+Conclusion ::= "Yeah, I have been doing some Debian work recently."
+		| "Gee, I didn't know I'm _that_ boring"
+		| "Unsurprisingly," Command "wins out here."
+		| "For those of you wondering why there is no editor on the list; I use" Editor
+		| "Having" Command "be number one isn't something that surprises me, at all."
+		| "However, having" Command "in the top ten is something that does surprise me."
+		;
+
+SeenAt ::= "on Planet Debian" | "in" Person ^"'s blog";
+
+Really ::= really
+         | totally
+	 | definitely
+	 | - ( Really ^"," Really )
+	 ;
+
+Enhancement ::= "mind-blowing" | amazing | astonishing | exciting | exceptional;
+
+Person ::= "Enrico Zini" | "Uwe Hermann" | "Andrew Pollock" | "Clint Adams"
+		| "Erich Schubert" | "Tollef Fog Heen" | "Joey Hess"
+		| "Wouter Verhelst" | "Rodrigo Gallardo" | "MJ Ray";
+
+Number ::= +DecimalNumber;
+
+DecimalNumber ::= " 1" | " 2" | " 3" | " 4" | " 5" | " 6" | " 7" | " 8" | " 9" | "10"
+                | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19"
+                | "20" ;
+
+Editor ::= vim | emacs | cat | ed | vi | vigor | joe ;
+
+Command ::= >Editor | ls | cd | svn | grep | sed | ssh | rm | dpkg | zsh | dict
+		| sudo | dch | man | "apt-cache" | git | more | less | l
+		| "apt-get" | screen | mutt | aptitude | fg | df | blog | mv
+		| debuild | bzr | ps | "./ikwiki.pl" | xpdf | cp | killall
+		| polygen | cappuccino | mplayer | pornview | sl | "ls-la"
+		| "cd.." | "porn-get" | killall | slay | history | "hot-babe"
+		| nethack | nice;
+

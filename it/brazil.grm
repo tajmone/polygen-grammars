@@ -1,0 +1,284 @@
+I ::=   "title:    La Sele\231\227o!\n"
+      ^ "author:   FJF\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    sport\n"
+      ^ "audience: Per tutti coloro che amano la nazionale verdeoro ma ancora di piu' gli incredibili soprannomi dei suoi componenti\n"
+      ^ "disclaim: Torcida tambi\232n!\n"
+      ^ "created: 6/03/2009\n"
+;
+
+S ::= ( FORMAZIONE )
+;
+
+DIVSTART := "<div id='brazil'>\n";
+DIVEND := "</div>\n";
+
+STYLESHEET := INDENT^"<style>"^
+                             "body { font-family: helvetica, arial, sans-serif; } "^
+                             "h1 { width: 40%; color: green; border-bottom: 1px dotted } "^
+                             "ul { width: 40% } "^
+                             "ul, li { list-style: none; margin-left: 0; padding-left: 0 } "^
+                             "li.player { } "^
+                             "li.player .number { color: green; "^
+                                                 "font-family: monospace; "^
+                                                 "font-size: 1.5em; "^
+                                                 "margin: 0; "^
+                                                 "padding: 0; "^
+                                                 "padding-right: 4px; "^
+                                                 "font-weight: bold; "^
+                                                "} "^
+                             "li.empty { display: none; }"^
+                     "</style>\n"
+;
+
+SCRIPT := "<script>setInterval(function() { window.location.reload(true); }, 5000);</script>\n";
+
+INDENT := "\t";
+
+LIINDENT := INDENT^INDENT;
+
+EMPTYLI := LIINDENT^"<li class='empty'>&nbsp;</li>\n";
+
+GREENSTART := "<span style='color: green'>";
+GREENEND := "</span>";
+
+D ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+;
+
+ANNO := "19"^(D^D)
+;
+
+
+SCHIERAMENTO := GREENSTART^"Schieramento:&nbsp;"^GREENEND;
+
+SCHEMA := ++QDQ | +QTT | TQT | -QQD;
+
+FORMAZIONE ::= DIVSTART^
+               (* SCRIPT^ *)
+               STYLESHEET^
+               INDENT^"<h1>Brasile "^ANNO^"</h1>\n"^
+               INDENT^"<h3>"^GREENSTART^"Coach:&nbsp;"^GREENEND^DENOMINACAO^"</h3>\n"^
+               SCHEMA^
+               INDENT^"</ul>\n"^
+               DIVEND
+;
+
+P ::= LIINDENT^"<li class='player'><span class='number'>&nbsp;1.</span>"^CALCIATORE^"</li>\n"
+;
+
+QDQ ::= INDENT^"<h3>"^SCHIERAMENTO^"4-2-4</h3>\n"
+       ^INDENT^"<ul>\n"
+       ^P
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;2.</span></span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;6.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;5.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;3.</span>"^CALCIATORE^"</li>\n"
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;8.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;4.</span>"^CALCIATORE^"</li>\n"
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;7.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;9.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>10.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>11.</span>"^CALCIATORE^"</li>\n"
+;
+
+QTT ::= INDENT^"<h3>"^SCHIERAMENTO^"4-3-3</h3>\n"
+       ^INDENT^"<ul>\n"
+       ^P
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;2.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;6.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;5.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;3.</span>"^CALCIATORE^"</li>\n"
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;8.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;4.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>10.</span>"^CALCIATORE^"</li>\n"
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;7.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;9.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>11.</span>"^CALCIATORE^"</li>\n"
+;
+
+TQT ::= INDENT^"<h3>"^SCHIERAMENTO^"3-4-3</h3>\n"
+       ^INDENT^"<ul>\n"
+       ^P
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;2.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;5.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;3.</span>"^CALCIATORE^"</li>\n"
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;8.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;6.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;4.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>10.</span>"^CALCIATORE^"</li>\n"
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;7.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;9.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>11.</span>"^CALCIATORE^"</li>\n"
+;
+
+QQD ::= INDENT^"<h3>"^SCHIERAMENTO^"4-4-2</h3>\n"
+       ^INDENT^"<ul>\n"
+       ^P
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;2.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;6.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;5.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;3.</span>"^CALCIATORE^"</li>\n"
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;7.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;8.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;4.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>11.</span>"^CALCIATORE^"</li>\n"
+       ^EMPTYLI
+       ^LIINDENT^"<li class='player'><span class='number'>&nbsp;9.</span>"^CALCIATORE^"</li>\n"
+       ^LIINDENT^"<li class='player'><span class='number'>10.</span>"^CALCIATORE^"</li>\n"
+;
+
+ORDINALE ::= _ | -( "I" | "II" | "III" | "IV" | "V" )(* | ---"VI" | ---"VII" | ---"VIII" | ---"IX" | ---"X" ) *)
+;
+
+DENOMINACAO ::= +++("<i>"^>SOPRANNOME^"</i>") | NOMECOGNOME [ORDINALE] | "\"<i>"^>SOPRANNOME^"</i>\"" NOMECOGNOME
+;
+
+CALCIATORE ::= DENOMINACAO
+;
+
+SOPRANNOME ::= SOPRANNOME1 | SOPRANNOME2 | SOPRANNOME3 | SOPRANNOME4 | SOPRANNOME5 | SOPRANNOME6 | SOPRANNOME7
+;
+
+NOMECOGNOME ::= NOME COGNOME | +(NOME NOME COGNOME) | NOME COGNOME COGNOME | --(NOME NOME COGNOME COGNOME)
+;
+
+SOPRANNOMECOMUNE ::= "Jesuald" | "Leonard" | "Rivald" | "Robert" | "Romuald" | "Ronald"
+;
+
+SOPRANNOME1 ::= ( SOPRANNOMECOMUNE |
+                  "Alem" |
+                  "Braccobald" |
+                  "Cines" |
+                  "Ed" |
+                  "Felip" |
+                  "Jairz" |
+                  "Jun" |
+                  "Lui"^(s|z) |
+                  "Marlonbrand" |
+                  "Pedr" |
+                  "Rivel" |
+                  "Rub" |
+                  "Samuel" |
+                  "Tost" |
+                  "Waldemar"
+                )^SUFFISSO1
+;
+
+SOPRANNOME2 ::= SOPRANNOMECOMUNE^SUFFISSO2
+;
+
+SOPRANNOME3 ::= ( "Adail" | "Ademil" | "Carl" | "Denil" | "Edmil" |  "Rafail" | "Samuel" )^SUFFISSO3
+;
+
+SOPRANNOME4 ::= "Z\232 "^(+NOME | COGNOME)
+;
+
+SOPRANNOME5 ::= NOME
+;
+
+SOPRANNOME6 ::= ( "Aristotel" | "Agenor" | "Socrat" | "Temistocl" )^("es" | SUFFISSO1)
+;
+
+SOPRANNOME7 ::= SILLABAMAIUSCOLA^SILLABAMINUSCOLA
+;
+
+SILLABAMAIUSCOLA := "Pe" | "Di" | "Va" | "La" | "Ka" | "Ne" | "Ca"
+;
+
+SILLABAMINUSCOLA := ( "p\232" | "d\236" | "v\224" | "l\224" | "k\224" | "n\232" | "l\232" )
+;
+
+SUFFISSO1 ::= ( "\227o" | "inho" )
+;
+
+SUFFISSO2 ::= ( "o" )
+;
+
+SUFFISSO3 ::= ( "son" | "ton")
+;
+
+NOME ::= "Anderson" |
+         "Artur" |
+         "Caetano" |
+         "Carlos" |
+         --"Clodovaldo" |
+         "Edmir" |
+         "Edmundo" |
+         "Edson" |
+         "Emerson" |
+         "Felipe" |
+         "Gil" |
+         "Gilberto" |
+         "Jo\227o" |
+         "Jedaias" |
+         "Jerolim" |
+         "Jorge" |
+         "Julio"(_|"Cesar") |
+         "Luis" |
+         "Nazario" |
+         "Paulo" |
+         "Renato" |
+         "Roberto" |
+         "Rogerio" |
+         "Romario" |
+         "Ricardo" |
+         "Waldemar" |
+         "Wanderley"
+;
+
+COGNOME ::= "Amado" |
+            "Andrade" |
+            "Antunes" |
+            "Arantes" |
+            "Ara\250ca" |
+            "Bahiano" |
+            "Baptista" |
+            "Branco" |
+            "Capucho" |
+            "Carioca" |
+            "Carvalho" |
+            "Cavalera" |
+            "Coimbra" |
+            "Cruzeiro" |
+            "Faria" |
+            "Freitas" |
+            "Iz\232cson" |
+            "Jobim" |
+            "Leite" |
+            "Luxemburgo" |
+            "Madeira" |
+            "Neves" |
+            "Paulista" |
+            "Pernambucano" |
+            "Ribeiro" |
+            "Salgueiro" |
+            "Scolari" |
+            "Silveiro" |
+            "So\227res" |
+            "Souza" |
+            "Veloso" |
+            "Victorinho" |
+            "Wilson" |
+            "do "^SUFFISSOCOGNOMEDO | "da "^SUFFISSOCOGNOMEDA | "dos "^SUFFISSOCOGNOMEDOS
+;
+
+SUFFISSOCOGNOMEDOS ::= "Iguaz\250" | "Santos" | "Todos Os Santos"
+;
+
+SUFFISSOCOGNOMEDO ::= "Caix\227o" | "Cruzeiro" | "Cura\231\227o" | -"Curitiba" | "Nascimiento" | "Preto" | "Minheiro"
+;
+
+SUFFISSOCOGNOMEDA ::= "Costa" | "Lima" | "Mata" | "Silva" | "Souza"
+;

@@ -1,0 +1,85 @@
+I ::=   "title:    You know\n"
+      ^ "author:   Mohammed Adnène Trojette &lt;adn+deb@diwi.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   Basic\n"
+      ^ "topic:    General\n"
+      ^ "created:  04/07/2006"
+;
+
+S ::= "You know you" (Are|Have) "when" Action "with" {Object};
+
+TenReasons ::= "The difference between when you" WhatAre and when you WhatAre1 ^"\n\n"^
+               " 1)" OneReason ^"\n\n"^
+               " 2)" AnotherReason ^"\n\n"^
+               " 3)" OneReason ^"\n\n"^
+               " 4)" AnotherReason ^"\n\n"^
+               " 5)" OneReason ^"\n\n"^
+               " 6)" AnotherReason ^"\n\n"^
+               " 7)" OneReason ^"\n\n"^
+               " 8)" AnotherReason ^"\n\n"^
+               " 9)" OneReason ^"\n\n"^
+               "10)" AnotherReason ;
+
+OneReason ::= "You know you" WhatAre "when" Action "with" {Object};
+AnotherReason ::= "You know you" WhatAre1 "when" Action "with" {Object};
+
+WhatAre := Are | Have ;
+WhatAre1 := Are | Have ;
+
+
+Really ::= really
+         | totally
+	 | definitely
+	 | - ( Really ^"," Really )
+	 ;
+			
+Have ::= Really "have" Adverb;
+
+Adverb ::= "nothing to do";
+			
+Are ::= Really "are" (Adjective | {Role})
+      ;
+
+Role ::= "a geek"
+       | "a nerd"
+       ;
+
+Tired ::= "tired" | "bored";
+
+Adjective ::= Tired
+            | "getting better"
+	    | Nationality
+            ;
+
+Nationality ::= "British" | "Italian" | "French" | "American" | "Tunisian" | "Spanish" | "Greek";
+
+Object ::= "a hammer"
+	 | "your mouse"
+	 | "a Dvorak keyboard"
+   	 | "a GPG secret key"
+	 | "a Microsoft Operating system"
+	 | "a laptop"
+	 | "a video game"
+	 | "a z80a"
+	 | "an m68k box"
+	 ;
+
+Action ::= "you try to kill a fly on your screen"
+        | "you set up your own newsgroup"
+	| "you set up an automatic rerouting of your e-mail to your pager"
+	| "you realize you _never_ cook, eating only take-away pizza"
+	| "you check your web access_page more than once a day"
+	| "you plan to get two Masters degrees"
+	| "you spend more than 10 minutes contemplating how traffic lights work"
+	| "you've created a new variety of rose"
+	| "you can explain how AppleTalk Networks work"
+	| "you arrange to get e-mail access no matter where you go"
+	| "you rig up elaborate mechanisms to do really basic tasks"
+	| "you put your pathfinder on the web"
+	| "you write web pages about your web pages"
+	| "your favorite part of Geometry was proving theorems"
+	| "you do your best work after 11 pm"
+	| "you can track the geek gene through your family tree"
+	| "you can sing Tom Lehrer's element song"
+	| "you enjoy writing Polygen grammars"
+	;

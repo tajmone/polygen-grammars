@@ -1,0 +1,101 @@
+I ::=   "title:    Spazio, Ultima Frontiera\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "comment:  questa grammatica e' stata studiata appositamente per riprodurre i dialoghi della prima serie del noto telefilm 'Star Trek'. Avrei potuto scegliere altre serie, ma non le ho viste. A parte un po' Voyager perche' lo danno su Canal Jimmy, e anche quell'ultimo che davano su La7, ma fanno entrambi abbastanza cacare. \n"
+      ^ "warning:  effetti speciali ridicoli non ancora implementati.\n"
+      ^ "created:  28/5/2004"
+;
+
+S::= SCENA PARLA PARLA PARLA PARLA PARLA ;
+
+SCENA ::= "<i>" ( \astronave \enterprise "-" ( \in plancia | sala teletrasporto | sala motori ) | \pianeta PLANET ) "</i>\n\n"^;
+
+PLANET ::= \ >>(helder | klingon | RANDPL^RANDPL )<<;
+
+PARLA ::= PERS [PARLA];
+
+PERS ::= KIRK | SPOCK | MCCOY | SCOTT | SULU | CHEKOV | UHURA;
+
+ORDINE ::= (KI:(\signor \spock | \signor \scott | (\dottor \mc^\coy|\bones)| \signor \sulu | \signor \chekov | \tenente \uhura) |
+	   SP:(\capitano \kirk | \signor \scott | \dottor \mc^\coy | \signor \sulu | \signor \chekov | \tenente \uhura) |
+	   MC:(\jim | \signor \scott | (\signor \spock| \stupido vulcaniano |idiota dalle orecchie a punta) | \signor \sulu | \signor \chekov | \tenente \uhura) |
+   	   SC:(\capitano \kirk | \signor \spock | \dottore | \signor \sulu | \signor \chekov | \tenente \uhura) );
+
+KIRK ::= "KIRK : "(\aprite il fuoco SEGNO.PE | 
+	 \[oh SEGNO.V no SEGNO.PE] siamo stati colpiti SEGNO.PE | 
+	 ORDINE.KI SEGNO.V come possiamo fare per BABBLE SEGNO.PI | 
+ 	 ORDINE.KI SEGNO.V trovi un modo per BABBLE SEGNO.PE | 
+	 \qui parla il capitano \kirk dell'astronave \enterprise [SEGNO.V siamo in missione di esplorazione [SEGNO.PU3 ALIENS.M SEGNO.V rispondete]] SEGNO.PU3 |
+	 ORDINE.KI SEGNO.V ha qualche idea SEGNO.PI 
+	 | \sullo schermo [SEGNO.V ORDINE.KI] SEGNO.PU3
+	 | \non vedo segni di vita intelligente da nessuna parte SEGNO.PU3^SEGNO.PU3^SEGNO.PU3
+	 | \kirk a \enterprise SEGNO.PU3 \ci porti su SEGNO.V \scotty SEGNO.PU3
+	 | TUFFO
+	 ) EOL ;
+
+SPOCK ::= "SPOCK : "(\(affascinante | interessante | [il^]logico) [SEGNO.V ORDINE.SP] SEGNO.PU3 sembra che i ALIENS.M siano in grado di BABBLE  SEGNO.PU3 | 
+		      ORDINE.SP SEGNO.V il tricorder sembra indicare che WHAT abbia fatto si' che WHAT abbia cominciato a BABBLE SEGNO.PU3 |
+		      ORDINE.SP SEGNO.V tutto cio' e' illogico SEGNO.PU3 WHAT [non] puo' [in alcun caso|mai] BABBLE SEGNO.PU3 |
+		      \ORDINE.SP SEGNO.V [come al solito] le sue decisioni sono dettate dalle {umane} {emozioni} [ SEGNO.PU3 \trovo tutto cio' (illogico | interessante | affascinante | deplorevole)] SEGNO.PU3  
+		      | \dobbiamo [semplicemente] accettare il fatto che il ORDINE.SP ( sia morto | sia deceduto | si sia (disintegrato | transmogrifato) | sia impazzito | non sia piu' in vita )SEGNO.PU3
+      		      | \mi sembra la cosa (piu' | meno)[il^]logica da fare SEGNO.PU3
+		      | TUFFO
+		 ) EOL;
+
+MCCOY ::= "MCCOY : "(\jim SEGNO.V sono un dottore SEGNO.PE \non un (ingegnere | carpentiere | falegname | onanista | contadino | calzolaio) SEGNO.PE | 
+		      \e' morto SEGNO.V \jim SEGNO.PU3 ^SEGNO.PU3 ^SEGNO.PU3 |
+		      ORDINE.MC SEGNO.V mi aiuti a portare questo disgraziato in infermeria SEGNO.PE |
+		      \{non sono un mago} SEGNO.V {ORDINE.MC} [SEGNO.V sono solo un vecchio dottore di campagna] SEGNO.PE 
+		      | TUFFO
+		 ) EOL;
+
+SCOTT ::= "SCOTT : "(ORDINE.SC SEGNO.V non so quanto potra' durare cosi' SEGNO.PE | 
+		      ORDINE.SC SEGNO.V non credo di poterla potenziare piu' di cosi' SEGNO.PE |
+      		      ORDINE.SC SEGNO.V non credo di poter ridirezionare piu' energia verso WHAT SEGNO.PE |
+		      \[ORDINE.SC SEGNO.V] ho bisogno di piu' energia SEGNO.PE
+		      | TUFFO
+		 ) EOL;
+
+CHEKOV ::= "CHEKOV : "(\ah SEGNO.V nella [\grande] \madre \russia (non si poteva|ci era vietato|non riuscivamo a)  BABBLE SEGNO.PE | 
+		       \aaaahhh SEGNO.PE  (moriremo tutti SEGNO.PE)+ |
+		       \(capitano | signore | signor \spock) SEGNO.V apro il fuoco [ora] SEGNO.PI
+		       | \ah [si'] [capitano | signor \scott | signor \spock] SEGNO.V WHAT e' stato inventato da (una vecchia signora di | da un gruppo di scienziati di | un'universita' di | un noto inventore di ) ( \leningrado | \mosca | \stalingrado | \kiev ) SEGNO.PE
+		       | TUFFO
+		 ) EOL;
+
+SULU ::= "SULU :"(\attivare velocita' \(warp CIFRA | smodata) SEGNO.PE | 
+		  \velocita' \(warp CIFRA | smodata) attivata SEGNO.PE |
+		  \scudi al CIFRA^CIFRA percento SEGNO.PE |
+		  \capitano SEGNO.V i sensori segnalano CIFRA navi ALIENS.F SEGNO.PE
+		  | TUFFO
+		 ) EOL;
+
+UHURA  ::= "UHURA :"(\capitano SEGNO.V [i ALIENS.M] ci stanno chiamando SEGNO.PE |
+		     \capitano SEGNO.V i ALIENS.M hanno interrotto la comunicazione SEGNO.PE
+		     | \{\capitano} SEGNO.PI [come sarebbe a dire] {(ci arrendiamo | autodistruzione | torniamo indietro | --andatevene affanculo)} SEGNO.PI
+		     | TUFFO
+		 ) EOL;
+
+CIFRA ::= "2" | "3" | "4" | "5" | "6" | "7" | "9" ;
+
+EOL := ^"\n"^\ ;
+
+ALIENS ::= \RANDPL^RANDPL^RANDPL[^ian(M:^i|F:^e)];
+
+BABBLE ::= [de^|dis^][ri^](transmogrifare | allineare | accordare | frequenziare ) WHAT ;
+
+WHAT ::= il subspazio | il tubo di jeffreys | il generatore materia^"-"^antimateria | il sensore principale | il generatore phaser | il portasiluri protonici; 
+
+RANDPL ::= CONS[^VOC][^' ^RANDPL];
+
+CONS ::= -b | -c | d | f | -g | h | +++k | +l | ++n | --p | +q | +r | s | +t | v | +z ;
+
+VOC ::= a | e | i | o | u ;
+
+SEGNO ::= (PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":"\ | PU3: ^"."\ | V: ^"," | VT: ^"\""\ | PI: ^"?"\ | PE: ^"!"\ );
+
+DIREZ ::= a destra | a sinistra | in avanti | all'indietro ;
+
+TUFFO ::= "[ si " (butta | tuffa | lancia) DIREZ "]" ;

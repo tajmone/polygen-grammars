@@ -1,0 +1,47 @@
+I ::=   "title:       Enrica la Monotematica\n"
+      ^ "author:      Manta, Zeff\n"
+      ^ "language:    italian\n"
+      ^ "status:      final\n"
+      ^ "topic:       misc\n"
+      ^ "note:        Enrica e' la ragazza di Zeff\n"
+      ^ "disclaim:    non c'e'," [per l'^] appunto^"\n"
+      ^ "disclaim II: e' stato " { implementato } { [attualmente] }  "il "(9|7)^Numero percento dei suoi discorsi [medi | tipici] ^"\n"
+      ^ "audience:    Enrica, Zeff e compagni\n"
+      ^ "created:     09/02/2003"
+;
+
+Numero ::= 0|1|2|3|4|5|6|7|8|9;
+
+S ::= \ Disclaim | Tormentone;
+
+Disclaim ::=  
+      (["Manta,"] (int: ma | aff: [guarda che])
+       ( non >(hai [ancora] messo [online] | c'e' [ancora])
+       | manca [ancora | sempre]
+       | aff: sto [sempre | ancora] aspettando [che metti [online]]
+       )
+       (il | un | (l | un) ^a pagina co^ (n il | l))
+       disclaimer [[sul sito] [del "Polygen"]]
+       ^ (aff: "!" | int: "?")
+      ).(int|++aff)
+;
+
+
+Tormentone ::=  \ (["Manta, " | scusate [^mi] [tutti] ^","] ["allora"  ] 
+	("quand" (^o|^"'e' che")  Azione.(infinito|presente) | 
+	AzioneFoto.presente | 
+	AzioneGioco.presente ) ^"?" )|
+	"Sto" [sempre | ancora] aspettando  [che (facc | prepar) ^iate]  Squadre ^"!" ;
+
+Azione ::= (infinito: (ci decidiamo a | vi decidete a)| presente: " ") 
+	(AzioneFoto | AzioneGioco);
+
+AzioneFoto ::= (scatt  (infinito: ^are | presente: ^iamo)| (infinito: fare|presente: facciamo)) 
+	una foto [a (tutti|"Zeff"|"Manta"|"Vision-X"|"Marty"|"Sir"|"Gioppino"|"Mattia"|^"d Andrea")];
+
+AzioneGioco ::=  ((prepar | organizz)  (infinito: ^are | presente: ^iamo)| 
+	(infinito: fare|presente: facciamo)) Squadre;
+
+Squadre ::= ( "le squadre" | "i gruppi" | "i team" ) 
+	per giocare a ( ("Pict"|"Vis") ^"ionary" | "Tabu'" | "scacchi" );
+

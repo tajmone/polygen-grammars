@@ -1,0 +1,76 @@
+I ::= "title:    House Music\n" ^
+      "author:   Lorenzo Ferrari" AND AUTORE "&lt;lore-f@tiscali.it&gt;\n" ^
+      "language: english\n" ^
+      "status:   initial release (" ^ VERSIONE1 VERSIONE2 ^ ")\n" ^
+      "topic:    music\n" ^
+      "audience: only for DJs...:)\n" ^
+      "comment:  special thanks to \"" ^ AUTORE ^ "\"\n" ^
+      "disclaim: " ^ ETICHETTA ^ "\n" ^
+      "created:  28/12/2004";
+
+S ::= AUTORE COAUTORE "-" TITOLO VERSIONE ^ "\n<i>" ^ ETICHETTA ^ "<i>";
+
+AUTORE ::= AUTORE1 AUTORE2 | AUTORE2 AUTORE3;
+AUTORE1 ::= "Agent" | "Mr." | "The" | "DJ" | "Dr." | "Doctor" | "Mister";
+AUTORE2 ::= PAROLA | PAROLA PAROLA;
+AUTORE3 ::= "People" | "Orchestra" | "City" | "Town" | "System" | "Scene" |
+            "Land" | "Nation" | "Connection" | "Gang" | "Productions" |
+            "Project" | "Team" | "DJ" | "Design" | "Brothers" | "Tribe" |
+            "Factory" | "Machine" | "Boss" | "Street" | "Plaza" | "Village" |
+            "Bros." | "Guys";
+
+COAUTORE ::= + AND AUTORE | _;
+AND ::= "&" | "Vs." | "Feat." | "Featuring" | "Presents";
+
+TITOLO ::= PAROLA | PAROLA PAROLA | PAROLA PAROLA PAROLA;
+
+VERSIONE ::= + "(" ^ VERSIONE1 VERSIONE2 ^ ")" | _;
+VERSIONE1 ::= AUTORE | "Tribal" | "Dance" | "Radio" | "Extended" | "Club" |
+              "Vocal" | "Original" | "Latin" | "Album" | "Single" |
+              "Deep House" | "Disco" | "Chillout" | "Lounge" | "Electro" |
+              "Trance";
+VERSIONE2 ::= "Mix" | "Version" | "Edit" | "Remix";
+
+ANNO ::= ("198" | "199" | "200") ^ ("0" | "1" | "2" | "3" | "4" | "5");
+
+ETICHETTA ::= ETICHETTA11 ETICHETTA2 ETICHETTA3 |
+              ETICHETTA12 ETICHETTA2 ETICHETTA3 ETICHETTA4;
+ETICHETTA11 ::= "(C)" ANNO;
+ETICHETTA12 ::= "Courtesy of" | "Distributed by";
+ETICHETTA2 ::= PAROLA | PAROLA PAROLA;
+ETICHETTA3 ::= "Records" | "Recordings" | "Music" | "Sound" | "Productions" |
+               "Management" | "Entertainment" | "International" | "Songs";
+ETICHETTA4 ::= "(" ^ ANNO ^ ")";
+
+PAROLA ::= "Disco" | "Sound" | "Vibe" | "Super" | "Cool" | "Clubber" | "Ibiza" |
+           "Feel" | "Good" | "Bass" | "Pleasure" | "Night" | "Club" | "Rythm" |
+           "Ecstasy" | "Massive" | "Freedom" | "Free" | "Light" | "XTC" |
+           "Peace" | "Emotion" | "Feeling" | "Criminal" | "Chemical" |
+           "Fuckin'" | "Sexy" | "Sex" | "Hot" | "Weekend" | "Love" | "Easy" |
+           "Music" | "House" | "Dance" | "Moon" | "Sun" | "Star" | "Myth" |
+           "King" | "Queen" | "Young" | "Heart" | "Trip" | "Trippin'" |
+           "Space" | "Move" | "Shake" | "Shakin'" | "Happy" | "Groove" |
+           "Master" | "Run" | "Beautiful" | "Dream" | "Dreamin'" | "Time" |
+           "Get Down" | "True" | "Fine" | "High" | "DJ" | "Another" | "Chance" |
+           "Great" | "People" | "Ride" | "Home" | "Drums" | "Tribe" | "Funky" |
+           "Deep" | "Voice" | "Fun" | "Future" | "Life" | "God" | "Summer" |
+           "Sea" | "Drunk" | "Tokyo" | "N.Y." | "Body" | "Mind" | "Forever" |
+           "Smooth" | "Fly" | "Fresh" | "Air" | "Shamanic" | "Drug" | "Speed" |
+           "Highway" | "Balearic" | "Power" | "Play" | "Wave" | "Surfin'" |
+           "Smokin'" | "Livin'" | "Dimension" | "Lovin'" | "Ridin'" |
+           "Shifter" | "One" | "Dark" | "Trance" | "Again" | "Everybody" |
+           "C'mon" | "Baby" | "Pure" | "Rockin'" | "Rollin'" | "Dancin'" |
+           "Joy" | "Bliss" | "Shock" | "Shockin'" | "Room" | "Killer" |
+           "Crackin'" | "Burn" | "Fire" | "Burnin'" | "Inside" | "Inner" |
+           "Smile" | "Smilin'" | "Party" | "Drink" | "Drinkin'" | "L.A." |
+           "Killin'" | "Beat" | "Dancefloor" | "Hit" | "70's" | "80's" |
+           "Now" | "Saturday" | "Friday" | "Stop" | "Keep On" | "Head" |
+           "Paris" | "Paradise" | "Heaven" | "Hell" | "Voyage" | "Road" |
+           "Reef" | "Luv" | "Lucky" | "X" | "Stay" | "Noise" | "Illegal" |
+           "Soft" | "Go" | "Guy" | "Lady" | "Girl" | "Man" | "F*ck" | "Silver" |
+           "Gold" | "Hard" | "Addicted" | "Defected" | "Playin'" | "Style" |
+           "Stylish" | "Fashion" | "Top" | "Total" | "Blast" | "Thrillin'" |
+           "Chillin'" | "Island" | "Right" | "Away" | "Alone" | "Downtown" |
+           "Crack" | "California" | "Kiss" | "Blow" | "Colour" | "Tonight" |
+           "Underground";
+

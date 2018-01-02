@@ -1,0 +1,101 @@
+I ::=   "title:    Trame delle puntate di Beautiful\n"
+      ^ "author:   Zcode &lt;zcode@tiscali.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: dedicato a tutti quelli che almeno una volta nella vita si sono dovuti sorbire qualche puntata\n"
+      ^ "link:     se non ne avete abbastanza visitate <a href=\"http://www.tramedibeautiful.com\">tramedibeautiful.com</a>\n"
+      ^ "created:  02/07/2003"
+;
+
+S ::= Titolo "\n\n" ^\Periodo;
+
+Periodo ::= Prop Cong Prop Cong Prop Cong Prop [Cong Prop] ^".";
+
+Cong ::=  ^(","  >(mentre | ma | invece | tuttavia | cosi' | quindi | proprio quando |
+		   poiche' | inoltre | dopo che)) |
+	  ^("."\ >(intanto | ciononostante | inaspettatamente | improvvisamente |nel frattempo |
+	  contemporaneamente | in seguito | da quel momento | in quel mentre | allora |
+	  il giorno seguente));
+
+Nome ::= \(m: >(ridge | thorne | massimo [\marone] | deacon | eric | eric jr | thomas | rick | clarke | lorenzo | "C.J." | whip) |
+	   f: >(brooke | sally [\spectra] | macy | taylor | amber | stephanie | bridget | megan | darla | kristen | morgan) );
+
+Nome2 ::= (Nome^","(m:il|f:la) quale).(m|f) |
+	  (Nome^"," che);
+
+Figlio ::= \(m: >(peace | freedom) |
+             f: >(harmony | hope)) | Nome jr;
+
+Prop ::=   Nome >Prop1 | >Prop2 | Nome >Prop3;
+
+Prop2 ::=  >( (Nome rimane profondamente scoss^(m:o|f:a)).(m|f) dalla (rivelazione|dichiarazione) di (Nome2 Prop1 | Nome) |
+	    ((m:il|f:la) piccol^(m:o|f:a) Figlio).(m|f) ha gia'(20|30|40|50|60) anni |
+	    (Nome e' intenzionat^(m:o|f:a)).(m|f) ad ostacolare il matrimonio di Nome con Nome |
+	    si celebra il matrimonio di Nome e Nome |
+	    i \forrester sono in vacanza in \(italia|francia|bielorussia) |
+	    (i \forrester organizzano|la \spectra organizza) una sfilata |
+	    (Nome e' intenzionat^(m:o|f:a)).(m|f) a figliare al piu' presto con (Nome2 Prop1 | Nome) |
+	    (Nome e' ancora innamorat^(m:o|f:a)).(m|f) di (Nome2 Prop1 | Nome)  |
+	    Nome e Nome vogliono dare vita ad una nuova progenie |
+	    Nome e Nome vanno in luna di miele (alle \hawaai|a \portofino));
+
+Prop3 ::= e >( Nome si sposano |
+  	     Nome si lasciano |
+  	     Nome vanno in vacanza (alle \hawaai|a \portofino)  |
+  	     Nome chiamano ((m:il|f:la) figli^(m:o|f:a) Figlio).(m|f));
+
+Prop1 ::= >(dice a Nome che ((m:il|f:la) figli^(m:o|f:a) e' su^(m:o|f:a) ).(m|f) [Cong Prop1]|
+	    confida a Nome che ((m:il|f:la) piccol^(m:o|f:a) Figlio e' su^(m:o|f:a) ).(m|f) [Cong Prop1]|
+	    (va da Nome a convincerl^(m:o|f:a)).(m|f) di lasciar stare (Nome2 Prop1 | Nome) |
+	    cerca di carpire il segreto di Nome a (Nome2 Prop1 | Nome) |
+	    si sposa con (Nome2 Prop1 | Nome) |
+	    lascia Nome [e si mette insieme a Nome] |
+	    divorzia da Nome [Cong Prop1]|
+	    va a letto con (Nome2 Prop1 | Nome) |
+	    scopre che (Nome e' in realta' su^(m:o|f:a) figli^(m:o|f:a)).(m|f) |
+	    (resuscita|si risveglia dal coma) dopo 3 mesi [e va a trovare (Nome2 Prop1 | Nome)] |
+	    ritorna dalle vacanze alle \hawaai [Cong Prop1]|
+	    riesce a convincere (Nome a dirgli cosa e' successo tra (m:lui|f:lei)).(m|f) e Nome |
+	    spara a Nome [Cong Prop1] |
+	    e' in ospedale per partorire ((m:il|f:la) piccol^(m:o|f:a) Figlio).(m|f) |
+	    investe con la jeep (Nome2 Prop1 | Nome) |
+	    confida a Nome che Nome vuole regalare un anello a (Nome2 Prop1 | Nome) |
+	    rivela a Nome che Nome ama (Nome2 Prop1 | Nome) |
+	    dichiara il suo amore a (Nome2 Prop1 | Nome) |
+	    vuole (un figlio da|perpetrare la sua stirpe con) (Nome2 Prop1 | Nome) |
+	    rivela la (maternita'|paternita') di (Nome2 Prop1 | Nome) |
+	    continua a perseguitare Nome [Cong Prop1]|
+	    adotta ((m:il|f:la) piccol^(m:o|f:a) Figlio).(m|f) |
+	    telefona a (Nome e (m:gli|f:le) rivela tutto).(m|f) |
+	    (disegna|inaugura) una nuova linea di (reggiseni|perizomi|completi leopardati) |
+	    (passa alla|va a lavorare per la) \(forrester|spectra) |
+	    abbandona la \(forrester|spectra) [Cong Prop1]|
+	    aspetta un figlio da Nome [Cong Prop1]  |
+	    concepisce ((m:il|f:la) piccol^(m:o|f:a) Figlio).(m|f) |
+	    mette incinta Nome [durante la festa di compleanno ((m:del|f:della) piccol^(m:o|f:a) Figlio).(m|f)] |
+	    decide di lasciare (tutta l'eredita'|la \forrester|la \spectra) a (Nome2 Prop1 | Nome) |
+	    va una settimana nello chalet in montagna con (Nome2 Prop1 | Nome) [^"," per dimenticare Nome] |
+	    vuole far dimenticare Nome a Nome [Cong Prop1]|
+	    cerca di sedurre (Nome2 Prop1 | Nome) [Cong Prop1]|
+	    si innamora di Nome [Cong Prop1]|
+	    dorme con (Nome (fecondando|inseminando|ingravidando)^(m:lo|f:la) per errore).(m|f) |
+	    (non sa|scopre) che (Nome e' su^(m:o padre|f:a madre) ).(m|f) |
+	    (muore|ha un incidente in auto|finisce in ospedale) |
+	    passa la notte da (Nome2 Prop1 | Nome) |
+	    conquista (Nome2 Prop1 | Nome) |
+	    chiede la mano di (Nome2 Prop1 | Nome) |
+	    va in luna di miele con (Nome2 Prop1 | Nome) |
+	    frequenta segretamente (Nome2 Prop1 | Nome) |
+	    e' ancora assieme a (Nome2 Prop1 | Nome) |
+	    riesce (nel suo intento di|a) farsi (Nome^"," Nome (e Nome| ^"," Nome e Nome)|tutti i \forrester) |
+	    sta per metter al mondo ((m:il|f:la) piccol^(m:o|f:a) Figlio).(m|f) [^"," avuto con (Nome2 Prop1 | Nome)] |
+	    (non sa|scopre) che Nome ha una relazione con Nome [Cong Prop1]|
+	    tradisce Nome con Nome [Cong Prop1] |
+	    vuole fare di tutto per conquistare Nome [Cong Prop1] |
+	    vuole vendicare Nome a tutti i costi [Cong Prop1] );
+
+Titolo ::= "Episodio n."Numero;
+
+Numero ::= N.u^(""|N|N^N|N^N^N)^(N^N^N);
+N ::= z:0|u:>(1|2|3|4|5|6|7|8|9);

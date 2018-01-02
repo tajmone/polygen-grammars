@@ -1,0 +1,109 @@
+I ::=   "title:    Ricette\n"
+      ^ "author:   Serenase &lt;serenase@excite.com&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: tutti i gourmet\n"
+      ^ "created:  06/04/2004"
+;
+
+
+
+S ::= Portata Descrizione ^".\n\n"^ >( "E'" | "Si tratta" | "Vi presentiamo" [ oggi ] | "Ecco" )  PremessaA ^"," PremessaB ^"." Tempo ^"." Diff Persone ^":" Fas1^";" Fas2^"." Fas3^"."  Fas4^":" Fas5^"." Fas6^"." Fas7^"." Servire Vino ;
+
+
+
+Portata ::= "Maccheroni " | "Spaghetti" | "Tortino" | "Caponata" | "Timballo" | "Risotto" | "Stufato" | "Sformato" | "Filetto" | "Pasticcio" | "Fricassea" | "Minestra" | "Gnocchi" | "Trionfo" | "Meringa" | "Budino" | "Orecchiette" | "Crostata" | "Frittura" | "Bomboloni" | "Ratatuille" | "Crema" | "Mousse" | "Passato" | "Zuppa" | "Tortellini" | "Sorbetto" | "Semifreddo" | "Spumone" | "Stracotto" | "Delizia" | "Polpette" | "Frittelle" | "Ciambelle" | "Pure" >( ^' | ^a ) | "Bollito" ;
+
+
+
+Descrizione ::= primavera | fantasia | al guazzetto | mille >( ^foglie | ^gusti | ^aromi ) | misto >( ^fritto | ^mare | ^aromi ) | del  >( ^lo chef | carrettiere | ^la nonna ) | ai >( profumi di >( provenza | mare | sottobosco ) | quattro formaggi ) | alla >( milanese | vene >( ^ta | ^ziana ) | pari >( ^gina | ^sienne ) | boscaiola | pescatora | carrettiera | marinara | diavola | "Bourguignonne" ) | stracotto | pilaf | paglia e fieno | in >( guazzetto | carrozza | salsa ) | al brodetto ;
+
+
+
+
+
+
+
+PremessaA ::= una >( ricetta antichissima | portata fresca | pietanza tradizionale | soluzione piacevole | ricetta regionale | "nota realizzazione della Novelle Cuisine" | delizia d'oriente ) ;
+
+
+
+PremessaB ::= adatta ad ogni occasione | perfetta per un pranzo estivo | veloce e gustosa | sfiziosa e originale | semplice ma saporita | "che anche l'Artusi apprezzava e consigliava" | "di cui anche Marco Polo raccontava nel suo Milione" | "che Gualtiero Marchesi glorifica come miglior compagna per i grandi vini" ;
+
+
+
+
+
+Tempo ::= "Tempo di preparazione:" Ore Minuti Extra ;
+
+
+
+Ore ::= _ | un'ora e | due ore e | tre ore e | cinque ore e | sette ore e ;
+
+
+
+Minuti ::= ( dieci | venti | trenta | quaranta | cinquanta) minuti ;
+
+
+
+Extra ::=  [piu' >( un'ora | due ore | quattro ore | otto ore | una notte | una settimana | due mesi ) per (la  marinatura | la lievitazione | il riposo in frigorifero | la fermentazione | la frollatura ) ] ;
+
+
+
+
+
+Diff ::= [ "E'" un piatto ( facilissimo | facile | difficile | difficilissimo ) ^"."] ;
+
+
+
+
+
+Persone ::= "Ricetta" per ( due | tre | quattro | sei | otto | dodici | venti | ventidue | venticinque ) ( persone | --commensali ) ;
+
+
+
+
+
+Fas1 ::= ("Fate" | "Lasciate" | "Iniziate a far" ) ( [sob^]bollire | [s^]colare | [sof^]friggere | appassire | saltare | lessare | andare in pentola a pressione ) (due | tre | quattro | cinque | sei | sette | otto | nove ) ( _ | etti di | grammi di | chili di | tazze di | cucchiai[^ni] di | manciate di ) Ingrediente ;
+
+
+
+Fas2 ::= (pestate | miscelate | tritate | [s^]battete | sminuzzate | affettate | frullate ) (due | tre | quattro | cinque | sei | sette | otto | nove ) ( _ | etti di | grammi di | chili di | tazze di | cucchiai[^ni] di | manciate di ) Ingrediente ;
+
+
+
+Fas3 ::= ( "Abbellite con" | "Insaporite con" | "Addolcite con" | "Correggete con" | "Aggiungete al composto" [ottenuto] ) (due | tre | quattro | cinque | sei | sette | otto | nove ) ( _ | etti di | grammi di | chili di | tazze di | cucchiai[^ni] di | manciate di ) Ingrediente ;
+
+
+
+Fas4 ::= ("Nel frattempo" | "Precedentemente" | "In precedenza" | "Nell'attesa" | "Contemporaneamente" | "Intanto" ) avrete [gia'] >( sbucciato | soffritto | messo a bagno per trentasei ore | marinato nel vino | fatto  rosolare | sbattuto | rosolato | marinato | fatto appassire | fatto imbiondire ) (due | tre | quattro | cinque | sei | sette | otto | nove ) ( _ | etti di | grammi di | chili di | tazze di | cucchiai[^ni] di | manciate di ) Ingrediente ;
+
+
+
+Fas5 ::= ( cio' | quanto ottenuto | questo ) e' da ( aggiungere | addizionare | miscelare | unire ) >( al composto | alla pietanza | alla polpetta ottenuta | al sugo rimasto nel  >( tegame | ^la padella ) | al vostro preparato | al resto | alla salsa di cottura ) ;
+
+
+
+Fas6 ::= "Fate mantecare" | "Infornate" | "Ribollite" | "Saltate" >(nel burro | nel lardo | nello strutto | nella margarina ) | "Scaldate per dieci minuti" [a fuoco vivo] |  "Fate riposare in frigorifero per" >( sei ore | due ore | dieci ore | otto secondi | il tempo necessario | un minuto | ( un'^ | mezz'^ ) ora ) ;
+
+
+
+Fas7 ::= ("Guarnite con" | "Correggete con" | "Abbellite con" | "Colorate con" ) Ingrediente e ( regolate di sale [e pepe] | aggiungete del( ^lo zucchero | bicarbonato ) | passate nel  passaverdure | filtrate con un setaccio ) ;
+
+
+
+Servire ::= "Servite" [in tavola] >( freddo | caldo | caldissimo | ghiacciato | rovente ) ( in un sottopiatto | in una terrina di coccio | in coppette termiche | in un  plateau | in un piatto da pesce | nella pentola di cottura | indossando un vestito tipico delle zone di produzione | con un largo sorriso) ^".";
+
+
+
+Vino ::= ( "Si" | --"Il nostro sommelier" ) >( consiglia | suggerisce | caldeggia | raccomanda ) di >( innaffiare | [de^]gustare | accompagnare ) con un >( vino | --nettare ) ( bianco | ro >(^se' | ^sato | ^sso | ^busto ) | corposo | importante | mosso | fermo | barricato | leggero | maturo ) ^","  ( ( come ad | per ) esempio | ottimo | tra cui [ vi ] suggeriamo ) ( un ( ^a bonarda |^o spumante | aglianico | malvasia | recioto | barbaresco | brunello | amarone | pinot nero vinificato bianco | cannonau | frascati |  beaujolais | primitivo ) )  ( dell'oltrepo' pavese | di sardegna | dei colli piacentini | delle terre di barolo | di montepulciano | di montalcino | di franciacorta | delle langhe | del tavoliere delle puglie | dei colli albani | della valtellina | di manduria | di salaparuta ) ^"," [ assolutamente | rigorosamente | come (cert >( ^o | ^amente ) | [ gia' ] ) sapete | certamente | naturalmente | ovviamente | come sempre | preferibilmente | magari ] da >( servir >( ^si | ^e )
+ | offrir>( ^si | ^e ) ) >( a temperatura ambiente | [ decisamente ] ghiacciato | fresc >( ^o | ^hissimo ) | previa ( decantazione | ossigenazione ) | in >( calici | flut | bicchieri ampi ))  ^"."  ;
+
+
+
+
+
+Ingrediente ::= caciotte | pizzichi di sale | rape | cipollotti | fettine di salmone affumicato | cosciotti di lepre | pate' de foie gras [ ^", meglio se di" ( anatra | oca | scrofa | bufala | anguilla | cammella ) ( _ | ungherese | finlandese | del kurdistan | malese | frollata | allevata biologicamente | "del corno d'Africa" )] | mozzarelle [ di bufala | vaccine | inacidite | piccanti | sciolte ] | unita' di panna acida | prese di pepe | melanzane | peperoni | peperoncini di cayenna | foglie di >( lattuga | salvia | vite | catalogna | indivia [belga] ) | aragoste | costine | ali di pollo | porri | maccheroni | spaghetti | trenette |  spicchi >( d'aglio | di mela | di mandarino) | cipolle | salsicc >( ^e | ^iotti ) | acciughe | zollette di zucchero | fettine di mela | avocados | filetti >( di cernia | di trota | di manzo | di coniglio | di merluzzo ) | zucchine | barbabietole | dosi di panna montata | molliche di pane | cubetti di lievito | mazzancolle | castagne | marrons glaces | 
+anatre | testine di ( capretto | vitellino | agnello | puledro ) | animelle | fave | ciccioli | fette di ( salam >( ^e | ^ino )) [ ungherese | felino | milano | campagnolo | piccante ] | prosciutto [ crudo | cotto | di parma | "San Daniele" | "Serrano di Catalogna" ] | misure di glassa | tuorli d'uovo | prese di farina [ di mais | di grano saraceno | di farro | integrale | o di maizena | o di fecola di patate | di castagne ] | pomodori [secchi] | pinoli | cacio >( ^cavalli | ^tt >( ^e | ^ine ) ) | sottilette | canditi | scorze ( d'arancia | di limone ) | mandorle [ pelate | tostate | salate | glassate ] | petali di >( rosa | violetta | nontiscordardime ) | carciofi [ ^ni ] | cetrioli [ ^ni [ sottaceto ] ] | mais | favi con miele | lampascioni | manciate di prezzemolo | rametti di rosmarino | cime di rapa | uvetta sultanina | fettine di >( mango | manzo | trota salmonata | pan di spagna | vitello ) | cacciatorini | fagiani | dosi di succo di pomodoro | misure di salsa >( di pomodoro |
+ di soia | verde ) | dosi di brodo >( vegetale | di pesce ) | manciate di caviale | tartufi | tofu | tomini | capperi | paste frolle | vol au vent | uova >( _ | di quaglia | di lompo | di struzzo ) | broccol >( ^i | ^etti) | topinambour | dosi di zenzero | gamberetti | seppi >( ^oline | ^e) | polp >( ^i | ^etti) | gambi di sedano | finocchi [^etti] | piselli [^ni] | fagioli [^ni] | fiori di zucca ;

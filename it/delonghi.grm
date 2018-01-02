@@ -1,0 +1,109 @@
+
+I ::=   "title:    Prodotti De'Longhi\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: chiunque, ma Sergio in particolare\n"
+      ^ "slogan:   chi xe che ga suga' el canal?\n"
+      ^ "disclaim:" \ Prod.cap.NOart e' un marchio registrato da "De'Longhi S.p.a.\n"
+      ^ "created:  28/11/2002"
+;
+
+S ::= Prod.art.cap "De'Longhi"
+;
+
+Prod ::= Verbo.pre.1 |- Prod2
+;
+
+Suff ::= ^ (Verbo | Ogg)
+;
+
+Verbo ::= (X ::= Suff.2.NOart.NOcap ;
+
+ 		  >> <(art: il | NOart: _) <(cap: \ | NOcap: _)
+             ( ( brucia | lessa | trita | tira | lava | gratta | pompa
+               | mischia | pela | gira | lancia | tosta | mangia
+               | macina | griglia | secca | bagna | taglia | getta
+               | briga
+               ) <(1: X.a. | 2: _)
+             | (friggi | cuoci | bolli | batti | mesci)
+               <(1: X.i. | 2: _)
+             | (caldo | freddo | pronto)
+               <(1: X.o. | 2: _)
+             )
+           | <(art: lo | NOart: _) <(cap: \ | NOcap: _)
+             ( ( sforna | stira | spezza | scola | spiuma | scanna | spalma
+               | strizza | scalda | schiaccia | stacca | spacca | sbriciola
+               | spruzza | scotta | schianta | sbuccia
+               ) <(1: X.a. | 2: _)
+             | (scuoci | spremi | sbatti | sciogli | spargi | spegni | stringi)
+               <(1: X.i. | 2: _)
+             )
+           | <(art: l'^ | NOart: _) <(cap: \ | NOcap: _)
+             ( <(i: a^ | o: a^ | pre: a^ | a: _) sciuga
+               <(1: X.a. | 2: _)
+             | <(a: i^ | o: i^ | pre: i^ | i: _) (nforna | mpana | mpasta | ncendia)
+               <(1: X.a. | 2: _)
+             )
+          <<
+          )
+;
+
+Ogg ::= >> pizza | pasta | forno | tutto | legna | svelto | bello | grassi | sugo | carne
+     	|  pesce | sale | pepe | tetto | spiedo | pollo | pizza | bagno | cucina | merda
+     	|  pane | bisi | risi | male | mele | pere | sassi | muri | soggiorno | camera
+     	|  caffe' | miele | te' | frutta | lardo | strutto | toast | letto | tinello
+     	|  strada | polvere | gelato | briciole | fuoco | castagne | torta | cappe | cozze
+     	|  folpi | sangue | paglia | fieno | trote | prugne | sciarpa | scarpe | sedano
+     	|  ribes | tripp^(e | a) | fegato | rognoni | bile | rogna | helder | ragu
+        |  gioppino
+     	|  <(i: a^ | o: a^ | a: _) (nguria | rrosto | cqua[^rio] |++ more)
+     	|  <(a: i^ | o: i^ | i: _) (nsalata | mpazza)
+     	|  <(a: o^ | i: o^ | o: _) live
+       <<
+;
+
+A ::= (art: il\ | art2: [il\] | NOart: _) >(sugo | ragu | caffe)
+   |  (art: lo\ | art2: [gli\] | NOart: _) gnocchi
+;
+
+Aa ::= (art: il\ | art2: [la\] | NOart: _)
+       (pizz | past | lasagn)
+       (a: ^a | NOa: _)
+;
+
+Citta ::= (art: il\ | art2: _ | NOart: _)
+          ("Napoli" | "Positano" | "Sorrento" | "Irpinia" | "Molise")
+;
+
+Ba ::= ( (art: il\ | art2: [la\] | NOart: _)
+         >( mafi | mamm | vit
+          |--- camorr |---- ndranghet |------ "SacraCoronaUnit"
+          )
+       | (art: il\ | art2: \ | NOart: _)
+         >(viv | bell)
+       )
+       (a: ^a | NOa: _)
+;
+
+BA ::= (art: _ | art2: [l'^\] | NOart: _)
+       (a: a^ | NOa: _)
+       (more)
+;
+
+C ::= (art: il\ | art2: \ | NOart: _)
+      (ciao |-- pavarotti | mia)
+;
+
+Escl ::= "that's" | viva | brava | bella | grande
+;
+
+Prod2 ::= A         ^\  >(Ba | BA |- C | Citta).a.NOart.
+       |  Aa.a      ^\  >(Ba |- C | Citta).a.NOart.
+       |  Aa.NOa    ^\  BA.a.NOart.
+       |  Ba.a      ^\  >(A | Aa |- C | Citta).a.NOart.
+       |  Ba.NOa    ^\  BA.a.NOart.
+       |- C         ^\  (A | Aa | Ba | BA | Citta).a.NOart.
+       |  \Escl      \   >(Ba |- C | A | Aa | BA | Citta).a.art2.
+;

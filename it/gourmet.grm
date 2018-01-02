@@ -1,0 +1,481 @@
+I ::=   "title:    Gourmet\n"
+      ^ "author:   N-Joy &lt;claudio@arpaweb.tv&gt; &amp; DHS\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "comment:  le migliori ricette per una cucina leggera, raffinata e sempre diversa\n"
+      ^ "disclaim: seguitele a vostro rischio e pericolo!\n"
+      ^ "created:  10/09/2004"
+;
+
+S ::= (
+       \NOME"\n\n..."^COMMENTO"\n\nIngredienti:\n\n" ^INGREDIENTE ^INGREDIENTE ^INGRFINALI"\n\n"^\VINO"\n\n"
+      )
+;
+
+
+(*S ::= (NOME);*)
+
+
+NOME:=
+	(
+	PREDISINGF [AGGETTIVIFEMSING] di SECONDAPARTE
+	|PREDISINGM [AGGETTIVIMASCHSING] di SECONDAPARTE
+	|PREDIPLURF [AGGETTIVIFEMPLUR] di SECONDAPARTE
+	|PREDIPLURM [AGGETTIVIMASCHPLUR] di SECONDAPARTE
+	|PREALSINGF [AGGETTIVIFEMSING] SECONDAPARTEAL
+	|PREALSINGM [AGGETTIVIMASCHSING] SECONDAPARTEAL
+	|PREALPLURM [AGGETTIVIMASCHPLUR] SECONDAPARTEAL
+	|PREALPLURF [AGGETTIVIFEMPLUR] SECONDAPARTEAL
+
+	[(e|con) INGR]
+	
+	|
+
+	SECONDAPARTE [(e|con) INGR]
+
+	|
+
+		(
+		PREDISINGF INGR e INGR
+		|PREDISINGM INGR e INGR
+		|PREDIPLURF INGR e INGR
+		|PREDIPLURM INGR e INGR
+		|PREALSINGF INGR e INGR
+		|PREALSINGM INGR e INGR
+		|PREALPLURM INGR e INGR
+		|PREALPLURF INGR e INGR
+		)
+
+	)
+
+	
+
+	(---alla REG|_)
+;
+
+SECONDAPARTE::=
+	(FEMSING [PREPNEUTRE|PREPNEUTRESING]
+	|FEMPLUR [PREPNEUTRE|PREPNEUTREPLUR]
+	|MASCHSING [PREPNEUTRE|PREPNEUTRESING]
+	|MASCHPLUR [PREPNEUTRE|PREPNEUTREPLUR])
+;
+
+SECONDAPARTEAL::=
+	(alla FEMSING [PREPNEUTRE|PREPNEUTRESING]
+	|alle FEMPLUR [PREPNEUTRE|PREPNEUTREPLUR]
+	|(al),(allo),(all^"'"^) MASCHSING,MASCHSINGECC,MASCHSINGECC2 [PREPNEUTRE|PREPNEUTRESING]
+	|ai,agli MASCHPLUR,MASCHPLURECC [PREPNEUTRE|PREPNEUTREPLUR])
+;
+
+INGREDIENTE::=
+	"- "QUANTO "\n" [^INGREDIENTE]
+;
+
+INGR::=
+	INGRFS|INGRFP|INGRMS|INGRMP
+;
+
+FEMSING::=
+	trota|--pampanella|pancetta|rucola|scamorza|cicoria|caciotta|insalata [mista]|paella|platessa
+	|ricciola|pescatrice|fontina|mozzarella|bufala|trota [salmonata]|panna [acida]|aragosta|impepata
+	|impanata|fonduta|bagna [cauda]|tritata|imburrata|fantasia|quaglia|crescenza|polenta|--cassoeula
+	|acetosella|zucca|cernia|sogliola|verza|lepre
+;
+
+FEMPLUR::=
+	aringhe|acciughe|olive|banane|farfalle|penne|uova|mele [cotogne]|conchiglie[^tte]|linguine|patate
+	|puntarelle|barbabietole|verdure|ortiche|melanzane|arance|pesche|pere|prugne|noci|zucchine
+	|mozzarelline|olive|ciliegie|mandorle|fragole|cipolle|cozze|patelle|noci [della \california]
+	|capesante|ostriche|carote|castagne
+;
+
+MASCHSING::=
+	groviera|nero di seppia|tartufo|lardo [di \colonnata]|pecorino|capicollo|scorfano|merluzzo|pesce persico|caviale|maiale|manzo
+	|limone|pollo|vitello|granchio|grongo|salmone|mango|branzino
+	|prosciutto|cacio|formaggio|radicchio|brasato|emmenthal|vitellone|cappone
+	|cappon magro|tonno|pescespada|farro|couscous|camembert|carpaccio|pesto|barolo|moscato d^"'"\asti
+	|cinghiale|coniglio|cavolo|branzino|cavolfiore|baccala^"'"|brie'|parmigiano|pecorino|grana|polpo|gorgonzola|capretto
+;
+
+MASCHSINGECC::=
+	zampone|struzzo|speck|zenzero|zabaione|stoccafisso|zafferano|lardo [di \colonnata]
+;
+
+MASCHSINGECC2::=
+	astice|emmenthal|orzo|olio|ostrica|aglio|ananas|agro
+;
+
+MASCHPLUR::=
+	fagioli|fagiolini|moscardini|gamberetti|carciofi|porri|sedanini|capperi|pistacchi|porcini|galletti|peperoni|piselli|fiori di zucca
+	|moscardini|pomodori|peperoni|lamponi|pinoli|porri|wurstel|ceci|gamber^[ett^]i|--pizzoccheri|fichi|ravanelli|totani
+	|cavoletti di \bruxelles|finocchi|funghi|porcini|champignons
+;
+
+MASCHPLURECC::=
+	hamburger|scampi|spinaci
+;
+
+INGRFS::=
+	farina [bianca|gialla|integrale|di farro|di grano tenero]|semola di grano duro
+	|panna [da cucina|da montare|liquida|fresca|vegetale]
+	|carne di CARNE [macinata]|ricotta [piemontese|vaccina|di pecora|romana]
+	|salsa di soia|mollica di pane|radice di zenzero [fresco|secco]
+	|noce moscata|margarina|cannella [in polvere]
+	|FRUTTA|erba cipollina|besciamella|peara'
+	|pasta (frolla|sfoglia|brisee|fillo) [pronta|fresca|surgelata|in rotolo]
+	|gelatina in fogli|pancetta [tesa] [--tagliata in una sola fetta]
+	|colla di pesce|noce di cocco [grattugiata] [disidratata]|[foglie di]menta [fresca]
+	|maggiorana|--jevezarola|--sangria|maizena|menta|sogliola|patate novelle|crescenza
+	|crema (pasticcera|chantilly|al limone)|--nutella|pancetta [a dadini]|cannella|curcuma|glassa pronta|maionese
+	|polpa di granchio|salsa \worcester|paprika dolce|lonza|salvia|crescenza|polenta|mortadella|mortazza
+	|rucola|birra|rughetta|fontina|cernia
+;
+
+INGRFP::=
+	aringhe|alici|mele|pere|cipolline|cime [--------tempestose] di rapa|taccole|meringhette [mignon] [gia^"'"pronte]|olive [verdi|nere|taggiasche|di \gaeta|\kelemata|greche|piccanti]
+	|cipolle [rosse|bionde|di \tropea]|focaccine|mezze penne|erbe selvatiche
+	|mandorle [tostate|spellate|tritate [finemente|grossolanamente]]|coste di rabarbaro
+	|lenticchie [rosse|verdi]|cialde pronte|pesche sciroppate|patate [a pasta gialla|con la buccia rossa|farinose]|noci [della \california]|----pastiglie \valda
+;
+
+INGRMS::=
+	toma d^"'"alpeggio|polipo|gorgonzola|grana padano|zucchero [semolato|--in granella|a velo]|tabacco|ketchup|parmigiano reggiano
+	|vino [bianco|bianco secco|rosso|rose^"'"|d^"'"annata]|aceto [di vino rosso|di vino bianco|balsamico|di \modena|di mele]
+	|burro|strutto|formaggio [fresco|primo sale|tipo \toma|grattugiato|da spalmare|magro|stagionato]|pecorino [sardo|romano|al pepe]|lievito [in polvere]
+	|sedano|pancarre^"'"|aglio|prosciutto [crudo|cotto|--di cervo] [--tagliato in una sola fetta]
+	|caciocavallo [grattugiato]|pan di \spagna [pronto] [tagliato a fette]|cacao [magro]|cioccolato [bianco|al latte|fondente|nocciolato]
+	|brodo [vegetale|di pollo|di carne|di pesce]|fumetto di pesce|yogurt [magro|greco|intero]
+	|cumino|basilico|prezzemolo|curry|dragoncello|aglio|rosmarino|sale grosso|sale fino|salame
+	|miele (d^"'"acacia|di castagno|di agrumi|millefiori|di lavanda|di corbezzolo|di fiori d^"'"arancio)
+	|--calvados|--chorizo|cicorino|cocco|salmone|merluzzo|quartirolo|timo|rabarbaro|gelato
+	|pecorino giovane|pangrattato|\martini secco|coriandolo [(in grani|in polvere)]|olio [--per friggere]|riso parboiled|pure'|caviale
+	|pepe [verde|di cayenna|verde|rosso|bianco] [in grani]|albume d^"'"^uovo|cognac|branzino|cavolfiore|--sake^"'"
+	|caffe'|dado [(\star|\liebig)]|latte|alloro|--tarassaco
+;
+
+INGRMP::=
+	scalogni|porri|semi di papavero|capperi [sotto sale|dissalati]|piselli [sgranati]|peperoni [gialli|rossi]
+	|frutti di bosco [misti] [^"("^fragole^","ribes^","lamponi^","mirtilli^","more^")"]
+	|fagioli [canellini|borlotti] [in scatola]|scalogni|asparagi|maltagliati
+	|spaghetti|strichetti|galletti|sottaceti|calamari|pistacchi|ceci|gamber^[ett^]i
+	|datteri|fiori di zucca
+;
+
+QUANTPLURM::=
+	spicchi|ciuffi|cucchiai[^ni]|bicchieri|rametti|pezzetti|cuori|cespi|chicchi
+;
+
+QUANTPLURMNODI::=
+	piccoli|grossi
+;
+
+QUANTSINGM::=
+	spicchio|ciuffo|mazzetto|pugno|cucchiai[^n]^o|dl|bicchiere|pizzico|rametto|pezzetto
+	|cuore|cespo|tubetto|po^"'"
+;
+
+QUANTSINGMNODI::=
+	grosso|piccolo
+;
+
+QUANTSINGF::=
+	bustina|macinata|fetta|manciata|scatola|costa|stecca|testa|confezione
+;
+
+QUANTSINGFNODI::=
+	piccola|grossa	
+;
+
+QUANTPLURF::=
+	bustine|fette|manciate|scatole|coste|stecche|teste|scaglie|confezioni
+;
+
+QUANTPLURFNODI::=
+	piccole|grosse
+;
+
+QUANTCFR::=
+	due|tre|quattro|cinque|sei|sette|otto
+;
+
+QUANTNUM::=
+	10|20|50|80|100|125|150|175|200|250|300|400|500
+;
+
+QUANTO::=
+	(QUANTNUM grammi di | (QUANTCFR QUANTPLURM di|un QUANTSINGM di|una QUANTSINGF di|QUANTCFR QUANTPLURF di)) INGR
+	| --(QUANTCFR QUANTPLURMNODI INGRMP|un QUANTSINGMNODI INGRMS|una QUANTSINGFNODI INGRFS|QUANTCFR QUANTPLURFNODI INGRFP) 
+;
+
+IN::=
+	in crosta di|in salsa di|in letto di|con guarnizione di|con salsa di|alla crema di|al sapore di|all^"'" aroma di|al sapore di
+;
+
+AGGETTIVIFEMSING::=
+	arrostita|fredda|ricca|cremosa|raffinata|farcita|classica|esotica|ricoperta|meringata|rustica|croccante|tropicale|goduriosa|ricciolina|morbida|grigliata|mantecata|golosa|tradizionale|dorata|caramellata|\waldorf|integrale|trifolata
+;
+
+AGGETTIVIFEMPLUR::=
+	arrostite|fredde|ricche|cremose|raffinate|farcite|classiche|esotiche|ricoperte|meringate|rustiche|croccanti|tropicali|goduriose|riccioline|morbide|grigliate|mantecate|golose|tradizionali|dorate|caramellate|\waldorf|integrali|trifolate
+;
+
+AGGETTIVIMASCHSING::=
+	arrostito|freddo|ricco|cremoso|raffinato|farcito|classico|esotico|ricoperto|meringato|rustico|croccante|tropicale|godurioso|ricciolino|morbido|grigliato|mantecato|goloso|tradizionale|dorato|caramellato|\waldorf|odoroso|integrale|trifolato
+;
+
+AGGETTIVIMASCHPLUR::=
+	arrostiti|freddi|ricchi|cremosi|raffinati|farciti|classici|esotici|ricoperti|meringati|rustici|croccanti|tropicali|goduriosi|trifolati|ricciolini|morbidi|grigliati|mantecati|golosi|tradizionali|dorati|caramellati|\waldorf|integrali
+;
+
+AGGETTIVINEUTRI::=
+	stuzzicante|in rosso|rinfrescante|da dessert|fantasia
+;
+
+SOTT::=
+	sott^"'"aceto|sott^"'"olio|sotto sale
+;
+
+REG::=
+	sammarinese|calabrese|siciliana|molisana|emiliana|pugliese|napoletana|romana|milanese|genovese|marchigiana
+	|mugnaia|marinara|pizzaiola|nizzarda|ragusana|cacciatora|rustica|tartara|carriola|carrozza|puttanesca
+	|contadina|russa|francese|cubana|veneta|chitarra|livornese|diavola|--acqua pazza|creola|ateniese|cipriota
+;
+
+FRUTTAFEMSING::=
+	mela|pera|pesca|arancia|banana|albicocca|prugna [della \california]|uva [nera|bianca]|ciliagia|mora
+	|susina
+
+;
+
+FRUTTAFEMPLUR::=
+	mele [cotogne]|pere|pesche|arance|banane|albicocche|prugne [della \california]|nocciole|ciliege|more|sunine
+;
+
+FRUTTAMASCHSING::=
+	mango|avocado|melograno|[la buccia di un] limone [non trattato]|ribes|cocco|noce|melone|cocomero
+	|fico
+;
+
+FRUTTAMASCHPLUR::=
+	mango|avocado|melograni|gherigli di noce
+;
+
+FRUTTA::=
+	(una [grossa|piccola] FRUTTAFEMSING [acerba|matura|molto matura|poco matura]|NUMPLUR [grosse|piccole] FRUTTAFEMPLUR [acerbe|mature|molto mature
+	|poco mature]|un FRUTTAMASCHSING [acerbo|maturo|molto maturo|poco maturo]|NUMPLUR FRUTTAMASCHPLUR [acerbi|maturi|molto maturi|poco maturi])
+;
+
+NUMPLUR::=
+	due|tre|quattro|cinque|sei|sette|otto|nove
+;
+
+CARNE::=
+	pollo|agnello|coniglio|manzo|maiale|struzzo|tacchino|vitello
+;
+
+INGRFINALI::=
+	"- "sale [quanto basta]|"- "pepe [quanto basta]|"- "olio extravergine d'oliva [quanto basta]
+;
+
+PREPGENERE::=
+	brasat|lessat|fritt
+;
+
+PREPNEUTRESING::=
+	(filante|croccante|piccante|--arlecchino|----gran gourmet|in gelatina)|_
+;
+
+PREPNEUTREPLUR::=
+	(filanti|croccanti|piccanti|aulenti|--arlecchino|----gran gourmet|in gelatina)|_
+;
+
+PREPNEUTRE::=
+	a bagnomaria|in umido|in glassa|all^"'"\agro|in salsa [piccante]|misto mare|al cartoccio|alla brace|in forma|in zuppa|in agrodolce|al forno|in crosta di INGR|flambe^"'"|--frattau|arlecchino|in camicia|con INGR|al sapore di INGR|in letto di INGR
+;
+
+PREDISINGM::=
+	(lesso|brasato|souffle'|sformato|budino|stufato|bollito|arrosto|spezzatino|brodo [----primordiale]|cartoccio|magatello|carpaccio|crumble|polpettone
+	|[cuore di] budino|--vincisgrassi|tortino|spezzatino|pate'|--sartu'|dolce|minestrone|caciucco|filetto
+	|capriccio|consomme'|sanguinaccio|sorbetto|braciolone|--potage|aspic)
+;
+
+PREDISINGF::=
+	(quenelle|vellutata|dadolata|passata|ribollita|tartara|zuppa|bistecca|insalata|crema|tortiera|salsa|teglia|torta [rovesciata]|crostata|fonduta|piadina
+	|mousse [delicata]|mousse|zuppetta|mattonella|frittata|saute^"'"|ciambella|bavarese|confettura|tortina
+	|minestra|tagliata|pizza|lingua|trippa|cervella|pastiera|meringata|glassa|gelatina|salsiccia|gelatina|[s]^padellata) 
+;
+
+PREDIPLURM::=
+	(canestrini|maltagliati|calcioni|medaglioni|crostoni|bocconcini|filetti|spiedini|bastoncini|pacchetti|involtini|biscotti[^ni]|vol^"-"^au^"-"^vent
+	|gnocchi|sformatini|tortellini|panzerotti|saltimbocca|toast|ravioli|arancini|fegatini|cuoricini) 
+;
+
+PREDIPLURF::=
+	(coppe|scaloppine|polpettine|delizie|tartine|cocottine|tartellette|medaglie|brioches|frattaglie|praline|salsicce) 
+;
+
+PREALSINGF::=
+	(peperonata|panna cotta|frittura|sfoglia|sfogliata|farinata|millefoglie|frittata|cheesecake|padellata|teglia|tiella|pizza|pastiera|braciola[^ta]|fiorentina|--sinfonia)
+;
+
+PREALSINGM::=
+	(pollo|vitello|manzo|tacchino|agnello|capretto|stracotto|timballo|risotto|pudding|pasticcio|rotolo|strudel|semifreddo|arrosto|--caciucco|spezzatino|rognone|pate'|pure'|--moussaka)
+;
+
+PREALPLURF::=
+	(uova|frattaglie|trofie|striscioline|orecchiette|pappardelle|lasagne|linguine|[mezze] penne|pennette|bavette|rasagnole)
+;
+
+PREALPLURM::=
+	(lumaconi|canederli|strozzapreti|--finferli|panini|bigne^"'"|coni|[mini]^sandwich|profiteroles|saltimbocca|stracci|spaghetti|maccheroni|maccheroncini|fusilli|bigoli|ravioli|tortelli|tortellini|tortiglioni|torciglioni|bucatini|gnocchi|conchiglioni|fusilli|sedanini|maltagliati|calzoni|gnocchetti)
+;
+
+COMMENTO::=
+(COSTRUTTI^","CONCLUSIONI)|AUTOCONCLUSIVI
+;
+
+AUTOCONCLUSIVI::=
+ricc^(hi,he,a,o) di proprieta^"'" nutritive^","ti ricaric^(ano,ano,a,a) di energia
+|mangiare sano|anche l^"'"occhio vuole la sua parte
+|(COMMPLURM e COMMPLURM),(COMMPLURF e COMMPLURF),(COMMSINGM e COMMSINGM),(COMMSINGF e COMMSINGF) ti ricarica(no,no,_,_) di energia
+|un amico in cucina
+|tanto gusto^","niente lische
+|un (antipasto|primo|secondo|dessert|contorno) molto speciale
+|scopritel^(o,a,e,i) accompagnat^(o,a,e,i) da un buon bicchiere
+|da preparazione tipica della cucina REG a pezzo forte della cucina internazionale
+|una ricetta facile ma di effetto^"," impreziosita da (tanti INGRMP|tante INGRFP)
+|(due|tre|quattro) strati di sapore|una saporita scorta di stagione
+|irresistibile e talmente COMMSINGM|COMMSINGF
+|un classico intramontabile e irresistibile
+|i profumi dei nostri litorali
+|il grande protagonista dell^"'"estate e^"'" sempre il benvenuto a tavola
+|la tradizionale ricetta della nonna
+|i sapori di una volta
+;
+
+COSTRUTTI::=
+un tocco (di fantasia|mediterraneo)
+|ingredienti COMMPLURM ^[","COMMPLURM] [e COMMPLURM]
+|un COMMSINGM dessert (estivo|autunnale|primaverile|invernale)
+;
+
+CONCLUSIONI::=
+da assaporare con la bottiglia giusta
+|per uno dei piatti STAG^i per eccellenza
+|perfett^(o|a|i|e) per un invito
+|ottim^(o|a|i|e) da preparare in anticipo
+|per una cena sotto le stelle[^","COMMSINGF e COMMSINGF]
+|da gustare senza rimorsi
+|per un (pranzo|invito) (speciale|stellare|diverso|da provare)
+|per un COMMSINGM dessert a sorpresa
+|per un piatto scenografico ma facile da preparare
+|con (una marcia|quel qualcosa|quel tocco) in piu^"'"
+|ideal^(i|e) per l^"'"^(estate|inverno|autunno)
+|con tutta la ricchezza del sapore mediterraneo
+|per un^"'"^esplosione di sapori
+;
+
+STAG::=
+estiv|invernal|autunnal|primaveril
+;
+
+COMMPLURM::=
+semplici|genuini|sfiziosi|irresistibili|estivi|insoliti|freschi^["ssimi"]
+|morbidi|gustosi|pratici|buonissimi|tipici|golosi|ricchi
+;
+
+COMMSINGM::=
+semplice|genuino|sfizioso|irresistibile|estivo|insolito|fresc^["hissim"]^o
+|morbido|gustoso|pratico|tipico|goloso|ricco
+;
+
+COMMSINGF::=
+semplice|genuina|sfiziosa|irresistibile|estiva|insolita|fresc^["hissim"]^a
+|morbida|gustosa|pratica|tipica|golosa|economica|veloce|ricca
+;
+
+COMMPLURF::=
+semplici|genuine|sfiziose|irresistibili|estive|insolite|fresc^["hissim"]^e
+|morbide|gustose|pratiche|tipiche|golose|economiche|veloci|ricche
+;
+
+VINO ::= (per accompagnare il piatto^"," Cons|(lo chef|il sommelier) Sugg|(accompagnamento|compagno) ideale di questo piatto e^"'"|per quanto riguarda il vino^"," Cons|accosteremmo a questo piatto|in compagnia di questo piatto^","(e^"'"d^"'"^obbligo|non (++puo^"'"|fate)[assolutamente]mancare)) 
+	un \P2 P3 [del_,dell^ "'"^ANNO,ANNO2|annata 19^(ANNO|ANNO2)]^"," CAR1 (alla lingua|al palato)^"," ((con un|dal) caratteristico|(con un|dal) tipico| (con un|dall'^)inconfondibile|(con un|dal)) (retrogusto|sentore|aroma|profumo|bouquet) CAR2    
+;
+
+Cons ::= consigliamo|raccomandiamo|ci vuole|bisogna innaffiare con|caldeggiamo|e' d'obbligo|si consiglia|suggeriamo
+;
+
+Sugg ::= consiglia|raccomanda|--caldeggia|suggerisce|invita ad abbinare
+;
+
+ANNO ::= 10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|90|91|92|93|94|95|96|97|98|99
+;
+
+ANNO2 ::= 80|81|82|83|84|85|86|87|88|89
+;
+
+CAR1 := P1 ;
+CAR2 := P1 ;
+
+
+P1 ::= rosato|rosso|bianco|verde|amarone|secco|abboccato|acerbo|acido|acidulo|acquoso|agliaceo|alcolico|allampante
+	|amabile|amaro|aromatico|asciutto|aspro|austero|ben caratterizzato|bouchonne'|brillante|bruciante|di carattere
+	|carnoso|chiuso|consistente|corposo|crudo|cuvee|debole|decrepito|delicato|disarmonico|distinto|dolce|dorato
+	|duro|effervescente|equilibrato|erbaceo|etereo|evanescente|evoluto|feccioso|fiacco|fine|fiorito|fradicio
+	|franco|fresco|frizzante|fruttato|fume'|generico|generoso|giovane|goudron|gradevole|grasso|gustoso|incisivo
+	|incolore|intenso|leggero|legnoso|limpido|liquoroso|luminoso|maderizzato|magro|marcato|marsalato|maturo
+	|mieloso|moire'|morbido|muschiato|nervoso|neutro|novello|nuance|odoroso|oleoso|onesto|opaco|ossidato|pallido
+	|passito|pastoso|persistente|pesante|pieno|possente|profumato|pungente|ricco|rigido|rotondo|rustico|salmonato
+	|sapido|scarno|severo|sincero|soave|sofisticato|solido|tagliato|tenero|torbido|untuoso|uvaceo|velato|vigoroso
+	|vinoso|vivo|zuccheroso
+;
+
+P2 ::=
+	donnafugata|nero|controguerra|montepulciano|trebbiano|bivongi|ciro'|donnici|greco di \bianco|lamezia|melissa|pollino|san \vito di \luzzi
+	|savuto|scavigna|verbicaro|lambrusco|pagadebit|reggiano|sangiovese|cesanese|barbera|vernaccia|verdicchio|brachetto
+	|bianchello|barolo|barbaresco|cortese|erbaluce|grignolino|malvasia|nebbiolo|ruche'|cacc'e mmitte|moscato
+	|verduno|primitivo|rosso|lacrima di \morro|cannonau|giro'|monica|nasco|nuragus|vermentino|cerasuolo|barco \reale
+	|brunello|chianti|soave|bardolino|monteregio|vin \santo|vino \nobile|prosecco|recioto|rossese|passito|morellino
+	|moscadello|tocai|torbato|brezza|brunello|cabernet|casteller|corvo \rosso|donna \marzia|falanghina|fiano
+	|frascati|gavi|marzemino|pinot|refosco|schiopettino|taurasi
+;
+
+P3 ::= d'^\avola|d'^\abruzzo|d'^\aglianico del \taburno|d'^\aversa|dei \campi \flegrei|di \capri|di \castel \s.\lorenzo|del \cilento
+	|della \costa d'\amalfi|di \falerno del \massico|di \fiano di \avellino|del \galluccio|di \guardia \sanframondi|d'^\ischia
+	|della \penisola \sorrentina|del \sannio|di \sant'\agata dei \goti|di \solopaca|del \taburno|di \taurasi|del \vesuvio
+	|di \albana di \romagna|del \bertinoro|di \bosco \eliceo|di \cagnina di \romagna|dei \colli \bolognesi
+	|dei \colli di \faenza|dei \colli di \imola|dei \colli di \parma|dei \colli di \rimini
+	|dei \colli di \scandiano e di \canossa|dei \colli \piacentini|di \sorbara|di \grasparossa di \castelvetro
+	|di \salamino di \s.\croce|di \romagna|di \romagna \albana|dei \colli orientali del \friuli|di \collio \goriziano
+	|\friuli \annia|\friuli \aquileia|\friuli\grave|\friuli \isonzo|\friuli \latisana|di \gradoli|di \aprilia
+	|di \atina|dei \castelli \romani|di \cerveteri|di \piglio|di \affile|di \olevano \romano|del \circeo|dei \colli \albani
+	|dei \colli \etruschi \viterbesi|dei \colli della \sabina|dei \colli \lanuvini| \cori|di \montefiascone|di \frascati
+	|di \genazzano|d'^\orvieto|di \tarquinia|di \velletri|di \vignanello|di \zagarolo |delle \cinque \terre|dei \colli di \luni
+	|delle \colline di \levanto|del \golfo del \tigullio|della \riviera \ligure [di ponente]|di \dolceacqua|di \botticino
+	|di \capriano del \colle|di \cellatica|della \franciacorta|del \garda [\colli \mantovani]|del \mantovano|della \lugana
+	|dell'\oltrepo' \pavese|della \riviera del \garda [bresciano]|di \san \colombano al \lambro|di \s.^\martino della \battaglia
+	|delle \terre di \franciacorta|di \valcalepio|della \valtellina [\superiore]|del \metauro|dei \colli \maceratesi
+	|dei \colli \pesaresi|di \esino|del \falerio dei \colli \ascolani|del \conero|di \piceno|dei \castelli di \jesi
+	|di \matelica|di \serrapetrona|di \biferno|del \molise|di \pentro di \isernia|d'^\alba|d'^\asti|del \monferrato
+	|d'^\acqui|di \bramaterra|del \canavese|di \carema|dei \colli \tortonesi|della \collina \torinese|delle \colline \novaresi
+	|delle \colline \saluzzesi|dell'^\alto \monferrato|delle \coste della \sesia|delle \langhe \monregalesi
+	|di \diano d'^\alba|di \dogliani|di \ovada|di \caluso|di \fara|di \chieri|di \gabiano|di \gattinara|di \gavi|di \ghemme
+	|di \lessona|di \loazzolo|di \casorzo d'^\asti|di \castelnuovo \don \bosco|del \piemonte|del \pinerolese|di \roero
+	|di \castagnole \monferrato|di \sizzano|si \valsusa|di \palaverga|di \puglia|d'^\alezio|di \brindisi|di \lucera|si \castel del \monte
+	|di \copertino|di \galatina|di \gioia del \colle|di \gravina|di \leverano|di \lizzano|di \locorotondo|di \martina \franca
+	|di \trani|di \nardo'| di \orta \nova|di \ostuni|di \manduria|di \barletta|di \canosa|di \cerignola|di \salice \salentino
+	|di \san \severo|di \squinzano|di \alghero|di \arborea|di \campidano di \terralba|di \sardegna|del \sulcis|di \cagliari
+	|di \bosa|di \mandrolisai|di \sorso \sennori|di \gallura|di \oristano|di \alcamo|di \vittoria|di \eloro|dell'\etna|di \faro
+	|delle \lipari|di \marsala|di \menfi|di \noto|di \pantelleria|di \siracusa|di \sicilia|di \santa \margherita di \belice
+	|di \sciacca|della \valle del \belice|della \costa dell'\argentario|di \carmignano|della \valdinievole|dell'^\empolese
+	|di \pitigliano|di \s.\torpe'|di \bolgheri|di \montalcino|dei \colli \apuani|di \carmignano|del \chianti|dei \colli dell'^\etruria [centrale]
+	|dei \colli di \luni|delle \colline \lucchesi|di \cortona|d'^\elba|di \montecarlo|di \montecucco|di \massa \marittima
+	|di \montescudaio|di \scansano|di \montalcino|di \orcia|di \parrina|di \pomino|di \montepulciano|di \san \gimignano
+	|di \sant'\antimou'|di \sovana|di \val d'^\arbia|di \valdichiana|di \val di \cornia|di \altbagnoli di \sopra
+	|di \bardolino|di \custoza|di \breganze|dei \colli \berici|dei \colli di \conegliano|dei \colli \euganei|di \gambellara
+	|del \garda|dei \monti \lessini|di \pramaggiore|della \lugana|di \montello e \colli \asolani|di \conegliano \valdobbiadene
+	|della \valpolicella|di \soave|della \valdadige|della \valpolicella|dell'^\adige|di \casteller|del \lago di \caldaro
+	|del \trentino|di \trento|della \valdadige 
+;

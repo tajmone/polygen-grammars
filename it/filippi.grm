@@ -1,0 +1,21 @@
+
+I ::=   "title:    Filippo Filippi\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   final\n"
+      ^ "topic:    misc\n"
+      ^ "audience: Paolo, Mario, Giacomo e quelli che conosco" Filippo.o "\n"
+      ^ "disclaim: non ce ne voglia il" (buon | bravo | bel | gentil | giovin) Filippo.o ^"\n"
+      ^ "created:  6/12/2002"
+;
+
+S ::= Filippo.o Filippo.i
+;
+
+Filippo ::= "F"
+         ^  (a |-- e |+ i |- o |-- u)
+         ^  (++ l (^l |++ _) | p (^p |++ _) | c | b (^b |++ _) |- gn)
+         ^  (- a |-- e |-- i | o | u)
+         ^  (+ pp |++ cc[^h] |++ ff |- vv | tt | ll |- nz |- gn | bb)
+         ^  (o: [i^]o | i: i)
+;

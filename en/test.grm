@@ -1,0 +1,41 @@
+I ::=   "title:    Test\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   Basic\n"
+      ^ "topic:    General\n"
+      ^ "created:  05/08/2006"
+;
+
+S ::= Phrase | GarbagePhrase ;
+
+
+Phrase ::= "this is a test"
+	 | "this is another test"
+	 | "this is yet another test"
+	 | "this is still yet another test"
+	 | the quick brown {fox} jumped over the lazy {dog}
+	 | "it works!"
+	 | "if you see this, then it works"
+	 | "look mum, it works!"
+	 | "if this doesn't work, I'm going to cry"
+	 ;
+
+FooWord ::= foo | bar | baz ;
+FooPhrase ::= foo [ bar [ baz ]] ;
+GnuWord ::= gnu | gnat ;
+GnuPhrase ::= gnu [ gnat ] ;
+WibbleWord ::= wabble | wobble | wibble | wubble ;
+WibblePhrase ::= - WibbleWord | - WibbleWord WibbleWord | WibbleWord WibbleWord WibbleWord ;
+AntaniWord ::= antani | blinda | supercazzola ;
+AntaniPhrase ::= antani [ blinda [ la supercazzola [ prematurata ]]] ;
+PippoWord ::= pippo | pluto | paperino ;
+PippoPhrase ::= pippo [ pluto [ paperino ]] ;
+CippoWord ::= cippo | lippo | cippolippo | lippocippo | cippalippa ;
+KeyboardWord ::= qwer [^t[^y[^u[^i[^o[^p]]]]]] |
+                 asd [^f[^g[^h[^j[^k[^l]]]]]] |
+		 zxc [^v[^b[^n[^m]]]] ;
+KeyboardPhrase ::= KeyboardWord (_ | KeyboardPhrase) ;
+TestWord ::= test ;
+TestPhrase ::= test [ test [ test ]] ;
+
+GarbagePhrase ::= FooPhrase | GnuPhrase | WibblePhrase | AntaniPhrase | PippoPhrase | KeyboardPhrase | CippoWord | TestPhrase;

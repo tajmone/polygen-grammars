@@ -1,0 +1,31 @@
+I ::=   "title:    Titoli dei videogiuochi\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   embryonic\n"
+      ^ "topic:    misc\n"
+      ^ "comment:  I titoli dei videogiuochi non sportivi, rigorosamente in albionico, sono tutti uguali. E pure i giuochi moderni lo sono. A parte alcuni. Non parliamo dei giuochi sportivi che sono ancora piu' scandalosi.\n"
+      ^ "created:  09/04/2004"
+;
+
+
+S:= [PREF] {\SOMET1|\SOMET2} [-(++of|by)[the]] { (---\SOMET2|+++\SOMETHING)} [^SUFF]  [(SEGNO.PU2) \SOMETHING [of [+the] \(SOMET1|SOMET2)]] [FRONZ];
+
+SEGNO ::= (PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":"\ | PU3: ^"."\ | V: ^"," | VT: ^"\""\ );
+
+SOMET1 ::= blood | vampire | alien[^s] | warrior | resident | command | conquer | star | war | doom | quake | sword | shadow | lord | beast | civilization[^s] | legend | journey | \u^\f^\o | covenant | revenant | lore | race | hunter | valour | battle | adventure | magic | spell | dawn  | commander | glory | fury | force | spirit | tomb | island | colony | beholder | captain | angel | manta ;
+
+SOMET2 ::= evil | dead | ultimate | killer | assassin | cursed | enchantment | doomed | warrior | vampire | elves | darkness | beast | templar | cataclysm | galaxy | deadly | super | time |  knight | raven | virtual | prisoner | hunted | normandy | labyrinth | pirate | \orion | dead | privateer | wing | empire[^s] | life | raider | heaven | inferno | lance | blood | fist; 
+
+SOMETHING ::= +legacy | nemesis | invasion | attack | alert | control | alliance | secret | death | project | dream[^s ] | escape | rising | fantasy | dream | chronicle[^s] | betrayal | helder | revolution | weapon | legend | history | anvil | twilight | ending  | hell | clash | hero[^es] | eye | iron ;
+
+PREF ::= \age of [the] | \master of [the] | \curse of [the] | \sim^"-"^ | \the | -\mega^;
+
+SUFF ::= craft | " "^\simulator | [" "^\]warp | [" "^\]scape ;
+
+FRONZ ::= NUMERO | ROMAN | "DX" | \gold [\edition] ;
+
+NUMERO ::= CIFRA[^CIFRA];
+
+CIFRA ::= "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+
+ROMAN ::= (\i | \x |  \v) [^ROMAN] ; 

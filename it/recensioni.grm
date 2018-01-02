@@ -1,0 +1,104 @@
+
+I ::=   "title:    Citazioni da recensione\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  07/10/2002"
+;
+
+S ::= "<I>" ^ Citazione ^ "</I>" "\n -" Fonte
+;
+
+Fonte ::= "La Repubblica" | "Il Resto del Carlino" | "L'Avvenire" | "Il Giorno"
+       |  "Libero" | "L'Unita'" | "Il Manifesto" | "Panorama" | "L'Espresso"
+       |  ("La Gazzetta" | "Il Corriere")
+          (della sera | dei piccoli | dello sport | del lavoratore | del mattino
+          | del pomeriggio | della notte | del mezzogiorno
+		  )
+       |  ("Il Sole" | "La Luna" | "Le Stelle") (12 | 24 | 36 | 48 | 8) ore
+       |  "Eva" (2 | 3 | 4 | 5)^000 | "Donna" [moderna] | "Il Giornale"
+       |  "Gioia" | "Grazia" | "Elle" | "Cosmopolitan" | "The Times"
+       |  "Rolling Stone" | "Melody Maker" | "TopGirl" | "Cioe'" | "Focus"
+;
+
+Citazione ::= [\Esclam ^ "."]
+              ("..."^ | \)
+              ( il Eulogia Software mai (scritto | fatto | congegnato | pensato)
+                per Ambiti.art [(dopo | (dai tempi | dal tempo) di) Programma]
+              | [finalmente] la soluzione [definitiva] a
+                tutti i [tuoi | vostri] problemi [di Problemi]
+              | (tutti aspettavano | non si vedeva) un Software cosi'
+                da [(^i tempi | ^l tempo) di] Programma
+              | il Software che tutti
+                {[si] aspettavano | desideravano | volevano}
+                {[trepidanti | con ansia | disperatamente]}
+	          ) ^ "."
+	          [\Esclam ^ "."]
+;
+
+Problemi ::= >Ambiti.NOart
+          |  inquinamento | sovrapopolazione | demagogia | retorica | anoressia
+          |  bulimia | diarrea
+;
+
+Esclam ::= [semplicemente | praticamente | sostanzialmente]
+		   ( imperdibile | eccezionale | fantastico | meraviglioso | perfetto
+           | brillante
+           )
+        |  ({[neg: non | aff: _] (vi deludera' | fatevelo mancare | perdetevelo)}
+            {[neg: >(per nessun motivo | a qualunque costo) | a tutti i costi]}
+           ).(neg|aff)
+;
+
+Eulogia ::= miglior
+         |  peggior
+         |  (piu' | meno) >(importante | complesso | sofisticato | raffinato)
+;
+
+Software ::= programma | software | tool | pacchetto | prodotto
+;
+
+Ambiti ::= (art: la | NOart: _)
+           >( coltivazione | cucina | collezione di (francobolli | farfalle | soldatini | lattine)
+            | musica ( jazz | hardcore
+			         | [(prog | death | black | street | heavy | gothic) ^ "-" ^] (rock | metal | pop | rap)
+                     | classica | barocca | medievale | rinascimentale | provenzale
+			         | folk | popolare
+                     )
+            | pesca [di frodo] | caccia [grossa | di frodo] | bracconeria
+            | pornografia
+            )
+        |  (art: il | NOart: _)
+           >( giardinaggio | [taglio e] cucito | safari
+	        | "Web" | tantra |+ sesso [piu' sfrenato]
+            | commercio | contrabbando
+		    )
+        |  (art: l'^ | NOart: _)
+           >( occult^(o | ismo) | esoterismo | alpinismo
+            | industria (tessile | manifatturiera | metallurgica | pornografica | cinematografica)
+            | avventura
+            )
+        |  >("Lui" | "Lei" | grandi e piccini | l'uomo | la donna)
+;
+
+Programma ::= Nome (Rel | Ver)
+;
+
+Rel ::= (6 | 7 | 8 | 9) ^ Cifra
+     |  (2 | 3 | 4) ^ 00 ^ Cifra
+     |  "XP" | "NT" | "X"
+;
+
+Cifra ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+;
+
+Ver ::= Cifra ^ "." ^ Cifra [^ "." ^ Cifra] [^ (a | b | c | d)]
+;
+
+Nome ::= "Word" | "Excel" | "Outlook" ["Express"] | "Publisher" | "Photoshop" | "Illustrator"
+      |  "Quark Express" | "Qbase" | "Cakewalk" | "Vegas" | "Rebirth" | "Reason" | "Dream Weaver"
+      |  "Flash MX" | "Internet Explorer" | "Mozilla" | "Netscape" | "Opera" | "AutoCAD"
+      |  "3D Studio" | "Maya" | "Office"
+;

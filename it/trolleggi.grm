@@ -1,0 +1,86 @@
+I ::=   "title:    Trolleggi\n"
+      ^ "author:   Zcode <zcode@tiscali.it>\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    gnosi\n"
+      ^ "audience: ICRB\n"
+      ^ "created:  04/11/2003"
+;
+      
+      
+S ::= Frase ;
+
+Frase ::= +++(Atom1 Comma Frase) | ---Atom1;
+
+	 
+Comma ::= +^"..." | ^"," | ^", ma" | ^", pero'" | ^", "Domanda | ":) " | "\n";
+
+Uno ::= "UNO" ["TUTTO"];
+
+Essere ::= +(\[esistente|oceano] Uno [che e' \essere])  |
+	    (\(essere|esistente) [che e' Uno]) |
+	    oceano;
+
+Se ::= ("Se'"| "Io")[inconsapevole|illuso] che Altro [(invece|ma|mentre) e' Goccia];
+	   
+Goccia ::= 	[piccola](parte|goccia|particella|componente)[minuscola|infinitesimale] dell' Essere;
+
+Altro ::=	 ha perso la sua giusta dimensione |
+		 si illude di essere altro |
+		 si fa altro per vanita' |
+		 si separa credendosi altro [dall' Essere]| 
+		 si crede oceano |
+		 si crede l'UNO lui individualmente |
+		 si attacca a cio' che e' altro [dall' Essere]|
+		 ha paura di chi cammina|e' consapevole |
+		 si crede migliore |
+		 si stacca da un contesto unitario |
+		 rinuncia all'esistenza per orgoglio;
+	 
+Domanda ::= 	(illusione o realta' | 
+		vuoi esserci o non esserci come Goccia |
+		vuoi goccia |
+		cosa puo' essere il se' individuale |
+		allora cosa e' il se' consapevole ) ^"?";
+		
+
+Atom1 ::=  	so che la consapevolezza ti fa soffrire | 
+	   	non preoccuparti se ritorni in te sarai in pace |
+		ritorna nell'^Essere e accetterai senza soffrire piu' |
+		ora vado a farmi una nuotata in un altro "NG" |
+		ciao goccia illusa di essere l'^Essere |
+		ricorda che senza di te l'^Essere c'e' ugualmente |
+		sta a te |
+		io non sono l'^Essere"..."solo una goccia di esso |
+		non ne sei consapevole |
+		e' solo il tuo Se |
+		ti illudi di essere altro |
+		trolleggi per difenderti da cio' che ti spaventa |
+		ti spaventa tantissimo sapere di non essere altro da cio' che sei |
+		ti fai altro per vanita'|
+		ne' niente ne' tutto sei |
+		ti fai altro perche' attaccato alla vanita' del tuo Se | 
+		tu da goccia invece sei attaccato al tuo Se |
+		cosi' attaccato che ti dividi dal contesto unitario |
+		te ne separi credendoti altro |
+		in realta' sei solo una Goccia |
+		la prova del tuo tormento e' nel tuo non riuscire a voler prevalere su una che ti dice che non sei altro da cio' che sei |
+		tu che ti credi altro sei da questo tormentato diventando goccia che si crede oceano |
+		guarda bene che l'agitato per questo sei tu |
+		non c'e' un mio post in cui non attacchi per deridere cio' che ti spaventa |
+		sei attaccato alla vanita' perche' illuso di essere altro |
+		altro dall'^Essere non c'e' |
+		per vanita'^"..."solo per vanita' |
+		chi non conosce se stesso e' quel nulla che da esso si separa |
+		e' solo essenza staccata dal suo contesto naturale ed unitario |
+		infatti sei tormentato |
+		ti separi non solo da cio' che sei credendoti altro^"," ma da cio' che e' il contesto unitario che e' l'^Essere |
+		hai paura di chi ha differenza di te |
+		tu dicendoti nulla ti fai altro per crederti altro da cio' che sei e cosi' ti credi migliore |
+		non puoi essere altro da cio' che sei quale parte infinitesmima del \tutto |
+		che tu non ne sia consapevole non conta^"," perche' altro da cio' che sei non potrai essere se non per attaccamento alla vanita' |
+		mi son chiesta spesso chi sono^"..." chi siamo | 
+		se l'individuo fosse il nulla^".." nulla esisterebbe^"," perche' l'Essere non puo' essere composto di nulla |
+		se l'individuo fosse tutto cio' che e' esistente^"," non sarebbe piu' individuo;
+		
+

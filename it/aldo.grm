@@ -1,0 +1,172 @@
+I ::=   "title:    Il Processo di Biscardi\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    nothingness of mind\n"
+      ^ "audience: i 60 milioni di commissari tecnici che popolano l'Italia\n"
+      ^ "note:     ragazzi, Xavier Jacobelli fa davvero paura quando guarda la telecamera da due centimetri di distanza!" 
+;
+
+
+
+S::= BLOCCO1 (BLOCCO2)+ BLOCCO3 BLOCCO4 END ;
+
+BLOCCO1 ::= INTRO PREFAZ (X::=SGUBB; X e poi SEGNO.PU2 X [e poi SEGNO.PU2 X])^"\n"^ PREFAZ PUBBLICITA ;
+
+BLOCCO2 ::= RETURN SEGNO.PU2 MESS SEGNO.PU1 COMMENTI ^"\n\n"^ ({MELLI} {CORNO})+ "\n"^ALDO1 [XAVIER] \e dobo la pubbligida' barleremo del nosdro nuovo sgubb SEGNO.PU2 SGUBB PUBBLICITA;
+
+BLOCCO3 ::= RETURN2^("\n"^SUPERMOVIOLA COMMENTOMOVIOLA PUBBLICO ["\n"^ALDO1] ["\n\n"^XAVIER])+  ^"\n\nE adesso boghi segondi di bubbligida' brima del blocco finale.\n"^VALLETTA;
+
+BLOCCO4 ::= RETURN3 BOMBE;
+
+END ::= ^\grazie mille [\ravezzani] ma (il dembo | lo sbazio | il balinsesdo) e' (d|t)^iranno (e dobbiamo ghiudere | guesda bundada del brogesso dermina | dobbiamo saludare duddi e ghiudere) (q|g)^ui SEGNO.PUE (buonanodde a duddi ) [e alla brossima (bundada | sdagione) del \brogesso di \biscardi] SEGNO.PUE ;
+
+RETURN ::= ^\[bendornadi [al \brogesso di \bisgardi] SEGNO.V] e ora barliamo (di CALCIATOREALDO | ( della SQUADRA.LA | del SQUADRA.IL | dell'^SQUADRA.L)) ;
+RETURN2 ::= ^\[bendornadi [al \brogesso di \bisgardi] SEGNO.V] e ora golleghiamogi con la "Subermoviola!\n";
+RETURN3 ::= ^\[bendornadi [al \brogesso di \bisgardi] SEGNO.V] e ora (sendiamo | asgoldiamo) le bombe di \ravezzani SEGNO.PUE ;
+
+BOMBE ::= "\n\n"^\ravezzani SEGNO.PU2 ""SEGNO.VT^ \ (grazie \aldo | bene \aldo | allora) SEGNO.V grandi (notizie | novita' | scoop | movimenti nel calcio mercato ) questa settimana SEGNO.V infatti VOCI PASSAGGIO SEGNO.PU3 SEGNO.VT ^"\n"
+[PUBBLICO^"\n"^]
+\("\n"^\ravezzani SEGNO.PU2 ""SEGNO.VT^ inoltre VOCI PASSAGGIO SEGNO.PU3 SEGNO.VT^"\n" [PUBBLICO^"\n"^])+ 
+
+
+"\n"^\ravezzani SEGNO.PU2 ""SEGNO.VT^ \infine SEGNO.V (la superbomba | la grande notizia | il grande evento ) (della settimana | del mese | dell'anno) SEGNO.PU2 CALCIATORE (alla SQUADRA.LA | al SQUADRA.IL | all'^SQUADRA.L) SEGNO.PUE^SEGNO.PUE SEGNO.VT^"\n" PUBBLICO^"\n";
+
+
+VOCI ::= voci di corridoio danno gia' per concluso il | i soliti ben informati parlano del | radio mercato non fa che parlare del | si dice che sia gia' concluso il | lo stesso LECCACULISMO "(persona estremamente corretta)" ha ufficializzato il  ;
+
+PASSAGGIO ::= (passaggio | trasferimento ) di CALCIATORE (alla SQUADRA.LA | al SQUADRA.IL | all'^SQUADRA.L) ;
+
+SUPERMOVIOLA ::= \moviolista SEGNO.PU2 SEGNO.VT^ \(bene \aldo SEGNO.V | dunque SEGNO.V | allora SEGNO.V ) ora esaminiamo in SQUADRA.IL,SQUADRA.LA,SQUADRA.L ^"-"^ \bologna (l'azione | il presunto fallo | l'entrata) di CALCIATORE su CALCIATORESFIGATO SEGNO.PU2 [da questa angolazione | da qui | _ | dall'angolazione dell'arbitro ] (si vede | potete vedere | si puo' notare) che (non c'e' fallo | e' tutto regolare | il fallo del difensore sarebbe da (rigore | cartellino rosso | espulsione | squalifica | radiazione dall'album delle figurine \panini | galera) | l'attaccante ha sempre ragione ) [e che (l'arbitro [ARBITRO] | il direttore di gara | il signor ARBITRO ) ha giustamente (espulso  | ammonito | cacciato | redarguito) il difensore ] SEGNO.PU3 (commenti [da studio] | tu cosa ne dici SEGNO.V \aldo | qualcuno ha qualcosa da dire )SEGNO.PUI ^SEGNO.VT;
+
+COMMENTOMOVIOLA ::= "\n\n"^ALTRO SEGNO.PU2 ""SEGNO.VT^ 
+		     (andava espulso [come minimo] | 
+		      qui ci vogliono almeno (3 | 4 | 5 | 6 | 7) giornate di squalifica |
+		      dobbiamo proteggere i nostri campioni |
+		      la solita arroganza delle grandi |
+      		      la sudditanza psicologica esiste |
+		      ci vuole la moviola in campo 		      
+		      )^SEGNO.PUE^SEGNO.VT ;
+
+PUBBLICO ::= "\n"^\pubblico SEGNO.PU2 ""SEGNO.VT^
+		     ( eeeh | 
+		       buuuh |
+		       scemo |
+		       vai \aldo |
+		       evviva LECCACULISMO |
+		       abbasso CAPROESPIATORIO |
+		       applausi |
+		       forza (SQUADRA.LA | SQUADRA.IL | SQUADRA.L)
+		     )^SEGNO.PUE^SEGNO.VT;
+
+XAVIER ::= [\xavier | \gsavie'] \jacobelli (SEGNO.PUI | SEGNO.V direttore di \tuttosport SEGNO.PUE | SEGNO.V i tuoi gommendi SEGNO.PUE) ^"\n"^"Jacobelli:\""^\(bene SEGNO.V vedi \aldo SEGNO.PP | IND | io direi che SEGNO.PP | la mia opinione e' che SEGNO.PP)^"\"\n"^ALTRO SEGNO.PU2 SEGNO.VT^ (ma va' SEGNO.PUE | eeeeh SEGNO.PUE | ma dai SEGNO.PUE | ma no SEGNO.PUE) SEGNO.VT ^"\n"^
+"Jacobelli:\""^\(eh pero' cosi' non si fa eh | eh insomma | eh allora | eh per favore ) SEGNO.V  (non si puo' fare cosi' | io sto cercando di parlare | io sono qui che cerco di dire la mia | se parliamo tutti insieme poi non si capisce niente) SEGNO.PUE SEGNO.VT ^"\n"^ \[piu' che] giusto SEGNO.PUE [piu' che] giusto SEGNO.PUE (lasciamo parlare \jacobelli | gsavie' SEGNO.V ti chiedo scusa) SEGNO.PUE;
+
+ARBITRO ::= \( collina | trefoloni | trentalange | rodomonti | pieri) ;
+
+MESS ::= (CALCIATOREALDO sgabba dal ridiro (del SQUADRA.IL | della SQUADRA.LA | +dell'^SQUADRA.L) |
+	 CAPROESPIATORIO si dige (a favore |contro ) la moviola in gambo |
+	 sosbeddada gombine [nel bareggio] dra SQUADRA.IL,SQUADRA.LA,SQUADRA.L e SQUADRA.L,SQUADRA.IL,SQUADRA.LA )
+	 SEGNO.PU3
+	 LECCACULISMO SEGNO.V che e' (un galanduomo | una bersona onesda | un grande esempio di valori morali) SEGNO.V si (dige | dighiara) (sdegnado | indignado )
+	 ;
+
+COMMENTI ::= (sendiamo | raggogliamo | asgoldiamo | golleghiamogi gon \roma ber) (i gommendi | un bo' di gommendi a galdo) SEGNO.PUE;
+
+ALTRO ::= "Zamparini" | "Gaucci" | "Melli" | "Corno" ;
+
+EDIZIONE ::= (venti|trenta|quaranta|cinquanta|sessanta|settanta)^(eun|du|tre|quattr|cinqu|sei|sett|ott|nov)^esima ;
+
+ENORME ::= grand^(S:e|P:i) | ingommensurabbil^(S:e|P:i) | ingredibbil^(S:e|P:i) | sdubefacent^(S:e|P:i) ;
+
+INTRO ::=  \[signore e signori SEGNO.V]  buonasera  [a duddi] [e benvenudi] SEGNO.PU3
+	   (
+	   (questa bundada (apre|chiude) la EDIZIONE edizione del \processo [di \biscardi | --del lunedi']) | 
+	   (benvenudi alla (quinta|sesta|decima|ventesima|trentesima) bundada di questa EDIZIONE edizione del \processo [di \biscardi | --del lunedi'])
+	   ) SEGNO.PU1;
+
+PUBBLICITA ::= ma prima SEGNO.V 
+		(boghi segondi di bubbligida' | 
+		 gonsigli ber gli aguisdi | 
+ 		 un gol dai nostri sbonsor  
+		) 
+		SEGNO.PU0 VALLETTA;
+
+MELLI ::= "Melli:"^ ((\corno SEGNO.V
+	 ( sei ridicolo |
+	   taci |
+	   stai zitto | 
+	   ma che stai a ddi' |
+	   ma perche' devi fare la figura del cretino | 
+	   ma smettila |
+	   sei due braccia rubate all'agricoltura)  ) |
+	   \e' ora di smetterla di (angariare | maltrattare) le romane |
+	   \smettiamola coi torti alle romane |
+	   \il calcio non sta solo a nord |
+	   \e' ora di cominciare a proteggere le romane
+	   )SEGNO.PUE   
+	   ^"\n"^ ;
+
+CORNO ::= "Corno:"^ \melli SEGNO.V
+	  ( basta parlare delle romane [che non vincono mai nulla] | 
+	   finiscila di comportarti da pirla |
+   	   taci |
+   	   e basta con 'ste romane |
+      	   pensate a vincere qualcosa anziche' lamentarvi |
+       	   ma perche' parli |
+           e stai zitto SEGNO.V pistola 
+	   ) SEGNO.PUE ^"\n"^
+	   ;
+
+			
+IND::="ehm..." | "ecco..." | "dunque..."; 
+
+VALLETTA ::=  "Valletta: \""^\(IND)+
+              (e ora | e adesso | ora) IND ((cinquanta | ++trentacinque )secondi di IND pubblicita' | una IND telepromozione offerta dal nostro IND sponsor | un {[importante]} {messaggio} da parte IND dei nostri sponsor) SEGNO.PU3 a {IND} {tra} poco^"\".\n\n" ;
+
+PREFAZ ::= \ (ENORME.S bundada | 
+	      ENORME.P nodizie |
+	      ENORME.P sgubb) (questa sera | oggi ) SEGNO.PU2 ;
+	       
+SGUBB ::= \( {CALCIATOREALDO} e {SQUADRA} SEGNO.PU2 e' crisi SEGNO.PUI | 
+	     CALCIATOREALDO (alla SQUADRA.LA | al SQUADRA.IL | all'^SQUADRA.L) SEGNO.PU2 AMLETO |
+	     scandalo SCANDALO SEGNO.PU2 AMLETO |
+     	     il \brocesso vuole la moviola in gambo SEGNO.PUE |
+       	     le bombe di \ravezzani SEGNO.PU3 |
+       	     le pagelle del comandante \stopardi SEGNO.PU3 
+	      );
+
+AMLETO ::= {realta'} o {fantasia|sogno} SEGNO.PUI |
+	   solo un sogno di una nodde di mezz'esdade SEGNO.PUI |
+	   e' un problema reale SEGNO.PUI |
+   	   e' colpa di CAPROESPIATORIO SEGNO.PUI |
+      	   e' ora che CAPROESPIATORIO (rassegna le dimissioni | si dimetterebbe) SEGNO.PUI |
+	   (il calcio | CAPROESPIATORIO | la federazione) ha passato i limiti SEGNO.PUI ;
+
+SCANDALO ::= pornostar | calcioscommesse | totonero | pastette | arbitraggi | moviola in campo ;
+
+CAPROESPIATORIO ::= \(+++carraro | campana | abete |  nizzola | matarrese | bergamo | pairetto | +trapattoni);
+
+LECCACULISMO ::= \(berlusconi | collina | moggi | giraudo | bettega | galliani | lippi | montezemolo | della valle);
+	   
+CALCIATORE ::= "Del Piero" | "Vieri" | "Totti" | "Inzaghi" | "N"^[i]^edv^[i]^e^(v|d)^(ev|"") | "Trezeguet" | "Shevchenko" | "Crespo" | "Adriano";
+CALCIATORESFIGATO ::= "Sussi" | "Torrisi" | "Petruzzi" | ["Ilie"] "Nastase" | "Loviso" | "Capuano";
+CALCIATOREALDO ::= "Del Biero" | "Gassano" | "Vieri" | "Doddi" | "Inzagghi" | "Sievgengo" | "N"^[i]^edv^[i]^e^(v|d)^[ev] |"Drezeghe'" | "Addriano";
+
+SQUADRA ::= (LA:(("Juventus" | "Juve") | "Lazio" | "Roma" | "Fiorentina" ) | IL: ("Milan" | "Parma" | "Chievo" ) | L:("Inter"));
+
+ALDO1 ::= \[ber favore SEGNO.V] non parlate tutti insieme SEGNO.V massimo "2-3" alla volda^"..."\
+	  (qui al brocesso le polemiche fioccano come nesbole | 
+	   e' una notizia importante SEGNO.V per la radio la possono vedere tutti |
+	   abbiamo fatto questo "pingo-pongo" per svirilizzare gli animi troppo accesi in questa contesa |
+	   frangicanava SEGNO.V passami quel fac^"..." no non facs SEGNO.V quello e' plurale e io ne voglio solo uno |
+	   dobbiamo andare con il piede per terra |
+	   sendiamo l'opinione degli italiani^"..." linea al sondaggio |
+	   linea alla subermoviola |
+	   giusdo SEGNO.PUE giusdo |
+	   CAPROESPIATORIO va assigurado alle patrie galere |
+	   evviva [quel galanduomo di] LECCACULISMO |
+	   CALCIATOREALDO in nazionale |
+	   CAPROESPIATORIO deve gonvogare CALCIATOREALDO in nazionale) SEGNO.PUE;
+
+SEGNO ::= (PP: ^"..."^\ |PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":"\ |  PU3: ^"."\ | PUE: ^"!"\ | PUI: ^"?"\ | V: ^"," | VT: ^"\""\ );

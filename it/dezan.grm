@@ -1,0 +1,174 @@
+I ::=     "title:      Telecronaca ciclistica di Adriano De Zan\n"
+		^ "author:     Franco &lt;franco@francogiovannini.it&gt;\n"
+		^ "language:   italian\n"
+		^ "status:     larvale\n"
+		^ "topic:      misc\n"
+		^ "audience:   appassionati di De Zan\n"
+		^ "dedicato a: Adriano De Zan e alla legione dei coglion\n"
+		^ "created:  06/04/2004"
+;
+
+
+(* --- PRINCIPALE --- *)
+							  
+
+S ::=  \ Inizio "\n\n" Intermezzo "\n\n" Svolgimento "\n\n" Fine; 
+
+(* --- BLOCCHI PRINCIPALI --- *)
+
+Inizio ::= [Benvenuti"\n"] Riepilogo^"." \ Situazione^".";
+
+Intermezzo ::= \ ^(Intervista | +ChiedeAdorni);
+
+Svolgimento ::= \ ^Incipit EventoImprovviso^"." \ Azione;
+
+Fine ::=  \ ^(ArrivoSolitario | Sprint [CommentoSprint]) ^"." [CommentoFinale]^"." "\n\n";
+
+
+(* --- BLOCCHI SECONDARI INIZIO --- *)
+
+Benvenuti ::= (gentili signore e signori buon pomeriggio da Localita^".") 
+               \ Numerotappa tappa del Giro^"," la Localita "-" Localita di (223 | 176 | 150 | 210) chilometri^".";
+
+Riepilogo ::= \ ^riepiloghiamo la situazione QuandoRiepilogo"." \ Doveepisodio Episodio ^"." \ Dopo Doveepisodio Episodio [^"." \ Dopo Doveepisodio Episodio] [^"." \ Dopo Doveepisodio Episodio]; 
+
+QuandoRiepilogo ::= quando mancano (ancora piu' di meta' dei chilometri da percorrere^ | Tantichilometri chilometri al traguardo^) | in vista del traguardo volante di Localita^ ;
+
+Tantichilometri ::=  [-(1 | 2)^](7 | 8 | 9)^Cifra ;
+
+Numerotappa ::= terza | quarta | decima | dodicesima | diciannovesima | trecentocinquantesima;
+
+Giro ::= "Giro d'Italia";
+
+Dopo ::= dopo Numero chilometri | proprio quando siamo entrati in collegamento | successivamente | nel periodo non collegato | al chilometro Cifra^Cifra | dopo il rifornimento ;
+
+Doveepisodio ::= sul passo Passo | nella discesa dopo il passo Passo | (nelle vicinanze|nei pressi) di Localita | sui tornanti che portano al passo Passo ; 
+
+Episodio ::=  un tentativo isolato di Nome [e del Campione] (subito rintuzzato dal gruppo | bloccato da Altronome della Squadra | ha sgretolato il gruppo e evidenziate le difficolta' di Altronome) | 
+              un attacco solitario di Nome [inseguito dal Campione] | 
+              se ne vanno Nome e Altronome sfruttando un'indecisione della Squadra che aveva fino al quel momento controllato la corsa|
+              una caduta che ha visto coinvolti Nome e Nome [fortunatamente senza conseguenze]| 
+              il ritiro di Altronome [in seguito a una caduta per la quale e' stato prontamente ospedalizzato]|
+              una foratura di Altronome (che viene riportato in gruppo dai suoi compagni della Squadra | che perde contatto) |
+              Nome saluta (i parenti|gli amici|i tifosi) (accorsi numerosi di fronte al "Bar Sport" | che offrono un rinfresco al gruppo | e bacia la fidanzata | posti lungo la strada);
+
+
+Situazione ::= la "situazione:" (gruppo compatto dopo il riassorbimento del tentativo di Nome  [e (Nome | del Campione)]|
+				 al comando con Minuti di vantaggio un gruppetto di battistrada composto da Gruppetto | 
+				 la Squadra ha posto tutti i suoi uomini al comando e controlla la corsa | 
+				 prosegue la fuga solitaria di Nome che ormai ha raggiunto Minuti di vantaggio |
+				 Nome ha (messo alla frusta | schierato in testa) i suoi (compagni di squadra|coequipier) della Squadra per sferrare un attacco alla maglia rosa [che appare in affanno | che appare pero' tranquilla]) ;
+
+(* --- BLOCCHI SECONDARI INTERMEZZO --- *)
+
+Intervista ::= InizioIntervista^": " DomandaIntervista FineIntervista^".";
+
+InizioIntervista ::= abbiamo il piacere di ospitare SoggettoIntervista | "e'" qui con noi SoggettoIntervista | ringraziamo SoggettoIntervista per essere intervenuto in trasmissione;
+
+DomandaIntervista ::= cosa pensa di questa "tappa?" | complimenti per il recente successo alle comunali^"." | chi "e'" il suo favorito per la "corsa?";
+
+FineIntervista ::= "Grazie," (ora dobbiamo ritornare in diretta | riprendiamo il commento della tappa | torniamo ora alla tappa);
+
+SoggettoIntervista ::= ("l'assessore" (al traffico | alle merendine | ai semafori)  del comune di  | il sindaco di ) Localita ;
+
+ChiedeAdorni ::= DomandaAdorni RispostaAdorni FineAdorni;
+
+DomandaAdorni ::= "Adorni, vuoi riepilogare la situazione per favore?" |
+                  "Adorni, cosa pensi delle rotonde? Sono a tuo avviso pericolose?" | 
+                  "Adorni, cosa pensi dei ciclisti che non mettono il caschetto protettivo?" | 
+                  "Adorni, vuoi scommettere con me sul favorito per questa tappa?" | 
+                  "Adorni, cosa pensi dei ciclisti " ("con l'orecchino?" | "con il codino?") |
+                  +"Adorni, hai notato che Baffi e Boffo hanno entrambi i baffi, ma non baffi nel senso di Baffi, bensi' nel senso di MOUSTACHES";
+
+RispostaAdorni ::= "(Adorni:" ("er.." | "mah, non saprei.." | "beh, secondo me.." | "direi che..") ^").";
+
+FineAdorni ::= (+"NON TI HO CHIESTO un commento, ma un parere TECNICO" |
+                 "Beeene bene, tutti hanno sentito" quello che hai detto e non puoi piu' rimagiartelo | 
+                 "Eh si, ai tuoi tempi era diverso ma TU che sei un signore certe cose non le vuoi dire" | 
+                 "Eh si, tu che sei di Parma hai come sempre ragione")
+                  ^". Grazie, proseguiamo con la telecronaca." ;
+
+
+(* --- BLOCCHI SECONDARI SVOLGIMENTO --- *)
+
+FugaSolitaria ::= "Una fuga!" ;
+
+Gruppone ::= gruppo compatto ;
+
+
+(* --- BLOCCHI SECONDARI SVOLGIMENTO --- *)
+
+Incipit ::= "Riepiloghiamo la situaz..." | "Al comando un gruppetto composto da" Gruppetto"..." | "La corsa sembra molto controll..." | "Ed eccoci nel punto decisivo della corsa" | "Adorni, vorrei domand...";
+
+EventoImprovviso ::= "MENTRE ECCO CHE SCATTA" NomeM "DELLA" SquadraM ("INSEGUITO" ( "DA" AltronomeM | "DAL" CampioneM) | "E FA IL VUOTO SUGLI INSEGUITORI") | 
+		     "IMPROVVISO CEDIMENTO DELLA MAGLIA ROSA" NomeM (sui primi tornanti del passo Passo | dopo lo scatto improvviso del Campione) |
+		     "MA VEDIAMO ORA CHE" NomeM "SI GETTA NELLA DISCESA A TOMBA APERTA INSEGUITO DA" NomeM AltronomeM NomeM [AltronomeM]|
+		     "MA ECCO IN TESTA GLI UOMINI DELLA" SquadraM "CHE IMPONGONO UN RITMO IMPOSSIBILE PER LA MAGLIA VERDE" NomeM |
+		     "MA ECCO UN IMPERIOSO SCATTO" ("DI" NomeM | "DEL" CampioneM) | 
+		     "MENTRE SCATTA DI NUOVO" AltronomeM^"..." ["SEGUITO DA" NomeM] |
+		     "MA ECCO CHE" AltronomeM "CEDE ALL'ELASTICO" ("DI" NomeM | "DEL" CampioneM);
+
+
+Azione ::= "Un'azione forse decisiva, cosa ne pensi Adorni?" | 
+	   "Il distacco sembra ormai incolmabile" anche per Altronome che si e' posto all'inseguimento^"."| 
+	   "Adorni, lo avevi previsto. Bravo." |
+	   "Adorni, tu avevi previsto invece un attacco di" Altronome^"...";
+
+(* --- BLOCCHI SECONDARI FINE --- *)
+
+ArrivoSolitario ::= ("ED ECCOCI ALL'ULTIMO CHILOMETRO" | "ULTIMO CHILOMETRO" | "ULTIMI TRECENTO METRI" | "ULTIMA CURVA")
+		     ^"..."^
+ 		    "Le" ultime pedalate per (Nome | il Campione) che vince
+ 		    (per distacco | beffardamente davanti a Altronome| irridendo gli avversari | controllando il ritorno di Altronome) 
+ 		    mentre
+ 		    (Altronome mantiene la maglia rosa | Altronome perde la maglia rosa a vantaggio del Campione | Altronome regola il gruppo nella volata per il secondo posto) ;
+		    
+
+Sprint ::= (ma il gruppo e' di nuovo compatto in vista del traguardo | 
+            a cinquecento metri dalla fine il gruppo e' di nuovo compatto
+            la fuga termina in vista del triangolo dell'ultimo chilometro)
+            "E-D  E-C-C-O  L-O  S-P-R-I-N-T"
+            NomeM [("DAVANTI A" | "SBUCA DA DIETRO")] AltronomeM [("PRENDE LA RUOTA DI" | "SGOMITA")] NomeM [AltronomeM] [NomeM] [NomeM] [AltronomeM] [NomeM] 
+            [-- ^"...C'E' UNA CADUTAAA!" "ci-sembra-di-vedere-a-terra"[^"-proprio"] Nome ma seguiamo la volata]
+            ^"..."^("VINCE A BRACCIA ALZATE" | "CON UN COLPO DI RENI VINCE" | "AL FOTOFINISH VINCE" | "TRIONFA ANCORA UNA VOLTA") (NomeM | "IL" CampioneM)
+            ^"!!!" ;
+
+CommentoSprint ::= una volata imperiale come direbbero i francesi | questi sono i suoi arrivi | e' riuscito a mettersi al riparo del vento ;
+
+
+
+CommentoFinale ::= \ "d'altra parte lo avevamo detto, 'Nemo profeta in patria'... e quindi" Altronome "NON" poteva prevalere in questa tappa| 
+		     "Adorni, tu avevi pronosticato" Altronome e quindi ti sei sbagliato anche stavolta | 
+		     "Adorni, tu l'avevi pronosticato e quindi per una volta ci hai azzeccato" | 
+		      vince l'enfant du pays a dispetto dei pronostici che favorivano Altronome; 
+
+
+
+(* --- HELPERS --- *)
+
+
+Localita ::= "Castellammare di Savinio" | "Rocca Cellara" | "Marina di Vivantonio" | "San Bruno in Fogliano" | "Pozzerello sul Tiginio" | "Borgo Palocco" | "Vissano sul Trimone" | "Mollicabella"  | "Lido di Caprazoppa";
+Passo ::= ("della Melgola" | "di Fugnale" | "Gardone" | "del Cinisio" | "del Morecciolo" | "della Croce Povana" | "del Nerbozzo");
+
+Nome ::= ("Bincoletto" | "Fraccaro" | "Boifava" | "Knut Knudsen" | "Glauco Santoni" | "Rominger" | "Fuchs" | "Santimaria" | "Galdos");
+Altronome ::= ("Vladimiro Panizza" | "Urs Freuler" | "Baffi" | "Cazzolato" | "Paolini");
+
+Cifra ::=  1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 ;
+Numero ::= Cifra[^Cifra];
+
+NomeM ::= "BINNNCOLETTO" | "FRACCCCCARO" | "BOOOOIFAVA" | "KNUTKNUZZZZEN" | "SANTONI" | "RRRROMINGER" | "FUCHSSSSS" | "SANTIMARIA" | "GALDOS";
+AltronomeM ::=("PANIZZA" | "FRRROILER" | "BAFFFFFI" | "CAZZZZZOLATO" | "PAOLIIIINI");
+
+Gruppetto ::= Nome [il numero Numero ] Nome Nome [il numero Numero ] Nome Nome [+Nome] [Nome] [Nome] [e dal Campione];
+
+Minuti ::= Cifra^":"^Min1^Cifra | oltre Cifra minuti;
+Min1 ::= 1 | 2 | 3 | 4 | 5; 
+
+
+Campione ::= campione elvetico "Godi Schmutz";
+CampioneM ::= "CAMPIONE ELVETICO GODI SCHMUTZ";
+
+Squadra ::= "Famcucine" | "Magniflex Olmo" | "SCIC" | "Jollyceramica" | "Molteni" | "Inoxpran";
+SquadraM ::= "FAMCUCINE" | "MAGNIFLEX OLMO" | "SCIC" | "JOLLYCERAMICA" | "MOLTENI" | "INOXPRAN";
+
+

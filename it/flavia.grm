@@ -1,0 +1,97 @@
+I ::=   "title:    Discorso di Flavia Vento ormai lanciatissima in politica\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    extremely deep thoughts\n"
+      ^ "audience: anybody\n"
+      ^ "question:"[ma] che [cavolo] succede Luogo.IN ^"?\n"
+      ^ "note:     l'originale si trova <a href=\"http://www.macchianera.net/archives/2004/09/fischia_la_vent_1.html\">qui</a>\n"
+      ^ "quote:    \"Io devo ancora capire se la Vento ci e' o ci fa. Certo che due botte gliele darei comunque.\" (A. Veronesi)"
+;
+
+
+S::= [Puglia] Intro Stronzate [(Epoi Stronzate)+] ;
+
+Stronzate ::= (Politica [Ritagli] | Droga | Guerra | Cani) {[InizioProposta] Proposta} {Motivazioni} [Filosofia] ({Interiezione} [{Interruzione}]) ;
+
+Intro ::= \[(eeeh SEGNO.(V|PP))| Risata ] (ultimamente | Avverbio) il mio rapporto con la politica si e' ampliato (tantissimo | Avverbio) SEGNO.V [soprattutto dopo l'11 (settembre | marzo)] io seguo Avverbio i teleggiornali SEGNO.PU2 ogni ggiorno mi vedo (Tiggi SEGNO.V)+ e Tiggi SEGNO.V quindi SEGNO.PP Avverbio SEGNO.PP [Risata] quindi [devo dire che] mi piace (molto | Avverbio) la politica SEGNO.PUE [Interruzione] allora SEGNO.V innanzitutto ;
+
+Puglia ::= \innanzitutto sono (molto | Avverbio) contenta di essere qui oggi SEGNO.V in un posto bellissimo come Luogo.S (SEGNO.(PU3|PUE) |  SEGNO.PU2 ci torno sempre molto volentieri SEGNO.PU3) ;
+
+Luogo ::= >((S:la | IN: (in|nella) | FROM: dalla) (\puglia | \kamchatka | \jacuzia | \cita |  \citta' del \vaticano | \repubblica di \san \marino ) |
+(S:_ | IN: a | FROM: da) ("Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch (Galles)" | \vergate sul \membro | \abbiategrasso | \cinisello \balsamo | \crespellano) |
+(S:l'^ | IN: in | FROM: dall'^) ( \irak | \alberta  ))
+ ; 
+
+
+
+Tiggi ::= >> ((ti^(g^)+^i^(uno | due | tre | quattro | cinque | sei | sette | otto | nove | die^[s]^ci | undi^[s]^ci | dodi^[s]^ci | tredi^[s]^ci )) | -------"Studio Aperto" | ------------"Striscia la Notizia" | -------------------"Veline") << ;
+
+Epoi ::= e poi SEGNO.V un'altra informazione che volevo dare SEGNO.V visto che qua sono Giovani sicuramente della mia eta' SEGNO.PP |
+eppoi SEGNO.(V|PP) uhm SEGNO.(PP|V) ecco SEGNO.(PP|V) io metterei anche la mia faccia per SEGNO.(PP|V) per degli ideali SEGNO.(PP|V) che sono SEGNO.(PP|V) appunto SEGNO.(PP|V) |
+eppoi SEGNO.PP [io sono SEGNO.PP]
+;
+
+Politica ::= il rapporto dei giovani con la politica credo che sia (molto | Avverbio) in difficolta' SEGNO.PU2 ;
+
+Interruzione ::= (scusate SEGNO.V (se potete alzare il | e' veramente di cattivo gusto SEGNO.V questo ) (fruscio | silenzio) SEGNO.V [perche' non e' carino che ridete cosi' SEGNO.PUE] \grazie SEGNO.V eh ) SEGNO.PUE ;
+
+Droga ::= [contro] la droga SEGNO.PP Avverbio credo che la droga (sia | e') una cosa Avverbio SEGNO.PP Condanna SEGNO.PP so che i Giovani [sono [Avverbio] influenzati da persone piu' grandi SEGNO.V che [Avverbio]] [il sa^(b^)+ato sera] in discoteca {prendono extasy} o {si drogano} SEGNO.(PUE | PP | PU3) ;
+
+Guerra ::= la guerra SEGNO.(PU3 | PP) io sono Avverbio (--per | ++contro) la (++guerra | --pace) SEGNO.PU3 credo che quello che sta succedendo Luogo.IN (SEGNO.PP ecco SEGNO.PP Sbagliato | sia una cosa Condanna ) SEGNO.(PUE | PP |PU3);
+
+Cani ::= amo molto gli animali SEGNO.PP [Interruzione] ehm SEGNO.PP so che in \italia ci sono molti combattimenti di animali SEGNO.PP di cani SEGNO.PP (Sbagliato | e questa e' una cosa che per me e' SEGNO.PP [ecco SEGNO.PP] Condanna ) SEGNO.(PUE | PP |PU3);
+
+InizioProposta ::= (quindi io (credo | -penso) che (b^)+isognere^(b^)+e SEGNO.PP [appunto SEGNO.(V|PP)] [come diceva la SEGNO.PP si' SEGNO.V \bruna [SEGNO.V Risata] ] [SEGNO.PP credo che Avverbio (b^)+isognere^(b^)+e] SEGNO.PP) |
+quindi SEGNO.V la prima cosa che (b^)+isognere^(b^)+e esserci in \italia e' SEGNO.PP  nel |
+[e] quindi [SEGNO.V Avverbio] SEGNO.PU2 
+;
+
+Proposta ::= ({fare un' ora a scuola di politica} SEGNO.PU2 {insegnare ai Giovani la politica a scuola} SEGNO.(PU3|PP) [anche un'ora SEGNO.PU2 per sapere com'e' nata la politica [SEGNO.V com'e' la storia della politica] SEGNO.PP] |
+levare su^(b^)+ito le truppe Luogo.FROM SEGNO.PU3 e un'altra SEGNO.PP |
+Avverbio SEGNO.V un no (contro la | alla | per la | della ) droga |
+una legge [Avverbio] piu' severa (nei confronti degli | contro gli | agli) animali)
+SEGNO.(PU3|PP);
+
+Filosofia ::= 
+(speriamo che le prossime elezioni non vinca \bush SEGNO.V perche' senno' staremo altri quattro anni nel terrore SEGNO.PUE|
+io SEGNO.PP tengo molto ai cani SEGNO.V [soprattutto SEGNO.V faccio volontariato nei canili SEGNO.PP] e credo sia molto importante salvaguardare SEGNO.V appunto SEGNO.PP gli animali SEGNO.(PU3|PP)|
+allora SEGNO.V un ragazzo di Eta anni SEGNO.V Avverbio SEGNO.V "" SEGNO.VT ^Nonhocapito^ SEGNO.VT "" non sa cosa SEGNO.PP che cosa vuol dire SEGNO.PP [Risata] ["" SEGNO.VT ^(l'allarme della \quercia | Nonhocapito)^ SEGNO.VT "" neanche SEGNO.V] quindi Avverbio si va a leggere la pagina Pagina SEGNO.(PU3|PP)
+) Risata [Sbagliato SEGNO.PP];
+
+Eta ::= (dodi | tredi | ++++quattordi | quindi | sedi )^[s]^ci |
+	 ventuno | ventidue | ventitre | ventiquattro |
+	 trentuno | quarantadue | cinquantatre | sessantaquattro |
+	 settantacinque | ottantasei | novantasette;
+
+Risata ::= ( heheheh SEGNO.PUE | hihihi SEGNO.PUE | heh SEGNO.PUE );
+
+Condanna ::= triste | stupida | che Avverbio non ci dovrebbe essere SEGNO.PP piu' ;
+
+Sbagliato ::= questo credo sia Avverbio sba^(gli|j)^ato | 
+	      questa per me e' una cosa Avverbio Condanna ;
+
+Interiezione ::= \(eeh SEGNO.PP quindi sono molto contenta  |
+		  questo volevo dire [SEGNO.V grazie]  |
+		  e quindi credo che questo sia una cosa SEGNO.PP 'nsomma SEGNO.V che servire^(b^)+e [Avverbio] ai Giovani
+		  ) SEGNO.(PUE|PU3)
+	        ;
+
+Avverbio ::= sicuramente | chiaramente | +veramente | assolutamente | -praticamente | -totalmente;
+
+Giovani ::= (g^)+^iovani ;
+
+Motto ::= +++++++ porgi l'altra guancia | non guardare alla pagliuzza nell'occhio altrui ma bada alla trave che sta nel tuo | meglio un uovo oggi che una gallina domani | il lavoro rende liberi | molti nemici molto onore | la religione e' l'oppio dei popoli | meno tasse per tutti | un morto e' una tragedia SEGNO.V un milione di morti sono una statistica ;
+
+Pagina ::= +++sportiva | di giardinaggio | del cruciverba | delle ricette | pornografica | economica | degli annunci;
+
+Nonhocapito ::= primarie | allarme | della | quercia | fassino | veltroni | prodi | leader | ma | niente | gi^[u]^ochetti | serve | un | vertice ;
+
+Motivazioni ::=  e credo che l'\italia e' un popolo cattolico [SEGNO.V un popolo che crede nella \chiesa SEGNO.V] e allora [se crediamo nella \chiesa SEGNO.V] la \bi^(b^)+ia dice che SEGNO.PP ehm SEGNO.PP Avverbio SEGNO.PP ^"\""^Motto^"\""^ [SEGNO.PU2 quindi SEGNO.V Avverbio SEGNO.V io non credo nella vendetta e nell'odio] SEGNO.(PP|PU3) |
+perche' veramente (gli animali | i cani) sono i migliori amici dell'uomo SEGNO.PP |
+perche' SEGNO.PP la vita e' una e bisogna gestirla al meglio SEGNO.PP |
+questo perche' SEGNO.V Avverbio [SEGNO.V leggendo il quotidiano SEGNO.V] diversi titoli sono fatti [in maniera] illeggi^(b^)+ile per (un ragazzo | i Giovani) [di Eta anni] SEGNO.V che Avverbio passa alla paggina Pagina SEGNO.V piuttosto che leggere SEGNO.PP ;
+
+Ritagli ::= io mi sono presa (dei | armi e) ritagli SEGNO.PP \ecco SEGNO.V ad esempio [SEGNO.V questo titolo] SEGNO.PU2 "" SEGNO.VT^\primarie SEGNO.PU2 l'allarmo SEGNO.PP l'allarme della \quercia [SEGNO.PU3 "Fassino e Veltroni: Prodi leader, ma niente giochetti, serve un vertice"]^"\"" SEGNO.PU3;
+
+SEGNO ::= (PP: ^"..."^ |PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":"\ |  PU3: ^"."\ | PUE: ^"!"\ | PUI: ^"?"\ | V: ^"," | VT: ^"\""\ );

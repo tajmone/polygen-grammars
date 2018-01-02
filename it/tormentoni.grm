@@ -1,0 +1,61 @@
+
+I ::=   "title:    Tormentoni sereni\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   final\n"
+      ^ "topic:    misc\n"
+      ^ "audience: Sergio e quant'altri lo conoscono\n"
+      ^ "created:  20/07/2002"
+;
+
+S ::= \( e' tanto Complimento
+       |  ma ( (esistono | ci sono) SostantivoP
+             | (esiste | c'e') SostantivoS
+             ) Luogo ^"?"
+       )
+;
+
+Complimento ::= intelligente | ordinata | di bell'aspetto | furba | sveglia
+             |  bella | buona | brava | simpatica | ben pettinata | atletica
+             |  alta | magra | interessante | [ben] educata | fragile
+             |  di compagnia | di buona famiglia | di classe | sensibile | emozionata
+             |  ben vestita | cara | diligente | femminile | interessata
+             |  sana | seria | dolce | fine | raffinata | premurosa | di chiesa
+             |  fiduciosa | fedele | lavoratora | laboriosa | impegnata
+             |  per bene | matura | [ben] organizzata | indaffarata | occupata
+             |  studiosa | ligia | ricca | affezionata | affettuosa | prodiga
+             |  silenziosa | loquace | umile | modesta | sincera | protettiva
+             |  pulita | profumata | di casa | santa | di bei lineamenti
+             |  calma | tranquilla | gentile | signorile | adulta | fortunata
+             |  riservata | caritatevole | esperta | condizionabile | forte
+             |  famosa | servizievole | intonata | misteriosa | sfarzosa | paziente
+             |  di cappello
+;
+
+SostantivoP ::= le >( macchine | uova | biciclette | ragnatele | parrocchie
+                    | spadrilias | tende | mandorle | lucertole | lentiggini
+                    | matite | calcolatrici | scuole | universita' | banche
+                    | ragazze | donne | scarpe | malattie | bacche
+                    )
+             |  i >( dentisti | macinini | saponi | bambini | quaderni | telefoni
+                   | buoi | campi | televisori | preti | furbi | cuochi | forni
+                   | banchi | passaggi a livello | fiumi | fidanzati | gatti
+                   | suoni
+                   )
+             | gli >(uccelli | zaini | avvocati | uomini | aerei)
+;
+
+SostantivoS ::= lo >(sport | sterzo | spazio | sfarzo | spettacolo)
+             |  la >(pasqua | terra | mancia | pipi' | popo' | luce)
+             |  l'^ >( immondizia | elettricita' | acqua | ulcera | aria | uomo
+                     | infarto | elio | uva | erba
+                     )
+             |  il >(circo | mare | natale | capodanno | fuoco | cielo)
+;
+
+Luogo ::= in "America"
+       |  negli "Stati Uniti"
+       |  a "Los Angeles"
+       |  a "Irvine"
+       |  in "California"
+;

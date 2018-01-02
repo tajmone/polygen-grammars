@@ -1,0 +1,34 @@
+I ::=   "title:      Storie Zen\n"
+	  ^ "author:     Simone Lei &lt;simleo@tiscali.it&gt;\n"
+      ^ "language:   italian\n"
+      ^ "status:     refinable\n"
+      ^ "topic:      misc\n"
+      ^ "created:    10/12/2004";
+
+S ::= \Introduzione e (gli chiese | "lo preg&ograve;") Domanda ^ ".<br>\n" ^ \(il maestro | Maestro) Risposta ^ ".<br>" \Ritorno;
+
+Introduzione ::= When Allievo Goto Maestro;
+When ::= >(un giorno | un mattino | un pomeriggio | una sera) [Stagione] | una volta;
+Stagione ::= d'inverno | di primavera | d'estate | d'autunno;
+Allievo ::= [Qualifica] NomeAllievo;
+Qualifica ::= il >([grande] guerriero | [famoso] poeta | [giovane] monaco);
+NomeAllievo := \ >(daiju | dairyo | ekido | encho | engaku | gessen | "hui-k'o" | kitagaki | "kuei-shan" | mamiya | nobushige | "o-nami" | "p'an-shan" | shinkan | suiwo | tetsugen | toyo);
+Goto ::= "and&ograve; da" | "si rec&ograve; presso" | fece visita a | "si present&ograve; al cospetto di";
+Maestro := \ >(bankei | "chao-chou" | hakuin | hakuju | hogen | hoshin | gudo | mokurai | mokusen | "nan-ch'uan" | "nan-in" | "pai-chang" | ryokan | "seng-ts'an" | tanzan | tokufu | "tung-shan" | yazawa);
+
+Domanda ::= di (mostrargli | indicargli | insegnargli) (la Path.f | il Path.m) "pi&ugrave;" (breve | celere | facile) per (raggiungere | ottenere | conseguire) (l'illuminazione | il \satori | la saggezza);
+Path ::= f: (via | strada) | m: (percorso | cammino | sentiero);
+
+Risposta ::= "indic&ograve;" >(un ZenObject.M | una ZenObject.F) [Materiale] e disse ^ ":" Richiesta;
+ZenObject ::= M: ([Agg.m] Sost.m) | F: ([Agg.f] Sost.f);
+Sost ::= m: (bastone | candelabro | cucchiaio | osso | piatto | pugnale) | f: (bacchetta | ciotola | gabbia | giara | maschera | pergamena | statua | veste | zappa);
+Agg ::= >(piccol | minuscol | gross | consunt | prezios | gigantesc) ^ (m: o | f: a) | grande;
+Materiale ::= di ("bamb&ugrave;" | cartone | ferro | gesso | legno | platino) | d' ^ (alabastro | ambra | argento | ebano | oro);
+Richiesta ::= "\"" ^ \se [(veramente | davvero)] >(vuoi | desideri | (ambisci | aspiri) a) (diventare | divenire) (saggio | illuminato) devi riuscire a (vedere | penetrare | comprendere) la {natura} ^ "-" ^ {buddha} di (tutte le cose | ogni cosa) ^ ":" prendi ({con te} {quell'oggetto}) e Meditation.first ^ "\"";
+Meditation ::= medita per (first: _ | subsequent: altri) >(due | tre | quattro | --dieci) anni ^ "," poi torna da me;
+
+Ritorno ::= "\n" ^ \quando (il giovane >(allievo | apprendista) | NomeAllievo) (fece ritorno | "torn&ograve;") ^ "," (il maestro | Maestro) [gli] disse ^ ": \"" ^ (\non sei ancora pronto ^ ":" Meditation.subsequent ^ "\".<br>" ^ Ritorno | ThreeZenWords ^ "\"," e a quelle parole NomeAllievo fu illuminato ^ "!");
+ThreeZenWords ::= \FirstZenWord ^ "," \SecondZenWord ^ "," \ThirdZenWord ^ "!";
+FirstZenWord ::= katana | nozomi | nunchaku | sashimi | seppuku | tatami | tempura | tsunami | wasabi;
+SecondZenWord ::= hanako | kabuto | mishima | shinobu | suzuki | yoshida;
+ThirdZenWord ::= boutique | champagne | chanson | chiffon | coiffeur | jalisse | jambon | jeunesse | melange | vitesse;

@@ -1,0 +1,62 @@
+I ::=   "title:    RCS discussion on #debian-devel\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   Basic\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  04/08/2006"
+;
+
+S ::= 
+	  "*" Nick suggests Command 
+	| "<" Nick^">" Nick ^":" Command (+_|Ending)
+	| "<" Nick^">" ( Nick^":" | _ ) Assertion
+	;
+
+Nick ::= liw | "Clint" | ++mrvn | ++"GyrosGeier" | ibid | "Sesse" | jvw | "Beowulf" ;
+
+Command ::= 
+          cvs (help|++_) (add|admin|annotate|checkout|commit|diff|edit|editors|export|history|import|init|log|login|logout|ls|pserver|rannotate|rdiff|release|remove|rlog|rls|rtag|server|status|tag|unedit|update|version|watch|watchers)
+	| svn (help|++_) (add|+blame|cat|checkout|cleanup|commit|copy|delete|diff|export|help|import|info|list|lock|log|merge|mkdir|move|propdel|propedit|propget|proplist|propset|resolved|revert|status|switch|unlock|update)
+	| svk (help|++_) (add|admin|annotate|cat|checkout|cleanup|cmerge|commit|copy|delete|depotmap|describe|diff|help|import|info|list|log|merge|mirror|mkdir|move|patch|propdel|propedit|propget|proplist|propset|pull|push|resolved|revert|smerge|status|switch|sync|update|verify)
+	| darcs (help|++_) (help|add|remove|mv|replace|revert|unrevert|whatsnew|record|unrecord|"amend-record"|resolve|tag|setpref|rollback|diff|changes|annotate|dist|trackdown|query|pull|unpull|+obliterate|push|send|apply|get|put|initialize|optimize|check|repair)
+	| bzr (help|++_) (add|annotate|"baz-import"|"baz-import-branch"|bind|branch|"branch-history"|"branch-mark"|branches|+"break-lock"|cat|cbranch|check|checkout|"clean-tree"|commit|conflicts|deleted|diff|export|+"fetch-ghosts"|"graph-ancestry"|help|ignore|ignored|info|init|"init-repository"|inventory|log|merge|missing|mkdir|"multi-pull"|mv|nick|patch|pull|push|reconcile|"register-branch"|remerge|remove|renames|resolve|revert|revno|root|rspush|shelf|shell|shelve|"sign-my-commits"|status|switch|+testament|unbind|uncommit|unknowns|unshelve|update|upgrade|version|whoami|+zap)
+	| git (help|++_) (add|am|applymbox|bisect|branch|checkout|"cherry-pick"|clean|clone|commit|diff|fetch|"format-patch"|grep|log|"ls-remote"|merge|mv|pull|push|rebase|repack|rerere|reset|resolve|revert|rm|shortlog|show|"show-branch"|status|"verify-tag"|whatchanged)
+	;
+
+Ending ::=
+	  ^"!"
+	| ":)"
+	| ":/"
+	| ":("
+	| ";)"
+	;
+
+System ::= cvs | svn | svk | hg | tla | baz | darcs | git | bzr ;
+
+StaticSystem := System ;
+
+Assertion ::=
+	  "I'm having to learn enough new tools already, thanks"
+	| System "is easy to use as an enhanced" System "client"
+	| "it feels like a hack though :-/"
+	| "I don't want an enhanced svn client. I don't want svn at all" Ending
+	| "people keep repeating that svn is just like cvs, but better, and every time I have to use it, I have problems and get a headache"
+	| "but what I do know, I only used" System "for over a decade"
+	| "you're probably just allergic"
+	| "it's just like" System ^", but worse"
+	| "yeah, we used" System "because we didn't know better, but now that we do, who wants a better cvs? :)"
+	| "I want a RCS that can handle 2 dimensions for the ancestry of a revision and branches."
+	| "in theory, a patch-based system should handle that; in practice, i dunno"
+	| "now if only" System "&" System "would be mutually compatible..."
+	| "how does" System "cope with weird ancestry stuff?"
+	| "if it can be expressed in" System ^", it is a use case"
+	| System "is history based, so it probably is a matter of how good your merge tools are"
+	| System "doesn't care about ancestry for the most part"
+	| "but how well does it detect such ancestry when merging?"
+	| "So far" StaticSystem ^"'s merging doesn't impress me. I have patches that patch applied with fuzzyness but" StaticSystem "failed to merge."
+	| "you can write a fuzzy resolver if you like"
+	| "but fuzziness means that you are really close to a conflict"
+	| "What I need most is that when I import a new upstream then" System "should tell me that branch patch3 and patch17 will have a conflict with this update."
+	| "Currently I have to go to every patch branch manualy and replay or merge the underlying branch to get the changes."
+	| "well," System "doesn't do branches in that sense at all. they're all separate repositories that might share storage"
+	;

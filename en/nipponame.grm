@@ -1,0 +1,88 @@
+I ::= "title:    Japanese names\n"
+    ^ "author:   Manta, Pan &lt;pansk@tiscalinet.it&gt;\n"
+    ^ "language: english\n"
+    ^ "topic:    misc\n"
+    ^ "status:   refinable\n"
+    ^ "audience: anybody"
+    ^ "created:  03/09/2003"
+;
+
+S ::= \FirstName \LastName
+;
+
+FirstName ::= Pre1 ^ Post1 (*| Name *)
+;
+
+LastName ::= (Pre ::= Pre2 | Mid2 ;
+			  Post ::= Mid2 | Post2 ;
+			  Mid ::= Mid2 ;
+
+			  Pre ^ [Mid^] Post)
+;
+
+Pre2 ::= sane | fuka | asa | mae | yoko | nishi | kita | higashi | minami | au | aka | kuro
+      |  kiyo | iwa | ishi | matsu | sugi | take | yone
+;
+
+Mid2 ::= yoshi | tada | ie | tsuna | yasu | yori | mochi | taka | kane | tomo | nobu | naga
+      |  katsu | toki | masa | mitsu | hisa | hide | toshi | sada | kuni | aki | shige | nori
+      |  mune | ki | ita | (h | b) ^ashi | mori | mizu | moto | naka | uchi | yama | oka
+      |  saka | no | ike | kawa | tani | sawa | hata | ta | shima | mura | saki
+;
+
+Post2 ::= uji | mori | tsugu | emon | ji | zo | suke | (h | b) ^ ayashi | ue | kami | shita
+       |  shimo | zawa | numa | bata | da | jima | zaki
+;
+
+Pre1 ::= e | gen | jun | ku | ken | ko | kyo | ryo | ryu | sei | sen | shin | sho | shu | shun
+      |  yo | yu | aki | hide | hiro | masa | nobu | shige | taka | tomo | toshi | yasu | yoshi
+;
+
+
+Post1 ::= ichi | z^(o | u) | ji | kazu
+;
+
+(*Aiko, Akiko, Asako, Atsuko, Ayako, Chikako, Emiko, Eriko, Etsuko, Fujiko, Fumiko, Haruko, Ikuko, Junko, Katsuko, Kazuko, Keiko, Kimiko, Kumiko, Kyoko, Machiko, Maiko, Makiko, Mamiko, Mariko, Masako, Mayako, Mayuko, Mayoko, Michiko, Mihoko, Minako, Misako, Mitsuko, Miyoko, Momoko, Mutsuko, Nahoko, Namiko, Nanako, Naoko, Natsuko, Nayoko, Noriko, Reiko, Rieko, Rikako, Rinako, Risako, Ritsuko, Rumiko, Ryoko, Sachiko, Saeko, Sakiko, Sakuko, Sakurako, Sanako, Satoko, Sayoko, Shoko, Seiko, Tadako, Takako, Tamiko, Tokiko, Tomiko, Tomiko, Yoko, Yoshiko, Yukako, Yukiko, Yumako, Yumiko, Yuriko, Yutsuko.*)
+(*Name ::= "Akihiko" | "Akihiro" | "Akihito" | "Akira" | "Fumio" | "Fumihiko" | "Hideaki" | "Hidekazu"
+	  |  "Hirofumi" | "Hirohisa" | "Hiroshi" | "Hisashi" | "Hitoshi" | "Jotaro" | "Katsuhiko"
+	  |  "Katsumi" | "Kazuhiko" | "Kazuki" | "Kazunori" | "Kazuo" | "Kazushi" | "Kei" | "Keichi"
+	  |  "Ken" | "Kensaku" | "Kintaro,Kosaku" | "Kotaro" | "Mamoru" | "Manabu" | "Masafumi"
+	  |  "Masaharu" | "Masahiko" | "Masahiro" | "Masaki" | "Masami" | "Masao" | "Masashi"
+	  |  "Masayoshi" | "MasayoshiAkio" | "Michihiro" | "Michio" | "Naoki" | "Noboru"
+	  |  "Nobuhisa" | "Nobuo" | "Nobuyoshi" | "Noriaki" | "Norihide" | "Norihisa" | "Norio"
+	  |  "Osamu" | "Rintaro" | "Ryosei" | "Ryutaro" | "Satoru" | "Satoshi" | "Shigeaki"
+	  |  "Shigeki " | "Shintaro" | "Sumio" | "Tadao" | "Tadashi" | "Takaaki" | "Takafumi"
+	  |  "Takahiro" | "Takao" | "Takashi" | "Takayuki" | "Takeshi" | "Takuya" | "Taro"
+	  |  "Teruo" | "Tetsuhiko" | "Tetsunori" | "Tetsuo" | "Tetsuya" | "Tetsuyuki" | "Tomohiko"
+	  |  "Tomoyuki" | "Toru" | "Toshiharu" | "Toshio" | "Toshiyuki" | "Tsutomu" | "Yoshifumi"
+	  |  "Yoshimitsu" | "Yoshiyuki" | "Yukio" | "Yutaka"
+;
+
+S ::= NN;
+
+On ::= (o | --oo | -go) ^NN;
+
+NN ::= N (------^N | _);
+
+N ::= +++++((------Imp^ | _) Sill ^Sill (-^n | _)) | N1;
+N1 ::= (Sill (-^n | _) (------^N1 | _));
+
+Sill ::= +VocLung | KV | -SV | TV | NV | HV | MV | RV | WV;
+
+Voc ::= a | i | u | e | o;
+VocLung ::= a | i | u | e | o | -ii | -ou | -ei;
+Imp ::= ya | yu | yo;
+
+KV ::= (+k | g) Comp;
+SV ::= +(s Comp) | (+(za | ji | zu | ze | zo) | (ja | ju | jo));
+TV ::= +(+(ta | chi | tsu | te | to) | (cha | chu | cho)) | (+(da | ji | zu | de | do) | (ja | ju | jo));
+
+NV ::= n Comp;
+HV ::= (++h | +b | p) Comp;
+MV ::= m Comp;
+RV ::= r Comp;
+WV ::= wa | wo;
+
+
+Comp ::= ^(+++Voc | Imp);
+*)

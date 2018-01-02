@@ -1,0 +1,50 @@
+I ::=   "title:    Gusto\n"
+      ^ "author:   CUG &lt;cug@telcanet.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "comment:  il sommellier della rubrica Gusto di Canale 5\n"
+      ^ "warning:  da declamarsi rigorosamente con impostazione vocale tipo Gassman\n"
+      ^ "thanks:   si ringrazia Kamajin per l'idea\n"
+      ^ "created:  30/5/2004"
+;
+
+S ::= \INTRO VINO SEGNO.PU3 ABBINAMENTO  COLORE.(M|F) (SEGNO.V COLORE.(M|F) )+ e COLORE.(M|F) SEGNO.PU3 all'olfatto SEGNO.V (ODORE.(M|F)).(S|P) [SEGNO.V con OD0 di ((OD1 [OD2]).(M|F)).(S|P)] SEGNO.PU3 al palato e' BOH (SEGNO.V BOH )+ e BOH SEGNO.PU3 [ADDIO SEGNO.PU3] ;
+
+INTRO ::= il vino di oggi e' un 
+	  | assaggiamo [dunque] questo 
+	  | sentiamo [dunque] questo 
+	  | oggi (\vi proporrei | sottoporrei alla \vostra attenzione) un 
+	  | oggi a \gusto sentiremo un ;
+
+VINO ::= NOME [AGGETTIVO];
+
+NOME ::= "Albana" | "Asti" | "Barbaresco" | "Bardolino" | "Barolo" | "Brachetto" | "Brunello" | "Carmignano" | "Chianti" | "Franciacorta" | "Gattinara" | "Ghemme" | "Montefalco" | "Montepulciano" | "Recioto" | "Sforzato" | "Torgiano" | "Ramandolo" | "Valtellina" | "Vermentino" | "Vernaccia" | "Lambrusco" | "Chianti" | "Moscato" | "Brachetto" | "Bonarda" | "Cabernet" | "Pinot" ; 
+
+AGGETTIVO ::= "di San Gimignano" | "Superiore" | "di Gallura" | "di Soave" | "di Valtellina" | "Rosso" ["Riserva"] | "Sagrantino" | "Spumante" | "di Montalcino" | "d'Acqui" | "di Romagna" | "degli Euganei" | "Sauvignon" | "di Pinot" ;
+
+ABBINAMENTO ::= (buono per | ottimo per | gustoso con | (e'|va) [solitamente] abbinato con | (e'|va) [spesso] servito con) (PIATTO SEGNO.V)+ e PIATTO SEGNO.PU3 ;
+
+PIATTO ::= pesce | verdura | fiorentine | arrosti | costolette | branzino | sformato | dolci | salumi | coppa | prosciutto | pancetta | salsiccia | lardo | anguilla | cotechino | formaggio [di fossa] | provola [affumicata] | scamorza | ossibuchi | melanzane | fritto misto | cane | topo [muschiato] | bresaola |  [contro^]filetto | girello | grigliate ;
+
+BOH ::= pettegolo | opaco | trasparente | limpido | allegro | frizzante | simpatico | divertito | spumeggiante | liscio | piatto | onesto | sontuoso | vellutato | paraffino | legnoso | stagionato | acetizzante | superbo | umile | arioso | ---pornografico | stimolante | ingannevole | seducente | idiosincratico | imperioso | ardito | arrembante | pavido | brillant[^ant]^e | scintillante | sfrigolante | idrosolubile | arguto | ottuso | scaltro | esaltato | importante | discorsivo | sintetico | primeggiante | torreggiante | fiero | arricchito | ricco | archeologico | esclusivo | complesso | cavalcante | scosso | agitato | familiare | innocente | inerme | drammatico | comico | energico | signorile | floreale | apologetico | decorato | enciclopedico | mitologico | sinottico | ecumenico | manovriero | gi^[u^]ocoso | folle;
+
+COLORE ::= (M:(colore | (cromaticamente|--spettrograficamente) impostato sul | riflesso | tono  ) | F:((tonalita'|caratteristica) [cromatica] | coloratura | tinta | --fosforescenza | luminescenza | tinta | trasparenza | rifrazione)) [vagamente | leggermente | fortemente | mediamente | altamente | estremamente] COL ;
+
+COL ::= ross^(M:o|F:a) | bianc^(M:o|F:a) | ner^(M:o|F:a)| scur^(M:o|F:a)| grigi^(M:o|F:a) | giall^(M:o|F:a) [paglierin^(M:o|F:a) ] | rose';
+
+ODORE ::= (il profumo e' di 
+	| presenta reminescenze di 
+	| (ha|presenta) OD0 di )
+	OD1  [OD2];
+
+OD0 ::=un sentore | una reminescenza  | un profumo | una fragranza;
+
+OD1 ::=  (M:(fior^(S:e|P:i) | sandal^(S:o|P:i) | idrocarbur^(S:o|P:i) | mughett^(S:o|P:i) | frutt^(S:o|P:i) | mirtill^(S:o|P:i) | formaggi^(S:o|P:"") | tartuf^(S:o|P:i) |  biancospin^(S:o|P:i) | tabacc^(S:o|P:hi) | incens^(S:o|P:i) | patchouli | iris | vetiver | denim  ) 
+	| F:(ros^(S:a|P:e) | mel^(S:a|P:e) | per^(S:a|P:e) | begoni^(S:a|P:e) | lavand^(S:a|P:e) | cilieg^(S:ia|P:e)   | lavand^(S:a|P:e) | ginestr^(S:a|P:e) | terra^(S:a|P:e) [di \siena] | prugn^(S:a|P:e)  | euchessin^(S:a|P:e) | pesc^(S:a|P:he) ));
+
+OD2 ::= di campo | di mare | di lago | di prato | di macero | bianc^(M:(S:o|P:hi)|F:(S:a|P:he)) | ross^(M:(S:o|P:i)|F:(S:a|P:e)) | giall^(M:(S:o|P:i)|F:(S:a|P:e)) | ner^(M:(S:o|P:i)|F:(S:a|P:e)) | [pa^]raffinat^(M:(S:o|P:i)|F:(S:a|P:e)) | rosat^(M:(S:o|P:i)|F:(S:a|P:e))  | salat^(M:(S:o|P:i)|F:(S:a|P:e)) | sanguign^(M:(S:o|P:i)|F:(S:a|P:e)) | sporc^(M:(S:o|P:hi)|F:(S:a|P:he)) | stimolat^(M:(S:o|P:i)|F:(S:a|P:e)) | aromatic^(M:(S:o|P:i)|F:(S:a|P:he)) | insipid^(M:(S:o|P:i)|F:(S:a|P:e)) | scipit^(M:(S:o|P:i)|F:(S:a|P:e)) | appassit^(M:(S:o|P:i)|F:(S:a|P:e)) essiccat^(M:(S:o|P:i)|F:(S:a|P:e)) | sottacet^(M:(S:o|P:i)|F:(S:o|P:i)) | bruciat^(M:(S:o|P:i)|F:(S:a|P:e)) | scottat^(M:(S:o|P:i)|F:(S:a|P:e));
+
+ADDIO ::= (buon pomeriggio | buona giornata | buon proseguimento | +++buona degustazione | ---buona sbronza ) [a tutti];
+
+SEGNO ::= (PU0: ^".\n\n"^\ | PU1:^".\n"^\ | PU2: ^":" |  PU3: ^"."\ | PUE: ^"!"\ | V: ^"," | VT: ^"\""\ | PUI: ^"?"\ );

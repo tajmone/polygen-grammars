@@ -1,0 +1,39 @@
+
+I ::=   "title:   " Fernanda "\n"
+      ^ "author:   Pan &lt;pansk@tiscalinet.it&gt;\n"
+      ^ "language:" (spanishy | spanish | hyberic | any) "\n"
+      ^ "topic:    misc\n"
+      ^ "status:   mature\n"
+      ^ "audience: nobody\n"
+      ^ "created:  05/05/2003"
+;
+
+S ::= (Nome.F | Nome.M) Nome.C;
+
+Fernanda ::= \fernanda [y] Nome.F Nome.C;
+
+NomeF ::= \ (dolores | quesadilla | fernanda | pedra | alemanna | fajita | tostada | maria | soledad | guacamole);
+
+NomeM ::= \ (jalapeno | diego | fernando | pedro | hermanno | hernando | jose | gonzales | juan | taquito);
+
+Nome ::= Doppio | Nome Suffisso;
+
+Doppio ::= (Singolo Suffisso);
+
+Suffisso ::= y Singolo | ^ "-" ^ SenzaPrefisso | Singolo;
+
+Singolo ::= C: >> de (DeCognomi | (la \ (bega | barca | tega | vega | fava))) | (da DaCognomi) | SenzaPrefisso <<
+         |  F: NomeF
+         |  M: NomeM
+;
+
+SenzaPrefisso ::= C: >NullCognomi | >DaCognomi | >DeCognomi
+			   |  F: NomeF
+			   |  M: NomeM
+;
+
+NullCognomi ::= \ (quesos | tacos | burritos | nachos | pelancho);
+
+DeCognomi ::= \ (artola | marcario | mendes | meira | gutierrez | espinoza | zabala | oliveira | barrios | arevalo | marques | pinto | piva | lobato | carvalho | maia | vital | toledo | perdomo | perez | tepedino | contresas | barroso | abascal | ranchero);
+
+DaCognomi ::= \ (silva | costa);

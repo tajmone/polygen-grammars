@@ -1,0 +1,26 @@
+
+I ::=   "title:    K00l payoffs\n"
+      ^ "author:   Manta\n"
+      ^ "language: english\n"
+      ^ "status:   larvale\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  25/08/2002"
+;
+
+S ::= \ ( [don't] Verb Adj [^, Verb Adj]
+        | Verb Adj Op Adj
+        ) ^ "!"
+;
+
+Op ::= "&" |+ n' | and | or | but |+ ^, not
+;
+
+Verb ::= be | get | think | live | let's | stay | go | fly | drive | look
+      |  have | move
+;
+
+Adj ::= smart | cool | fine | again | twice | cube | fresh | hot | power
+     |  free | energy | safe | groove | funk[^y] | happy | jungle | out
+     |  young | fun | high | "Helder"
+;

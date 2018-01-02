@@ -1,0 +1,24 @@
+I ::=   "title:    Cani Pericolosi\n"
+      ^ "author:   Denis &lt;laura@micionline.com&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim: uh?\n"
+      ^ "created:  11/9/2004"
+;
+
+S ::= Prod 
+;
+
+Prod ::= \Inizio^Fine \Definizione
+;
+
+Inizio ::= "pitt" | "Bul" | "Dogue" | "Dog" | "Riesen" | "Wolf" | "Ban" | "Rott" | "Sprinz" | "Pittbull"
+;
+
+Fine ::= "mastif" | "snauzer" | "dogge" | "terrier" | "bulterier" | "bulschnautzer" | "wailer" | "boiler" | "er" | _
+;
+
+Definizione ::= "Irakeno" | "Talebano" | "Scannario" | "Brazileiro" | "Meneguin" | "Serbo" | "Ceceno" | "Turco" | "Curdo" | _
+;

@@ -1,0 +1,61 @@
+I ::=   "title:       Information Security System Name Generator\n"
+      ^ "author:      Mefistofele &lt;matteo@genhome.org&gt;\n"
+      ^ "language:    english\n"
+      ^ "status:      mature\n"
+      ^ "topic:       informatic\n"      
+      ^ "audience:    anybody\n"
+      ^ "version:     6.6.6\n"
+      ^ "comment:     Thx to Manta & C for the Metal band names grammar, ispiration for this first grammar\n"
+      ^ "created:     28/09/2004"
+;
+
+S ::= \Title "Ver." Version
+;
+
+Title ::= Prefix (\NPre \Noun | "Management") \PDev \Subj
+         | PDev \NPre \Noun \NDev \Subj
+;
+
+Prefix ::= ((Adj^"-"^ADev) | NDev)
+;
+
+Adj ::= ultra | extra | very | multi | intra 
+;
+
+ADev ::= evil | resident | brutal | violent | satanic | chaotic | dark | diabolic | tantric | immortal 
+        | ethereal 
+;
+
+NDev ::= silent | inorganic | biological | ectoplasmatic | gothic | insane | hostile | "pre-emptive" 
+        | [un^]holy | ghostly | spiritic | rising | bleeding | running | norton | organic | persistent 
+        | amorph | sybillin 
+        | erotic | infernal | cthuloid | cthonic
+;
+
+EDpname ::= (network | host | apocalypse | doom | necro[nomicon] | hard | snort | oracle | necro)
+;
+
+EDpre ::= EDpname^("-based" | "-coded")
+;
+
+NPre ::= EDpre
+;
+
+Noun ::= (intrusion | intruder | scanner | sniffer | penetrator | vulnerability ) ("Detection" | "Assessment") 
+        | "Wing-"^("Tsun" | "Chun" | "Ciun" | "Zun") 
+        | ((internet | desktop | database | eretic | ADev | "WI-FI" | wireless) "Scanner") 
+        | sniffer | analyzer
+;
+
+PDev ::=  peripheral | centralized | enterprise | remote | maniac | rapid | invisible | scalable
+         | local | revisited | rebuilded | reprogrammed
+;
+
+Subj ::= system | tool[^s] | correlator | monitor | suite | destroyer | dreamer | builder | configurator 
+         | d^[a^]emon | programmer | coder | protector | intruder | penetrator | grammar | program
+         | summoner | wizard | mutilator | killer | smasher | tester 
+;
+
+Version ::= ("6.6.6" | "9.9.9" | "0.0.1" | "0.1" )^"-"^(alfa | beta | gamma | "RC" | "FC")
+;
+

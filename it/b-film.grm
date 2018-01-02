@@ -1,0 +1,124 @@
+I ::=      "title:    Titolo di" (film | cazzata | lungometraggio)^" degli anni '70: \n"
+         ^ "author:   Manta\n"
+         ^ "language: italian\n"
+         ^ "status:   embryonic\n"
+         ^ "topic:    film\n"
+         ^ "audience: anybody\n"
+         ^ "note:     Mont e CUG ci hanno aggiunto qualcosa\n"
+         ^ "created:  5/4/2005" ;
+
+
+
+S ::= "Quella" (Agg.A|Agg.B|Agg.C) "del" ^Nom.F tutta (Agg.A|Agg.B|Agg.C) e tutta (Agg.A|Agg.B|Agg.C) |
+         
+      "L"^Profession.F ( Dove | e Profession.M | senza Vestito ) |
+
+      "L"^Profession.F (Cosafa.D Cosa "a" Profession.N ) |
+               
+      "Pierino" ( e ("l"^Profession.F|Professione.M) | Cosafa.P | Dove) |
+
+      Nom.O^ona (Arto.M^Lung.M | Arto.F^Lung.F) | +++\ (Film [Sequel]).(num|anno);
+
+Film ::= anno: ( (+ vacanze | feste | ferie) di Festa
+               | (X := Localita; X X)
+               )
+      |  num:  ( scuola di Professione
+               | Sostantivo e Sostantivo
+               | (Nomi |--- tutti) contro (Nomi |--- tutti)
+               )
+;
+
+Sequel ::= num:  ("II" | "III" | "IV" | "V" | "VI" | "VII" | "VIII" | "IX")
+        |  anno: "'"^Cifra^Cifra
+;
+
+Festa ::= natale | pasqua | ferragosto | capodanno | ognissanti | tuttimmorti
+       |  carnevale | halloween | "Santo Stefano" | quaresima | avvento
+       |  epifania
+;
+
+Professione ::= polizia | ladri | pompieri | canto | delinquenti
+;
+
+Cifra ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+;
+
+Localita ::= "Ostia" ["Lido"] | "Rimini" | "Riccione"
+           |  "Fregene" | "Jesolo" ["Lido"] | "Viareggio"
+           |  "Versilia" | "Forte dei Marmi"
+           |  "Castel a mare di Stabia"
+           |  "Lignano" [sabbia d'oro]
+           |  "Porto" ("Cervo" | "Rotondo" | "Buffole'")
+           |  "San Tropez" | "Orosei" | "Capri"
+           |  "Ischia" | "Positano" | "Taormina"
+           |  "Lampedusa" | "Riace marina"
+           |  "Monasterace" [marina] | "Locri" | "Riace" [marina]
+;
+
+Sostantivo ::= pane | tulipani | terapia | pallottole | bulli | pupe | fi[^a]^schi
+            |  pizza | fichi | spaghetti | krauti | wurstel | capre | cavoli
+            |  culo | camicia | braga | pappa | ciccia | dame | cavalieri
+;
+
+Nome ::= "Dracula" [il vampiro] | "Frankenstein" | "i Giganti" | "Polifemo"
+      |  "Cicciolina" | "Ciccio" ["Ingrassia"] | "Franco" ["Franchi"] | "Ali' Baba'"
+      |  "i Quaranta Ladroni" | "i Dieci Comandamenti" | "il Corsaro Nero"
+      |  "Sansone" | "Cleopatra" | "l'Oro del Reno" | "i Nibelunghi" | "Sigfrido"
+      |  "Zio Paperone" | "Paperino" | "Nonna Papera" | "Qui, Quo, Qua"
+      |  "Gianni" | "Pinotto" | "Gaspare" | "Zuzzurro" | "Fantozzi" | "Fracchia"
+      |  "Pinocchio" | "Geppetto" | "il Grillo Parlante" | "Rintintin"
+      |  "Helder" | "l'Uomo Ragno" | "i Filistei" | "le Miniere di Re Salomone"
+      |  "i Pirati" | [il pirata] "Barba"^(blu | nera) | "Maria de Filippi"
+;
+
+Nomi ::= Nome [[(^"," Nome)+] e Nome]
+;
+
+
+               
+         Agg ::= A:( maiala | stronza | civetta | cazzona | simpaticona | grassona |
+                 scosciata | pignola | vacca | frigida) |
+                 B: (superba | nasona | perbene | nuda | allegra | putrida | molesta |
+                 arrapata | deficiente | sveglia | putrefatta) |
+                 C: (lorda | nuova | timida | ipermetrope | sola | piena |
+                 collerica | nevrotica | perbene | modesta);
+                 
+         Nom ::= F:(^"l'Ubalda" | ^"l'Enrica" | la "Carmen" | ^"l'Ignazia" | ^"la Patatona" |
+                  ^"l'Ornella" | ^"la Nives") | O: ( "Enric" | "Giovann" | "Carl" |
+                  "Jessic" | "Valentin" | "Mart" | "Ann" | "Albert" | "Francesc" | "Fabi" | "Paol" |
+                  "Antoni" | "Giorgi" | "Patat" ) ;
+                  
+         Profession ::= F: ("a dottoressa" | "'infermiera" | "a professoressa" |
+                         "a cameriera" | "a hostess" | "a studentessa" | "a direttrice" |
+                         "a capitana" | "a sott'ufficiale" | "a suora" | "a soldatessa") |
+                         M: ( il bidello | l'alpino | il soldato | il principe |
+                         lo scaricatore di porto | il professore | il preside | lo storpio |
+                         il vedovo | il vicino di casa | l'usciere | il portiere | l'addetto alle luci |
+                         il prete | il disoccupato | l'effemminato ) | N: ( "Mario" | "Carlo" | "Gino" |
+                         "Pino" | "Lino" | "Renato" | "Piero" | "Sanzio" | "Pompeo" | "Dondolino" |
+                         "Dario" | "Michele" );
+                         
+         Dove ::= "al distretto militare" | "a scuola" | "alla spiaggia nudista" |
+                  "a lezione privata" | "al bar" | "alla messa" | "in vacanza" |
+                  "al supermercato" | nell'albergo ;
+                  
+         Vestito ::= mutande | pudore | reggiseno | l'oste | vergogna | pullover | malizia |
+                     soldi | notorieta' ;
+         Cosa ::=  le mutande |il pudore | il reggiseno | la vergogna | il pullover | la malizia |
+                     i soldi | la notorieta' ;
+                     
+         Cosafa ::= P: (colpisce ancora | ne fa un'altra delle sue | la fa grossa | ^(", cosa hai fatto" Dove^ "?") |
+                    il simpaticone | l'esuberante) | D: ( cambia | serve | conta | salta | mangia | spolvera | collega |
+                    lecca | spia | lava ) ;
+                    
+         Arto ::= (F: ("cosci" | "gamb" | "test" | "fig" | "bocc" | "panci" | "chiom" | "ascell" | "spall" )
+                  | M: ( "nas" | "dit" | "orecchi" | "cul" | "call" | "coll" | "sen" | "uter" ))
+                  ^( F:a | M:o ) ;
+                  
+         Lung::= (lung | larg | gross | sporc | nostr | ross | sincer | palestrat | tes |
+                 misterios | usat | indecis | farabutt | pubblic | derelitt | legger | destr |
+                 putrefatt )^( M:o | F:a ) ;
+                 
+         Chi ::= "Mario" | "Carlo" | "Gino" | "Pino" | "Lino" | "Renato" | "Piero" | "Sanzio" | "Pompeo" |
+                 "Dondolino" | "Dario" | "Michele" ;
+

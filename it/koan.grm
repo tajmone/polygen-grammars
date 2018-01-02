@@ -1,0 +1,146 @@
+I ::=   "title:    KoAn\n"
+      ^ "author:   Lucifero &gt;lucifero@lucifero.org&gt;, Entropyst\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "created:  26/08/2004"
+;
+
+S ::= \ (Intro Attore | Attore Intro) [^"," (Emozione1|Emozione2) ^"," ] ^ "\n"
+	    ^((Azione) | (e|ma) Delirio) ^"."\ ^ "\n"
+	    ^[(poi|come) Delirio ^"."\ ^ "\n"
+	    ]^"\n"
+	    
+	    ^Cose^ "\n"
+	    ^Imparare ^ "\n"
+	    ^Esistava^ "\n"^"\n"
+	    
+	    	    
+	    ^Canzone ^ "\n"^"\n"
+	    ^TitoloCanzone
+;
+
+Intro ::= tra le bancarelle | passata la serata | a trentunanni | sui navigli | fino alle 3 | e vedere te |
+		niente per me stanotte qui fuori | in bici senza mani | valere allo stesso modo | vicino al tuo letto |
+		nel cuore pieno della notte | leggevo da sola sul divano | ubriaca dei navigli | facevo un bagno blues |
+            un sushi sulla pelle | due vodka lemon | un triangolo beveva birra | persa nei miei cassetti |
+            aspettando una nuova alba | godendosi questo cazzo di presente | quando la notte era notte | smettere |
+            e non posso fare a meno di pensare | la parola ano e' una parola corta | ho gli occhi pieni di caccole |
+            cosi' me stessa che non sono mai stata | tra scegliere e non scegliere ho scelto di scegliere |
+            spendere 900 euri in libri | in other words | a volte avverto chiaramente | la realta' non mi appartiene |
+            nessuno mi vuole bene | tensione, sguardi obliqui, pinguini | la seduzione per il gusto della seduzione
+;
+
+Attore ::= l'evidenza | le regole | i modi di fermare | l'anima blues | la tramontana | le tette | la cosina |
+           trentunanni | petali fragili e isterici | gente che mi vuole bene | una patata blues  | lancette tonde |
+           la bellezza delle cose che ama nascondersi | il piercing sulla pancia | tutto cio' che non e' ostentato |
+           l'essenza e l'apparenza fuse | il mio sorriso da battaglia | una sola definizione | ventisette nuovi libri |
+           l'andare a fare delle cose | il mondo che non e' tondo | l'essere molto piu' bella di cosi' |
+           l'unaequaranta di notte abbracciata al cuscino | uno scendiletto saccente | un brufolo imprevisto |
+           una brischetta nell'occhio | il sapore di una lingua al tugsteno | uma matrioska blues | le dita avide |
+           il vento che tira piu' della patata | spigole, spigole ovunque | un vento cavernoso cobalto
+;
+
+Emozione1 ::= gongolo | basisco | spero | eiaculo | strepido | muoio | corrompo | esco | adrenalizzo | sogno |
+              mangio | rutto | mi scaccolo | percepisco | lievito | turnico | rinasco | mi esercito | assaporo |
+              dormo | leggo | scrivo | mi svesto | parto | torno | saluto | piango | rido | parlo | avverto |
+              acclamo | inneggio | sperpero | recupero | sgravido | scoreggio | lucido | inturgidisco
+;
+
+Emozione2 ::= morbida | leccata | ingrifata | gravida | sudata | bagnata | lieve | nuda | spogliata | vuota |
+              tonda | paurosa delle risposte | suonata | insonne | incosciente | trentunenne |
+              debosciata e in piena tempesta ormonale | pazza pazza pazza | innamorata | svestita | scapigliata |
+              scalza | rapida | arroccata come la paprika | volenterosa | vogliosa | annodata | mai capita |
+              incazzata come una tapira amaranto | fatta come una zucchina
+;
+
+Azione ::= sollevare polvere | provocare brividi | spazzare via | lasciare che i pesi s'inventino | mandare sms |
+	     chiudere gli occhi | giocare con me | provare a baciare | incollare gli occhi | condire i capelli |
+           schiudere ugole | gridare all'ascensore | fare un bagno nel mio letto | muoversi invece di stare ferma |
+	     spazzare via un brivido | buttare la spazzatura | tagliare le unghie dei piedi | pagare i debiti di giuoco |
+           smetterla di singhiozzare singhiozzi singhiozzando | barare senza saperlo fare | fare la prima mossa |
+           cospargersi di ritmi sballati | annegare nei navigli |guardare in direzioni che non mi appartengono |
+           far vivere delle magie | essere svegliata dai muratori | accorgersi di un'occhiata libidinosa |
+           rompersi il cazzo | tenere stretta una mano | fingere risate |comprare altri libri | salire le scale |
+           parlare di me | dire cose piccole e sciocche | essere un'adolescente | avere degli occhi diversi |
+           depilarsi le ascelle | radersi le gambe | usare l'assorbente | sfornare torte
+;
+
+Delirio ::= che poi alla fine va bene | non equivale a perdere per abbandono | non e' detto che io diventi camaleonte |
+            bisogna lasciare giganti | leccando cose che si fanno da sole | non fare in tempo nei ritmi sbagliati |
+            in direzioni che non mi appartengono | cio' che resta del cammino e dello zucchero | era come e' adesso |
+            qualcuno vuole davvero ascoltare il linoleum | il permesso dell'insicurezza dei soggetti |
+		fumo e metallo insieme nel barattolo | una cosa asettica non cola trasparente | il vetro si scioglie fragile |
+            la parte migliore e' leccarsi le dita | fluisce tra le coscie | era l'unica cosa da fare nel tondo vuoto |
+            si vive come in angoli di papaja | si vive in posti dove come altrove si lascia che sia |
+            la meta' dei miei anni succede sempre che c'e' la luna piena | due nasi fanno male come quell'estate lontana |
+		posso parlare di me ma non se ne parla | cose che fanno voltare e scuotere la forfora |
+            con una vertigine assoluta di dentifricio | buona vita a chi manca un passaggio |
+            secondo precisi accordi non transitivi | mp3 random in sottofondo | di solito troppo poca per chiunque altro |
+            le mie domande non cantano intonate | il sake sembra piu' sake | viziata come una ventenne incosciente |
+            il potere taumaturgico del sushi | mi voglio bene ogni volta che somatizzo | gli uccellini cinguettano augh |
+            no no l'estetista ha pareti troppo bianche e lucide | parole come perle imbrattate di significato |
+		pensieri cattivi tra le gambe | 
+            per adesso la pelle dice ciao senza domande | non importa cosa guadagna e perde il semaforo |
+            la perenne battaglia tra la saggezza e l'ippopotamo | l'alce di nylon, tu sai di cosa parlo |
+            nascere, morire, comprare la scarola | posso tranquillamente negare di essere amata al contrario |
+            i conigli albini mischiati di tramonto | le patate al forno sussurrano tra le maledette spigole 
+;
+
+Canzone ::= ("I" | "You") and (me | him | her) together ^ "\n"
+		^(more than|within|out of|pain on|oil on|ship with|only|cut on|path of|shadow of) (a heart | a tale | a fire |
+            a paint | a glass | a plastic chase | an airplane | a borderline |            
+		an animal | an istinct | a lake | a spaceship | a dream | a black box) ^ "\n"
+		^(obsessing | dressing | painting | burning | changing | fucking | talking | thinking | selling | writing |
+            eating | sleeping | killing | dancing | loving | moving | jumping | stealing | messing up | closing |
+            opening) (our lives | our souls | our bodies | our minds | our feelings | our earths | our emotions |
+            our dreans | our kisses | our fingers | our lies | our skies | our lifes | our arms | our hands |
+            our foots | our opinions | our shapes | our nights | our days | our voices) ^"\n"^"\n"
+		^(nowhere | somewhere|anyware|in the world|in the universe|in the street|in the room|between us|
+            on the road|outside|inside) there is (something | nothing |happyness|dead|life|everything|sex)^ "\n"
+		^"I" [don't] (need | believe | look for | love | think | change | need | want | call | talk | walk| 
+            fight|remember|go on|forget|forgot)
+;
+
+TitoloCanzone ::= "("^"\"" ^ ("Singing" | "Laying" | "Porning" | "Sitting" | "Looking" | "Eating" | "Thinking" ) 
+              the (dark | bright | fast | hidden | perfect | bad | shiny | round | little | red | black | right | 
+              wrong | incredible) (side | shape | place | circle | triangle | hole) 
+              of (me | myself | my life | my cat | my soul | my mind | my car | my attitude | my house | my legs |
+              my dreams | my sky | my tree | my bed | my book | you | he | she) ^"\""^"," 
+              [("Robert" | "Maluga" | "Ostuni" | "Maj" | "Raphael" | "David" | "Mike" | "Martha" | "Christine"|
+              "Jack"|"Samuel"|"Mario"|"Teresa"|"Cristina"|"Celine"|"Frank"|"David"|"Alexia")] 
+              ("Costello" | "Henk" | "Casmis" | "Theore" | "Smith" |"Moore" | "Stevenson" | "White" |
+              "Santana"|"Jackson"|"Lavigne"|"Holyday"| "Oats'")^")"
+;
+
+(* il secondo tormentone, del tipo "Le cose belle della vita. Imparare ad andare in bici senza mani a trentunanni. E si stava bene" *)
+
+Cose ::= ("Le avventure"|"Le cose"|"Le sensazioni"|"Le variazioni" |"Le perdite" |"Le vibrazioni"|"Le emozioni"|
+          "Le stronzate"|"Le mestruazioni"|"Le fatalita'"|"Le oscillazioni"|"Le iniquita'"|"Le oscenita'"|
+          "Le ironie"|"Le paturnie"|"Le intensita'"|"Le frittelle"|"Le protuberanze"|"Le gibbosita'"|
+          "Le insicurezza"|"Le certezze"|"Le lacrime"|"Le palpitazioni"|"Le azioni"|"Le reazioni"|
+          "Le rotondita'"|"Le eccitazioni"|"Le canzoni"|"Le partenze"|"Le vaccinazioni")    
+         (belle|folli|saporite|calde|fredde|tiepide|bollenti|scatenate|cedevoli|interessanti|memorabili|
+         perdute|insane|formose|succose|paciose|rapide|incresciose|semifredde|ghiaccicate|focose|untuose|
+         melmose|pericolose|faticose|sfrenate|pazze|sciocche|frequenti|ricorrenti|puntuali|inevitabili) della vita":"
+;
+
+Imparare ::= (imparare ad andare | iniziare a pittare | fischiettare allegra | preparare una torta | pettinarsi la chioma |   
+             giocare a scacchi | sollevarsi la gonna | spruzzarsi addosso l'acqua | spargere fiori lilla | 
+             ridere tra le lacrime | calarsi le mutande | scrivere al pc | chiamare l'ascensore | canticchiare|
+             contarsi i brufoli | ballare | dondolare | odorare geranei | imparare ancora | apprendere di nuovo ) 
+             in (bici|treno|casa|spiaggia|bilico|piedi|chiesa|apnea|estasi|treno|mongolfiera|pattino|triciclo|
+             scala mobile|supermercato|chiesa|cantina|soffitta|piazza|macelleria|edicola|farmacia|autobus|tram|
+             metropolitana|terrazza|corriera|elicottero|frutteria|merceria|sottomarino) 
+             [adesso che ne ho 31|al momento trenta e ancora uno| "anni XXXI"|a trentunanni| 
+             al momento tre volte dieci piu' uno|ad anni trentuno|non piu' bimba|ormai grande e saggia|
+             ora che sono matura come una pera|
+             ora che non sono piu' (adolescente|ragazzina|bambina|piccola|bebe'|giovincella|teenager|sedicenne|
+             vergine)]
+;
+
+Esistava ::= "E si" (stava|camminava|parlava|respirava|cantava|amava|sputava|volava|scendeva|rideva|magiava|beveva|
+             dormiva|riposava|gorgogliava|esitava|spasimava|sperimentava|andava di corpo|cucinava il sugo|
+             piantava il basilico|ritirava la posta|cambiava in|digeriva|succhiava|stringeva|ascoltava) bene
+;

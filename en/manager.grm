@@ -1,0 +1,101 @@
+
+I ::=   "title:    New Economy manager\n"
+      ^ "author:   Manta\n"
+      ^ "language: english\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "disclaim:" Prods and Prod are
+        ( "Mulino Bianco" | "Barilla" | "Vodafone" | "MacDonald's"
+        | "Chupa & Chups" | "De Longhi" | "Ferrero" | "Burger King"
+        | "Calvin Klain" | "Valentino" | "Ferrari" | "Rolls Royce"
+        )
+        (^"," [limited] "inc.")
+        trademarks ^"\n"
+      ^ "created:  25/08/2002"
+;
+
+Prod ::= Java | Internet
+;
+Prods ::= Prod [^"," Prods]
+;
+
+S ::= \Period.inf^"."
+;
+
+Period ::= we (Aux.aff Pred.(noun|adj).inf. | Either.(aff|-neg))
+           (---- _
+           |     (
+                  ( 1: ^"," so that | 1: and | 1: ^"," but | 1: ^"," otherwise
+                  | 2: ^"," thus | 2: as [(long | soon) as]
+                  )
+                  [1: then | 1: therefore | 1: ^"," this way^"," | 2: indeed]
+                 ).(1|2) Period.(noun|adj).
+           |     [in order] to Pred.(noun|adj).inf.
+           |     for Pred.(noun|adj).ing.
+           )
+;
+
+Either ::= (neg: n^ | aff: _) either Aux Pred.(noun|adj).inf. ^","
+           (neg: n^ | aff: _) or Aux Pred.(noun|adj).inf.
+;
+
+Aux ::= (should | can | could | would) [better]
+     |  (have | need) to
+     |  aff: will [be able to]
+;
+
+Pred ::= Verb Obj
+;
+
+Obj ::= Adjective Noun
+      | the (development | design) of (Genitive.adj Noun | Genitive.noun)
+;
+
+Noun ::= systems | tools | controls | applications | projects | engines
+      |  services | providers | portals | [application] servers | solutions | strategies
+      |  architectures | tecnologies | politicies
+;
+
+Adjective ::= Internet [^"-"^(based | oriented | like | native | mobile)] [Genitive]
+           |  "on-demand" | (on | off)^"-line" | "on-the-fly"
+           |  "out-of-the-box" | software | hardware | firmware | shareware | freeware
+	       |  public domain | net[^work] | multimedia | virtual | management
+           |  performant | embedded | "auto-starting" | "peer-to-peer"
+           |  visual | "fine-grained" | "loosely-coupled" | enterprise
+           |  "e-"^("Commerce" | "Business") | owner
+           |  integrated | interactive | globalized | computerized | informatized
+;
+
+Internet ::= "Internet" | "Net" | "Web" | "Wap" | "MMS" | "SMS" | "WWW" | "GPRS"
+          |  "World Wide Web" | "B2B" | 3D | "B2C" | "ISDN" | "ADSL" | "Business"
+          |  "Consumer" | ["TCP/"^]"IP" | ("PGP" | "GPG") [^"-key"]
+;
+
+Genitive ::= software
+          |  hardware
+          |  [Java] >(app | serv)^let (noun: ^s | adj: _)
+          |  "Information-retrieval"
+          |  data acquiring
+          |  ambient (noun: ^s | adj: _)
+          |  "Data-entr" ^ (adj: y | noun: ies)
+          |  "Database" (noun: ^s | adj: _)
+          |  (artificial intelligence | "AI")
+          |  [Java] application (noun: ^s | adj: _)
+          |  "Net-surfing"
+          |  ("JSP" | "HTML" | "ASP" | "PHP" | "CGI"^["-bin"] | "XML") (noun: pages | adj: _)
+;
+
+Java ::= ["Enterprise"] "Java"[^"Bean"] | "J2EE" | "C++" | "C#" | ".Net" | "JMS"
+         | "JNDI" | "EJB" | ["Shockwave" | "Macromedia"] "Flash" | "XML"
+;
+
+Verb ::= >( [re^]implement | develop | outclass | install
+          | test | deploy
+	      ) (ing: ^ing | inf: _)
+      |  >( [re^]integrat | manag | handl | maximiz | globaliz | defin | iterat
+	      | configur | releas | monitoriz
+	      ) (inf: ^e | ing: ^ing)
+      |	 inf: >(interact with | map | debug)
+      |	 ing: >(interacting with | mapping | debugging)
+;

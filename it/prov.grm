@@ -1,0 +1,94 @@
+
+I ::=   "title:    La" (grande | insuperabile | superba | inimitabile) "saggezza popolare\n"
+      ^ "author:   Gioppino &lt;mgaion@dsi.unive.it&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   larvale\n"
+      ^ "topic:    misc\n"
+      ^ "audience: chiunque avesse il" ( Parente [Aggettivo] ).M "che rompeva con i proverbi\n"
+      ^ "created:  7/12/2002"
+;
+
+S ::= \ ( Gatta
+        | Tempo
+        | Abito
+        | Numeri
+        | Sapere
+        | Andare
+        | Vicino
+      (*| Gallina Gallina vecchia fa buon brodo ... ma devo risistemare tutta la grammatica :) *)
+        | Caval
+        | Matrimonio
+        ) ^ "."
+;
+
+Gatta ::= tanto va Animale.art.(M|F) al ^Cibo che ci lascia Anatomico
+	| tanto va Animale.art.(M|F) al ^Cibo che (Numeri | Abito) (* tentativo di fusione di due proverbi, idea di Manta, non mi fa poi cosi' ridere :( *)
+	(* devo unire le due produzioni ... cosi' fa cacca ... ma intanto funziona :P *)
+;
+Tempo ::= Colore.M di Partegiornata^"," Aggettivo.M tempo si Verbo
+	| Colore.M di Partegiornata^"," [- allora | si inferisce che | di conseguenza] ( Numeri | Abito | Vicino )
+;
+Abito ::= Abbigliamento non fa Mestiere
+;
+Numeri ::=	non c'e' Numero senza Numero
+;
+Sapere ::=	chi la Verbo1 Verbo2
+;
+Andare ::=	(chi va Aggettivo^"," va Aggettivo e va Aggettivo).M
+;
+Vicino ::=	((Cibo | Abbigliamento) del vicino e' sempre piu' Colore).M
+		| ((Cibo | Abbigliamento) del vicino e' sempre piu' Colore).F
+;
+Caval ::= a ( Animale.M.NOart donato | Animale.F.NOart donata ) non si guarda Anatomico
+;
+Matrimonio ::= tra Parente.F e Parente.M non mettere Anatomico
+;
+
+Parente ::= bis ^"-" ^Parente | pro^"-" ^Parente
+	| M: ( nonno | fratello | cognato | padre | suocero | marito)
+	| F: ( nonna | sorella | cognata | madre | suocera | moglie)
+	| nipote
+;
+Animale ::= M: ( (art: l'^ | NOart: _) >(elefante | ornitorinco | alce)
+               | (art: il | NOart: _) >(colibri')
+               )
+         |  F: (art: la | NOart: _) >(pantegana | zebra | iena [ridens | maculata] | gallina)
+;
+Cibo ::= F: la >(carne | mortadella | torta | pasta | cioccolata)
+      | M: l'^>(erba | amaro | uovo )
+;
+Anatomico ::= - lo stinco
+           |  la >(scapola | falange | carotide )
+           | l'^>(incisivo | anulare | avambraccio | orecchio)
+           | il ( canino | fegato | pancreas )
+;
+Colore ::= M: (grigio | rosso | nero)
+	| F: (grigia | rossa | nera )
+	| blu | viola | verde |+ webbart (*non e' un colore ... ma e' pur sempre WEBBBB-oriented*)
+
+;
+Partegiornata ::= crepuscolo | sera | mattina | alba | pomeriggio | notte
+;
+Aggettivo ::= bel | grande (*| piccolo*) | forte
+	| M: ( bello | brutto | chiaro | scuro | piano | sano | lontano | morto | risorto | indetro | storto )
+	| F: ( vecchia | chiara | nuova | morta | storta )
+	(* devo crearli decentemente questi aggettivi tipo Radice+ConiugazioneGenere*)
+;
+Verbo ::= spera | avvicina | allontana | appropinqua
+;
+Abbigliamento ::= F: la >(scarpa | mutanda)
+               |  M: l'^>(abito)
+               |  M: il >(mantello | cappello | polsino | papillon)
+;
+Mestiere ::= il >(monaco | pastore | falegname | postino | web designer | programmatore | medico)
+          |  l'^>(imbalsamatore)
+;
+Numero ::=	due |+ bue | yac | re |+ web | ciak | "c.e.d." |+ wap
+;
+
+Verbo1 ::=	fa | sa | da' | e' | va | ha
+;
+Verbo2 ::=	l'^>( affetti | aspetti | afferri | asciughi | accetti )
+		| la >( sferri | sfogli | spalmi )
+;
+

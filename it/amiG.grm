@@ -1,0 +1,37 @@
+
+I ::=   "title:    Amici del G\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   final\n"
+      ^ "topic:    misc\n"
+      ^ "audience: Mat e quelli che conoscono la sua compa\n"
+      ^ "created:  02/09/2002"
+;
+
+S ::= il Nick ^"," il Taddi ^"," il Gabbo ^"," il Pucci^"," il Calle ^"," il Ciccio
+      e (il (Mat | G) | Mat^G)
+;
+
+Nick ::= (+"N" | "M" | "D" | "T" | "B" | "G") ^ i ^ (+ck | k | t | p | f)
+;
+
+Taddi ::= (+"T" | "C" | "P" | "K") ^ a ^ (+dd | cch | kk | pp | ggh | ff | ll | vv | tt | rr) ^ i
+;
+
+Gabbo ::= (+"G" | "B" | "C" | "D" | "P" | "T") ^ a ^ (+bb | pp | gg | kk | cc | zz) ^ o
+;
+
+Calle ::= (+"C" | "T" | "G" | "P" | "K" | "B") ^ a ^ (+ll | kk | pp | cch | ggh | ff | tt | dd) ^ e
+;
+
+Ciccio ::= (+"C" | "D" | "P" | "T" | "F" | "R" | "S" | "B") ^ i ^ (+cc | gg) ^ io
+;
+
+Mat ::= (+"M" | "G" | "C" | "F" | "T" | "P") ^ a ^ (+t | p | k | b)
+;
+
+G ::= +"G" | "T" | "Q" | "P" | "V" | "B" | "D" | "C"
+;
+
+Pucci ::= (+ "P" | "B" | "G" | "T" | "C" | "F" | "D" | "L" | "M" | "N") ^ u ^ (+ cc | ll | tt | ff | gg | mm | rr | zz) ^ i
+;

@@ -1,0 +1,68 @@
+I ::=   "title:    Polygen manpage\n"
+      ^ "author:   Enrico Zini &lt;enirco@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   embryonic\n"
+      ^ "topic:    polygen\n"
+      ^ "comment:  the generated manpage is still incomplete\n"
+      ^ "created:  15/09/2004"
+;
+
+S ::=     ".TH POLYGEN 1 \"September 15, 2004\"\n"
+	^ ".SH NAME\n"
+	^ Name "\n"
+	^ ".SH SYNOPSIS\n"
+	^ ".B polygen\n"
+	^ ".RI [options]\nsources\n"
+	^ ".SH DESCRIPTION\n"
+	^ Description "\n"
+	^ ".SH OPTIONS\n"
+	^ "Please run \\fBpolygen\\fP without parameters for an explanation on how to run \\fBpolygen\\fP.\n"
+	^ ".SH AUTHOR\n"
+	^ Author
+;
+
+Name ::= Polygen "-" ShortDesc
+	;
+
+Polygen ::= "Polygen"
+	;
+
+ShortDesc ::= Polygen "is a" Whatis "for" Whatitdoes Howitdoes
+	;
+
+Whatis ::= Attribute ( "program" | "tool" | "system" | "gadget" )
+	;
+
+Attribute ::= ( _ | "powerful" | ^"n advanced" | ^"n innovative" )
+	;
+
+Whatitdoes ::=	( "generating" | "creating" | "bursting out" | "computing" )
+		Random
+		( "sentences" | "wisdom" | "nonsense" )
+	;
+
+Random ::= ( "random" | "deep" | "enlightening" | "zen" | "casual" | "accidental" | "aleatory" | "automatic" | "capricious" | "causeless" | "chancy" | "circumstantial" | "cool" | "cursory" | "destinal" | "desultory" | "dicey" | "erratic" | "extemporaneous" | "flippant" | "fluky" | "flunky" | "fortuitous" | "frivolous" | "gratuitous" | "iffy" | "improvised" | "incidental" | "serendipitous" | "spontaneous" | "stochastic" | "superfluous" | "thoughtless" | "unconscious" )
+	;
+  
+Howitdoes ::= "according to a grammar definition, that is following custom syntactical and lexical rules."
+	;
+
+Description ::=   ShortDesc "\n.PP\n"
+		^ "Formally, it is an interpreter of a language itself designed to define languages, where to interpret means executing a source program in real time and eventually outputting its result."
+		^ "\n.PP\n"
+		^ "Here a source program is a grammar definition, the execution consists in the exploration of such grammar by selecting a random path and the result is the sentence built on the way."
+		^ "\n.PP\n"
+		^ "Though PolyGen is quite a seriuos piece of software then, what else would be more noble for it than being used as a parody tool for linguistical habits, stereotypes and trends of this foolish era?"
+		^ "\n.PP\n"
+	  	^ "Principles of parody are focusing a ridiculous topic and eventually abstracting its rules and schemes (here in terms of a grammar definition) by which reproducing it through the variatio device."
+		^ "\n.PP\n"
+		^ "And randomization is perfect at this purpose thanks to its purely asemantic behaviour =:)"
+	;
+
+Author ::= "Manta" 
+	^ "\n.PP\n"
+	^ "This manpage has been generated after instructions given by Enrico Zini <enrico@debian.org>."
+	;
+
+
+

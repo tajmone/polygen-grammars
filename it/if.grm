@@ -1,0 +1,309 @@
+I ::=   "title:    Generatore di Soluzioni di Avventure Testuali.\n"
+      ^ "author:   Stefano 'Sting1' Stinga &lt;sting1@moviereviews.it;&gt\n. Grazie a Tommaso Percivale per l'idea (e per il grasso contributo verbale, ndTommaso).\n"
+      ^ "language: Italiano.\n"
+      ^ "status:   1.0 - Primo tentativo...non rompete le balle se fa" ("cagare.\n" | "schifo.\n" | "pena.\n")
+      ^ "topic:    "("Interactive Fiction.\n" | "Avventure Testuali.\n")
+      ^ "audience: "("Giocatori di avventure testuali in difficolta'.\n" | "Il Newsgroup it.computer.giochi.avventure.testuali\n")
+      ^ "disclaim: Se la soluzione generata non vi aiuta a finire il gioco, la colpa e'" ("soltanto vostra.\n" | "di CarlNando\n")
+      ^ "created:  26/04/2005"
+;
+
+S ::= Frase1 Frase2 Frase3 Frase4 Frase5 Frase1 Frase6 Frase7 Frase8 Frase9 Frase5 Frase1;
+
+
+Direzione ::= ("Nord." |
+              "Sud." |
+              "Ovest." |
+              "Est." |
+              "Nord-est."|
+              "Nord-ovest."|
+              "Sud-est."|
+              "Sud-ovest.");
+
+Oggetto ::= ("Il gatto CarlNando," |
+            "Il cadavere del Papa,"|
+            "le figurine del Papa," |
+            "la candela sul tavolo,"|
+            "le mutande sporche nel cassetto,"|
+            "il vibratore nel cassetto,"|
+            "le carte dei pokemon,"|
+            "il libro di chimica del Prof. Van Stingerton,"|
+            "il coltello,"|
+            "la fune,"|
+            "la chiave,"|
+            "il lecca lecca sporco di cenere,"|
+            "il fazzoletto sporco,"|
+            "il bicchiere di Whiskey,"|
+            "i pantaloni,"|
+            "la rivista porno,"|
+            "la pillola rossa,"|
+            "il mappamondo,"|
+            "il pezzo di legno,"|
+            "il cavallo a dondolo fantasma,"|
+            "la rana,"|
+            "la zattera,"|
+            "il secchiello,"|
+            "il preservativo,"|
+            "l'orologio nel letto,"|
+            "la corona del re,"|
+            "il forziere,"|
+            "la cassa,"|
+            "l'amuleto,"|
+            "il paracadute,"|
+            "il soldo di rame,"|
+            "la maglietta di Ade,"|
+            "il frullatore,"|
+            "il manuale di ragioneria,"|
+            "il cagnolino,"|
+            "Pikachu,"|
+            "il guanto,"|
+            "questa soluzione,"|
+            "gli occhiali,"|
+            "la pozione,"|
+            "il fiore,"|
+            "il medaglione,"
+		"un pisuddolo,"|
+		"un napoletano,"|
+		"un'ocarina,"|
+		"il forziere forzuto,"|
+		"un soldo di cacio,"|
+		"l'anima della nonna,"|
+		"il cavedano,"|
+		"la canna da pesca del nonno di Sampei,"|
+		"il monociclo,"|
+		"un proiettore a salve,"|
+		"Dario Fo,");
+
+Inv ::= ("la torcia"|
+        "il foglio" |
+        "il cacciavite"|
+        "la matita"|
+        "il bicchiere"|
+        "la penna"|
+        "la scatola"|
+        "la cartina"|
+        "il chewingum"|
+        "il rilevatore di ordigni"|
+        "la bomba"|
+        "lo specchio"|
+        "le cesoie"|
+        "l'orologio"|
+        "il pornone"|
+        "il coupon"|
+        "il secchio"|
+        "la banana"|
+        "la petizione"|
+        "il manuale di ragioneria"|
+        "il lattemiele"|
+        "il diamante"|
+        "la pergamena"|
+        "il disco"|
+        "il cagnolino"|
+        "Pikachu"|
+        "la granata"|
+        "il guanto"|
+        "questa soluzione"|
+        "la pozione"|
+        "il lecca lecca pulito"|
+        "la provetta"|
+        "il rotolo di garza"|
+	"l'arnese"|
+	"l'ammennicolo a molla"|
+	"il cotton fioc"|
+	"la copia di playboy"|
+	"il libro di William Gibson"|
+	"la gatta sul tetto che scotta"|
+	"il portafogli"|
+	"la panca in pietra"|
+	"il rubinetto arrugginito"|
+	"il cartello stradale"|
+	"la stele rupestre"|
+	"lo scaplello a molla"|
+	"la luna di lana"|
+	"la paste per pizze"|
+	"il tuo He-Man"|
+	"Skeletor"|
+	"il naso di Cyrano"|
+	"l'anello di Lucrezia Borgia");
+
+Persona ::= ("a CarlNando" |
+            "a BaR" |
+            "al Percy" |
+            "al Gaburri" |
+            "a Sting1" |
+            "a Jack T. Pallance" |
+            "alla signorina Pinkerton" |
+            "al bambino"|
+            "a Zazie"|
+            "al terrorista"|
+            "al nano"|
+            "a Berlusconi"|
+            "a Armando"|
+            "a Paolo Lucchesi"|
+            "al custode"|
+            "a RikTik"|
+            "a Aragon"|
+            "a Julia"|
+            "a Joker"|
+            "al troll"|
+            "a Tommaso Caldarola"|
+            "allo sceriffo Tom Clanton"|
+            "al pianista"|
+            "al re di Mydor"|
+            "a Jois"|
+            "alla chiromante"|
+            "all'illusionista"|
+            "a Scottex"|
+            "al Replicatore"|
+            "al capo"|
+            "a Dumarteau"|
+            "a Orlandi"|
+            "al generale De La Rier"|
+            "a Marco Grocetti"|
+            "a Biagio Antonacci"|
+		"a Hulk Hogan"|
+		"a The Undertaker"|
+		"a Shin"|
+		"a Kenshiro"|
+		"al commissario Basettoni"|
+		"al professor Zapotec"|
+		"a Eta-beta"|
+		"al commissario Rex"|
+		"ai Goonies"|
+		"al feroce Saladino"|
+		"al losco napoletano");
+            
+Azione ::= ("prega."|
+           "guarda in alto."|
+           "sputa."|
+           "salta."|
+           "ridi."|
+           "piangi."|
+           "aspetta."|
+           "leggi le scritte."|
+           "pensa."|
+           "piscia."|
+           "dormi."|
+           "canta."|
+		"afferra."|
+		"respira."|
+		"torci."|
+		"picchia."|
+		"spolvera."|
+		"sciogli."|
+		"riscuoti."|
+		"taglieggia.");
+
+Azioneoggetto ::= ("Lecca"|
+                  "Mangia"|
+                  "Assaggia"|
+                  "Accendi"|
+                  "Spegni"|
+                  "Chiudi"|
+                  "Apri"|
+                  "Tocca"|
+                  "Sposta"|
+                  "Suona"|
+                  "Chiava"|
+                  "Compra"|
+                  "Slega"|
+                  "Seppellisci"|
+                  "Pulisci"|
+                  "Rompi"|
+                  "Uccidi");
+
+Spell ::= ("Yrecros"|
+          "Sorcery"|
+          "Olucnaffav"|
+          "Aracne"|
+          "Radix"|
+          "Ipnos"|
+          "Pax"|
+          "Crios"|
+          "Adhaesus"|
+          "Asor Banseo"|
+          "Tanatu Egemon"|
+          "Saurus Magnus"|
+          "Vox"|
+          "Quies"|
+          "Iotaid"|
+          "Bigmeow"|
+          "Phobos"|
+          "Igachico");
+          
+
+Luogofrom ::= ("dall'astronave" |
+              "dalla stanza" |
+              "dall'aeroporto" |
+              "dal cimitero" |
+              "dal saloon" |
+              "dalla cabina" |
+              "dalla biblioteca" |
+              "dal castello" |
+              "dal labirinto"|
+              "dal bosco"|
+              "dall'ufficio"|
+              "dalla capsula"|
+              "dal sottomarino giallo"|
+              "dal labirinto della follia"|
+              "dalla discoteca"|
+              "dalla voragine"|
+              "dalla metro"|
+              "dal giardino"|
+              "dalla chiesa"|
+              "dalla scuola"|
+		"dal cratere"|
+		"dal bagno pubblico"|
+		"dalla morgue"|
+		"dalla pancia del basilisco"|
+		"dalla cava"|
+		"dal postribolo turco"|
+		"dal vicolo ambiguo"|
+		"dalla trattoria Agenore"|
+		"dalla stanza della duchessa"|
+		"dalla voragine"|
+		"dalla tenda del nano"|
+		"dal salotto del nano"|
+		"dalla spiaggia del nano"|
+		"dalla cuccia di Snoopy");
+
+Luogoto ::= ("nella stanza." |
+            "nell'aereo." |
+            "nella cabina." |
+            "nel bagno." |
+            "nella caverna." |
+            "nella biblioteca." |
+            "nel saloon." |
+            "nel cimitero." |
+            "nel bar." |
+            "nel labirinto." |
+            "nel castello."|
+            "nel salone."|
+            "nella cucina."|
+            "nel sottomarino giallo."|
+            "nel labirinto della follia."|
+            "nella discoteca."|
+            "nella metro."|
+            "nel giardino."|
+            "nella scuola.");
+
+Frase1 ::= ("Vai a" Direzione "Entra" Luogoto | "Esci" Luogofrom "e vai a" Direzione);
+
+Frase2 ::= ("Raccogli" Oggetto "parla" Persona "e prosegui a" Direzione);
+
+Frase3 ::= ("Sali le scale e vai a" Direzione |
+"Scendi le scale e recati a" Direzione);
+
+Frase4 ::= ("Esamina" Oggetto "prendi" Inv "dall'inventario e vai a" Direzione);
+
+Frase5 ::= ("Apri la porta a" Direzione Azioneoggetto Oggetto "posa" Inv "e" Azione);
+
+Frase6 ::= ("Parla" Persona "e prendi" Oggetto "poi continua a" Direzione);
+
+Frase7 ::= ("Vai a" Direzione "Scendi le scale. Prosegui a" Direzione |
+           "Vai a" Direzione "Sali le scale. Entra" Luogoto);
+
+Frase8 ::= (Azioneoggetto Oggetto "esamina" Oggetto "posa" Inv "ed esci" Luogofrom "a" Direzione);
+
+Frase9 ::= ("Pronuncia" Spell "e recati a" Direzione "Dai" Inv Persona "e vai a" Direzione);
+

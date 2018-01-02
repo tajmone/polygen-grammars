@@ -1,0 +1,66 @@
+I ::= "title:    Levissima\n"
+    ^ "author:   Er Poly &lt;mogkogk@hotmail.com&gt;\n"
+    ^ "language: italian\n"
+    ^ "status:   refinable\n"
+    ^ "topic:    pubblicita'\n"
+    ^ "audience: alpinisti barbuti\n"
+    ^ "created:  31/10/2004"
+;
+
+S ::= +++ "Altissima" Purissima  Levissima
+    |      Altissima "Purissima" Levissima
+    |   +  Altissima  Purissima "Levissima"
+    |  --  Altissima  Purissima  Levissima
+;
+
+Altissima ::= \   A.(+++++++++1|2|3) ;
+Purissima ::= \   A.(1|+++++++++2|3) ;
+Levissima ::= \ ( A.(1|2|+++++++++3) | --- Bottiglia ^ issima ) ;
+
+A ::=
+    ( 1 : ( --alt | -amar | beat | +car | san | +++ fi^(g|c)^h
+          | brav | grand | -antich | bianch | ++sant | cald )
+    | 2 : ( --pur | +poch | nuov | lungh | buon | -dolc | sporch
+          | furb | stran | +giust | -gasat | dur | fort )
+    | 3 : ( --lev | liet | bell | viv | brev | fredd | largh
+          | lent | +scars | soav | strett | +trist | fresch )
+    )^issima
+;
+
+Bottiglia ::=
+                   adatt |
+                   ambit |
+                   astut |
+                    acid|
+               banal | carin |
+            cattiv | collaudat |
+         comic| comod | confortevol|
+        cornut | dannat | digeribil |
+        divertent | esatt | lussuos |
+        nervos | tranquill | vendut |
+        gradevol | natural | lontan |
+         maneggevol | feroc | gelid|
+          fedel | giovan | italian|
+          gradit | saporit| limpid
+         | morbid | prezios | tene|
+         particolar | famos | gelos|
+        pelos | pericolos | piacevol|
+        golos | potent | precis | per
+        dirett | proibit| ragionevol|
+        (*                         *)
+        (*    L E V I S S I M A    *)
+        (*                         *)
+        (*     dalle sorgenti      *)
+        (*     di alta quota       *)
+        (*                         *)
+        (*                         *)
+        pulit | puntual | scorrevol |
+        segret | semplic | simpatic |
+        soddisfatt | soffic | piccol
+        | scomod | seren | silenzios|
+        sofisticat | sottil | spazios
+        | spietat | squisit | sudat |
+        vietat | viscos| util | umid
+         |gentil | veloc | richiest|
+           noios | normal | facil;
+

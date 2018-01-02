@@ -1,0 +1,364 @@
+I ::=   "title:    Debian" ("General Resolution" | "Position Statement") "\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   embrionic\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  21/09/2006"
+;
+
+S ::= \ Statement ^".";
+
+Statement ::= (_|Preamble) Position ;
+
+Preamble ::= How ^"," ;
+
+Name ::= "Anthony Towns"
+       | "Steve Langasek"
+       | "Jeroen van" (+"Wolffelaar"|"Wunderbar"|"Wuppertal"|"Wonderland")
+       | "Branden Robinson"
+       | "Sven Luther"
+       | "Bruce Perens"
+       | "Richard Stallman"
+       ;
+
+Entity ::= S: ["Debian"] "Project"
+          | S: (--"DPL"|"Debian Project Leader"|"Leader")
+	  | S: (--"DAM"|"Debian Account Manager")
+	  | S: "Debian Secretary"
+	  | S: "Community"
+	  | S: "Cabal"
+	  | ----S:"Super Cow"
+	  | P: (--"RMs"|"Debian Release Managers")
+	  | P: "Debian FTP Masters"
+          | P: "Developers"
+	  | P: "Donors"
+	  | P: "Delegates"
+	  ;
+
+Subject ::= S: the Entity.S
+          | P: the Entity.P
+	  | S: "Debian"
+	  | S: "Everyone"
+	  | S: Name
+	  ;
+
+Object ::= S: the [Adjective] Entity.S
+         | P: the [Adjective] Entity.P
+         | the [Adjective] donations [to Subject]
+	 | the [Adjective] funds [for Subject]
+	 | the [Adjective] firmware [in main]
+	 | the [Adjective] proprietary drivers [in main]
+	 | the [Adjective] efforts [of Subject]
+	 | the [Adjective] plan
+	 | the [Adjective] experiment
+	 | the [Adjective] editorial change
+	 | the [Adjective] activity of Subject
+	 | the (plan|resolution) described in paragraph Number (above|below)
+	 | the copyright holder
+	 | the upstream developer
+	 | the modification of Subject
+	 | this resolution
+	 | S: Name
+	 | S: everyone
+	 ;
+
+Adjective ::= Adv:prompt
+            | Adv:swift
+	    | Adv:accurate
+	    | Adv:experimental
+	    | needed
+	    | Adv:harmful
+	    | reasonable
+	    | Adv:appropriate
+	    | Adv:controlled
+	    | Adv:potential
+	    | ["non-"^] Entity ^"-controlled"
+	    | core
+	    | full
+	    | subsidiary
+	    ;
+
+Adverb ::= Adjective.Adv ^ly | broadly | widly | likewise | reasonably | successfully | fully | further ;
+
+VerbFor ::= thank | fund | apologise | ----moo;
+VerbsFor ::= thanks | funds | apologises | ----moos;
+VerbingFor ::= thanking | funding | apologising | ----mooing;
+VerbedFor ::= thanked | funded | apologised | ----mooed;
+
+VerbTo ::=  approve | disapprove | support | solicit | suggest
+          | request | approve | authorise | ----moo ;
+VerbsTo ::= approves | disapproves | supports | solicits | suggests
+          | requests | approves | authorises | ----mooes ;
+VerbingTo ::= approving | disapproving | supporting | soliciting | suggesting
+          | requesting | approving | authorising | ----B:mooing 
+          ;
+VerbedTo ::= approved | disapproved | supported | solicited | suggested
+         | requested | approved | authorised | ----B:mooed
+         ;
+
+VerbObj ::= revoke | devalue | evaluate | take | overrule | ----moo ;
+VerbsObj ::= revokes | devalues | evaluates | takes | overrules  | ----mooes ;
+VerbingObj ::= revoking | devaluing | cooperating with | evaluating 
+          | disbursing | establishing | taking | overruling | ----B:mooing 
+          ;
+VerbedObj ::= revoked | approved | disapproved | supported | solicited
+         | suggested | devalued | requested | evaluated
+         | approved | established | authorised | taken | overruled | ----B:mooed
+         ;
+
+ActionVerbFor ::= S: [Adverb] VerbsFor
+                | P: [Adverb] VerbFor
+		| (should|must) [not] [Adverb] VerbFor
+		| do not [Adverb] VerbFor
+		| can [^not] [Adverb] VerbFor
+	        ;
+ActionVerbObj ::= S: [Adverb] VerbsObj
+                | P: [Adverb] VerbObj
+		| (should|must) [not] [Adverb] VerbObj
+		| do not [Adverb] VerbObj
+		| can [^not] [Adverb] VerbObj
+	        ;
+ActionVerbTo ::=  S: [Adverb] VerbsTo
+                | P: [Adverb] VerbTo
+		| (should|must) [not] [Adverb] VerbTo
+		| do not [Adverb] VerbTo
+		| can [^not] [Adverb] VerbTo
+	        ;
+
+Action ::= [Adverb] ActionVerbFor [^"," How ^","] Object. for DoingWhat GCHow.
+	 | [Adverb] ActionVerbObj [^"," How ^","] Object. in order to DoingWhat GCHow.
+	 | [Adverb] ActionVerbTo [^"," How ^","] by Subject. to DoingWhat GCHow.
+	 | can [^not] be VerbedTo by Subject to DoingWhat GCHow.
+	 | -(S:has|P:have) the [Adjective] support of Subject for DoingWhat GCHow.
+         | -(S:is|P:are) of the [Adjective] opinion that Position.
+	 | -(S:lets|P:let) it be [Adverb] known that Position.
+	 | -(S:is|P:are) [Adverb] VerbedFor by Subject for DoingWhat GCHow.
+	 | -(S:is|P:are) [Adverb] VerbedObj by Subject in order to DoingWhat GCHow.
+	 | -(S:is|P:are) [Adverb] VerbedTo by Subject to DoingWhat GCHow.
+	 ;
+
+DoingWhat ::= [Adverb] VerbingObj Object Hows
+	    | [Adverb] VerbingFor Object Hows ;
+
+Position ::=  Subject.S Action.S
+            | Subject.P Action.P
+	    ;
+
+GreatherCause ::= "our users and Free Software"
+                | releasing in time
+		| reducing flamewars
+		| having a more Adjective Entity.S [and Entity.S]
+		| having more Adjective Entity.P [and Entity.P]
+		| promoting cooperation between Subject and Subject
+		| promoting more Adjective action
+		| reducing the delays of the ("New Maintainer"|"New"|"DAM") queue
+		| fixing more bugs in a timely fashion
+		| acheiving "Total World Domination"
+		| giving full effect to our wishes
+		| being ("100%"|--"99%") "Free Software"
+		;
+
+How ::= during the forthcoming release ["of Debian"]
+      | as an experiment
+      | for this purpose
+      | in a private capacity
+      | effectively
+      | promptly
+      | as seems Adjective and Adjective
+      | after the release
+      | for the duration of the mandate
+      |	following internal discussion
+      | after long consultations
+      | with [^out] the consent of Subject [or Subject]
+      | for the avoidance of any doubt
+      | as a decision by Subject [or Subject]
+      | with immediate effect
+      | as are necessary
+      | >GCHow
+      ;
+
+GCHow ::= for the purpose of (GreatherCause|Subject)
+        | in the interest of (GreatherCause|Subject)
+        | in the benefit of (GreatherCause|Subject)
+        ;
+
+Hows ::= How | How (_| ^"," Hows) ;
+
+Digit ::= 0|1|2|3|4|5|6|7|8|9 ;
+Number ::= Digit (_| ^Number) ;
+
+
+(* Recent GR proposals to use for further inspiration:
+
+DECISIONS AND REQUESTS
+
+
+|   A. Reaffirms that programmatic works distributed in the Debian
+|      system (IE, in main) must be 100% Free Software, regardless of
+|      whether the work is designed to run on the CPU, a subsidiary
+|      processing unit, or by some other form of execution. That is,
+|      works must include the form that the copyright holder or upstream
+|      developer would actually use for modification.
+|
+|   B. Strongly recommends that all non-programmatic works distribute
+|      the form that the copyright holder or upstream developer would
+|      actually use for modification. Such forms need not be distributed
+|      in the orig.tar.gz (unless required by license) but should be
+|      made available on upstream websites and/or using Debian project
+|      resources.
+|
+|   C. Reaffirms its continued support of users whose hardware (or
+|      software) requires works which are not freely licensed or whose
+|      source is not available by making such works available in
+|      non-free and providing project resources to the extent that
+|      Debian is capable of doing so.
+|
+|   D. Requests that vendors of hardware, even those whose firmware is
+|      not loaded by the operating system, provide the prefered form for
+|      modification so that purchasers of their hardware can exercise
+|      their freedom to modify the functioning of their hardware.
+
+
+,----
+|   1. We affirm that our Priorities are our users and the free software
+|      community (Social Contract #4);
+|   2. We acknowledge that there is a lot of progress in the kernel
+|      firmware issue; however, it is not yet finally sorted out;
+|   3. We give priority to the timely release of Etch over sorting every
+|      bit out; for this reason, we will deliver firmware in udebs as
+|      long as it is necessary for installation (like all udebs), and
+|      firmware included in the kernel itself as part of Debian Etch,
+|      without further conditions.
+`----
+
+
+|  THE DEBIAN PROJECT therefore,
+|
+|   1. reaffirms its dedication to providing a 100% free system
+|      to our users according to our Social Contract and the
+|      DFSG; and
+|
+|   2. encourages authors of all works to make those works
+|      available not only under licenses that permit
+|      modification, but also in forms that make such
+|      modifications practical; and
+|
+|   3. supports the decision of the Release Team to require works
+|      such as images, video, and fonts to be licensed in
+|      compliance with the DFSG without requiring source code for
+|      these works under DFSG #2; and
+|
+|   4. determines that as a special exception to DFSG #2, the source
+|      code for device firmwares contained in the kernel packages will
+|      not be required as long as there are no other technical means to
+|      install and run the Debian system on these devices.
+
+
+| The Debian Project reaffirms its commitment of providing a 100% free
+| operating system, and reaffirms the decisions taken by GR 2004-03, but
+| some technical issues regarding firmware couldn't be solved in the
+| timeframe to release etch, and, therefore, the next Debian release,
+| codename etch, will still contain sourceless/non-free firmwares. The
+| Debian Project apologize for this, and will continue to work on finding
+| a way to solve this issue.
+
+
+| THE DEBIAN PROJECT:
+|    1. reaffirms its dedication to providing a 100% free system to
+|       our users according to our Social Contract and the DFSG;
+|       and
+|    2. encourages licensors of all works to make those works
+|       available not only under licenses that permit modification,
+|       but also in forms that make such modifications practical;
+|       and
+|    3. as a special exception to help users who have vital
+|       hardware without free software drivers yet, the Debian
+|       system and official CD images may include hardware-support
+|       packages from the admin section of the non-free archive
+|       area which conform to all Debian Free Software Guidelines
+|       except guideline 2 (Source Code), or an archive
+|       section/area with equivalent requirements.
+
+
+| The Debian Project resolves that:
+|
+|     (a) The Social Contract shall be reverted to its original form,
+|         as at http://www.debian.org/social_contract.1.0
+|
+|     (b) The term "software" as used in the Social Contract shall be
+|         presumed only to cover programs, scripts, libraries and similar
+|         executable works to be executed directly as part of the Debian
+|         System.
+|
+|     (c) In addition to the commitments made in the Social Contract,
+|         the Debian System shall only include documentation, images,
+|         sounds, video, fonts and similar works that meet the Debian
+|         Free Software Guidelines, and are available in some reasonably
+|         modifiable form.
+|
+|     (d) Notwithstanding the above, the Debian Free Software Guidelines
+|         shall not be applied to logos, firmware or the text of copyright
+|         licenses that may be included in the Debian System.
+|
+|     (e) Following the release of etch, the Debian Project Leader shall:
+|           i.   ensure that the Debian community has a good understanding
+|                of the technical and legal issues that prevent the Debian
+|                Free Software Guidelines from being applied to logos and
+|                firmware in a manner that meets the needs of our users;
+|           ii.  ensure that project resources are made available to
+|                people working on addressing those issues;
+|           iii. provide a report to the Debian community on progress achieved
+|                in these areas at DebConf 7 in Edinburgh.
+|     (f) Following the release of etch, the Debian Project as a whole shall
+|         reopen the question of which commitments should be codified in the
+|         project's Social Contract. This shall including both an online
+|         consultation with Debian users, Debian derivatives and the free
+|         software community, and a public in-person discussion and debate
+|         at DebConf 7 in Edinburgh in honour of the 10th anniversary of
+|         the original publication of the Social Contract on the 4th
+|         of July 1997.
+`----
+,----
+| The Debian Project resolves that:
+|
+|     (a) The inclusion in main of sourceless firmware and support in Debian
+|         Installer is not a release blocker for the release of Etch.
+|
+|     (b) For the release of Etch, the Release Managers are given discretion
+|         to waive RC issues in other cases where the letter of the Social
+|         Contract is currently not being met, provided there is no regression
+|         relative to the Sarge release and that waivers are done consistently
+|         and with proper consideration of past resolutions (e.g. GDFL) and
+|         work already done on other (comparable) packages.
+|
+|     (c) Following the release of etch, the Debian Project Leader shall:
+|           i.   ensure that the Debian community has a good understanding
+|                of the technical and legal issues that prevent the Debian
+|                Free Software Guidelines from being applied to logos and
+|                firmware in a manner that meets the needs of our users;
+|           ii.  ensure that project resources are made available to
+|                people working on addressing those issues;
+|           iii. keep the Debian community updated on progress achieved
+|                in these areas.
+|
+|     (d) Following the release of etch, the Debian Project as a whole shall
+|         reopen the question of which commitments should be codified in the
+|         project's Social Contract. This shall include both an online
+|         consultation with Debian developers, users, Debian derivatives and
+|         the free software community, and a public in-person discussion at
+|         DebConf 7 in Edinburgh in honour of the 10th anniversary of the
+|         original publication of the Social Contract on the 4th of July 1997.
+| THE DEBIAN PROJECT therefore,
+|         1. reaffirms its dedication to providing a 100% free system to
+|            our users according to our Social Contract and the DFSG; and
+|         2. encourages authors of all works to make those works
+|            available not only under licenses that permit modification,
+|            but also in forms that make such modifications practical; and
+|         3. supports the decision of the Release Team to require works
+|            such as images, video, and fonts to be licensed in
+|            compliance with the DFSG without requiring source code for
+|            these works under DFSG #2; and
+|         4. determines that for the purposes of DFSG #2, device
+|            firmware shall also not be considered a program.
+
+*)

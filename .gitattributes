@@ -1,0 +1,47 @@
+# ******************************************************************************
+# *                                                                            *
+# *                          Polygen Grammars Project                          *
+# *                                                                            *
+# *                https://github.com/tajmone/polygen-grammars                 *
+# *                                                                            *
+# ******************************************************************************
+
+# ==============================================================================
+#                            Line Endings Conversion                            
+# ==============================================================================
+# Set Git's default behaviour to text-files autodetection, in case users don't
+# have `core.autocrlf` set:
+* text=auto
+
+# ------------------------------------------------------------------------------
+#                    Text Files (EOL Normalization Settings)                    
+# ------------------------------------------------------------------------------
+
+## ================
+## Polygen Grammars
+## ================
+*.grm          text
+
+## ================
+## Documentation
+## ================
+*.md           text
+LICENSE        text
+
+## ================
+## Git settings
+## ================
+.gitattributes text
+.gitconfig     text
+.gitignore     text
+
+# ------------------------------------------------------------------------------
+#                                  Binary Files                                 
+# ------------------------------------------------------------------------------
+# Explicitly declare all files that are binary and shouldn't be modified by Git:
+
+## =========================
+## Polygen Compiled Grammars
+## =========================
+*.grm.o        binary
+

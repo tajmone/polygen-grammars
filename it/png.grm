@@ -1,0 +1,38 @@
+
+I ::=   "title:    PNG\n"
+      ^ "author:   Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   final\n"
+      ^ "topic:    misc\n"
+      ^ "audience: tutti quelli che hanno giocato di ruolo con me =;)"
+      ^ "created:  30/07/2002"
+;
+
+S ::= Nome "-" Razza^"," Classe^"," Allineamento Allineamento
+;
+
+Nome ::= (Pippo | Franco.o | Baudo) (Pippo | Franco | Baudo)
+;
+
+Pippo ::= ("P" | "C") ^ i ^ (++ cc (_ | ++ ^i) |++ pp | zz | tt) ^ o
+;
+
+Franco ::= ("P" |++ "F") ^ ra ^ (n ^ (z |+ c) | (zz |+ cc)) ^ (o: [i^]o | i: i)
+;
+
+Baudo ::= (++ "B" | "P") ^ a ^ (ud | ld | ul) ^ (i | o)
+;
+
+Classe ::= (+ mago |+ bardo | lardo | lago |+ ladro | bago | babbo | largo
+           | balbo | baldo | barbo | malgo | valvo | balgo | balvo | cargo
+           ) [^ "-" ^ Classe]
+;
+
+Razza ::= [semi^] ( [mezz'^] >(elfo | uomo | halfling |--- helder)
+                  | [mezzo ^ "-" ^] >(gnomo | coboldo)
+                  )
+;
+
+Allineamento ::= buono | ottimo | malvagio | legale | neutrale | pessimo
+              |  illegale | bello | cattivo | bravo
+;

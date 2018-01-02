@@ -1,0 +1,40 @@
+I ::=   "title:    Questions to the DPL candidates\n"
+      ^ "author:   Enrico Zini &lt;enrico@debian.org&gt; and the Spanish Cabal\n"
+      ^ "language: english\n"
+      ^ "status:   embrionic\n"
+      ^ "topic:    Debian\n"
+      ^ "created:  3/03/2006"
+;
+
+S ::= \Question ;
+
+Question ::= >Question1 
+ | "What would you like" ( _ | not ) "to be remembered for?"
+ | "What past" ( "DPL" | >Charge ) ( "did you influence the" | "influenced you the" ) ( most | least ) ^"?"
+ | "How can Debian and" Distro ( +_ | not ) "coexist?"
+ | ( "How are you going to improve" | "What do you think about" ) Issue "in Debian?"
+ | "Do you think that there are" ( "too few" | "too many" | "enough" ) ( packages | Charge^"s" ) "in Debian?"
+ | ( +"How will you stop" | "Have you ever been part of" ) BadIssue "in Debian?"
+ | -(( "Do you" | "Would you like to" ) "hug teletubbies?")
+ | "Would you replace Debian Developers with teletubbies?"
+ | "Should a DPL" ( _ | not ) "have a" ( moustache | evil twin | Charge ) ^"?"
+ | ("Would" | "Will") "you" ( drop | keep ) ( "Gnome" | "KDE" | Editor ) ^"?"
+ | Editor "or" Editor ^"?"
+ | "Why is not" Editor "the default editor?"
+ ;
+
+Question1 ::= ( _ | "please" ) ( "write a list of" | "describe" | "point to" ) Num ( "people" | "debian developers" | "upstream developers" | >Charge ) you ( "would like to" | "will" ) ( "kick out of the project" | "have as DPL instead of you" ) ^".";
+
+
+Num ::= 3 | 5 | 7;
+
+Distro ::= -"Debian" | +"Ubuntu" | "Xandros" | "Linspire" | "Progeny" | "Fedora" | "Gentoo" | "Knoppix" | "Slackware" | "Yggdrasil" | "Mandriva" ;
+
+Issue ::= "transparency" | "the number of packages" | "the frequency of releases" | "the Debian Women subproject" ;
+
+BadIssue ::= "antisocial behaviour" | cabals | flamewars | "blog memes" | teletubbies | "proprietary firmware" | "the GFDL" | trolls | sexism ;
+
+Charge ::= "DAM" | "ftp-master" | "DSA" | "cabal" | "release manager" | "Sven Luther" | "James Troup" ;
+
+Editor ::= ++"vim" | ++"Emacs" | +"nano" | "aee" | "fte" | "jed" | "joe" | "lpe" | "kate" | "gedit" | "pico" | "teco" | "ed" | --"notepad" ;
+

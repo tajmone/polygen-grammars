@@ -1,0 +1,157 @@
+I ::=   "title:    Paper titles\n"
+      ^ "author:   Enrico Zini &lt;enirco@debian.org&gt;\n"
+      ^ "language: english\n"
+      ^ "status:   refinable\n"
+      ^ "topic:    academic\n"
+      ^ "comment:  titles of academic papers are always like this\n"
+      ^ "created:  16/09/2004"
+;
+
+S ::= \ ShortTitle ^(":" | "?" \) LongTitle
+	;
+
+ShortTitle ::= 	 -- a STFirst "of" STSecond "or a" STSecond "of" STFirst
+		| -- the STFirst "of" STSecond "or the" STSecond "of" STFirst
+		| ( Approach | "The" Approach | "A" Approach.A | "An" Approach.AN ) ("to" | "on") Approach
+		| Doing ("the" | "a") Name
+		| Doing ("the" | "a") Adjective Name
+		| (the | a Adjective.A | an Adjective.AN | Adjective ) Doing ("of" Name | "of the" Doing | "of a" Doing.A | "of an" Doing.AN)
+	;
+
+STFirst := Name ;
+
+STSecond := Name ;
+
+Name ::=  AN: >( action | actions | activity | acts | address | affectation | air | algorithm | anality | "apple-pie order" | approach | arrangement | attack | enterprise | envisagement | observable behavior | operations research | order | orderliness | organization | idea | intention )
+	| A: >( bearing | behavior | behavior pattern | behavioral norm | behavioral science | blueprint | blueprinting | calculation | carriage | charting | comportment | conception | conduct | contrivance | course | culture pattern | custom | demeanor | deportment | design | device | discipline | disposition | doing | doings | fashion | figuring | fine fettle | folkway | foresight | forethought | form | game | gestures | "goings-on" | good condition | good shape | good trim | graphing | ground plan | guidelines | guise | layout | line | line of action | lines | lineup | "long-range plan" | maintien | manner | manner of working | manners | mapping | master plan | means | method | methodicalness | methods | mien | mode | mode of operation | mode of procedure | modus operandi | modus vivendi | motions | movements | moves | neatness | pattern | plan | planning | planning function | poise | port | pose | posture | practice | praxis | prearrangement | presence | procedure | proceeding | process | program | program of action | rationalization | routine | schedule | schema | schematism | schematization | scheme | scheme of arrangement | setup | social science | strategic plan | strategy | style | system | systematicness | systematization | tack | tactical plan | tactics | technique | big picture | drill | picture | tidiness | tone | trimness | way | way of life | ways | wise | working plan )
+	;
+
+Adjective ::=	  AN: >( absolute | absolutist | absolutistic | accepted | accurate | adept | adroit | approved | apt | arbitrary | aristocratic | armipotent | arrogant | artistic | ascendant | assuring | attested | authentic | authenticated | authoritarian | authorized | autocratic | ecumenic | effective | effectual | efficacious | eminent | empowered | enchanting | energetic | estimable | evangelical | ex cathedra | ex officio | excellent | expert | imperative | imperial | imperious | important | impressive | indisputable | influential | informed | ingenious | instructive | irrefutable | irresistible | official | operative | oppressive | orthodox | orthodoxical | overbearing | overruling | unrefutable )
+		| A: >( postmodern | interactive | new | modernist | innovative | "Christian" | "Daedalian" | binding | bossy | bravura | brilliant | canonical | cathedratic | certified | charismatic | charming | circumstantiated | clean | clever | cogent | commanding | competent | conclusive | confined | confirmed | consequential | considerable | consistent | controlling | conventional | conversant | convictional | convincing | coordinated | correct | crackerjack | cunning | customary | cute | decisive | deft | dependable | despotic | determinative | dexterous | dextrous | dictated | dictatorial | didactic | diplomatic | doctrinaire | documented | dogmatic | dominant | duly constituted | dynamic | factual | faithful | familiar | fancy | featured | feudal | firm | forceful | forcible | formulary | good | goodish | governing | graceful | great | grinding | handy | hard and fast | hegemonic | hegemonistic | "high-handed" | "high-potency" | "high-powered" | "high-pressure" | "high-tension" | knowledgeable | lawful | leading | learned | legal | legitimate | limited | literal | logical | lordly | magisterial | magistral | magnetic | mandatory | masterful | masterly | mighty | momentous | monocratic | neat | peremptory | personable | persuasive | political | powerful | preceptive | preeminent | prepotent | prescribed | prescriptive | prestigious | professional | proficient | prominent | proper | proven | puissant | quick | ranking | ready | received | regulation | reliable | repressive | reputable | resourceful | restricted | right | ruling | sanctioned | satisfactory | satisfying | scholarly | scriptural | "self-consistent" | senior | severe | skillful | slick | solid | sound | specialist | specialistic | specialized | standard | statutory | strict | striking | strong | stylish | suasive | substantial | sufficient | superior | suppressive | supreme | sure | tactful | technical | textual | totalitarian | traditional | traditionalistic | true | "true-blue" | trustable | trustworthy | truthful | tyrannical | tyrannous | valid | validated | verifiable | verified | veritable | vigorous | virtuoso | vital | weighty | "well-done" | "well-founded" | "well-grounded" | "well-read" | winning | tentative )
+	;
+
+Approach ::=	  AN: > (accomplishment | achievement | advance | advent | alikeness | alliance | analogy | answer | anticipation | appeal | approximation | arrangement | arrival | attack | attainment | attempt | attitude | endeavor | engagement | enterprise | entrance )
+		| A: > (destiny | fate | calculation | charting | check | mapping | crash course | coming | community | comparison | concentralization | conception | concourse | concurrence | confluence | conflux | conformity | confront | congress | convergence | correspondence | corridor | course | cultivate | design | device | disposition | drawing | encounter )
+		| PL: > ( advances | approaches )
+	;
+     (*
+     entreat, entry, entryway, environs, envisagement, equal, essay,
+     establish connection, evoke, exert influence, expect, experiment,
+     face, fall in with, fashion, favor, feeler, fetch, fetch up at,
+     figuring, find, fix, fling, focalization, focus, follow,
+     foreground, foresee, foresight, foretell, forethought, form,
+     forthcome, forthcoming, funnel, futurity, gain, gain upon, gambit,
+     game, gangplank, gangway, gather, get at, get cozy with, get in,
+     get there, get to, get warm, go, graphing, grease, grease the palm,
+     greet, ground plan, guidelines, guise, hail, hall, halloo,
+     hang over, hit, hit town, hope, hover, hub, idea, identity,
+     imitate, imitation, immediacy, immediate foreground,
+     immediate future, imminence, impend, impendence, impendency,
+     implore, importune, in, ingress, inlet, intake, intention,
+     interrogate, intersect, invitation, invoke, landing, layout,
+     lead on, lick, lie ahead, lie over, lift a finger, likeness,
+     likening, line, line of action, lines, lineup, lobby,
+     lobby through, long-range plan, look for, look forward to,
+     look like, loom, lower, magnetize, maintain connection, make,
+     make a pass, make advances, make an attempt, make an effort,
+     make an overture, make contact with, make it, make overtures,
+     make up to, manner, manner of working, mapping, master plan, match,
+     materialize, means, means of access, meet, meeting, memorialize,
+     menace, metaphor, method, methodology, mimic, mimicking, mirror,
+     mode, mode of operation, mode of procedure, modus operandi, move,
+     movement, mutual approach, narrow the gap, narrowing gap, near,
+     near future, nearly reproduce, nearness, negotiate, neighborhood,
+     nigh, nighness, nip, not tell apart, offer, offering, opening,
+     operations research, order, organization, overhang, overture,
+     overtures, parallel, parallelism, parity, parley, partake of,
+     passage, passageway, path, pay addresses to, pay court to, pay off,
+     pinch, plan, planning, planning function, play up to, plead, plot,
+     pop up, practice, prearrangement, precinct, predict,
+     preliminary approach, present itself, presentation, procedure,
+     proceeding, process, proffer, program, program of action, project,
+     prophesy, propinquity, proposals, propose to, proposition,
+     propositions, proximate, proximity, pull in, pull strings,
+     punch in, purchase, purlieus, question, radius, raise,
+     rationalization, reach, reaching, relate to, remind one of,
+     reply to, resemblance, resemble, respond to, ring in, rival,
+     roll in, routine, run after, run together, salute, sameness,
+     savor of, schedule, schema, schematism, schematization, scheme,
+     scheme of arrangement, seem like, semblance, setup, shine up to,
+     shot, show up, sidle up to, sign in, similarity, simile,
+     similitude, simulate, simulation, smack of, solicit, sound like,
+     sound out, speak, speak fair, speak to, spokes, spring up, stab,
+     stack up, stack up with, step, step up, strategic plan, strategy,
+     stroke, strong bid, style, submission, suborn, suggest, supplicate,
+     system, systematization, tack, tactical plan, tactics, take after,
+     take aside, take care of, talk to, tamper with, tangent, taper,
+     technique, tentative, tentative approach, the big picture,
+     the drill, the how, the picture, the way of, threaten,
+     throw a pass, tickle the palm, time in, tone, touch, touchdown,
+     trench, trial, trial and error, try, turn up, undertake,
+     undertaking, unite, venture, venture on, venture upon, verge,
+     vestibule, vicinage, vicinity, way, way in, whack, wire-pull, wise,
+     work on, working plan
+     *)
+
+Doing ::=	  AN: >(accompanying | accomplishing | achieving | acquitting | acting | advantaging | affecting | answering | appearing | arriving | assisting | assuming | attaining | attending | authoring | availing )
+		| A: >(baking | banquetting | barbecuing | engaging | equaling | being producting | bearing | beating | begetting | behaving | benefitting | besteading | betiding | bilking | blanching | blowing out | boiling | borrowing | bottoming | braising | breaking | breeding | brewing | bringing about | bringing forth | bringing into being | bringing off | bringing to effect | bringing to fruition | broiling | carrying into execution | carrying on | carrying out | carrying through | catching | causing | chancing | cheating | chording | chorusing | chousing | clearing up | clipping off | coddling | coming off)
+	;
+
+(*
+come to, commit, compass, complete, comport, conceive, concertize,
+conclude, conduct, consummate, cook, copy, counterfeit, course,
+cover, cozen, crack, create, crib, curry, deal with, debug,
+decipher, decode, defraud, demean, deport, determine, develop,
+devil, diddle, discharge, discourse, disentangle, dispatch,
+dispose of, ditto, divine, do it, do like, do out of, do the job,
+do the trick, do to, do to perfection, dope, dope out, echo,
+effect, effectuate, employ, enact, end, engage in, engender,
+engineer, establish, execute, exercise, explain, fair, fake,
+fall out, fare, father, fathom, feast, festival, festive occasion,
+festivity, fetch, fete, field day, fiesta, figure out,
+fill the bill, find out, find the answer, find the solution,
+finish, fire, fit, flimflam, follow, forge, found, fricassee,
+frizz, frizzle, fry, fulfill, gala, gala affair, gala day,
+generate, gestate, get, get along, get by, get on, get right,
+give birth to, give good returns, give occasion to, give origin to,
+give rise to, go, go and do, go around, go at, go in for, go like,
+go on, go over, go to, great doings, griddle, grill, guess,
+guess right, gyp, hack it, halt, have it, have the goodness, heat,
+high jinks, hit, hit it, hoke, hoke up, hold, if you please,
+imitate, impersonate, inaugurate, industrialize, inflict,
+institute, interpret, jamboree, just do, kermis, knock off,
+look on, make, make like, make music, make out, make the grade,
+manage, masquerade as, mass-produce, measure, meet,
+meet requirements, mime, mimic, mirror, misbehave, move,
+muddle through, occasion, occur, open the lock, originate,
+oven-bake, overpass, overproduce, overreach, pan, pan-broil,
+pantomime, parboil, party, pass, pass for, pass muster, pass over,
+pass through, patrol, pay, pay off, perambulate, peregrinate,
+pererrate, perform, perpetrate, personate, picnic, plagiarize,
+play, play a part, play by ear, playact, please, plumb, ply, poach,
+polish off, pose as, practice, pray, pray do, prepare,
+prepare food, pretend to be, prithee, proceed, produce, profit,
+prosecute, psych, psych out, pull off, pursue, put away,
+puzzle out, qualify, quit, range, range over, ravel, ravel out,
+puzzle out, qualify, quit, range, range over, ravel, ravel out,
+reach, realize, reconnoiter, reecho, reflect, relate, render,
+repeat, resolve, riddle, roast, satisfy, saute, scallop, scour,
+scour the country, scout, sear, see, serve, serve the purpose,
+set afloat, set on foot, set up, shirr, show up, simmer, simulate,
+sire, sit in, solve, sort out, specialize in, stagger, stand,
+stand up, steam, stew, stir-fry, stretch, succeed, suffice, suit,
+sweep, symphonize, tackle, take and do, take care of, take in,
+take it, take off, take on, take to, take up, terminate, toast,
+track, transit, transpire, travel over, travel through, traverse,
+turn the trick, turn up, undertake, undo, unlock, unravel,
+unriddle, unscramble, untangle, untwist, unweave, up and do, use,
+visit, volume-produce, voyage, wage, watch, waygoose, wayzgoose,
+will you, wind up, witness, work, work at, work out, wrap up,
+wreak, yield a profit
+*)
+
+
+LongTitle ::=	 -------- "which future?"
+		| ("the" | "a") (_ | >Adjective) Approach (to | of) (the | a) (_ | >Adjective) Approach "of" Approach ^"."
+	;
+

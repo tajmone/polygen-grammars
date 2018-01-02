@@ -1,0 +1,75 @@
+
+I ::=   "title:    Discorso del Sindaco di Contursi Terme\n"
+      ^ "author:   Scarpaz (<a href=\"http://www.scarpaz.com\">www.scarpaz.com</a>), Manta\n"
+      ^ "language: italian\n"
+      ^ "status:   mature\n"
+      ^ "topic:    misc\n"
+      ^ "audience: anybody\n"
+      ^ "note:     l'originale si trova <a href=\"http://www.marok.org/Arte/Mix/0095.htm\">qui</a>\n"
+      ^ "created:  26/08/2003"
+;
+
+S ::= SalutoIniziale Stupidaggini ;
+
+PM := ^"."\ ;
+
+Cittadini ::= citta^(d | t)^in^(++ i | o) ;
+Palomonti ::= "Palomont"^(+ e | +++ i | o) ;
+Oliveti ::= \ (---- u | o)^livet^(--- o | i) "Ce"^(++ t | d)^r^(-- o | i) ;
+Contursi ::= "Conturs"^(-- e | --- o | i) "Term"^(e | i) ;
+Locale ::= (l^)+ ocal^(++++ o | e | i) ;
+Nostr ::= nostr(^a | ^o | _) ;
+
+SalutoIniziale ::= \ Cittadini di Palomonti e di Contursi e di Oliveti ^"," ;
+
+Stupidaggini ::= (+ Stupidaggine Interiezione Saluto Stupidaggini
+                  |-- Stupidaggine) ;
+
+Stupidaggine ::= Ringraziamento PM
+              |  Dichiarazione PM
+              ;
+
+Ringraziamento ::= Soggetto Verbo [prima "Iddio" e poi] Persona [Modo];
+Persona ::= (allo | u'^) Locale [che Localo]
+          | a tutti  [che Resteranno]
+          | gli sposi [che Resteranno]
+          | i \ Cittadini (di Palomonti | di Contursi | di Oliveti) [che Resteranno]
+          | le mie nipot^(e | i) [che Resteranno]
+          | la mia sorella
+          | il mio cognato [che 'ngievenuto | che 'ngiaospitat^(o | i) in questo Locale [che Localo]]
+          | a coloro che gi e' venut' e ngiaospitat' in questo Locale [che Localo]
+          | il popolo [che ['nciascoltato e] 'nciascolta [Respiro]]
+          | gli uomini della volonta' Nostr che [Avverbi] hanno contribuito [Respiro] [e che Resteranno]
+          ;
+
+Modo     ::= Respiro
+          | che noi siam' [Avverbi] fiere di rientrar^(o | i | e) nella Nostr famiglia com a tutti "EGUALE EGUAGLIANZA DEL POPOLO";
+
+Soggetto ::= (io|ia) [Qualita];
+Qualita  ::= che sono (il zio dello sposo | il sindaco);
+
+Verbo ::= vingrazio [Avverbi] | abbiamo [Avverbi] a ringraziare [Avverbi] | ringrazzio [Avverbi];
+
+Avverbi ::= Avverbio [Avverbio [Avverbio]] ;
+Avverbio ::= allora | severament^(e | i) | verament^(i | e | o) | (a | e)^ffettivament^(e | i | o)
+          |  innanzitutt^(e | i | o) | in quest^(+ o | i | e) punt^(+ o | i)  ;
+
+Saluto ::= [car^(i | o)] (fratell^(o | i) | Cittadini) ^"," ;
+
+Interiezione ::= "vabbuo'?" \ | "vabben'?" \ | "e como ca'!" \ | "sissignore!" \ | Respiro;
+Respiro ::= quali siano le [piu'] parole [piu'] ampi^(o | e) respir^(++ o | i) ;
+
+Localo ::= nunn e' u^(n | '^) Locale come tutt gli altri raccontano [ma Localo]
+        |  e' Locale [Avverbi] giusto [che Localo]
+        |  [Avverbi] ci ha trattato^"," [come Avverbi] come figli dell'ingenito figlio [e che Localo]
+        |  a noi ci ha dato quelli chi noi c'abbiamo [Avverbi] saziato [da me il primo] [e Localo]
+        ;
+Resteranno ::= restaranno [loro] tranguill'e ffelicita' nella loro coscienza;
+
+Dichiarazione ::= [Avverbi] [e' questo che [Avverbi]] teng'a dirvi in core Nostr che Dichiarazione
+               |  [Avverbi] Soggetto dichiaro [Avverbi] [[innanzitutto] al popolo] che [Avverbi] Dichiarazione
+               |  [Avverbi] e' una cosa buona e giusta [[e' dover'] di ringraziare [Avverbi] Persona]
+               |  [Avverbi] io vi dico che noi [Avverbi] rentiamo prima (allo | u'^) Locale che Localo
+               |  [Avverbi] e spera che tutti voi Saluto [e como anca Persona] Resteranno
+               |  [Avverbi] che noi possiamo tutti testimoniare (che Dichiarazione | che Locale Localo)
+               ;

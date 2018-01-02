@@ -1,0 +1,69 @@
+I ::=   "title:    L'Ultima prova\n"
+      ^ "author:   Mefistofele &lt;matteo@genhome.org&gt;\n"
+      ^ "language: italian\n"
+      ^ "status:   embrional\n"
+      ^ "topic:    story\n"
+      ^ "audience: anybody\n"
+      ^ "created:  11/10/2004"
+;
+
+S ::= "\nBene mio discepolo, l'ultima tua prova per assurgere allo stato di Sommo" \Title \Object "e' questa: devi "^Thetrial^" e non "^(pago | soddisfatto | contento)^" di cio' dovrai "^Thetrial^",...(continua)\n"
+;
+
+Title ::= maestro | signore | sacerdote | redentore | inquisitore | sciamano | reggente | saggio
+;
+
+Object ::= de (^l \uinzun | ^l \peccato | ^l'\universo | ^l \mondo | ^i topi
+           | ^lla \patata | ^lla \zolla | ^ll'\umanita | ^lle \fogne)
+;
+
+Thetrial ::= Movethrough Gate Gatenames e Moveto Path
+;
+
+Movethrough ::= attraversare | oltrepassare | sfondare | scalare | aggirare | distruggere | annientare
+              | trovare | penetrare | raggiungere
+;
+
+Gate ::= il cancello | la soglia | il passo | il valico | la torre
+        | (gl^Quantity.M.art (cancelli | bastioni)) 
+        | (Quantity.F.art (porte | soglie | torri))
+;
+
+Gatename ::= (moria | moira | avalon | albion | ntkar | "sop-rak-kat" | nturf | azakoth 
+             | "subngur-rath" | astalaskorgnath | "rep-lak-tanoth" | kadath | "yogsothoth" 
+             | astaroth | belzebub | australopitek | nifheilm | wargratk | sothomaihor
+             | sodoma | gomorra | babele)
+;
+
+Gatenames ::= (di \Gatename)
+;
+
+Quantnum ::= impensabili | incalcolabili | inenarrabili
+;
+
+Quantlet ::= oscur | impervi | inverecond | infinit | etern
+;
+
+Quantity ::= ((art: (M: i | F: le) | NOart: _)(Quantlet^(F: e | M: i) | Quantnum))
+;
+
+Moveto ::= percorrere | seguire | cercare | trovare | aggirare | superare
+;
+
+Pathname ::= (M: (boschi | pozzi | villaggi)
+            | F: (valli | colline | tombe | paludi | dimensioni | foreste) )
+;
+
+Guard ::= di \Gatename [(guardat | controllat | dominat | possedut)^(F: e | M: i) dal Daemon]
+;
+
+Path ::= (M: gl^Quantity.M.art \Pathname.M Guard.M | F: Quantity.F.art \Pathname.F Guard.F) 
+;
+
+Daemontype ::= ^l'inguardabile | ^l'irraggiungibile | ^l'invisibile | supremo | demoniaco
+              | satanico | perverso | ^l'innominabile | oltraggioso | impudico | inverecondo
+;
+
+Daemon ::= Daemontype \Title di \Gatename
+;
+

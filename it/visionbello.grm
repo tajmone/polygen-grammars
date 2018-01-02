@@ -1,0 +1,69 @@
+I ::=   "title:    VisionBello - la linea di prodotti per l'uomo\n"
+      ^ "author:   Spleen &lt;spleen@host.sk&gt;\n"
+      ^ "language: italian\n"
+      ^ "topic:    misc\n"
+      ^ "audience: tutti gli uomini d'oggi\n"
+      ^ "disclaim: per te, "
+         ^( uomo | giovine | giuovane | stallone | uomo | omo | capro | rude 
+| truce | +brado | crudo )
+	 ^" di "
+	 ^( ieri | oggi | domani | sta^(sera | mattina | notte ) ) ^ "\n"
+	  ^ "created:  17/09/2003"
+;
+
+(* fermo restando che Vision-X e' un secchio *)
+
+S ::= \ usa anche tu "VisionBello -" Essenza e Aroma
+;
+
+(* essenza
+*)
+Essenza ::= denim | mughetto | rucola | vaniglia | "pout-pourri" | 
+"ylang-ylang" | passion | africa | arabia | incenso |  rosa | begonie | iris 
+| -fiori di >TipoFiore
+;
+TipoFiore ::= fiume | campo | pesco | gelsomino | acacia | ciliegio | 
+begonia | orchidee
+;
+
+(* retroaroma
+*)
+Aroma ::=   >Puzzo | >Animale | >Alimento
+;
+
+(* alimenti vari
+*)
+Alimento ::= +Carne | Formaggio | -Pesce | tartufi | verza | gnocchi
+;
+
+(* essenza meno profumata anzi
+*)
+Puzzo ::= sudore | scolo | fogna | monnezza | fogna | cacca | cerume | merda 
+| muffa | percolato | pus | diarrea | croste | smegma | mestruo | catarro | 
+sputo | secchio
+;
+
+(* formaggi
+*)
+Formaggio ::= caciotta | pecorino | ricotta | provola | scamorza | 
+gorgonzola | parmigiano | grana | montasio
+;
+
+(* carni varie
+*)
+Carne ::= bistecca | spezzatino | bresaola | salame | prosciutto | coppa | 
+ossocollo | cotechino | salsiccia | cotenna | strutto | lardo
+;
+
+(* pesci
+*)
+Pesce ::= "baccala'" | anguilla | sgombro | sarda | carpa | cernia | 
+pescegatto
+;
+
+(* animali
+*)
+Animale ::= bue | capra | montone | furetto | visone| procione | lontra | 
+nutria | muflone | cane | pecora | stambecco | iena | gnu | bisonte | 
+stallone | orso | ratto | antilope | "lama tibetano"
+;
