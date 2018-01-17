@@ -18,6 +18,7 @@ Curated by Tristano Ajmone (__[@tajmone]__).
 - [License](#license)
 - [Grammars Organization](#grammars-organization)
 - [Exclusions List](#exclusions-list)
+- [Maintainance Scripts](#maintainance-scripts)
 
 <!-- /MarkdownTOC -->
 
@@ -113,6 +114,16 @@ Since GitHub is a big community built on mutual cooperation and respect, gatheri
 The reason I chose to create an exclusion list in the form of a `.gitignore` file (instead of just leaving those grammars out of the project), was to introduce a sort of safeguard to prevent users from accidentally adding to the project the blacklisted grammars — especially for grammars written in a language foreign to the user (eg: Italian). A  `.gitignore` blacklist has the added benefit of allowing to store all the grammars in one place, locally, without sharing online the excluded items.
 
 The exclusions list amounts to __48__ grammars. For more details on how and why these grammars where excluded, see the comments in the [`.gitignore`](./.gitignore) file.
+
+# Maintainance Scripts
+
+I'm working on some shell scripts to help maintainance of the grammars.
+
+Current scripts available:
+
+- [`integritycheck.sh`](./integritycheck.sh) — invokes `polygen -t` on every grammar in this directory tree (subfolders included), reporting broken grammars. Useful when adding multiple grammars at once, to prevent committing borken grammars.
+
+
 
 
 [www.polygen.org]: http://www.polygen.org/ "PolyGen official website"

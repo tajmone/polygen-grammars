@@ -5,6 +5,9 @@ I ::=   "title:    Evan\n"
       ^ "topic:    Debian\n"
       ^ "created:  " ^ ("20/06/2006" | "1 Messidor CCXIV")
 ;
+(* ================================================================== *)
+(* Grammar Fixed by tajmone: invalid chars converted to SGML Entities *)
+(* ================================================================== *)
 
 S ::=  "<h1>"^Day Month Year ^"</h1>\n\n"^ Entries;
 
@@ -16,14 +19,14 @@ Day ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 ;
 
 (* Month and day names taken from http://en.wikipedia.org/wiki/French_Republican_Calendar *)
 
-Month ::=   "Vendémiaire"
+Month ::=   "Vend&eacute;miaire"
           | "Brumaire"
           | "Frimaire"
-          | "Nivôse"
-          | "Pluviôse"
-          | "Ventôse"
+          | "Niv&ocirc;se"
+          | "Pluvi&ocirc;se"
+          | "Vent&ocirc;se"
           | "Germinal"
-          | "Floréal"
+          | "Flor&eacute;al"
           | "Prairial"
           | "Messidor"
           | "Thermidor"
@@ -36,74 +39,74 @@ Year1 ::= (++"X" | +"V" | "I") ^ Year2 ;
 Year2 ::= ("V" | +"I" | _) ^ Year3 ;
 Year3 ::= (--"V" | +_ | "I") ^ ( ++_ | Year3 ) ;
 
-DayName ::= "Raisin" | "Safran" | "Châtaigne" | "Colchique" | "Cheval" |
+DayName ::= "Raisin" | "Safran" | "Ch&acirc;taigne" | "Colchique" | "Cheval" |
 	    "Balsamine" | "Carotte" | "Amarante" | "Panais" | "Cuve" |
-	    "Pomme de terre" | "Immortelle" | "Potiron" | "Réséda" | "Âne" |
+	    "Pomme de terre" | "Immortelle" | "Potiron" | "R&eacute;s&eacute;da" | "&Acirc;ne" |
 	    "Belle de nuit" | "Citrouille" | "Sarrasin" | "Tournesol" | "Pressoir" |
-	    "Chanvre" | "Pêche" | "Navet" | "Amaryllis" | "Boeuf" | "Aubergine"
-	    | "Piment" | "Tomate" | "Orge" | "Tonneau" | "Pomme" | "Céleri" |
-	    "Poire" | "Betterave" | "Oie" | "Héliotrope" | "Figue" |
-	    "Scorsonère" | "Alisier" | "Charrue" | "Salsifis" | "Macre" |
+	    "Chanvre" | "P&ecirc;che" | "Navet" | "Amaryllis" | "Boeuf" | "Aubergine"
+	    | "Piment" | "Tomate" | "Orge" | "Tonneau" | "Pomme" | "C&eacute;leri" |
+	    "Poire" | "Betterave" | "Oie" | "H&eacute;liotrope" | "Figue" |
+	    "Scorson&egrave;re" | "Alisier" | "Charrue" | "Salsifis" | "Macre" |
 	    "Topinambour" | "Endive" | "Dindon" | "Chervis" | "Cresson" |
 	    "Dentelaire" | "Grenade" | "Herse" | "Bacchante" | "Azerole" |
 	    "Garance" | "Orange" | "Faisan" | "Pistache" | "Macjonc" | "Coing" |
-	    "Cormier" | "Rouleau" | "Raiponce" | "Turneps" | "Chicorée" |
-	    "Nèfle" | "Cochon" | "Mâche" | "Chou-fleur" | "Miel" | "Genièvre" |
-	    "Pioche" | "Cire" | "Raifort" | "Cèdre" | "Sapin" | "Chevreuil" |
-	    "Ajonc" | "Cyprès" | "Lierre" | "Sabine" | "Hoyau" | "Erable sucré" |
-	    "Bruyère" | "Roseau" | "Oseille" | "Grillon" | "Pignon" | "Liège" |
+	    "Cormier" | "Rouleau" | "Raiponce" | "Turneps" | "Chicor&eacute;e" |
+	    "N&egrave;fle" | "Cochon" | "M&acirc;che" | "Chou-fleur" | "Miel" | "Geni&egrave;vre" |
+	    "Pioche" | "Cire" | "Raifort" | "C&egrave;dre" | "Sapin" | "Chevreuil" |
+	    "Ajonc" | "Cypr&egrave;s" | "Lierre" | "Sabine" | "Hoyau" | "Erable sucr&eacute;" |
+	    "Bruy&egrave;re" | "Roseau" | "Oseille" | "Grillon" | "Pignon" | "Li&egrave;ge" |
 	    "Truffe" | "Olive" | "Pelle" | "Tourbe" | "Houille" | "Bitume" |
-	    "Soufre" | "Chien" | "Lave" | "Terre végétale" | "Fumier" |
-	    "Salpêtre" | "Fléau" | "Granit" | "Argile" | "Ardoise" | "Grès" |
-	    "Lapin" | "Silex" | "Marne" | "Pierre à chaux" | "Marbre" | "Van" |
-	    "Pierre à plâtre" | "Sel" | "Fer" | "Cuivre" | "Chat" | "Étain" |
-	    "Plomb" | "Zinc" | "Mercure" | "Crible" | "Lauréole" | "Mousse" |
+	    "Soufre" | "Chien" | "Lave" | "Terre v&eacute;g&eacute;tale" | "Fumier" |
+	    "Salp&ecirc;tre" | "Fl&eacute;au" | "Granit" | "Argile" | "Ardoise" | "Gr&egrave;s" |
+	    "Lapin" | "Silex" | "Marne" | "Pierre &agrave; chaux" | "Marbre" | "Van" |
+	    "Pierre &agrave; pl&acirc;tre" | "Sel" | "Fer" | "Cuivre" | "Chat" | "&Eacute;tain" |
+	    "Plomb" | "Zinc" | "Mercure" | "Crible" | "Laur&eacute;ole" | "Mousse" |
 	    "Fragon" | "Perce-neige" | "Taureau" | "Laurier-thym" |
-	    "Amadouvier" | "Mézéréon" | "Peuplier" | "Coignée" | "Ellébore" |
+	    "Amadouvier" | "M&eacute;z&eacute;r&eacute;on" | "Peuplier" | "Coign&eacute;e" | "Ell&eacute;bore" |
 	    "Brocoli" | "Laurier" | "Avelinier" | "Vache" | "Buis" | "Lichen" |
-	    "If" | "Pulmonaire" | "Serpette" | "Thlaspi" | "Thimelé" |
-	    "Chiendent" | "Trainasse" | "Lièvre" | "Guède" | "Noisetier" |
-	    "Cyclamen" | "Chélidoine" | "Traîneau" | "Tussilage" |
-	    "Cornouiller" | "Violier" | "Troène" | "Bouc" | "Asaret" |
-	    "Alaterne" | "Violette" | "Marceau" | "Bêche" | "Narcisse" |
-	    "Orme" | "Fumeterre" | "Vélar" | "Chèvre" | "Épinard" | "Doronic" |
+	    "If" | "Pulmonaire" | "Serpette" | "Thlaspi" | "Thimel&eacute;" |
+	    "Chiendent" | "Trainasse" | "Li&egrave;vre" | "Gu&egrave;de" | "Noisetier" |
+	    "Cyclamen" | "Ch&eacute;lidoine" | "Tra&icirc;neau" | "Tussilage" |
+	    "Cornouiller" | "Violier" | "Tro&egrave;ne" | "Bouc" | "Asaret" |
+	    "Alaterne" | "Violette" | "Marceau" | "B&ecirc;che" | "Narcisse" |
+	    "Orme" | "Fumeterre" | "V&eacute;lar" | "Ch&egrave;vre" | "&Eacute;pinard" | "Doronic" |
 	    "Mouron" | "Cerfeuil" | "Cordeau" | "Mandragore" | "Persil" |
-	    "Cochléaria" | "Pâquerette" | "Thon" | "Pissenlit" | "Sylve" |
-	    "Capillaire" | "Frêne" | "Plantoir" | "Primevère" | "Platane" |
+	    "Cochl&eacute;aria" | "P&acirc;querette" | "Thon" | "Pissenlit" | "Sylve" |
+	    "Capillaire" | "Fr&ecirc;ne" | "Plantoir" | "Primev&egrave;re" | "Platane" |
 	    "Asperge" | "Tulipe" | "Poule" | "Bette" | "Bouleau" | "Jonquille" |
 	    "Aulne" | "Couvoir" | "Pervenche" | "Charme" | "Morille" |
-	    "Hêtre" | "Abeille" | "Laitue" | "Mélèze" | "Ciguë" | "Radis" |
+	    "H&ecirc;tre" | "Abeille" | "Laitue" | "M&eacute;l&egrave;ze" | "Cigu&euml;" | "Radis" |
 	    "Ruche" | "Gainier" | "Romaine" | "Marronnier" | "Roquette" |
-	    "Pigeon" | "Lilas" | "Anémone" | "Pensée" | "Myrtille" | "Greffoir" |
-	    "Rose" | "Chêne" | "Fougère" | "Aubépine" | "Rossignol" |
-	    "Ancolie" | "Muguet" | "Champignon" | "Hyacinthe" | "Râteau" |
-	    "Rhubarbe" | "Sainfoin" | "Bâton-d'or" | "Chamérops" | "Ver à soie" |
+	    "Pigeon" | "Lilas" | "An&eacute;mone" | "Pens&eacute;e" | "Myrtille" | "Greffoir" |
+	    "Rose" | "Ch&ecirc;ne" | "Foug&egrave;re" | "Aub&eacute;pine" | "Rossignol" |
+	    "Ancolie" | "Muguet" | "Champignon" | "Hyacinthe" | "R&acirc;teau" |
+	    "Rhubarbe" | "Sainfoin" | "B&acirc;ton-d'or" | "Cham&eacute;rops" | "Ver &agrave; soie" |
 	    "Consoude" | "Pimprenelle" | "Corbeille d'or" | "Arroche" |
-	    "Sarcloir" | "Statice" | "Fritillaire" | "Bourrache" | "Valériane" |
-	    "Carpe" | "Fusain" | "Civette" | "Buglosse" | "Sénevé" |
-	    "Houlette" | "Luzerne" | "Hémérocalle" | "Trèfle" | "Angélique" |
-	    "Canard" | "Mélisse" | "Fromental" | "Martagon" | "Serpolet" |
-	    "Faux" | "Fraise" | "Bétoine" | "Pois" | "Acacia" | "Caille" |
+	    "Sarcloir" | "Statice" | "Fritillaire" | "Bourrache" | "Val&eacute;riane" |
+	    "Carpe" | "Fusain" | "Civette" | "Buglosse" | "S&eacute;nev&eacute;" |
+	    "Houlette" | "Luzerne" | "H&eacute;m&eacute;rocalle" | "Tr&egrave;fle" | "Ang&eacute;lique" |
+	    "Canard" | "M&eacute;lisse" | "Fromental" | "Martagon" | "Serpolet" |
+	    "Faux" | "Fraise" | "B&eacute;toine" | "Pois" | "Acacia" | "Caille" |
 	    "Oeillet" | "Sureau" | "Pavot" | "Tilleul" | "Fourche" | "Barbeau" |
-	    "Camomille" | "Chèvrefeuille" | "caille-lait" | "Tanche" |
+	    "Camomille" | "Ch&egrave;vrefeuille" | "caille-lait" | "Tanche" |
 	    "Jasmin" | "Verveine" | "Thym" | "Pivoine" | "Chariot" | "Seigle" |
-	    "Avoine" | "Oignon" | "Véronique" | "Mulet" | "Romarin" |
+	    "Avoine" | "Oignon" | "V&eacute;ronique" | "Mulet" | "Romarin" |
 	    "Concombre" | "Echalote" | "Absinthe" | "Faucille" | "Coriandre" |
 	    "Artichaut" | "Girofle" | "Lavande" | "Chamois" | "Tabac" |
 	    "Groseille" | "Gesse" | "Cerise" | "Parc" | "Menthe" | "Cumin" |
-	    "Haricot" | "Orcanète" | "Pintade" | "Sauge" | "Ail" | "Vesce" |
-	    "Blé" | "Chalémie" | "Epeautre" | "Bouillon blanc" | "Melon" |
-	    "Ivraie" | "Bélier" | "Prêle" | "Armoise" | "Carthame" | "Mûre" |
+	    "Haricot" | "Orcan&egrave;te" | "Pintade" | "Sauge" | "Ail" | "Vesce" |
+	    "Bl&eacute;" | "Chal&eacute;mie" | "Epeautre" | "Bouillon blanc" | "Melon" |
+	    "Ivraie" | "B&eacute;lier" | "Pr&ecirc;le" | "Armoise" | "Carthame" | "M&ucirc;re" |
 	    "Arrosoir" | "Panis" | "Salicorne" | "Abricot" | "Basilic" |
 	    "Brebis" | "Guimauve" | "Lin" | "Amande" | "Gentiane" | "Ecluse" |
-	    "Carline" | "Câprier" | "Lentille" | "Aunée" | "Loutre" | "Myrte" |
+	    "Carline" | "C&acirc;prier" | "Lentille" | "Aun&eacute;e" | "Loutre" | "Myrte" |
 	    "Colza" | "Lupin" | "Coton" | "Moulin" | "Prune" | "Millet" |
-	    "Lycoperdon" | "Escourgeon" | "Saumon" | "Tubéreuse" | "Sucrion" |
-	    "Apocyn" | "Réglisse" | "Echelle" | "Pastèque" | "Fenouil" |
-	    "Epine vinette" | "Noix" | "Truite" | "Citron" | "Cardère" |
+	    "Lycoperdon" | "Escourgeon" | "Saumon" | "Tub&eacute;reuse" | "Sucrion" |
+	    "Apocyn" | "R&eacute;glisse" | "Echelle" | "Past&egrave;que" | "Fenouil" |
+	    "Epine vinette" | "Noix" | "Truite" | "Citron" | "Card&egrave;re" |
 	    "Nerprun" | "Tagette" | "Hotte" | "Eglantine" | "Noisette" |
 	    "Houblon" | "Sorgho" | "Ecrevisse" | "Bigarade" | "Verge d'or" |
-	    "Maïs" | "Marron" | "Panier" ;
+	    "Ma&iuml;s" | "Marron" | "Panier" ;
 
 Tags ::= "tags:" TagList;
 TagList ::= ---Tag | Tag ^ "," TagList;
@@ -138,7 +141,7 @@ SimpleTitle ::= "my big mouth"
 	      | "international shipping"
 	      | Website
 	      | "some things I've noticed"
-	      | "three décades of blogging"
+	      | "three d&eacute;cades of blogging"
 	      | "other weeks"
 	      | "my brilliant invention"
 	      | "Wikitravel content"
@@ -153,7 +156,7 @@ SimpleTitle ::= "my big mouth"
 	      | "woohoo"
 	      ;
 
-LoveHate ::= "♥" | "☠" ;
+LoveHate ::= "?" | "?" ;
 
 Period ::= "second"
          | "minute"

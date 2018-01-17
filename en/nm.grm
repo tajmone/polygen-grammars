@@ -1,10 +1,13 @@
 I ::=   "title:    NM Templates\n"
-      ^ "author:   Mohammed Adnène Trojette &lt;adn+deb@diwi.org.org&gt;\n"
+      ^ "author:   Mohammed Adn&egrave;ne Trojette &lt;adn+deb@diwi.org.org&gt;\n"
       ^ "language: english\n"
       ^ "status:   Basic\n"
       ^ "topic:    Debian\n"
       ^ "created:  " ^ ("20/06/2006" | "1 Messidor CCXIV")
 ;
+(* ================================================================== *)
+(* Grammar Fixed by tajmone: invalid chars converted to SGML Entities *)
+(* ================================================================== *)
 
 S ::= Number^"." \Text ^"?";
 
@@ -20,7 +23,7 @@ LetterNumber ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j"
 	       | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t"
 	       | "u" | "v" | "w" | "x" | "y" | "z" ;
 
-FunkyNumber ::= "π" | "ɣ" | "ɷ" | "e" | "Å" | "ø" ; 
+FunkyNumber ::= "&#960;" | "?" | "&#611;" | "e" | "&#197;" | " &#248;" ; 
 
 PhoneticNumber ::= "alpha" | "bravo" | "charlie" | "delta" | "echo" | "foxtrot"
                  | "golf" | "hotel" | "india" | "juliet" | "kilo" | "lima"
