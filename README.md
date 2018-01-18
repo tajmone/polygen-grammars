@@ -1,6 +1,6 @@
-# PolyGen Grammars
+# Polygen Grammars
 
-A selected collection of PolyGen grammars found around the Internet, organized according to language. The repository is structured to be includable as a Git submodule in other projects. A blacklist of grammars which might be in violation of [GitHub Terms of Service] regarding [Acceptable Use Policy] is enforced via a `.gitgnore` exclusions list.
+A selected collection of Polygen grammars found around the Internet, organized according to language. The repository is structured to be includable as a Git submodule in other projects. A blacklist of grammars which might be in violation of [GitHub Terms of Service] regarding [Acceptable Use Policy] is enforced via a `.gitgnore` exclusions list.
 
 Curated by Tristano Ajmone (__[@tajmone]__).
 
@@ -12,8 +12,8 @@ Curated by Tristano Ajmone (__[@tajmone]__).
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="true" lowercase_only_ascii="true" uri_encoding="true" depth="3" -->
 
 - [Introduction](#introduction)
-    - [About PolyGen](#about-polygen)
-    - [About PolyGen Grammars](#about-polygen-grammars)
+    - [About Polygen](#about-polygen)
+    - [About Polygen Grammars](#about-polygen-grammars)
 - [Grammars Origins](#grammars-origins)
 - [License](#license)
 - [Grammars Organization](#grammars-organization)
@@ -26,53 +26,53 @@ Curated by Tristano Ajmone (__[@tajmone]__).
 
 # Introduction
 
-## About PolyGen
+## About Polygen
 
 From [Debian Manpages]:
 
 > Polygen is a system for creating cursory nonsense according to a grammar definition, that is following custom syntactical and lexical rules.
 
-PolyGen is a cross platform command line tool created by Alviso Spanò; it's written in [OCaml] and released under GNU GPL license.
+Polygen is a cross platform command line tool created by Alviso Spanò; it's written in [OCaml] and released under GNU GPL license.
 
-The official PolyGen website (in Italian) can be found at:
+The official Polygen website (in Italian) can be found at:
 
 - [www.polygen.org]
 
-PolyGen precopiled binaries (Windows, Linux and MAC OSX), as well as the full source code and a GUI application (Windows only) can be downloaded from:
+Polygen precopiled binaries (Windows, Linux and MAC OSX), as well as the full source code and a GUI application (Windows only) can be downloaded from:
 
 - http://www.polygen.org/it/download
 
-There is also an official PolyGen repo on GitHub:
+There is also an official Polygen repo on GitHub:
 
 - https://github.com/alvisespano/Polygen
 
-## About PolyGen Grammars
+## About Polygen Grammars
 
-PolyGen grammars are Ascii files with the "`.grm`" extension. PolyGen will automatically compile a grammar to "`<filename>.grm.o`" when it first uses it.
+Polygen grammars are Ascii files with the "`.grm`" extension. Polygen will automatically compile a grammar to "`<filename>.grm.o`" when it first uses it.
 
-From PolyGen's _HOWTO-grm_ guide:
+From Polygen's _HOWTO-grm_ guide:
 
-> A grammar is an ASCII text file providing the definition of the syntactical structure and terms used by the program to build sentences. _PolyGen_ is able to interpret a language designed for defining _type-2_ grammars (according to Chomsky classification) consisting in an extension of the _BNF_ (_Backus Naur Form_) — a very simple and common form for the description of the syntax of a language.
+> A grammar is an ASCII text file providing the definition of the syntactical structure and terms used by the program to build sentences. _Polygen_ is able to interpret a language designed for defining _type-2_ grammars (according to Chomsky classification) consisting in an extension of the _BNF_ (_Backus Naur Form_) — a very simple and common form for the description of the syntax of a language.
 
-The full _HOWTO-grm_ guide ("How to write a PolyGen grammar") can be downloaded as a Zip archived html document from LAPO website: 
+The full _HOWTO-grm_ guide ("How to write a Polygen grammar") can be downloaded as a Zip archived html document from LAPO website: 
 
 - http://lapo.it/polygen/polygen-1.0.6-20040705-doc.zip
 
 # Grammars Origins
 
-The PolyGen grammars found here were collected from various Internet sources:
+The Polygen grammars found here were collected from various Internet sources:
 
 - [www.polygen.org]
 - [lapo.it/polygen]
 - [github.com/eldios/polyDios][polyDios]
 
-The main source of the grammar files of this repository was PolyGen's website, where grammars are grouped by category in the sidebar, and each grammar source file can be individually downloaded.
+The main source of the grammar files of this repository was Polygen's website, where grammars are grouped by category in the sidebar, and each grammar source file can be individually downloaded.
 
-PolyGen's mirror website (at [lapo.it][lapo.it/polygen]) contains the full set of grammars for download as a single Zip archive or as individual `*.grm` files.
+Polygen's mirror website (at [lapo.it][lapo.it/polygen]) contains the full set of grammars for download as a single Zip archive or as individual `*.grm` files.
 
-The secondary source of grammar files was the [polyDios] project on GitHub, which contains most of the grammars found at [www.PolyGen.org], plus many others.
+The secondary source of grammar files was the [polyDios] project on GitHub, which contains most of the grammars found at [www.Polygen.org], plus many others.
 
-This collection of grammars is a treasure box of examples of what can be achieved with PolyGen. PolyGen's website dates back to around 2002 (if not older), and it has already gone offline once (then was restored); during these years many authors have contributed their grammars (many are really hilarious and well crafted), and loosing them would be quite a pity. So I thought it would be a good idea to organize a PolyGen gramamrs archive to preserve the existing grammars and allow further contributions.
+This collection of grammars is a treasure box of examples of what can be achieved with Polygen. Polygen's website dates back to around 2002 (if not older), and it has already gone offline once (then was restored); during these years many authors have contributed their grammars (many are really hilarious and well crafted), and loosing them would be quite a pity. So I thought it would be a good idea to organize a Polygen gramamrs archive to preserve the existing grammars and allow further contributions.
 
 More grammars (in Italian) can be found at:
 
@@ -80,7 +80,7 @@ More grammars (in Italian) can be found at:
 
 # License
 
-Most of these grammars files have been freely downloadable from PolyGen's website for years. The grammars were therein published by their authors for the sake of sharing them with others. It's therefore safe to assume that these files can be freely redistributed (unless they explicitly state the contrary), as this has been the accepted practice for over two decades.
+Most of these grammars files have been freely downloadable from Polygen's website for years. The grammars were therein published by their authors for the sake of sharing them with others. It's therefore safe to assume that these files can be freely redistributed (unless they explicitly state the contrary), as this has been the accepted practice for over two decades.
 
 Nevertheless, I wasn't able to attach a license file to this repository. There is no legal guarantee to these grammars' usage permission beyond the fact that they have been freely shared over the Internet for years, with their authors silent consent. In other words, the basis legitimazing sharing them are good faith and common sense.
 
@@ -126,11 +126,11 @@ Current scripts available:
 
 
 
-[www.polygen.org]: http://www.polygen.org/ "PolyGen official website"
+[www.polygen.org]: http://www.polygen.org/ "Polygen official website"
 
-[lapo.it/polygen]: http://lapo.it/polygen/ "Mirror of PolyGen.org at lapo.it"
+[lapo.it/polygen]: http://lapo.it/polygen/ "Mirror of Polygen.org at lapo.it"
 
-[polyDios]: https://github.com/eldios/polyDios "Node.js PolyGen magical wrapper, by eldios"
+[polyDios]: https://github.com/eldios/polyDios "Node.js Polygen magical wrapper, by eldios"
 
 [GitHub Terms of Service]: https://help.github.com/articles/github-terms-of-service/ "View GitHub Terms of Service full document"
 
