@@ -1,6 +1,6 @@
 # ******************************************************************************
 # *                                                                            *
-# *                          PolyGen Grammars Project                          *
+# *                          Polygen Grammars Project                          *
 # *                                                                            *
 # *                https://github.com/tajmone/polygen-grammars                 *
 # *                                                                            *
@@ -18,7 +18,7 @@
 # ------------------------------------------------------------------------------
 
 ## ================
-## PolyGen Grammars
+## Polygen Grammars
 ## ================
 *.grm          text
 
@@ -42,7 +42,7 @@ LICENSE        text
 # Explicitly declare all files that are binary and shouldn't be modified by Git:
 
 ## =========================
-## PolyGen Compiled Grammars
+## Polygen Compiled Grammars
 ## =========================
 *.grm.o        binary
 
@@ -56,6 +56,6 @@ LICENSE        text
 # 2) Use proper syntax highlighting on GitHub's WebUI.
 
 ## ============================
-## PolyGen Grammars (sources)
+## Polygen Grammars (sources)
 ## ============================
 *.grm    linguist-language=EBNF
