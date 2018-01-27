@@ -1,0 +1,252 @@
+I ::=   "title:    Paper Abstract Generator \n"
+      ^ "author:   Pan &lt;pansk@tiscalinet.it&gt;\n"
+      ^ "language:" english "\n"
+      ^ "topic:    misc\n"
+      ^ "status:   mature\n"
+      ^ "audience: nobody\n"
+      ^ "created:  27/10/2003";
+
+
+S ::= "\n\n\n\nTitle:" (Title.Aplur | Title.Bsing) "\n\n" Authors "\n\nAbstract:" Intro Proposta;
+Sold ::= TitleScienza;
+Intro ::= Intro1 | Intro2;
+
+Title ::=  (Bsing: "A") Adject ((Aplur: Methods) (Bsing: Method)) for TitleScienza ["and"  (Bsing: its) "applications in" Applicazione.Ing] ^".";
+
+Authors::= Author^"," Author [^"," Author] [^"," Author] ^".";
+
+Tempo ::= 
+  [--------martian]
+  (  
+  Plur: (
+    -----"geological eras" | 
+    --centuries | 
+    -decades | 
+    years |
+    -months | 
+    --days | 
+    ---hours | 
+    ----minutes | 
+    -----seconds | 
+    ------femtoseconds |
+    -------"revolutions"
+  ) | 
+  Sing: (
+    --century | 
+    -decade | 
+    year | 
+    -month | 
+    --day | 
+    ---hour | 
+    ----minute | 
+    -----second
+  )
+);
+
+InizioStandard ::= "In the" (past | last | ---------next) ([few | Numero] Tempo.Plur | Tempo.Sing | Tempo.Plur);
+
+Numero ::= ----"Pi" |two | three | four | five | six | seven | eight | nine | ten | eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen | nineteen | twenty;
+
+Intro1 ::= InizioStandard ^", the use of" TitleScienza "has become more and more common in" Applicazione.Ing ^", not just for the" Campo "but also for the" Campi ^".";
+
+Intro2 ::= InizioStandard ^", several" Methods "have been proposed for" Applicazione.Ing ^".";
+
+TitleScienza := Scienza;
+
+Scienza ::= [ -----speechless | "augmented" | ----"useless" | "geo-referenced" | "fast marching" | ------porno | frameless | ---pointless |----foldable | "sub-"^ | extended | fourier | fractal | genetic | neural | "virtual" | recursive | hypercomplex | bicubic | bilinear | ----hypercubic ]
+             ( "bike" | -----"toilet" | "barbecue" | "pipe" | ------"anal" | "tree" | "feature" | ---penis |"corner" | "marker" | "blob" | "region" | "pointer" |"garden" | "pixel" | "voxel" | cube | levelset | "texel" | "qubit" | "pattern" | "point" | "line" | "region" | "quad" | "polygon" | "gnomon" | "boson" | "fermion" | "lepton" | ---"dwarf" | "beam" | "ray" | "path" | "geometric" | "laser" | "phase" | "wavelet" | "subband" | "image" | "audio" | "reality" | "information" | "multiresolution") 
+             ( "estraction" | "emulation" | "simulation" | "enlargement" |"tracing" | "recognition" | "generation" | "diffraction" | "propagation" | -----"stimulation" | "detection" | "localisation" | "spatialisation" | "fragmentation" | "escavation" | "carving" | "pruning" | "grafting" | "algebra" | "encoding" | "growing" | "shrinking" |"decoding" | "cooking" | "boiling" | "analisys" | "interleaving" | "estimation" | "printing" | ---"gardening" | "flushing" | ---"escalation");
+
+Dimensionality ::= "2D" | "3D" | "7D" | ++(("mono" | "bi" | +"tri"| "four-" | --"peta" | "eight-" | "thirteen-" | "multi-" | ----"sbrego-" | ---"unciulo" | "zero") ^"dimensional");
+
+Applicazione ::= (
+  Task (
+    ("realistic" (visual | blind) Dimensionality "environments") |
+    ("a" Dimensionality "scene from a set of" ("views" | "corners" | "features" | "boobs" |"markers" | "blobs"  | ---"protuberances"| "images" | "sections" | "flavours"| "projections" | "smells" | "tastes" | "colors" | "feelings" | "equations"))
+  )
+);
+
+Campo ::= 
+	(( ----secretion |production | realisation) of ("TV programmes" | "radiophonic transmissions" | "B-movies" | "top-notch films" | "best selling books" | --"articles" | ---"something really useless")) |
+	(("film" | "pornographic" | "print" | "book" | "design") "industry") |
+	("computer" ( ---"power supply overloading" |"graphics" | "vision" | "aided design" | "aided analysis" | "to human interaction" | --"aided software installation")) |
+	("audio" ("analysis" | "synthesis" | "processing" | "recording"));
+
+Campi ::= Campo2 [[^"," Campo2] "and" Campo2];
+
+Campo2 ::= Campo | --(Campo "in the" Campo);
+
+Adject ::= subtle | cunning | --------bastard | --tricky | ---funny | +fuzzy | ---cute | --crazy | frameless | effective | new | novel;
+
+Method ::= method | technique | approach | algorithm | procedure;
+Methods ::= methods | techniques | approaches | algorithms | procedures;
+
+Proposta ::= "In this" Media ( -------("we" ("re-propose" | unveil) "grandmother's good old" (trick | recipe)) | (we (propose | introduce) a Adject Method ) | a Adject Method "is explained" | some Adject Methods "are explained" | "we propose a dozen of" Methods | "we propose 42" Adject Methods | "we will show a thousand and one" Methods | --"we will not show how" | --"we will show how not") CheCosa ^".";
+
+Media ::= ( -------"feuilleton" | (+++++++([----------underground] paper)) | "review" | "article" | "publication" | "book" | ---(["interactive"] "cdrom") | ----"encyclopedia");
+
+CheCosa ::= (("to achieve" | ----"to ignore" ) "this goal") | ("to perform this task") |
+	(("to solve" | --"to avoid" | --"to ignore" |---"to circumnavigate") ("this problem" | "these problems" | "this inconvenient")) | ---------(to make the monkey dance);
+
+Task ::= [Task0] Task1;
+
+Task0 ::= (asimptotically | rapidly | strategically | recursively | dramatically | fuzzily | logarithmically | photonically | antigravitonically | quaternionically | randomly | statistically | dynamically | interactively | gently | stochastically | softly | smoothly);
+
+Task1 ::= ((represent | reject | detect | model | compress | filter | augment | blend) (Ing: ^"ing")) | ((interpolat | decreas | calibrat | comput | decompos | encod | analyz | merg | propagat) (Plain: ^"e" | Ing: ^"ing")) | (Plain: "control" | Ing: "controlling") ;
+
+
+Author::=(
+"M. Pan" |
+"F. Ludika" |
+"A. Dell'Acqua" |
+"M. Sbronz" |
+"X. Colori" |
+"B. Spencer" |
+"T. Hill" |
+"B. Mind" |
+"J. Nash" |
+"J. B. Jovi" |
+"J. Squillo" |
+"S. Tagli" |
+"A. Biscardi" |
+"M. Mosca" |
+"C. Guevara" |
+"E. Zapata" |
+"F. Zebrata" |
+"F. Antonacci" |
+"Y. Huang" |
+"M. Huango" |
+"D. Huango" |
+"D. Peppiniello" |
+"D. Onofrio" |
+"M. Marcon" |
+"G. Pasu" |
+"A. Gabbriello" |
+"P. Pigazzini" |
+"L. Piccarreta" |
+"G. Dainese" |
+"P. Polotti" |
+"F. Cuzzolin" |
+"W. Paperin" |
+"P. Gambadilegno" |
+"M. J. Fox" |
+"S. Fox" |
+"K. Basinger" |
+"M. Jackson" |
+"I. Sting" |
+"T. Prince" |
+"Z. Mazinga" |
+"J. Corruchano" | 
+"D. Hofstadter" | 
+"D. Adams" |
+"G. Addams, M. Addams" |
+"S. Bob" |
+"L.V. Ciccone" |
+"B. Straisand" |
+"A. Wharol" |
+"S. Dali" |
+"A. Poncharello" |
+"B. Spears" |
+"W. Allen" |
+"W. A. Yancovitch" |
+"W. Available" |
+"L. Nielsen" |
+"L. Toffolo" |
+"P. Picasso" |
+"T. J. Hooker" |
+"J. T. Kirk" |
+"J. L. Picard" [^"-Retha"] |
+"L. T. Data" |
+"I. Solo" |
+"P. Neruda" |
+"E. A. Poe" |
+"S. Holmes" |
+"J. Holmes" |
+"R. Siffredi" |
+"S.T. Elio" |
+"R. Balboa" |
+"J. Leno" |
+"D. Lettermann" |
+"E. Murphy" |
+"A. Luotto" |
+"F. Salvi" |
+"A. Sarti" |
+"F. Pedersini" |
+"S. Tubaro" |
+"C. D'Avena" |
+"E. Greggio" |
+"E. Iacchetti" |
+"P. Parker" |
+"K. Kent" |
+"O. S. L. Mandrake" [^" 2.0.0.4"] |
+"R. Hat" |
+"D. D. U. A. Suse" |
+"T. Willer" |
+"M. Mystere" |
+"M. Mouse" |
+"K. Krause" |
+"C. Maltese" |
+"F. Mercury" |
+"A. Fonzarelli" |
+"R. Cunningum" |
+"R. Mulph" |
+"P. E. Baracus" |
+"J. H. Smith" |
+"P. I. Magnum" |
+"T. Peck" |
+"C. Vieri" |
+"F. Totti" |
+"S. Benni" |
+"D. Fo" |
+"F. Rame" |
+"G. Drufuca" |
+"M. Matteucci" |
+"E. H. F. S. U. C. Gambardella" |
+"Mork & Mindy" |
+"T.A.F.K.A. Prince" |
+"T. Binarelli" |
+"J. Casella" |
+"C. Guzzanti" |
+"S. Guzzanti" |
+"P. Villaggio" |
+"L. Banfi" |
+"M. Pozzi" |
+"M. Minsky" |
+"A. Einstein" |
+"F. Battiato" |
+"R. Feynman" |
+"M. Costanzo" |
+"P. Taricone" |
+"N. D'Angelo" |
+"R. Piotta" |
+"S. Berlusconi" |
+"M. Ghandi" |
+"B. Buddha" |
+"R. Atkinson" |
+"H. Alzheimer" |
+"M. Parkinson" |
+"D. Starsky, K. Hutchinson" |
+"F. Prefect" |
+"A. Dent" |
+"H. Bellafonte" |
+"L. Pavarotti" |
+"P. Domingo" |
+"A. Banderas" |
+"S. Salerno" |
+"Q. Tarantino" |
+"G. Lucas" |
+"S. Spieldberg" |
+"Z. Mac Kracken" |
+"V. Ray" |
+"P.O.V. Ray" |
+"L. Cherubini" |
+"R. Mattaz" |
+"A. Di Pietro" |
+"O. Vanoni" |
+"R. Zero" |
+"L. Moratti" |
+"D. Baldambembo" |
+"C. Cremonini" |
+"F. Baccini" |
+"P. Belli" |
+"E. Bennato" );
