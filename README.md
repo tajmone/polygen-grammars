@@ -17,8 +17,11 @@ Curated by Tristano Ajmone (__[@tajmone]__).
 - [Grammars Origins](#grammars-origins)
 - [License](#license)
 - [Grammars Organization](#grammars-organization)
+- [Grammars Info](#grammars-info)
 - [Exclusions List](#exclusions-list)
 - [Maintainance Scripts](#maintainance-scripts)
+    - [Integrity Checker](#integrity-checker)
+    - [Grammars List Generator](#grammars-list-generator)
 
 <!-- /MarkdownTOC -->
 
@@ -88,9 +91,15 @@ Nevertheless, I wasn't able to attach a license file to this repository. There i
 
 The grammar files are organized into folders according to language:
 
-- [`/it/`](./it/) — Italian (__91__)
+- [`/it/`](./it/) — Italian (__92__)
 - [`/en/`](./en/) — English (__35__)
 - [`/fr/`](./fr/) — French (__1__)
+
+# Grammars Info
+
+- [`GRAMMARS_LIST.md`][GRAMMARS_LIST.md]
+
+This file contains the filenames and description of all the grammars in this repo, grouped by language. It's auto-generated via the [grammars list generator] script.
 
 # Exclusions List
 
@@ -121,10 +130,37 @@ I'm working on some shell scripts to help maintainance of the grammars.
 
 Current scripts available:
 
-- [`integritycheck.sh`](./integritycheck.sh) — invokes `polygen -t` on every grammar in this directory tree (subfolders included), reporting broken grammars. Useful when adding multiple grammars at once, to prevent committing borken grammars.
+- [`integritycheck.sh`](./integritycheck.sh)
+- [`makegrammarslist.sh`](./makegrammarslist.sh)
+ 
+## Integrity Checker
+
+- [`integritycheck.sh`](./integritycheck.sh)
+
+Invokes `polygen -t` on every grammar in this directory tree (subfolders included), reporting broken grammars. Useful when adding multiple grammars at once, to prevent committing borken grammars.
+
+Reuirements:
+
+- polygen
+
+## Grammars List Generator
+
+- [`makegrammarslist.sh`](./makegrammarslist.sh)
+
+Invokes `polygen -info` on every non-gitignored grammar and builds a markdown file ([`GRAMMARS_LIST.md`][GRAMMARS_LIST.md]) with the filename and info description of every grammar.
+
+The script was designed to run on Bash for Windows and it will force `CRLF` line ending on the final output to allow commiting under Windows. To use under Linux and Mac, just fix EOLs to `LF` in the generated file.
+
+Reuirements:
+
+- polygen
+- [recode for Windows] (inside `UnxUtils.zip`)
+- [eol-converter-cli] (Node.js):
 
 
+[recode for Windows]: http://unxutils.sourceforge.net/ "Get recode from GNU utilities for Win32"
 
+[eol-converter-cli]: https://www.npmjs.com/package/eol-converter-cli "Visit 'eol-converter-cli' page at NPM"
 
 [www.polygen.org]: http://www.polygen.org/ "Polygen official website"
 
@@ -143,3 +179,7 @@ Current scripts available:
 [Debian Manpages]: https://manpages.debian.org/stretch/polygen/polygen.1.en.html "POLYGEN(1) at Debian Manpages"
 
 [@tajmone]: https://github.com/tajmone 
+
+[Grammars List Generator]: #grammars-list-generator
+
+[GRAMMARS_LIST.md]: ./GRAMMARS_LIST.md "See the full list and description of all grammars in this repo"
